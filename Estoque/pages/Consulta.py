@@ -22,13 +22,13 @@ if produtos:
   texto=''
   lista_foto = []
   for item in dados:
-                
+                quantidade2 = 0  
                 item_estoque = dados[f'{item}']
                 for elemento in item_estoque:
                     espec = item_estoque[f'{elemento}']
                     codigo = espec['Código']
                     if codigo == produtos:
-                      quantidade2 = 0
+                      
                       codigo = espec['Código']
                       descricao = espec['Descrição']
                       quantidade = espec['Quantidade']
