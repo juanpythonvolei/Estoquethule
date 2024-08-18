@@ -22,7 +22,7 @@ def exclusao():
                     espec = item_estoque[f'{elemento}']
                     nome = espec['Código']
                     lista_nomes.append(nome)
-    produto_excluir = st.select_slider(label='Selecione o produto',lista_nomes)
+    produto_excluir = st.select_slider(label='Selecione o produto',optinos=lista_nomes)
     
     if produto_excluir:
         veiculo_ref = db.reference(f'Estoque/Produtos/{produto_excluir}')
