@@ -14,7 +14,10 @@ for item in dados:
                 for elemento in item_estoque:
                     espec = item_estoque[f'{elemento}']
                     codigo = espec['Código']
-                    lista_produtos.append(codigo)
+                    if codigo in lista_produtos:
+                      pass
+                    else:
+                      lista_produtos.append(codigo)
 produtos = st.selectbox(label='',placeholder='Selecione o Produto',options=lista_produtos,index=None)
 descricao_visual = st.container()
 if produtos:
