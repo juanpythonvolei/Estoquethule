@@ -38,8 +38,7 @@ if produtos:
                         lista_foto.append(foto)
                         
                       localizacao = espec['localicação']
-                      texto += f'''O Produto {codigo} possui: {quantidade} unidades na posição {localizacao} do depósito: Revenda
-                      '''
+                      texto += f'O Produto {codigo} possui: {quantidade} unidades na posição {localizacao} do depósito: Revenda\n'
   with descricao_visual:
       foto = st.image(lista_foto[0])
       st.info(texto)
