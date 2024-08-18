@@ -20,17 +20,15 @@ def exclusao():
             item_estoque = dados[f'{item}']
             for elemento in item_estoque:
                 espec = item_estoque[f'{elemento}']
-                st.write(espec)
-   # produto_excluir = st.selectbox(label='Selecione o produto',options=lista_nomes,index=None)
+                codigo = espec['Código']
+                lista_nomes.append(codigo)
+    produto_excluir = st.selectbox(label='Selecione o produto',options=lista_nomes,index=None)       
     if produto_excluir:
-        lista_verificada = []
-        for item in dados:
-
-            veiculo_ref = db.reference(f'Produtos/{produto_excluir}')
-            veiculo_ref.delete()
-            st.success(f'Produto {produto_excluir} excluido')
+                veiculo_ref = db.reference(f'Produtos/{produto_excluir}')
+                veiculo_ref.delete()
+                st.success(f'Produto {produto_excluir} excluido')
     else:
-        st.info(f'Você realmente deseja excluir o produto {produto_excluir}')
+            st.info(f'Você realmente deseja excluir o produto {produto_excluir}')
 
 
 with col1:
