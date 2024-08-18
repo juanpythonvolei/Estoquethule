@@ -33,17 +33,16 @@ def exclusao():
 
 with col1:
     localizacao = st.text_input(label='',placeholder='Insira a localização')
-    
-with col2:  
-    quantidade = st.number_input(label='',placeholder='Insira a quantidade')
-with col3:
-    foto = st.text_input(label='',placeholder='Insira a foto do Produto')
     col=localizacao[3:6]
     Prat=localizacao[0:2]
     alt = localizacao[7:]
     if len(col) != 3 or len(alt)!= 2 or len(Prat)!=2:
         st.error(f'A posição {localizacao} está incorreta. Insira-a novamente')
         localizacao = ''
+with col2:  
+    quantidade = st.number_input(label='',placeholder='Insira a quantidade')
+with col3:
+    foto = st.text_input(label='',placeholder='Insira a foto do Produto')
     excluir = st.button('Excluir Produtos')
     if excluir:
         exclusao()
