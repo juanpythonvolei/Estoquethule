@@ -44,33 +44,18 @@ with col3:
     excluir = st.button('Excluir Produtos')
     if excluir:
         exclusao()
-ref = db.reference('Produtos')
+ref = db.reference('Estoque')
 if codigo and descricao and quantidade and foto and localizacao:
     with col1:
         cadastro = st.button('Cadastar Produtos')
         if cadastro:
-            requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-            roteiro = requiscao.json()
-            dados = roteiro['Produtos']
-            lista = []
-            for item in dados:
-                item_estoque = dados[f'{item}']
-                for elemento in item_estoque:
-                    espec = item_estoque[f'{elemento}']
-                    nome = espec['Código']
-                    if nome == codigo:
-                        lista.append('já existe')
-                    else:
-                        lista.append('Não exsiste')
-            if 'Não existe' in lista:
-                dict_produto = {'Código':codigo,'Quantidade':quantidade,'Foto':foto,'Descrição':descricao,'localicação':localizacao}
-                try:
-                    ref.child(codigo).push().set(dict_produto)
-                    st.success(f'Protudo de código: {codigo} cadastrado com sucesso')
-                except:
+        dict_produto = {'Código':codigo,'Quantidade':quantidade,'Foto':foto,'Descrição':descricao,'localicação':localizacao}
+        try:
+                    ref.child(localizacao).push().set(dict_produto)
+                    st.success(f'Protudo de código: {codigo} cadastrado com sucesso na posição: {localizacao}')
+        except:
                     st.error('Não há saida de dados disponível')
-            else:
-                dict_produto = {'Quantidade':quantidade,'localicação':localizacao}
+
 else:
 
         st.error('Ainda há campos a serem preenchidos')
