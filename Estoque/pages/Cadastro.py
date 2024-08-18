@@ -20,7 +20,7 @@ def exclusao():
             item_estoque = dados[f'{item}']
             for elemento in item_estoque:
                 espec = item_estoque[f'{elemento}']
-                st.write(elemento)
+                st.write(espec)
    # produto_excluir = st.selectbox(label='Selecione o produto',options=lista_nomes,index=None)
     if produto_excluir:
         lista_verificada = []
