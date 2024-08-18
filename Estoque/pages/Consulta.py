@@ -7,7 +7,7 @@ import requests
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
-dados = roteiro['Produtos']
+dados = roteiro['Estoque']
 lista_produtos = []
 for item in dados:
                 item_estoque = dados[f'{item}']
