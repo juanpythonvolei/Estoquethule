@@ -11,7 +11,7 @@ col1,col2,col3 = st.columns(3)
 
 
 @st.dialog(f"Deseja realmente excluir o produtos") 
-def exclusao(excluir):                                                             
+def exclusao():                                                             
     produto_excluir = st.selectbox(label='Selecione o produto',options=['Produtos'])
     
     if produto_excluir:
