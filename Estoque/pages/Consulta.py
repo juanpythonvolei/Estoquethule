@@ -54,5 +54,5 @@ if produtos:
       foto = st.image(lista_foto[0])
       st.info(texto)
       with col1:
-        st.metrics(label='Quantidade Total',value=qtd_total)
+        st.metric(label='Quantidade Total',value=qtd_total)
 
