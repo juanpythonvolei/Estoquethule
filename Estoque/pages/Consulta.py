@@ -42,7 +42,7 @@ if produtos:
                         
                       localizacao_atual = espec['localicação']
                    
-                texto += f'Produto {produtos} possui: {quantidade2} unidades na posição {localizacao} do depósito: Revenda  \n'
+  texto += f'Produto {produtos} possui: {quantidade2} unidades na posição {localizacao} do depósito: Revenda  \n'
   with descricao_visual:
       foto = st.image(lista_foto[0])
       st.info(texto)
