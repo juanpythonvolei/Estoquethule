@@ -19,7 +19,7 @@ def exclusao():
     for item in dados:
             item_estoque = dados[f'{item}']
             for elemento in item_estoque:
-                   nome = elemento['Quantidade']
+                   st.write(elemento)
     produto_excluir = st.select_slider(label='Selecione o produto',options=lista_nomes)
     
     if produto_excluir:
