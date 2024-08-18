@@ -15,7 +15,7 @@ def exclusao():
     try:
         requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
         roteiro = requiscao.json()
-        dados = roteiro['Produtos']
+        dados = roteiro['Estoque']
         lista_nomes = []
         for item in dados:
                 item_estoque = dados[f'{item}']
@@ -49,12 +49,12 @@ if codigo and descricao and quantidade and foto and localizacao:
     with col1:
         cadastro = st.button('Cadastar Produtos')
         if cadastro:
-        dict_produto = {'Código':codigo,'Quantidade':quantidade,'Foto':foto,'Descrição':descricao,'localicação':localizacao}
-        try:
-                    ref.child(localizacao).push().set(dict_produto)
-                    st.success(f'Protudo de código: {codigo} cadastrado com sucesso na posição: {localizacao}')
-        except:
-                    st.error('Não há saida de dados disponível')
+            dict_produto = {'Código':codigo,'Quantidade':quantidade,'Foto':foto,'Descrição':descricao,'localicação':localizacao}
+            try:
+                        ref.child(localizacao).push().set(dict_produto)
+                        st.success(f'Protudo de código: {codigo} cadastrado com sucesso na posição: {localizacao}')
+            except:
+                        st.error('Não há saida de dados disponível')
 
 else:
 
