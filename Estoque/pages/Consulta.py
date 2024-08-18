@@ -55,5 +55,5 @@ if produtos:
       st.info(texto)
       col1,col2,col3 = st.columns(3)
       with col1:
-        st.metric(label=f'Total em Rev: {produtos} ',value=f'{qtd_total} unidades')
+        st.metric(label=f'Total em Rev: {produtos} ',value=f'{qtd_total}')
 
