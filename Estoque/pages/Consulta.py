@@ -55,5 +55,5 @@ if produtos:
       st.info(texto)
       col1,col2,col3 = st.columns(3)
       with col1:
-        st.metric(label='Quantidade Total',value=qtd_total)
+        st.metric(label=f'Quantidade Total do item: {produtos} no estoque(Rev)',value=qtd_total)
 
