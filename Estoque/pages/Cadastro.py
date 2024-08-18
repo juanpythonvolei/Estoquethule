@@ -30,7 +30,7 @@ def exclusao():
             item_estoque = dados[f'{item}']
             nome = item_estoque['Código']
             if nome == produto_excluir:
-                lita_verificada.append(item_estoque)
+                lista_verificada.append(item_estoque)
         veiculo_ref = db.reference(f'Estoque/Produtos/{lita_verificada[0]}/{produto_excluir}')
         veiculo_ref.delete()
         st.success(f'Produto {produto_excluir} excluido')
