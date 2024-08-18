@@ -23,7 +23,7 @@ def exclusao():
                 pass
             else:
                 lista_nomes.append(nome)
-    produto_excluir = st.select_slider(label='Selecione o produto',options=lista_nomes)
+    produto_excluir = st.select_box(label='Selecione o produto',options=lista_nomes)
     if produto_excluir:
         st.success(f'Veículo {produto_excluir} excluido')
     else:
