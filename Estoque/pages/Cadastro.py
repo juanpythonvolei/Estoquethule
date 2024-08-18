@@ -49,7 +49,7 @@ if codigo and descricao and quantidade and foto and localizacao:
     with col1:
         cadastro = st.button('Cadastar Produtos')
         if cadastro:
-            dict_produto = {'Código':codigo,'Quantidade':quantidade,'Foto':foto,'Descrição':descricao}
+            dict_produto = {'Código':codigo,'Quantidade':quantidade,'Foto':foto,'Descrição':descricao,'localicação':localizacao}
             try:
                 ref.child(codigo).push().set(dict_produto)
                 st.success(f'Protudo de código: {codigo} cadastrado com sucesso')
