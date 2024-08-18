@@ -18,6 +18,8 @@ for item in dados:
 produtos = st.selectbox(label='',placeholder='Selecione o Produto',options=lista_produtos,index=None)
 descricao_visual = st.container()
 if produtos:
+  texto=''
+  lista_foto = []
   for item in dados:
                 item_estoque = dados[f'{item}']
                 for elemento in item_estoque:
@@ -28,11 +30,17 @@ if produtos:
                       descricao = espec['Descrição']
                       quantidade = espec['Quantidade']
                       foto = espec['Foto']
+                      if foto in lista_foto:
+                        pass
+                      else:
+                        lista_foto.append(foto)
+                        
                       localizacao = espec['localicação']
-                      with descricao_visual:
-                        foto = st.image(foto)
-                        st.info(f'''O Produto {codigo} possui:
+                      texto += f'''O Produto {codigo} possui:
                         
                         
-                        {quantidade} unidades na posição {localizacao} do depósito: Revenda''')
+      {quantidade} unidades na posição {localizacao} do depósito: Revenda'''
+    with descricao_visual:
+      foto = st.image(lista_foto[0])
+      st.info(texto)
 
