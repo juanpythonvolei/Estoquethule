@@ -34,5 +34,5 @@ if produtos:
     st.info(f'''O Produto {codigo} possui:
     
     
-    {quantidade} na posição {localizacao} do depósito: Revenda''')
+    {quantidade} unidades na posição {localizacao} do depósito: Revenda''')
 
