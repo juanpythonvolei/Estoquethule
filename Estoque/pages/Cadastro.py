@@ -25,8 +25,6 @@ def exclusao():
                 lista_nomes.append(nome)
     produto_excluir = st.select_slider(label='Selecione o produto',options=lista_nomes)
     if produto_excluir:
-        veiculo_ref = db.reference(f'Estoque/Produtos/{produto_excluir}')
-        veiculo_ref.delete()
         st.success(f'Veículo {produto_excluir} excluido')
     else:
         st.info(f'Você realmente deseja excluir o produto {produto_excluir}')
