@@ -15,4 +15,4 @@ for item in dados:
                     espec = item_estoque[f'{elemento}']
                     codigo = espec['Código']
                     lista_produtos.append(codigo)
-produtos = st.selectbox(label='',placeholder='Selecione o Produto',lista_produtos)
+produtos = st.selectbox(label='',placeholder='Selecione o Produto',options=lista_produtos)
