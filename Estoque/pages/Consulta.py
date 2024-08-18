@@ -1,4 +1,4 @@
-import streamlit as st
+vimport streamlit as st
 import firebase_admin
 from firebase_admin import credentials, firestore,db
 import requests
@@ -30,14 +30,17 @@ if produtos:
                       codigo = espec['Código']
                       descricao = espec['Descrição']
                       quantidade = espec['Quantidade']
-                      quantidade2+=quantidade
+                      
                       foto = espec['Foto']
+                      localizacao = espec['localicação']
                       if foto in lista_foto:
                         pass
                       else:
                         lista_foto.append(foto)
                         
-                      localizacao = espec['localicação']
+                      localizacao_atual = espec['localicação']
+                      if localizacao == localizacao_atual:
+                        quantidade2+=quantidade
                 texto += f'Produto {produtos} possui: {quantidade2} unidades na posição {localizacao} do depósito: Revenda  \n'
   with descricao_visual:
       foto = st.image(lista_foto[0])
