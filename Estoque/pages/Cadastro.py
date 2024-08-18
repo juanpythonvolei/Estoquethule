@@ -32,16 +32,13 @@ def exclusao():
                 st.info(f'Você realmente deseja excluir o produto {produto_excluir}')
     except:
         st.info('Por enquanto, não foram registrados produtos')
-
-
 with col1:
     localizacao = st.text_input(label='',placeholder='Insira a localização')
     col=localizacao[3:6]
     Prat=localizacao[0:2]
     alt = localizacao[7:]
-    
 with col2:  
-    quantidade = st.number_input(label='',placeholder='Insira a quantidade')
+    quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
 with col3:
     foto = st.text_input(label='',placeholder='Insira a foto do Produto')
     excluir = st.button('Excluir Produtos')
