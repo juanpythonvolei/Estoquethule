@@ -19,12 +19,11 @@ def exclusao():
     for item in dados:
             item_estoque = dados[f'{item}']
             nome = item_estoque['Código']
-            if nome not in lista_nomes:
+            if nome in lista_nomes:
                 pass
             else:
                 lista_nomes.append(nome)
     produto_excluir = st.select_slider(label='Selecione o produto',options=lista_nomes)
-    
     if produto_excluir:
         veiculo_ref = db.reference(f'Estoque/Produtos/{produto_excluir}')
         veiculo_ref.delete()
