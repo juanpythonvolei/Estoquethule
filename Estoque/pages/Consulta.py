@@ -28,7 +28,7 @@ if produtos:
                       descricao = espec['Descrição']
                       quantidade = espec['Quantidade']
                       foto = espec['Foto']
-                      localizacao = espec['localização']
+                      localizacao = espec['localicação']
   with descricao_visual:
     foto = st.image(foto)
     st.info('''O Pro''')
