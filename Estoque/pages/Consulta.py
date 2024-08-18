@@ -18,10 +18,11 @@ for item in dados:
 produtos = st.selectbox(label='',placeholder='Selecione o Produto',options=lista_produtos,index=None)
 descricao_visual = st.container()
 if produtos:
-  quantidade2 = 0
+  
   texto=''
   lista_foto = []
   for item in dados:
+                quantidade2 = 0
                 item_estoque = dados[f'{item}']
                 for elemento in item_estoque:
                     espec = item_estoque[f'{elemento}']
