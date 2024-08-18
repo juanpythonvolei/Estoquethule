@@ -54,7 +54,7 @@ with col3:
     excluir = st.button('Excluir Produtos')
     if excluir:
         exclusao()
-ref = db.reference('Estoque')
+ref = db.reference('Produtos')
 if codigo and descricao and quantidade and foto and localizacao:
     with col1:
         cadastro = st.button('Cadastar Produtos')
