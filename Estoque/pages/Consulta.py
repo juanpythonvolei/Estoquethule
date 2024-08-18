@@ -35,7 +35,7 @@ if produtos:
                       codigo = espec['Código']
                       descricao = espec['Descrição']
                       quantidade = espec['Quantidade']
-                      qtd_total = quantidade
+                      qtd_total += quantidade
                       quantidade2 += quantidade
                       foto = espec['Foto']
                       localizacao = espec['localicação']
@@ -50,9 +50,10 @@ if produtos:
                 else:
                   texto += ''
   with descricao_visual:
-      col1,col2,col3 = st.columns(3)
+      
       foto = st.image(lista_foto[0])
       st.info(texto)
+      col1,col2,col3 = st.columns(3)
       with col1:
         st.metric(label='Quantidade Total',value=qtd_total)
 
