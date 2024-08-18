@@ -22,12 +22,13 @@ if produtos:
   texto=''
   lista_foto = []
   for item in dados:
-                quantidade2 = 0
+                
                 item_estoque = dados[f'{item}']
                 for elemento in item_estoque:
                     espec = item_estoque[f'{elemento}']
                     codigo = espec['Código']
                     if codigo == produtos:
+                      quantidade2 = 0
                       codigo = espec['Código']
                       descricao = espec['Descrição']
                       quantidade = espec['Quantidade']
@@ -40,8 +41,8 @@ if produtos:
                         lista_foto.append(foto)
                         
                       localizacao_atual = espec['localicação']
-                if quantidade2>0:     
-                  texto += f'Produto {produtos} possui: {quantidade2} unidades na posição {localizacao} do depósito: Revenda  \n'
+                   
+                texto += f'Produto {produtos} possui: {quantidade2} unidades na posição {localizacao} do depósito: Revenda  \n'
   with descricao_visual:
       foto = st.image(lista_foto[0])
       st.info(texto)
