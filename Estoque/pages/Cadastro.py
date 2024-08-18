@@ -18,12 +18,8 @@ def exclusao():
     lista_nomes = []
     for item in dados:
             item_estoque = dados[f'{item}']
-            nome = item_estoque['Código']
-            if nome in lista_nomes:
-                pass
-            else:
-                lista_nomes.append(nome)
-    produto_excluir = st.selectbox(label='Selecione o produto',options=lista_nomes,index=None)
+            st.write(item_estoque)
+   # produto_excluir = st.selectbox(label='Selecione o produto',options=lista_nomes,index=None)
     if produto_excluir:
         lista_verificada = []
         for item in dados:
