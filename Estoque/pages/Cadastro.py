@@ -42,8 +42,8 @@ with col1:
     if len(col) != 3 or len(alt)!= 2 or len(Prat)!=2:
         st.error(f'A posição {localizacao} está incorreta. Insira-a novamente')
         localizacao = ''
-    elif localizacao =='':
-        pass
+    elif len(col) == '' or len(alt)== '' or len(Prat)=='':
+        localizacao = ''
 with col2:  
     quantidade = st.number_input(label='',placeholder='Insira a quantidade')
 with col3:
