@@ -61,7 +61,7 @@ if codigo and descricao and quantidade and foto and localizacao:
         if cadastro:
             dict_produto = {'Código':codigo,'Quantidade':quantidade,'Foto':foto,'Descrição':descricao}
             try:
-                ref.child('Produtos').push().set(dict_produto)
+                ref.child(codigo).push().set(dict_produto)
                 st.success(f'Protudo de código: {codigo} cadastrado com sucesso')
             except:
                 st.error('Não há saida de dados disponível')
