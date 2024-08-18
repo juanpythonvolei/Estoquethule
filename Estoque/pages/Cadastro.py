@@ -60,3 +60,6 @@ if codigo and descricao and quantidade and foto and localizacao:
                 st.success(f'Protudo de código: {codigo} cadastrado com sucesso')
             except:
                 st.error('Não há saida de dados disponível')
+else:
+    with col1:
+        st.error('Ainda há campos a serem preenchidos')
