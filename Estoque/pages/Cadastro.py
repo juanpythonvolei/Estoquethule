@@ -12,7 +12,8 @@ col1,col2,col3 = st.columns(3)
 
 @st.dialog(f"Deseja realmente excluir o produtos") 
 def exclusao(excluir):                                                             
-    produto_excluir = st.select_slider()
+    produto_excluir = st.selectbox(label='Selecione o produto')
+    
     if produto_excluir:
         veiculo_ref = db.reference(f'Estoque/Produtos/{produto_excluir}')
         veiculo_ref.delete()
