@@ -57,11 +57,11 @@ with col3:
 ref = db.reference('Estoque')
 if codigo and descricao and quantidade and foto and localizacao:
     with col1:
-        cadastro = st.button('Produtos')
+        cadastro = st.button('Cadastar Produtos')
         if cadastro:
             dict_produto = {'Código':codigo,'Quantidade':quantidade,'Foto':foto,'Descrição':descricao}
             try:
-                ref.child().push().set(dict_produto)
+                ref.child('Produtos').push().set(dict_produto)
                 st.success(f'Protudo de código: {codigo} cadastrado com sucesso')
             except:
                 st.error('Não há saida de dados disponível')
