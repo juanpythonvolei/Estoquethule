@@ -18,6 +18,7 @@ for item in dados:
 produtos = st.selectbox(label='',placeholder='Selecione o Produto',options=lista_produtos,index=None)
 descricao_visual = st.container()
 if produtos:
+  quantidade2 = 0
   texto=''
   lista_foto = []
   for item in dados:
@@ -29,6 +30,7 @@ if produtos:
                       codigo = espec['Código']
                       descricao = espec['Descrição']
                       quantidade = espec['Quantidade']
+                      quantidade2+=quantidade
                       foto = espec['Foto']
                       if foto in lista_foto:
                         pass
