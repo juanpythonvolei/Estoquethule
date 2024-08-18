@@ -61,5 +61,5 @@ if codigo and descricao and quantidade and foto and localizacao:
             except:
                 st.error('Não há saida de dados disponível')
 else:
-    with col1:
+
         st.error('Ainda há campos a serem preenchidos')
