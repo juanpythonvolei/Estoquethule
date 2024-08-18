@@ -35,7 +35,7 @@ def exclusao():
 
 
 with col1:
-    localizacao = st.text_input(label='',placeholder='Insira a localização')
+    localizacao = st.text_input(label='',placeholder='Insira a localização',value='00-000-00')
     col=localizacao[3:6]
     Prat=localizacao[0:2]
     alt = localizacao[7:]
