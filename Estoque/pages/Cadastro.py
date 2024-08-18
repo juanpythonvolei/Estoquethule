@@ -14,7 +14,7 @@ col1,col2,col3 = st.columns(3)
 def exclusao():
     requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
     roteiro = requiscao.json()
-    dados = roteiro['Estoque']['Produtos']
+    dados = roteiro['Produtos']
     lista_nomes = []
     for item in dados:
             item_estoque = dados[f'{item}']
@@ -27,13 +27,10 @@ def exclusao():
     if produto_excluir:
         lista_verificada = []
         for item in dados:
-            item_estoque = dados[f'{item}']
-            nome = item_estoque['Código']
-            if nome == produto_excluir:
-                lista_verificada.append(item_estoque)
-        veiculo_ref = db.reference(f'Estoque/Produtos/{lista_verificada[0]}/{produto_excluir}')
-        veiculo_ref.delete()
-        st.success(f'Produto {produto_excluir} excluido')
+
+            veiculo_ref = db.reference(f'Produtos/{produto_excluir}')
+            veiculo_ref.delete()
+            st.success(f'Produto {produto_excluir} excluido')
     else:
         st.info(f'Você realmente deseja excluir o produto {produto_excluir}')
 
