@@ -11,8 +11,18 @@ col1,col2,col3 = st.columns(3)
 
 
 @st.dialog(f"Deseja realmente excluir o produtos") 
-def exclusao():                                                             
-    produto_excluir = st.select_slider(label='Selecione o produto',options=['Produtos'])
+def exclusao():
+    requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+    roteiro = requiscao.json()
+    dados = roteiro['Estoque']['Produtos']
+    lista_nomes = []
+    for item in dados:
+            item_estoque = dados[f'{item}']
+            for elemento in item_estoque:
+                    espec = item_estoque[f'{elemento}']
+                    nome = espec['Código']
+                    lista_nomes.append(nome)
+    produto_excluir = st.select_slider(label='Selecione o produto',lista_nomes)
     
     if produto_excluir:
         veiculo_ref = db.reference(f'Estoque/Produtos/{produto_excluir}')
