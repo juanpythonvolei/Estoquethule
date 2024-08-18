@@ -40,7 +40,7 @@ if produtos:
                         
                         
       {quantidade} unidades na posição {localizacao} do depósito: Revenda'''
-    with descricao_visual:
+  with descricao_visual:
       foto = st.image(lista_foto[0])
       st.info(texto)
 
