@@ -31,5 +31,8 @@ if produtos:
                       localizacao = espec['localicação']
   with descricao_visual:
     foto = st.image(foto)
-    st.info('''O Pro''')
+    st.info(f'''O Produto {codigo} possui:
+    
+    
+    {quantidade} na posição {localizacao} do depósito: Revenda''')
 
