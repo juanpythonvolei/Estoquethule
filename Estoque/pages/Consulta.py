@@ -32,7 +32,7 @@ if produtos:
                       codigo = espec['Código']
                       descricao = espec['Descrição']
                       quantidade = espec['Quantidade']
-                      
+                      quantidade2 += quantidade
                       foto = espec['Foto']
                       localizacao = espec['localicação']
                       if foto in lista_foto:
@@ -41,8 +41,10 @@ if produtos:
                         lista_foto.append(foto)
                         
                       localizacao_atual = espec['localicação']
-                   
-  texto += f'Produto {produtos} possui: {quantidade2} unidades na posição {localizacao} do depósito: Revenda  \n'
+                if quantidade2 > 0:   
+                  texto += f'Produto {produtos} possui: {quantidade2} unidades na posição {localizacao} do depósito: Revenda  \n'
+                else:
+                  texto += ''
   with descricao_visual:
       foto = st.image(lista_foto[0])
       st.info(texto)
