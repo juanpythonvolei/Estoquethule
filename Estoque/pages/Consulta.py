@@ -16,3 +16,18 @@ for item in dados:
                     codigo = espec['Código']
                     lista_produtos.append(codigo)
 produtos = st.selectbox(label='',placeholder='Selecione o Produto',options=lista_produtos,index=None)
+descricao_visual = st.container()
+if produtos:
+  for item in dados:
+                item_estoque = dados[f'{item}']
+                for elemento in item_estoque:
+                    espec = item_estoque[f'{elemento}']
+                    codigo = espec['Código']
+                    if codigo == produtos:
+                      codigo = espec['Código']
+                      descricao = espec['Descrição']
+                      quantidade = espec['Quantidade']
+                      foto = espec['Foto']
+  with descricao_visual:
+    foto = st.image(foto)
+
