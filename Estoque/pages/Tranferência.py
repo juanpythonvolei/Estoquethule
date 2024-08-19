@@ -10,8 +10,8 @@ with col1:
   deposito_origem = st.selecbox(index=None,label='',placeholder='Selecione o depósito de origem',options=['Rev','Dev','Rec','Ele'])
 with col2:
   deposito_final= st.selecbox(index=None,label='',placeholder='Selecione o depósito de origem',options=['Rev'])
-
-Origem = st.text_input(label='',palceholder='Insira a posição de Origem')
-produto = st.text_input(label='',placeholder='Insira o produto')
-produto = st.text_input(label='',placeholder='Insira a quantidade')
-produto = st.text_input(label='',placeholder='Insira a posição Final')
+if deposito_origem and deposito_final:
+  Origem = st.text_input(label='',palceholder='Insira a posição de Origem')
+  produto = st.text_input(label='',placeholder='Insira o produto')
+  produto = st.text_input(label='',placeholder='Insira a quantidade')
+  produto = st.text_input(label='',placeholder='Insira a posição Final')
