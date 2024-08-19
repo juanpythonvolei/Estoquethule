@@ -23,18 +23,19 @@ if deposito_origem and deposito_final:
         st.error(f'A posição {origem} está incorreta. Insira-a novamente')
         localizacao = ''
   produto = st.text_input(label='',placeholder='Insira o produto')
-  quantidade = st.text_input(label='',placeholder='Insira a quantidade')
-  final = st.text_input(label='',placeholder='Insira a posição Final')
-  if final:
-    colum=final[3:6]
-    Prat=final[0:2]
-    alt = final[7:]
-    if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
-          st.error(f'A posição {final} está incorreta. Insira-a novamente')
-          localizacao = ''
   if produto:
     st.info(produto)
-  if origem and produto and quantidade and final:
-    st.button(f'Transferir {produto}')
-  else:
-    st.error('Ainda há campos a serem preenchidos')
+    quantidade = st.text_input(label='',placeholder='Insira a quantidade')
+    final = st.text_input(label='',placeholder='Insira a posição Final')
+    if final:
+      colum=final[3:6]
+      Prat=final[0:2]
+      alt = final[7:]
+      if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
+            st.error(f'A posição {final} está incorreta. Insira-a novamente')
+            localizacao = ''
+    
+    if origem and produto and quantidade and final:
+      st.button(f'Transferir {produto}')
+    else:
+      st.error('Ainda há campos a serem preenchidos')
