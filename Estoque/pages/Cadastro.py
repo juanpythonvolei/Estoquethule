@@ -7,6 +7,7 @@ import requests
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 codigo = st.text_input(label='',placeholder='Insira o Código do produto')
 descricao = st.text_input(label='',placeholder='Insira uma descirção do produto')
+foto = st.text_input(label='',placeholder='Insira a foto do Produto')
 col1,col2,col3 = st.columns(3)
 
 
@@ -34,7 +35,7 @@ def exclusao():
     except:
         st.info('Por enquanto, não foram registrados produtos')
 
-foto = st.text_input(label='',placeholder='Insira a foto do Produto')
+
 excluir = st.button('Excluir Produtos')
 if excluir:
         exclusao()
