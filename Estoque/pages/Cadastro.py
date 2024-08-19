@@ -22,7 +22,8 @@ def exclusao():
                 for elemento in item_estoque:
                     espec = item_estoque[f'{elemento}']
                     codigo = espec['Código']
-                    lista_nomes.append(codigo)
+                    if codigo not in lista_nomes:
+                        lista_nomes.append(codigo)
         produto_excluir = st.selectbox(label='Selecione o produto',options=lista_nomes,index=None)       
         if produto_excluir:
                     veiculo_ref = db.reference(f'Produtos/{produto_excluir}')
