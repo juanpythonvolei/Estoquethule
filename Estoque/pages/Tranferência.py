@@ -25,8 +25,7 @@ if deposito_origem and deposito_final:
   produto = st.text_input(label='',placeholder='Insira o produto')
   quantidade = st.text_input(label='',placeholder='Insira a quantidade')
   final = st.text_input(label='',placeholder='Insira a posição Final')
-  if produto:
-    st.info(produto)
+  
   if not origem or produto or quantidade or final:
     st.error('Atenção. Ainda há campos a serem preenchidos')
   else:
@@ -37,4 +36,5 @@ if deposito_origem and deposito_final:
   if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
         st.error(f'A posição {final} está incorreta. Insira-a novamente')
         localizacao = ''
-  
+  if produto:
+    st.info(produto)
