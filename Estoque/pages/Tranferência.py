@@ -15,7 +15,7 @@ if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'El
 with col2:
   deposito_final= st.selectbox(index=None,label='',placeholder='depósito de origem',options=['Rev'])
 if deposito_origem and deposito_final:
-  Origem = st.text_input(label='',placeholder='Insira a posição de Origem')
+  origem = st.text_input(label='',placeholder='Insira a posição de Origem')
   produto = st.text_input(label='',placeholder='Insira o produto')
   quantidade = st.text_input(label='',placeholder='Insira a quantidade')
   final = st.text_input(label='',placeholder='Insira a posição Final')
