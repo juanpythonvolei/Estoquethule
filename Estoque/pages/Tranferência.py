@@ -31,10 +31,10 @@ if deposito_origem and deposito_final:
     st.error('Atenção. Ainda há campos a serem preenchidos')
   else:
     st.button(f'Transferir {produto}')
-    colum=final[3:6]
-    Prat=final[0:2]
-    alt = final[7:]
-    if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
+  colum=final[3:6]
+  Prat=final[0:2]
+  alt = final[7:]
+  if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
         st.error(f'A posição {final} está incorreta. Insira-a novamente')
         localizacao = ''
   
