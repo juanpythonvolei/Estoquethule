@@ -39,7 +39,7 @@ excluir = st.button('Excluir Produtos')
 if excluir:
         exclusao()
 ref = db.reference('Estoque')
-if codigo and descricao and quantidade and foto and localizacao:
+if codigo and descricao and foto:
     with col1:
         cadastro = st.button('Cadastar Produtos')
         if cadastro:
