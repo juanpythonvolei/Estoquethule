@@ -52,6 +52,5 @@ if codigo and descricao and foto:
                         st.error('Não há saida de dados disponível')
 
 else:
-
         st.error('Ainda há campos a serem preenchidos')
 
