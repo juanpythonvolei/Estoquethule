@@ -52,6 +52,4 @@ if codigo and descricao and quantidade and foto and localizacao:
 else:
 
         st.error('Ainda há campos a serem preenchidos')
-if len(col) != 3 or len(alt)!= 2 or len(Prat)!=2:
-        st.error(f'A posição {localizacao} está incorreta. Insira-a novamente')
-        localizacao = ''
+
