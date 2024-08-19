@@ -47,7 +47,7 @@ if codigo and descricao and foto:
             dict_produto = {'Código':codigo,'Foto':foto,'Descrição':descricao}
             try:
                         ref.child(codigo).push().set(dict_produto)
-                        st.success(f'Protudo de código: {codigo} cadastrado com sucesso}')
+                        st.success(f'Protudo de código: {codigo} cadastrado com sucesso')
             except:
                         st.error('Não há saida de dados disponível')
 
