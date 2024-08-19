@@ -26,10 +26,10 @@ if deposito_origem and deposito_final:
   quantidade = st.text_input(label='',placeholder='Insira a quantidade')
   final = st.text_input(label='',placeholder='Insira a posição Final')
   
-  if not origem or produto or quantidade or final:
-    st.error('Atenção. Ainda há campos a serem preenchidos')
-  else:
+  if origem and produto and quantidade and final:
     st.button(f'Transferir {produto}')
+  else:
+    st.error('Ainda há campos a serem preenchidos')
   colum=final[3:6]
   Prat=final[0:2]
   alt = final[7:]
