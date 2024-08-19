@@ -32,24 +32,17 @@ def exclusao():
                 st.info(f'Você realmente deseja excluir o produto {produto_excluir}')
     except:
         st.info('Por enquanto, não foram registrados produtos')
-with col1:
-    localizacao = st.text_input(label='',placeholder='Insira a localização')
-    col=localizacao[3:6]
-    Prat=localizacao[0:2]
-    alt = localizacao[7:]
-with col2:  
-    quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
-with col3:
-    foto = st.text_input(label='',placeholder='Insira a foto do Produto')
-    excluir = st.button('Excluir Produtos')
-    if excluir:
+
+foto = st.text_input(label='',placeholder='Insira a foto do Produto')
+excluir = st.button('Excluir Produtos')
+if excluir:
         exclusao()
 ref = db.reference('Estoque')
 if codigo and descricao and quantidade and foto and localizacao:
     with col1:
         cadastro = st.button('Cadastar Produtos')
         if cadastro:
-            dict_produto = {'Código':codigo,'Quantidade':quantidade,'Foto':foto,'Descrição':descricao,'localicação':localizacao}
+            dict_produto = {'Código':codigo,'Foto':foto,'Descrição':descricao}
             try:
                         ref.child(localizacao).push().set(dict_produto)
                         st.success(f'Protudo de código: {codigo} cadastrado com sucesso na posição: {localizacao}')
