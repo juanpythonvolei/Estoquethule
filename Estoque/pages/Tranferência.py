@@ -19,5 +19,5 @@ if deposito_origem and deposito_final:
   produto = st.text_input(label='',placeholder='Insira o produto')
   quantidade = st.text_input(label='',placeholder='Insira a quantidade')
   final = st.text_input(label='',placeholder='Insira a posição Final')
-  if Produto:
+  if produto:
     st.info(produto)
