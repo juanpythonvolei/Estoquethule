@@ -6,3 +6,4 @@ import requests
 import os
 import requests
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
+tab1,tab2 = st.tabs(['Alimentação Manual','Alimentação de itens da nota'])
