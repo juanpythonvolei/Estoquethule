@@ -4,7 +4,7 @@ from firebase_admin import credentials, firestore,db
 import requests
 import os
 import requests
-
+st.write('Não está funcionando')
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 col1,col2,col3 = st.columns(3)
 with col1:
