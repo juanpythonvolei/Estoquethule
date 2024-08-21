@@ -4,7 +4,7 @@ from firebase_admin import credentials, firestore,db
 import requests
 import os
 import requests
-image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
+
 codigo = st.text_input(label='',placeholder='Insira o Código do produto')
 descricao = st.text_input(label='',placeholder='Insira uma descirção do produto')
 foto = st.text_input(label='',placeholder='Insira a foto do Produto')
