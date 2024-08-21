@@ -9,4 +9,4 @@ image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702
 
 tab1,tab2 = st.tabs(['Alimentar Rec (Manual)','Iten em nota '])
 with tab1:
-  Produto = st.selectbox(label='',placeholder='Selecione um Produto',['Opção'])
+  produto = st.selectbox(label='',placeholder='Selecione um Produto',['Opção'])
