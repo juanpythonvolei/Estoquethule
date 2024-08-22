@@ -55,13 +55,13 @@ if deposito_origem and deposito_final:
             deposito_ref.child(caminho_rev).set({
             'quantidade':nova_quantidade_rev  # Exemplo de dado adicional
         })
-            st.success(f'item {produto} transferido para a localização {localizacao}')
+            st.success(f'item {produto} transferido para a localização {final}')
           except:
             caminho_rev = f'Rev/{final}/{produto}'
             deposito_ref.child(caminho_rev).set({
             'quantidade':quantidade  # Exemplo de dado adicional
         })
-            st.success(f'item {produto} transferido para a localização {localizacao}')
+            st.success(f'item {produto} transferido para a localização {final}')
 
     else:
       st.error('Ainda há campos a serem preenchidos')
