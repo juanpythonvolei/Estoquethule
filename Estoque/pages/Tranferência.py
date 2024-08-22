@@ -58,7 +58,7 @@ if deposito_origem and deposito_final:
       })
           st.success(f'item {produto} transferido para a localização {localizacao}')
         else:
-          caminho_rev = f'Rev/{localizacao}/{produto}':
+          caminho_rev = f'Rev/{localizacao}/{produto}'
           deposito_ref.child(caminho_rev).set({
           'quantidade':quantidade  # Exemplo de dado adicional
       })
