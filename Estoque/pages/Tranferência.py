@@ -37,29 +37,31 @@ if deposito_origem and deposito_final:
     
     if origem and produto and quantidade and final:
       botao_tranferir = st.button(f'Transferir {produto}')
+      if botao_transferir:
+        if deposito_origem == 'Rec':
+          requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+          roteiro = requiscao.json()
+          dados = roteiro['Depósito']
+          quantidade_atual_rec = dados['Rec'][f'{produto}']['quantidade']
+          deposito_ref = db.reference('Depósito')
+          caminho_rec = f'Rec/{produto}/quantidade'
+          nova_quantidade = quantidade_atual_rec-quantidade
+          deposito_ref.child(caminho_rec).set(nova_quantidade)
+          if dados['Rev'][f'{localizacao}'][f'{produto}']['quantidade']:
+            quantidade_atual_rec = dados['Rev'][f'{localizacao}'][f'{produto}']['quantidade']
+            nova_quantidade_rev = quantidade_atual_rec + quantidade
+            caminho_rev = f'Rev/{localizacao}/{produto}'
+            deposito_ref.child(caminho_rev).set({
+            'quantidade':nova_quantidade_rev  # Exemplo de dado adicional
+        })
+            st.success(f'item {produto} transferido para a localização {localizacao}')
+          else:
+            caminho_rev = f'Rev/{localizacao}/{produto}'
+            deposito_ref.child(caminho_rev).set({
+            'quantidade':quantidade  # Exemplo de dado adicional
+        })
+            st.success(f'item {produto} transferido para a localização {localizacao}')
+
     else:
       st.error('Ainda há campos a serem preenchidos')
-    if botao_transferir:
-      if deposito_origem == 'Rec':
-        requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-        roteiro = requiscao.json()
-        dados = roteiro['Depósito']
-        quantidade_atual_rec = dados['Rec'][f'{produto}']['quantidade']
-        deposito_ref = db.reference('Depósito')
-        caminho_rec = f'Rec/{produto}/quantidade'
-        nova_quantidade = quantidade_atual_rec-quantidade
-        deposito_ref.child(caminho_rec).set(nova_quantidade)
-        if dados['Rev'][f'{localizacao}'][f'{produto}']['quantidade']:
-          quantidade_atual_rec = dados['Rev'][f'{localizacao}'][f'{produto}']['quantidade']
-          nova_quantidade_rev = quantidade_atual_rec + quantidade
-          caminho_rev = f'Rev/{localizacao}/{produto}'
-          deposito_ref.child(caminho_rev).set({
-          'quantidade':nova_quantidade_rev  # Exemplo de dado adicional
-      })
-          st.success(f'item {produto} transferido para a localização {localizacao}')
-        else:
-          caminho_rev = f'Rev/{localizacao}/{produto}'
-          deposito_ref.child(caminho_rev).set({
-          'quantidade':quantidade  # Exemplo de dado adicional
-      })
-          st.success(f'item {produto} transferido para a localização {localizacao}')
+    
