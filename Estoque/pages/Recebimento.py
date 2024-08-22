@@ -24,5 +24,14 @@ with tab1:
   item = st.selectbox(label='',placeholder='Insira um item',options=lista_produtos)
   quantidade = st.number_input(placeholder=f'Insira a quantidade do item: {item}',value=None,label='')
   if item and quantidade:
-    st.button(f'Adicionar Item: {item}')
+    botao_adicionar = st.button(f'Adicionar Item: {item}')
+    if botao_adicionar:
+      deposito_ref = db.reference('Depósito')
+      caminho = f'{tipo}/{localizacao}'
+    
+    # Adicionando dados
+      deposito_ref.child(caminho).set({
+          'Produto': f'{item}',
+          'quantidade': quantidade  # Exemplo de dado adicional
+      })
   
