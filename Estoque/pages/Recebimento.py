@@ -27,7 +27,7 @@ with tab1:
     botao_adicionar = st.button(f'Adicionar Item: {item}')
     if botao_adicionar:
       deposito_ref = db.reference('Depósito')
-      caminho = f'Rec/{localizacao}'
+      caminho = f'Rec/'
     
     # Adicionando dados
       deposito_ref.child(caminho).set({
