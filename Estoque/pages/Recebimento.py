@@ -34,4 +34,5 @@ with tab1:
           'Produto': f'{item}',
           'quantidade': quantidade  # Exemplo de dado adicional
       })
+      st.success(f'Item {item} adicionado com sucesso')
   
