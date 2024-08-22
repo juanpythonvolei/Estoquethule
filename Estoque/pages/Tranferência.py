@@ -44,7 +44,7 @@ if deposito_origem and deposito_final:
         requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
         roteiro = requiscao.json()
         dados = roteiro['Depósito']
-        quantidade_atual = dados['Rec'][f'{}']
+        quantidade_atual = dados['Rec']
         deposito_ref = db.reference('Depósito')
         caminho_rec = f'Rec/quantidade'
         nova_quantidade = quantidade
