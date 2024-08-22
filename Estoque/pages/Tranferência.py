@@ -36,6 +36,18 @@ if deposito_origem and deposito_final:
             localizacao = ''
     
     if origem and produto and quantidade and final:
-      st.button(f'Transferir {produto}')
+      botao_tranferir = st.button(f'Transferir {produto}')
     else:
       st.error('Ainda há campos a serem preenchidos')
+    if botao_transferir:
+      if deposito_origem == 'Rec':
+        quantidade_atual
+        deposito_ref = db.reference('Depósito')
+        caminho_rec = f'Rec/quantidade'
+        nova_quantidade = quantidade
+        deposito_ref.child(caminho_rec).set(nova_quantidade)
+        caminho_rev = f'Rev/{localizacao}'
+        deposito_ref.child(caminho_rev).set({
+        'Produto': 'disponível',
+        'quantidade': 100  # Exemplo de dado adicional
+    })
