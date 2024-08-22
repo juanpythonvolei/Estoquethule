@@ -47,7 +47,8 @@ if deposito_origem and deposito_final:
           caminho_rec = f'Rec/{produto}/quantidade'
           nova_quantidade = quantidade_atual_rec-quantidade
           deposito_ref.child(caminho_rec).set(nova_quantidade)
-          if dados['Rev'][f'{localizacao}'][f'{produto}']['quantidade']:
+          try: 
+            dados['Rev'][f'{localizacao}'][f'{produto}']['quantidade']
             quantidade_atual_rec = dados['Rev'][f'{localizacao}'][f'{produto}']['quantidade']
             nova_quantidade_rev = quantidade_atual_rec + quantidade
             caminho_rev = f'Rev/{localizacao}/{produto}'
@@ -55,7 +56,7 @@ if deposito_origem and deposito_final:
             'quantidade':nova_quantidade_rev  # Exemplo de dado adicional
         })
             st.success(f'item {produto} transferido para a localização {localizacao}')
-          else:
+          except:
             caminho_rev = f'Rev/{localizacao}/{produto}'
             deposito_ref.child(caminho_rev).set({
             'quantidade':quantidade  # Exemplo de dado adicional
