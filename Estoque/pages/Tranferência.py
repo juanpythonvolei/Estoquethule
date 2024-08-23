@@ -55,6 +55,8 @@ if deposito_origem and deposito_final:
               localizacao = ''
   with col5:
      botao_consulta = st.button('🔍')
+     if botao_consulta:
+       consulta(produto)
   if origem and produto and quantidade and final:
       botao_transferir = st.button(f'Transferir {produto}')
       if botao_transferir:
