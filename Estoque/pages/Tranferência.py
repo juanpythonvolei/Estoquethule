@@ -55,7 +55,7 @@ if deposito_origem and deposito_final:
           if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
                 st.error(f'A posição {final} está incorreta. Insira-a novamente')
                 localizacao = ''
-          with col5:
+        with col5:
              with st.popover('🔍'):
                consulta(produto)
   if origem and produto and quantidade and final:
