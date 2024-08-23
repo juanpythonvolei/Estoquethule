@@ -44,16 +44,17 @@ if deposito_origem and deposito_final:
 
   produto = st.text_input(label='',placeholder='Insira o produto')
   col4,col5,col6 = st.columns(3)
-  if produto:
-      quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
-      final = st.text_input(label='',placeholder='Insira a posição Final')
-      if final:
-        colum=final[3:6]
-        Prat=final[0:2]
-        alt = final[7:]
-        if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
-              st.error(f'A posição {final} está incorreta. Insira-a novamente')
-              localizacao = ''
+  with col4:
+    if produto:
+        quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
+        final = st.text_input(label='',placeholder='Insira a posição Final')
+        if final:
+          colum=final[3:6]
+          Prat=final[0:2]
+          alt = final[7:]
+          if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
+                st.error(f'A posição {final} está incorreta. Insira-a novamente')
+                localizacao = ''
   with col5:
      with st.popover('🔍'):
        consulta(produto)
