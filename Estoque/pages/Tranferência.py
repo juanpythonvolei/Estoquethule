@@ -4,8 +4,25 @@ from firebase_admin import credentials, firestore,db
 import requests
 import os
 import requests
-@st.dialog(f"Envio concluído. Baixe o cheklist aqui")             
-def consulta():    
+@st.dialog(f"Consulta do item")             
+def consulta(item):    
+  texto = ''
+  requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+  roteiro = requiscao.json()
+  dados = roteiro['Depósito']
+  qtd_Rec = dados['Rec'][f'{item}']['quantidade']
+  for elemento in dados['Rev']:
+    localizacao = dados['Rev'][f'{elemento}']
+    for x in localizacao:
+      x == item:
+      qtd_rev = localizacao[f'{x}']['quantidade']
+      local = localizacao
+      info = f'Item :{item}, possúi {qtd_rev} na posição {local}'
+      if info not in texto:
+        texto += info
+  st.info(info)  
+
+  
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 col1,col2,col3 = st.columns(3)
 with col1:
