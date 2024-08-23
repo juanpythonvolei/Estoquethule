@@ -3,8 +3,7 @@ import firebase_admin
 from firebase_admin import credentials, firestore,db
 import requests
 import os
-import requests
-@st.dialog(f"Consulta do item")             
+import requests           
 def consulta(item):    
   
   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
@@ -57,8 +56,7 @@ if deposito_origem and deposito_final:
               st.error(f'A posição {final} está incorreta. Insira-a novamente')
               localizacao = ''
   with col5:
-     botao_consulta = st.button('🔍')
-     if botao_consulta:
+     with st.popover('🔍'):
        consulta(produto)
   if origem and produto and quantidade and final:
       botao_transferir = st.button(f'Transferir {produto}')
