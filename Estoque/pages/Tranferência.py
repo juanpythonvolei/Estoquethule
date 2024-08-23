@@ -14,7 +14,7 @@ def consulta(item):
   for elemento in dados['Rev']:
     localizacao = dados['Rev'][f'{elemento}']
     for x in localizacao:
-      x == item:
+      if x == item:
       qtd_rev = localizacao[f'{x}']['quantidade']
       local = localizacao
       info = f'Item :{item}, possúi {qtd_rev} na posição {local}'
