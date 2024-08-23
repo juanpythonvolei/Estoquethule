@@ -28,9 +28,9 @@ def consulta(item):
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 col1,col2,col3 = st.columns(3)
 with col1:
-  deposito_origem = st.selectbox(index=None,label='',placeholder='depósito de origem',options=['Rev','Dev','Rec','Ele'])
+  deposito_origem = st.selectbox(index=None,label='',placeholder='Depósito de origem',options=['Rev','Dev','Rec','Ele'])
 with col2:
-  deposito_final= st.selectbox(index=None,label='',placeholder='depósito de origem',options=['Rev','Ele'])
+  deposito_final= st.selectbox(index=None,label='',placeholder='Depósito de origem',options=['Rev','Ele'])
 if deposito_origem and deposito_final:
   if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
     origem = st.text_input(label='Insira a posição de Origem',value=deposito_origem)
@@ -46,7 +46,7 @@ if deposito_origem and deposito_final:
   with col4:
     produto = st.text_input(label='',placeholder='Insira o produto')
   if produto:
-      quantidade = st.number_input(label='',placeholder='Insira a quantidade')
+      quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
       final = st.text_input(label='',placeholder='Insira a posição Final')
       if final:
         colum=final[3:6]
