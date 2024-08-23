@@ -24,19 +24,19 @@ if deposito_origem and deposito_final:
         localizacao = ''
   with col1:
     produto = st.text_input(label='',placeholder='Insira o produto')
-  if produto:
-    quantidade = st.number_input(label='',placeholder='Insira a quantidade')
-    final = st.text_input(label='',placeholder='Insira a posição Final')
-    if final:
-      colum=final[3:6]
-      Prat=final[0:2]
-      alt = final[7:]
-      if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
-            st.error(f'A posição {final} está incorreta. Insira-a novamente')
-            localizacao = ''
-    with col2:
+    if produto:
+      quantidade = st.number_input(label='',placeholder='Insira a quantidade')
+      final = st.text_input(label='',placeholder='Insira a posição Final')
+      if final:
+        colum=final[3:6]
+        Prat=final[0:2]
+        alt = final[7:]
+        if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
+              st.error(f'A posição {final} está incorreta. Insira-a novamente')
+              localizacao = ''
+  with col2:
      with st.popover("🔍"):
-    if origem and produto and quantidade and final:
+  if origem and produto and quantidade and final:
       botao_transferir = st.button(f'Transferir {produto}')
       if botao_transferir:
         if deposito_origem == 'Rec':
