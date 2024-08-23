@@ -6,12 +6,13 @@ import os
 import requests
 @st.dialog(f"Consulta do item")             
 def consulta(item):    
-  texto = ''
+  
   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
   roteiro = requiscao.json()
   dados = roteiro['Depósito']
   qtd_Rec = dados['Rec'][f'{item}']['quantidade']
   for elemento in dados['Rev']:
+    texto = ''
     localizacao = dados['Rev'][f'{elemento}']
     for x in localizacao:
       if x == item:
