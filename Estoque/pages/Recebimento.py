@@ -22,7 +22,7 @@ for item in dados:
 tab1,tab2 = st.tabs(['Alimentação Manual','Alimentação de itens da nota'])
 with tab1:
   item = st.selectbox(label='',placeholder='Insira um item',options=lista_produtos,index=None)
-  quantidade = st.number_input(placeholder=f'Insira a quantidade do item: {item}',value=None,label='')
+  quantidade = st.number_input(placeholder=f'Insira a quantidade do item',value=None,label='')
   if item and quantidade:
     botao_adicionar = st.button(f'Adicionar Item: {item}')
     if botao_adicionar:
