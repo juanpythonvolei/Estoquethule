@@ -44,9 +44,6 @@ if deposito_origem and deposito_final:
   col4,col5,col6 = st.columns(3)
   produto = st.text_input(label='',placeholder='Insira o produto')
   if produto:
-      with col4:
-        with st.popover("🔍"):
-          consulta(produto)
       quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
       final = st.text_input(label='',placeholder='Insira a posição Final')
       if final:
