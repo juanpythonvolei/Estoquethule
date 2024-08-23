@@ -24,7 +24,7 @@ if deposito_origem and deposito_final:
         localizacao = ''
   with col1:
     produto = st.text_input(label='',placeholder='Insira o produto')
-    if produto:
+  if produto:
       quantidade = st.number_input(label='',placeholder='Insira a quantidade')
       final = st.text_input(label='',placeholder='Insira a posição Final')
       if final:
