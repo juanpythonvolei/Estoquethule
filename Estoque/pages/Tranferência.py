@@ -15,11 +15,11 @@ def consulta(item):
     localizacao = dados['Rev'][f'{elemento}']
     for x in localizacao:
       if x == item:
-      qtd_rev = localizacao[f'{x}']['quantidade']
-      local = localizacao
-      info = f'Item :{item}, possúi {qtd_rev} na posição {local}'
-      if info not in texto:
-        texto += info
+        qtd_rev = localizacao[f'{x}']['quantidade']
+        local = localizacao
+        info = f'Item :{item}, possúi {qtd_rev} na posição {local}'
+        if info not in texto:
+          texto += info
   st.info(info)  
 
   
