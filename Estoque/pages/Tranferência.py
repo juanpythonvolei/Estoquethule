@@ -24,6 +24,10 @@ if deposito_origem and deposito_final:
         localizacao = ''
   produto = st.text_input(label='',placeholder='Insira o produto')
   if produto:
+    col1,col2,col3 = st.columns(3)
+    with col2:
+      with st.popover("🔍"):
+        st.info(f'{produto}')
     quantidade = st.number_input(label='',placeholder='Insira a quantidade')
     final = st.text_input(label='',placeholder='Insira a posição Final')
     if final:
