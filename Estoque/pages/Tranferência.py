@@ -22,7 +22,7 @@ if deposito_origem and deposito_final:
     if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
         st.error(f'A posição {origem} está incorreta. Insira-a novamente')
         localizacao = ''
-  with col1::
+  with col1:
     produto = st.text_input(label='',placeholder='Insira o produto')
   if produto:
     quantidade = st.number_input(label='',placeholder='Insira a quantidade')
