@@ -10,7 +10,7 @@ col1,col2,col3 = st.columns(3)
 with col1:
   deposito_origem = st.selectbox(index=None,label='',placeholder='depósito de origem',options=['Rev','Dev','Rec','Ele'])
 with col2:
-  deposito_final= st.selectbox(index=None,label='',placeholder='depósito de origem',options=['Rev','Dev','Rec','Ele'])
+  deposito_final= st.selectbox(index=None,label='',placeholder='depósito de origem',options=['Rev','Ele'])
 if deposito_origem and deposito_final:
   if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
     origem = st.text_input(label='Insira a posição de Origem',value=deposito_origem)
