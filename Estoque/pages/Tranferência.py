@@ -65,6 +65,6 @@ if deposito_origem and deposito_final:
         })
             st.success(f'item {produto} transferido para a localização {final}')
 
-    else:
+  else:
       st.error('Ainda há campos a serem preenchidos')
     
