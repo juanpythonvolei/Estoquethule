@@ -97,7 +97,7 @@ if deposito_origem and deposito_final:
           quantidade_atual_rev_final = dados['Rev'][f'{final}'][f'{produto}']['quantidade']
           nova_quantidade_rev_final =  quantidade_atual_rev_final+quantidade
           caminho_rev_final = f'Rev/{final}/{produto}/quantidade'
-          deposito_ref.child(caminho_rev_origem).set(nova_quantidade_rev_origem)
+          deposito_ref.child(caminho_rev_final).set(nova_quantidade_rev_final)
           st.success(f'Produto {produto} transferido com sucesso')
           
   else:
