@@ -36,6 +36,7 @@ if deposito_origem and deposito_final:
               localizacao = ''
   with col2:
      with st.popover("🔍"):
+       st.info(f'{produto}')
   if origem and produto and quantidade and final:
       botao_transferir = st.button(f'Transferir {produto}')
       if botao_transferir:
