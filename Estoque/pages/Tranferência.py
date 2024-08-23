@@ -17,7 +17,7 @@ def consulta(item):
       if x == item:
         qtd_rev = localizacao[f'{x}']['quantidade']
         local = localizacao
-        info = f'Item :{item}, possúi {qtd_rev} na posição {local}'
+        info = f'Item :{item}, possúi {qtd_rev} na posição {elemento}'
         if info not in texto:
           texto += info
   st.info(info)  
