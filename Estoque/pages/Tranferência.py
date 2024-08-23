@@ -22,12 +22,9 @@ if deposito_origem and deposito_final:
     if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
         st.error(f'A posição {origem} está incorreta. Insira-a novamente')
         localizacao = ''
-  produto = st.text_input(label='',placeholder='Insira o produto')
+  with col1::
+    produto = st.text_input(label='',placeholder='Insira o produto')
   if produto:
-    col1,col2,col3 = st.columns(3)
-    with col2:
-      with st.popover("🔍"):
-        st.info(f'{produto}')
     quantidade = st.number_input(label='',placeholder='Insira a quantidade')
     final = st.text_input(label='',placeholder='Insira a posição Final')
     if final:
@@ -37,8 +34,9 @@ if deposito_origem and deposito_final:
       if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
             st.error(f'A posição {final} está incorreta. Insira-a novamente')
             localizacao = ''
-    
-    if origem and produto and quantidade and final:
+  with col2:
+     with st.popover("🔍"):
+  if origem and produto and quantidade and final:
       botao_transferir = st.button(f'Transferir {produto}')
       if botao_transferir:
         if deposito_origem == 'Rec':
