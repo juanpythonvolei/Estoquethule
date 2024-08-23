@@ -35,7 +35,7 @@ if deposito_origem and deposito_final:
               st.error(f'A posição {final} está incorreta. Insira-a novamente')
               localizacao = ''
   with col2:
-     with st.popover("🔍"):
+     with st.popover("Consultar item"):
        st.info(f'{produto}')
   if origem and produto and quantidade and final:
       botao_transferir = st.button(f'Transferir {produto}')
