@@ -64,7 +64,8 @@ if deposito_origem and deposito_final:
         with col5:
              with st.popover('🔍'):
                consulta(produto)
-               alteracao = st.popover('Alteração')
+               with st.popover('Alteração')
+                 st.info('11')
   if origem and produto and quantidade and final:
       botao_transferir = st.button(f'Transferir {produto}')
       if botao_transferir:
