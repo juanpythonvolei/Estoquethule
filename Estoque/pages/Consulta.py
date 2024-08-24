@@ -31,7 +31,7 @@ if menu == 'Consultar item':
          '''
          texto_item += info
   st.info(texto_item) 
-  st.img(foto)
+  st.image(foto)
 elif menu == "consultar posição":
   texto_posicao =''
   lista_posicoes = [elemento for elemento in dados]
