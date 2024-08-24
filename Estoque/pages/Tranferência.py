@@ -35,7 +35,7 @@ image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702
 col4,col5,col6 = st.columns(3)
 with col4:
     produto = st.text_input(label='',placeholder='Insira o produto')
-col1,col2,col3 = st.columns(3)
+    col1,col2,col3 = st.columns(3)
 with col1:
       deposito_origem = st.selectbox(index=None,label='',placeholder='Depósito de origem',options=['Rev','Dev','Rec','Ele'])
 with col2:
