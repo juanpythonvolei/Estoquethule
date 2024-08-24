@@ -3,9 +3,12 @@ import firebase_admin
 from firebase_admin import credentials, firestore,db
 import requests
 import os
-import requests
 from streamlit_option_menu import option_menu
-from ia import consulta_itens_e_posicoes
+import time
+import google.generativeai as genai
+import pandas as pd
+
+
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
