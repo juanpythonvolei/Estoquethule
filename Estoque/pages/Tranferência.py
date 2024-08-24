@@ -26,7 +26,7 @@ def consulta(item):
             else:
               texto += info
             st.info(info)
-        else:
+      else:
           pass
 
   
