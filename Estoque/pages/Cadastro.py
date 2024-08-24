@@ -27,7 +27,7 @@ def exclusao():
                         lista_nomes.append(codigo)
         produto_excluir = st.selectbox(label='Selecione o produto',options=lista_nomes,index=None)       
         if produto_excluir:
-                    veiculo_ref = db.reference(f'Estoque/{produto_excluir}')
+                    veiculo_ref = db.reference(f'{produto_excluir}')
                     veiculo_ref.delete()
                     st.success(f'Produto {produto_excluir} excluido')
         else:
