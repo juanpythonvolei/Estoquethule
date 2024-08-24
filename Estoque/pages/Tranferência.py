@@ -58,7 +58,7 @@ if produto:
                                 pass
                               else:
                                 lista_pos.append(item)
-          origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos)
+          origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)
           colum2=origem [3:6]
           Prat2=origem [0:2]
           alt2 = origem [7:]
