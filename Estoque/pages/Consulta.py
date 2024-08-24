@@ -32,16 +32,7 @@ if menu == 'Consultar item':
           '''
           texto_item += info
    st.info(texto_item) 
-   image_path = f"{foto}"
-   # Markdown com a imagem
-   html_code = f'''
-         <div style="border: 5px solid #000; padding: 10px; display: inline-block;">
-             <img src="{image_path}" alt="Descrição da Imagem" style="width: 100%;">
-         </div>
-         '''
-
-  # Renderizando o HTML no Streamlit
-  st.markdown(html_code, unsafe_allow_html=True)
+   st.image(foto)
 
 elif menu == "consultar posição":
   texto_posicao =''
