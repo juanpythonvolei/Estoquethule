@@ -115,7 +115,15 @@ if deposito_origem and deposito_final:
           requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
           roteiro = requiscao.json()
           dados = roteiro['Depósito']['Rev']
-          lista_position = [item for item in dados]
+          lista_position = []
+          for item in dados:
+            posicao = dados[f'{item}']
+            for elemento in posicao:
+              if elemento == produto:
+                if item in lista_position:
+                  pass
+                else:
+                  lista_position.append(item)
           position = st.selectbox(placeholder='',index=None,options=lista_position,label='')
           if position:
             qtd = st.number_input(value=None,placeholder='Insira a quantidade para alteração',label='',key='Alteração')
