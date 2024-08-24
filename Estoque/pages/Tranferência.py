@@ -66,8 +66,8 @@ with col5:
                consulta(produto)
 
 if origem and produto and quantidade and final:
-      botao_transferir = st.button(f'Transferir {produto}')
-      if botao_transferir:
+    botao_transferir = st.button(f'Transferir {produto}')
+    if botao_transferir:
         if deposito_origem == 'Rec':
           requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
           roteiro = requiscao.json()
@@ -92,7 +92,7 @@ if origem and produto and quantidade and final:
             'quantidade':quantidade  # Exemplo de dado adicional
         })
             st.success(f'item {produto} transferido para a localização {final}')
-      elif deposito_origem == 'Rev':
+        elif deposito_origem == 'Rev':
           requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
           roteiro = requiscao.json()
           dados = roteiro['Depósito']
