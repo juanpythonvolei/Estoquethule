@@ -18,7 +18,7 @@ def exclusao():
         roteiro = requiscao.json()
         dados = roteiro['Estoque']
         lista_nomes = [item for item in dados]
-        produto_excluir = st.selectbox(label='Selecione o produto',options=lista_nomes,index=None)       
+        produto_excluir = st.selectbox(label='',options=lista_nomes,index=None,placeholder='Selecione um produto')       
         if produto_excluir:
                     veiculo_ref = db.reference(f'Estoque/{produto_excluir}')
                     veiculo_ref.delete()
