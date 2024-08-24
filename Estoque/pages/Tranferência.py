@@ -4,6 +4,10 @@ from firebase_admin import credentials, firestore,db
 import requests
 import os
 import requests           
+requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+roteiro = requiscao.json()
+dados = roteiro['Depósito']
+dados2 = roteiro['Estoque']
 def consulta(item):    
   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
   roteiro = requiscao.json()
