@@ -62,6 +62,8 @@ if produto:
             if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
                   st.error(f'A posição {final} está incorreta. Insira-a novamente')
                   localizacao = None
+  else:
+    st.info('Preencha as coordenadas')
   with col5:
                with st.popover('🔍'):
                  consulta(produto)
