@@ -11,7 +11,7 @@ def consulta(item):
   dados2 = roteiro['Estoque']
   qtd_Rec = dados['Rec'][f'{item}']['quantidade']
   foto = dados2[f'{item}']['foto']
-  st.image(foto)
+  
   for elemento in dados['Rev']:
     texto = ''
     localizacao = dados['Rev'][f'{elemento}']
@@ -28,7 +28,7 @@ def consulta(item):
             st.info(info)
       else:
           pass
-
+    st.image(foto)  
   
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 col1,col2,col3 = st.columns(3)
