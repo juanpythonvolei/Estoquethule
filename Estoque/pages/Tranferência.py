@@ -120,7 +120,7 @@ if deposito_origem and deposito_final:
           if position:
             qtd = st.number_input(value=None,placeholder='Insira a quantidade para alteração',label='',key='Alteração')
             if qtd:
-              caminho_rev_final = f'Rev/{final}/{position}/{qtd}'
-              deposito_ref.child(caminho_rev_final).set(nova_quantidade_rev_final)
+              caminho_rev_final = f'Rev/{final}/{position}/quantidade'
+              deposito_ref.child(caminho_rev_final).set(qtd)
               st.success(f'Produto {produto} transferido com sucesso')
               st.info(f'Item {produto} teve sua quantidade alterada para {qtd} na posição {position}')   
