@@ -8,7 +8,7 @@ from streamlit_option_menu import option_menu
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
-dados = roteiro['Depósito']
+dados = roteiro['Depósito']['Rev']
 dados2 = roteiro['Estoque']
 quantidade = 0
 menu = option_menu('selecione uma opção',['Consultar item','consultar posição'])
