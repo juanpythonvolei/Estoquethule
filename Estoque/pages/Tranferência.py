@@ -60,7 +60,7 @@ if deposito_origem and deposito_final:
           alt = final[7:]
           if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
                 st.error(f'A posição {final} está incorreta. Insira-a novamente')
-                localizacao = ''
+                localizacao = st.text_input(label='',placeholder='Insira a posição Final',value=None)
         with col5:
              with st.popover('🔍'):
                consulta(produto)
@@ -124,7 +124,7 @@ if deposito_origem and deposito_final:
                   pass
                 else:
                   lista_position.append(item)
-          position = st.selectbox(placeholder='',index=None,options=lista_position,label='')
+          position = st.selectbox(placeholder='Selecione a posição para alteração',index=None,options=lista_position,label='')
           if position:
             qtd = st.number_input(value=None,placeholder='Insira a quantidade para alteração',label='',key='Alteração')
             if qtd:
