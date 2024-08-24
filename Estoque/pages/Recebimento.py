@@ -13,12 +13,10 @@ lista_produtos = []
 for item in dados:
                 item_estoque = dados[f'{item}']
                 for elemento in item_estoque:
-                    espec = item_estoque[f'{elemento}']
-                    codigo = espec['Código']
-                    if codigo in lista_produtos:
+                    if elemento in lista_produtos:
                       pass
                     else:
-                      lista_produtos.append(codigo)
+                      lista_produtos.append(elemento)
 tab1,tab2 = st.tabs(['Alimentação Manual','Alimentação de itens da nota'])
 with tab1:
   item = st.selectbox(label='',placeholder='Insira um item',options=lista_produtos,index=None)
