@@ -55,10 +55,7 @@ if deposito_origem and deposito_final:
     roteiro = requiscao.json()
     dados = roteiro['Depósito']['Rev']
     for item in dados:
-            posicao = dados[f'{item}']
-            for elemento in posicao:
-              if elemento == produto:
-                if item in lista_position:
+                if item in lista_posicoes:
                   pass
                 else:
                   lista_posicoes.append(item)
