@@ -35,11 +35,12 @@ image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702
 col4,col5,col6 = st.columns(3)
 with col4:
     produto = st.text_input(label='',placeholder='Insira o produto')
-    col1,col2,col3 = st.columns(3)
-with col1:
-      deposito_origem = st.selectbox(index=None,label='',placeholder='Depósito de origem',options=['Rev','Dev','Rec','Ele'])
-with col2:
-      deposito_final= st.selectbox(index=None,label='',placeholder='Depósito final',options=['Rev','Ele'])
+if produto:
+  col1,col2,col3 = st.columns(3)
+  with col1:
+        deposito_origem = st.selectbox(index=None,label='',placeholder='Depósito de origem',options=['Rev','Dev','Rec','Ele'])
+  with col2:
+        deposito_final= st.selectbox(index=None,label='',placeholder='Depósito final',options=['Rev','Ele'])
 if deposito_origem and deposito_final:
       if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
         origem = st.text_input(label='Insira a posição de Origem',value=deposito_origem)
