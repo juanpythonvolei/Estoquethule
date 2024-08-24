@@ -34,7 +34,8 @@ image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702
 
 col4,col5,col6 = st.columns(3)
 with col4:
-    produto = st.text_input(label='',placeholder='Insira o produto')
+    elementos = [x for x in dados2]
+    produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos)
 if produto:
   col1,col2,col3 = st.columns(3)
   with col1:
