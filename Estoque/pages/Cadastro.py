@@ -47,7 +47,7 @@ if codigo and descricao and foto:
             dict_produto = {'Foto':foto,'Descrição':descricao}
             try:
                         caminho_cadastro = f'Estoque/{codigo}'
-                        deposito_ref.child(caminho_cadastro).set({
+                        ref.child(caminho_cadastro).set({
                         'foto':foto,
                         'Descrição':descricao
                     })
