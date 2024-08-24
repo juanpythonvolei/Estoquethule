@@ -11,3 +11,8 @@ GOOGLE_API_KEY = st.secrets['firebase']['GOOGLE_API_KEY']
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
 chat = model.start_chat(history=[])
+def consulta_itens_e_posicoes(tema):
+     response = chat.send_message(f'Você receberá a seguir um ou varios relatórios de inspeção de uma empilhadeira. Por favor responda o que for possível conforme o solicitado. Segue a pergunta:{comando}\n\n{texto_problemas}\n')
+     resposta = response.text
+     st.info(resposta) 
+  
