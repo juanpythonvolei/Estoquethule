@@ -96,6 +96,6 @@ elif menu == 'Assistente':
      
         {texto_posicao}
    '''              
-   pergunta = st.chat_input()
-   if pergunta:  
-        consulta_itens_e_posicoes(pergunta,texto_base)    
+      pergunta = st.chat_input()
+      if pergunta:  
+             consulta_itens_e_posicoes(pergunta,texto_base)          
