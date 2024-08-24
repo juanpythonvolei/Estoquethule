@@ -23,7 +23,7 @@ dados3 = roteiro['Depósito']['Rec']
 dados = roteiro['Depósito']['Rev']
 dados2 = roteiro['Estoque']
 quantidade = 0
-menu = option_menu('selecione uma opção',['Consultar item','consultar posição'])
+menu = option_menu('selecione uma opção',['Consultar item','consultar posição','Assistente'])
 col1,col2,col3 = st.columns(3)
 if menu == 'Consultar item':
  
@@ -46,9 +46,9 @@ if menu == 'Consultar item':
            texto_item += info
     st.info(texto_item) 
     st.image(foto)
-   with col2:
+    with col2:
     with st.popover('🤖'):
-         st.info('Produto')
+              st.info('Produto')         
 elif menu == "consultar posição":
   texto_posicao =''
   lista_posicoes = [elemento for elemento in dados]
@@ -71,3 +71,5 @@ elif menu == "consultar posição":
              {texto_posicao}
                                 '''
 )
+elif menu == 'Assistente':
+     pergunta = st.chatmessage('human')
