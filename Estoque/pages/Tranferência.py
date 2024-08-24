@@ -122,5 +122,4 @@ if deposito_origem and deposito_final:
             if qtd:
               caminho_rev_final = f'Rev/{final}/{position}/quantidade'
               deposito_ref.child(caminho_rev_final).set(qtd)
-              st.success(f'Produto {produto} transferido com sucesso')
               st.info(f'Item {produto} teve sua quantidade alterada para {qtd} na posição {position}')   
