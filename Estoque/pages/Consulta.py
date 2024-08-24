@@ -68,6 +68,4 @@ elif menu == "consultar posição":
                                 '''
 )
 elif menu == 'Assistente':
-     pergunta = st.chat_message('human')
-     with pergunta:
-          st.write('ola')
+     pergunta = st.chat_message()
