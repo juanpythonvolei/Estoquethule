@@ -21,7 +21,7 @@ if menu == 'Consultar item':
     for produto in posicao:
       if produto == selecao_item:
         posicao_valida = posicao
-        quantidade = produto['quantidade']
+        quantidade = produto[f'{selecao_item}']['quantidade']
         info = f'O item {selecao_item} possúi {quantidade} unidades na posição {posicao_valida})'
         texto += info
 elif menu == "consultar posição":
