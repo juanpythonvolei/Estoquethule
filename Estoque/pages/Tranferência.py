@@ -110,9 +110,9 @@ if produto:
               deposito_ref.child(caminho_rev_final).set(nova_quantidade_rev_final)
               st.success(f'Produto {produto} transferido com sucesso')
               
-        else:
+  else:
           st.error('Ainda há campos a serem preenchidos')
-    if produto:
+  if produto:
           with st.popover('Alteração'):
                 deposito_ref = db.reference('Depósito')
                 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
@@ -134,5 +134,4 @@ if produto:
                     caminho_rev_final = f'Rev/{final}/{position}/quantidade'
                     deposito_ref.child(caminho_rev_final).set(qtd)
                     st.info(f'Item {produto} teve sua quantidade alterada para {qtd} na posição {position}')   
-else:
-  pass
+
