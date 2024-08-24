@@ -32,7 +32,21 @@ if menu == 'Consultar item':
           '''
           texto_item += info
    st.info(texto_item) 
-   st.image(foto)
+   image_path = f"{foto}"
+   # Markdown com a imagem
+   markdown_text = f"""
+   # Título do Markdown
+   
+   Aqui está uma imagem:
+   
+   !Descrição da Imagem
+   
+   Mais texto estilizado aqui.
+   """
+   
+   # Renderizando o markdown
+   st.markdown(markdown_text, unsafe_allow_html=True)
+
 elif menu == "consultar posição":
   texto_posicao =''
   lista_posicoes = [elemento for elemento in dados]
