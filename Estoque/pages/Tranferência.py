@@ -111,4 +111,15 @@ if deposito_origem and deposito_final:
       st.error('Ainda há campos a serem preenchidos')
   if produto:
     with st.popover('Alteração'):
+          
+          requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+          roteiro = requiscao.json()
+          dados = roteiro['Depósito']['Rev']
+          lista_position = [item for item in dados]
+          position = st.selectbox(placeholder='',index=None,options=lista_position)
+          if position:
+            qtd=st.number_input(value=None,placeholder='Insira a quantidade')
+          caminho_rev_final = f'Rev/{final}/{position}/{qtd}'
+          deposito_ref.child(caminho_rev_final).set(nova_quantidade_rev_final)
+          st.success(f'Produto {produto} transferido com sucesso')
           st.info('11')   
