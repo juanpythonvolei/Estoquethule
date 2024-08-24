@@ -29,9 +29,8 @@ if menu == 'Consultar item':
  
   texto_item = ''
   lista_itens = [elemento for elemento in dados2]
-  with col1:
-   selecao_item = st.selectbox(label = '',placeholder='Selecione um Item',options=lista_itens,index=None)
-   if selecao_item:
+  selecao_item = st.selectbox(label = '',placeholder='Selecione um Item',options=lista_itens,index=None)   
+  if selecao_item:   
     item_rec = dados3[f'{selecao_item}']['quantidade']
     foto = dados2[f'{selecao_item}'][f'foto']
     st.warning(f'O item {selecao_item} possúi {item_rec} unidades em Rec')
@@ -45,10 +44,7 @@ if menu == 'Consultar item':
            '''
            texto_item += info
     st.info(texto_item) 
-    st.image(foto)
-    with col2:
-    with st.popover('🤖'):
-              st.info('Produto')         
+    st.image(foto)       
 elif menu == "consultar posição":
   texto_posicao =''
   lista_posicoes = [elemento for elemento in dados]
