@@ -39,7 +39,7 @@ image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702
 col4,col5,col6 = st.columns(3)
 with col4:
     elementos = [x for x in dados2]
-    produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos)
+    produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
 if produto:
   col1,col2,col3 = st.columns(3)
   with col1:
