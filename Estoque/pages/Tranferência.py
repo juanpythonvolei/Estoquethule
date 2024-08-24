@@ -46,7 +46,7 @@ if deposito_origem and deposito_final:
     alt2 = origem [7:]
     if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
         st.error(f'A posição {origem} está incorreta. Insira-a novamente')
-        localizacao = ''
+        localizacao = None
   col4,col5,col6 = st.columns(3)
   with col4:
     produto = st.text_input(label='',placeholder='Insira o produto')
