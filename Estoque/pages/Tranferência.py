@@ -45,7 +45,20 @@ if produto:
         if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
           origem = st.text_input(label='Insira a posição de Origem',value=deposito_origem)
         else:
-          origem = st.text_input(label='',placeholder='Insira a posição de Origem')
+          deposito_ref = db.reference('Depósito')
+          requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+          roteiro = requiscao.json()
+          dados = roteiro['Depósito']['Rev']
+          lista_pos = []
+          for item in dados:
+            posicao = dados[f'{item}']
+            for elemento in posicao:
+                            if elemento == produto:
+                              if item in lista_position:
+                                pass
+                              else:
+                                lista_pos.append(item)
+          origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos)
           colum2=origem [3:6]
           Prat2=origem [0:2]
           alt2 = origem [7:]
