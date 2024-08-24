@@ -68,8 +68,7 @@ elif menu == "consultar posição":
                                 '''
 )
 elif menu == 'Assistente':
-  texto_item = ''     
-  if selecao_item:   
+    texto_item = ''        
     item_rec = dados3[f'{selecao_item}']['quantidade']
     foto = dados2[f'{selecao_item}'][f'foto']
     for item in dados:
@@ -80,22 +79,22 @@ elif menu == 'Assistente':
            O item {selecao_item} possúi {quantidade} unidades na posição {item}
            '''
            texto_item += info
-  texto_posicao =''   
-  for item in dados: 
-      posicao = dados[f'{item}']
-      for produto in posicao:
-        ativo = produto
-        quantidade = posicao[f'{produto}']['quantidade']
-        informacao = f'''
-        {ativo}-{quantidade} unidades
-        
-        '''
-        texto_posicao += informacao  
-      texto_base = f'''
-        {texto_item}
-     
-        {texto_posicao}
-   '''              
-      pergunta = st.chat_input()
-      if pergunta:  
-             consulta_itens_e_posicoes(pergunta,texto_base)          
+    texto_posicao =''      
+    for item in dados:         
+           posicao = dados[f'{item}']
+           for produto in posicao:
+             ativo = produto
+             quantidade = posicao[f'{produto}']['quantidade']
+             informacao = f'''
+             {ativo}-{quantidade} unidades
+             
+             '''
+             texto_posicao += informacao  
+           texto_base = f'''
+             {texto_item}
+          
+             {texto_posicao}
+        '''              
+    pergunta = st.chat_input()       
+    if pergunta:         
+                  consulta_itens_e_posicoes(pergunta,texto_base)          
