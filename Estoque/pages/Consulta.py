@@ -5,7 +5,7 @@ import requests
 import os
 import requests
 from streamlit_option_menu import option_menu
-from ia import consulta_de_itens_e_posicoes
+from ia import consulta_itens_e_posicoes
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
