@@ -20,7 +20,7 @@ if menu == 'Consultar item':
     posicao = dados[f'{item}']
     for produto in posicao:
       if produto == selecao_item:
-         x = produto[f'{selecao_item}']
+         st.write(produto)
 elif menu == "consultar posição":
   lista_posicoes = [elemento for elemento in dados]
   selecao_posicao = st.selectbox(label = '',placeholder='Selecione um Item',options=lista_posicoes,index=None)
