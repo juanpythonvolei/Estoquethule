@@ -54,7 +54,7 @@ if produto:
             posicao = dados[f'{item}']
             for elemento in posicao:
                             if elemento == produto:
-                              if item in lista_position:
+                              if item in lista_pos:
                                 pass
                               else:
                                 lista_pos.append(item)
