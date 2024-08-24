@@ -118,7 +118,7 @@ if deposito_origem and deposito_final:
           lista_position = [item for item in dados]
           position = st.selectbox(placeholder='',index=None,options=lista_position,label='')
           if position:
-            qtd = st.number_input(value=None,placeholder='Insira a quantidade')
+            qtd = st.number_input(value=None,placeholder='Insira a quantidade',label='')
             if qtd:
               caminho_rev_final = f'Rev/{final}/{position}/{qtd}'
               deposito_ref.child(caminho_rev_final).set(nova_quantidade_rev_final)
