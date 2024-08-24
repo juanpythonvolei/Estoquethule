@@ -42,7 +42,7 @@ elif menu == "consultar posição":
        quantidade = posicao[f'{produto}']['quantidade']
        informacao = f'{ativo}-{quantidade} unidades'
        texto_posicao += informacao
-  info_posicao = f'''
+  st.info( f'''
   A posição {selecao_posicao possúi os segunites itens
              
              {texto_posicao}:
