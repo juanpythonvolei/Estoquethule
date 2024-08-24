@@ -10,5 +10,5 @@ roteiro = requiscao.json()
 dados = roteiro['Depósito']
 dados2 = roteiro['Estoque']
 lista_itens = [elemento for elemento in dados2]
-selecao = st.selecbox(label = '',placeholder='Selecione um Item',options=)
+selecao = st.selecbox(label = '',placeholder='Selecione um Item',options=lista_itens)
 
