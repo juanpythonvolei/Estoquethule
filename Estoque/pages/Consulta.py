@@ -10,8 +10,8 @@ requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.fireba
 roteiro = requiscao.json()
 dados = roteiro['Depósito']
 dados2 = roteiro['Estoque']
-lista_itens = [elemento for elemento in dados2]
-selecao = st.selectbox(label = '',placeholder='Selecione um Item',options=lista_itens,index=None)
 quantidade = 0
 menu = option_menu('selecione uma opção',['Consultar item','consultar posição'])
-
+if menu == 'Consultar item':
+  lista_itens = [elemento for elemento in dados2]
+  selecao = st.selectbox(label = '',placeholder='Selecione um Item',options=lista_itens,index=None)
