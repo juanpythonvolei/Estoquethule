@@ -116,7 +116,7 @@ if deposito_origem and deposito_final:
           roteiro = requiscao.json()
           dados = roteiro['Depósito']['Rev']
           lista_position = [item for item in dados]
-          position = st.selectbox(placeholder='',index=None,options=lista_position)
+          position = st.selectbox(placeholder='',index=None,options=lista_position,label='')
           if position:
             qtd=st.number_input(value=None,placeholder='Insira a quantidade')
           caminho_rev_final = f'Rev/{final}/{position}/{qtd}'
