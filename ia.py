@@ -4,7 +4,7 @@ import requests
 import time
 import google.generativeai as genai
 import pandas as pd
-from Adicionar_Imagens import exibir_imagem
+
 
 
 GOOGLE_API_KEY = st.secrets['firebase']['GOOGLE_API_KEY']
