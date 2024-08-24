@@ -14,14 +14,16 @@ def consulta(item):
     localizacao = dados['Rev'][f'{elemento}']
     for x in localizacao:
       if x == item:
-        qtd_rev = localizacao[f'{x}']['quantidade']
-        local = localizacao
-        info = f'Item :{item} possúi {qtd_rev} unidades na posição {elemento}'
-        if info in texto:
-          pass
-        else:
-          texto += info
-        st.info(info)  
+        if qtd_rev = localizacao[f'{x}']['quantidade']>0
+          local = localizacao
+          info = f'Item :{item} possúi {qtd_rev} unidades na posição {elemento}'
+          if info in texto:
+            pass
+          else:
+            texto += info
+          st.info(info)
+      else:
+        st.info
 
   
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
