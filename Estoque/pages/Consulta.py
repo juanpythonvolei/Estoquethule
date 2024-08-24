@@ -38,7 +38,7 @@ if menu == 'Consultar item':
     st.image(foto)
    with col2:
     with st.popover('🤖'):
-
+         st.info('Produto')
 elif menu == "consultar posição":
   texto_posicao =''
   lista_posicoes = [elemento for elemento in dados]
