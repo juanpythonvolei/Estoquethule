@@ -15,3 +15,6 @@ menu = option_menu('selecione uma opção',['Consultar item','consultar posiçã
 if menu == 'Consultar item':
   lista_itens = [elemento for elemento in dados2]
   selecao = st.selectbox(label = '',placeholder='Selecione um Item',options=lista_itens,index=None)
+elif menu == "consultar posição":
+  lista_posicoes = [elemento for elemento in dados]
+  selecao = st.selectbox(label = '',placeholder='Selecione um Item',options=lista_posicoes,index=None)
