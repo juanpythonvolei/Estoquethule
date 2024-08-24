@@ -10,7 +10,7 @@ def consulta(item):
   dados = roteiro['Depósito']
   dados2 = roteiro['Estoque']
   qtd_Rec = dados['Rec'][f'{item}']['quantidade']
-  foto = dados2[f'{item}']['Foto']
+  foto = dados2[f'{item}']['foto']
   st.image(foto)
   for elemento in dados['Rev']:
     texto = ''
