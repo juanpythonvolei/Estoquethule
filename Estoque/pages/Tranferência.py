@@ -51,7 +51,7 @@ with col4:
         if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
             st.error(f'A posição {origem} está incorreta. Insira-a novamente')
             localizacao = None
-  if produto:
+    if produto:
         quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
         final = st.text_input(label='',placeholder='Insira a posição Final')
         if final:
@@ -65,7 +65,7 @@ with col4:
              with st.popover('🔍'):
                consulta(produto)
 
-  if origem and produto and quantidade and final:
+    if origem and produto and quantidade and final:
       botao_transferir = st.button(f'Transferir {produto}')
       if botao_transferir:
         if deposito_origem == 'Rec':
@@ -107,7 +107,7 @@ with col4:
           deposito_ref.child(caminho_rev_final).set(nova_quantidade_rev_final)
           st.success(f'Produto {produto} transferido com sucesso')
           
-  else:
+    else:
       st.error('Ainda há campos a serem preenchidos')
   if produto:
     with st.popover('Alteração'):
