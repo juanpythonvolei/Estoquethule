@@ -18,38 +18,40 @@ if menu == 'Consultar item':
   texto_item = ''
   lista_itens = [elemento for elemento in dados2]
   selecao_item = st.selectbox(label = '',placeholder='Selecione um Item',options=lista_itens,index=None)
-  item_rec = dados3[f'{selecao_item}']['quantidade']
-  foto = dados2[f'{selecao_item}'][f'foto']
-  st.warning(f'O item {selecao_item} possúi {item_rec} unidades em Rec')
-  for item in dados:
-    posicao = dados[f'{item}']
-    for produto in posicao:
-      if produto == selecao_item:
-         quantidade = posicao[f'{produto}']['quantidade']
-         info =  f'''
-         O item {selecao_item} possúi {quantidade} unidades na posição {item}
-         '''
-         texto_item += info
-  st.info(texto_item) 
-  st.image(foto)
+  if selecao_item:
+   item_rec = dados3[f'{selecao_item}']['quantidade']
+   foto = dados2[f'{selecao_item}'][f'foto']
+   st.warning(f'O item {selecao_item} possúi {item_rec} unidades em Rec')
+   for item in dados:
+     posicao = dados[f'{item}']
+     for produto in posicao:
+       if produto == selecao_item:
+          quantidade = posicao[f'{produto}']['quantidade']
+          info =  f'''
+          O item {selecao_item} possúi {quantidade} unidades na posição {item}
+          '''
+          texto_item += info
+   st.info(texto_item) 
+   st.image(foto)
 elif menu == "consultar posição":
   texto_posicao =''
   lista_posicoes = [elemento for elemento in dados]
   selecao_posicao = st.selectbox(label = '',placeholder='Selecione uma posição',options=lista_posicoes,index=None)
-  for item in dados:
-    if item == selecao_posicao:
-     posicao = dados[f'{item}']
-     for produto in posicao:
-       ativo = produto
-       quantidade = posicao[f'{produto}']['quantidade']
-       informacao = f'''
-       {ativo}-{quantidade} 
-       unidades
-       '''
-       texto_posicao += informacao
-  st.info( f'''
-  A posição {selecao_posicao} possúi os segunites itens
-             
+  if selecao_posicao:
+   for item in dados:
+     if item == selecao_posicao:
+      posicao = dados[f'{item}']
+      for produto in posicao:
+        ativo = produto
+        quantidade = posicao[f'{produto}']['quantidade']
+        informacao = f'''
+        {ativo}-{quantidade} unidades
+        
+        '''
+        texto_posicao += informacao
+   st.info( f'''
+   A posição {selecao_posicao} possúi os segunites itens
+              
              {texto_posicao}
                                 '''
 )
