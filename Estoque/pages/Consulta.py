@@ -19,7 +19,7 @@ if menu == 'Consultar item':
   for item in dados:
     posicao = dados[f'{item}']
     for produto in posicao:
-      produto == selecao_item:
+      if produto == selecao_item:
         posicao_valida = posicao
         quantidade = produto['quantidade']
         info = f'O item {selecao_item} possúi {quantidade} unidades na posição {posicao_valida)'
