@@ -60,7 +60,7 @@ if deposito_origem and deposito_final:
           alt = final[7:]
           if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
                 st.error(f'A posição {final} está incorreta. Insira-a novamente')
-                localizacao = st.text_input(label='',placeholder='Insira a posição Final',value=None)
+                localizacao = None
         with col5:
              with st.popover('🔍'):
                consulta(produto)
