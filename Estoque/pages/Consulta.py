@@ -14,11 +14,12 @@ dados2 = roteiro['Estoque']
 quantidade = 0
 menu = option_menu('selecione uma opção',['Consultar item','consultar posição'])
 if menu == 'Consultar item':
-  item_rec = dados3[f'{selecao_item}']['quantidade']
-  st.warning(f'O item {selecao_item} possúi {item_rec} unidades em Rec')
+ 
   texto_item = ''
   lista_itens = [elemento for elemento in dados2]
   selecao_item = st.selectbox(label = '',placeholder='Selecione um Item',options=lista_itens,index=None)
+  item_rec = dados3[f'{selecao_item}']['quantidade']
+  st.warning(f'O item {selecao_item} possúi {item_rec} unidades em Rec')
   for item in dados:
     posicao = dados[f'{item}']
     for produto in posicao:
