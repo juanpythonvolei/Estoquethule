@@ -17,14 +17,7 @@ def exclusao():
         requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
         roteiro = requiscao.json()
         dados = roteiro['Estoque']
-        lista_nomes = []
-        for item in dados:
-                item_estoque = dados[f'{item}']
-                for elemento in item_estoque:
-                    espec = item_estoque[f'{elemento}']
-                    codigo = espec['Código']
-                    if codigo not in lista_nomes:
-                        lista_nomes.append(codigo)
+        lista_nomes = [item for item in dados]
         produto_excluir = st.selectbox(label='Selecione o produto',options=lista_nomes,index=None)       
         if produto_excluir:
                     veiculo_ref = db.reference(f'Estoque/{produto_excluir}')
