@@ -11,7 +11,7 @@ def consulta(item):
   dados2 = roteiro['Estoque']
   qtd_Rec = dados['Rec'][f'{item}']['quantidade']
   foto = dados2[f'{item}']['foto']
-  
+  st.info(qtd_Rec)
   for elemento in dados['Rev']:
     texto = ''
     localizacao = dados['Rev'][f'{elemento}']
