@@ -49,7 +49,20 @@ if deposito_origem and deposito_final:
         localizacao = None
   col4,col5,col6 = st.columns(3)
   with col4:
-    produto = st.text_input(label='',placeholder='Insira o produto')
+    lista_posicoes = []
+    deposito_ref = db.reference('Depósito')
+    requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+    roteiro = requiscao.json()
+    dados = roteiro['Depósito']['Rev']
+    for item in dados:
+            posicao = dados[f'{item}']
+            for elemento in posicao:
+              if elemento == produto:
+                if item in lista_position:
+                  pass
+                else:
+                  lista_posicoes.append(item)
+    produto = st.selectbox(label='',placeholder='Insira o produto',index=None,options=lista_posicoes)
   
   if produto:
         quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
