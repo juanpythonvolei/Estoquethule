@@ -44,10 +44,13 @@ if codigo and descricao and foto:
     with col1:
         cadastro = st.button('Cadastar Produtos')
         if cadastro:
-            dict_produto = {'Código':codigo,'Foto':foto,'Descrição':descricao}
+            dict_produto = {'Foto':foto,'Descrição':descricao}
             try:
-                        ref.child(codigo).push().set(dict_produto)
-                        st.success(f'Protudo de código: {codigo} cadastrado com sucesso')
+                        caminho_cadastro = f'Estoque/{codigo}'
+                        deposito_ref.child(caminho_cadastro).set({
+                        'foto':foto,
+                        'Descrição':descricao
+                    })
             except:
                         st.error('Não há saida de dados disponível')
 
