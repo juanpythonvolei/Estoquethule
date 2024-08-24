@@ -109,5 +109,6 @@ if deposito_origem and deposito_final:
           
   else:
       st.error('Ainda há campos a serem preenchidos')
-  with st.popover('Alteração'):
-        st.info('11')   
+  if produto:
+    with st.popover('Alteração'):
+          st.info('11')   
