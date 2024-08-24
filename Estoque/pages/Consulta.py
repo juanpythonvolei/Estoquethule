@@ -37,7 +37,7 @@ if menu == 'Consultar item':
     st.info(texto_item) 
     st.image(foto)
    with col2:
-    with st.popover('🤖')
+    with st.popover('🤖'):
 
 elif menu == "consultar posição":
   texto_posicao =''
