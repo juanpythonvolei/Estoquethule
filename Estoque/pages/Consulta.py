@@ -72,7 +72,6 @@ elif menu == 'Assistente':
   if selecao_item:   
     item_rec = dados3[f'{selecao_item}']['quantidade']
     foto = dados2[f'{selecao_item}'][f'foto']
-    st.warning(f'O item {selecao_item} possúi {item_rec} unidades em Rec')
     for item in dados:
       posicao = dados[f'{item}']
       for produto in posicao:
@@ -82,10 +81,7 @@ elif menu == 'Assistente':
            '''
            texto_item += info
   texto_posicao =''   
-  lista_posicoes = [elemento for elemento in dados]
-  selecao_posicao = st.selectbox(label = '',placeholder='Selecione uma posição',options=lista_posicoes,index=None)
-  if selecao_posicao:
-   for item in dados:
+  for item in dados: 
       posicao = dados[f'{item}']
       for produto in posicao:
         ativo = produto
