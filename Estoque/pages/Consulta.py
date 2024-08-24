@@ -20,7 +20,10 @@ if menu == 'Consultar item':
     posicao = dados[f'{item}']
     for produto in posicao:
       if produto == selecao_item:
-         st.write(posicao[f'{produto}'])
+         quantidade = posicao[f'{produto}']['quantidade']
+         info =  f'O item {selecao_item} possúi {quantidade} unidades na posição {posicao}' 
+         texto_item += info
+         st.info(texto_info) 
 elif menu == "consultar posição":
   lista_posicoes = [elemento for elemento in dados]
   selecao_posicao = st.selectbox(label = '',placeholder='Selecione um Item',options=lista_posicoes,index=None)
