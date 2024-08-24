@@ -23,7 +23,7 @@ def consulta(item):
             texto += info
           st.info(info)
       else:
-        st.info
+        pass
 
   
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
