@@ -12,8 +12,8 @@ GOOGLE_API_KEY = st.secrets['firebase']['GOOGLE_API_KEY']
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
 chat = model.start_chat(history=[])
-def consulta_itens_e_posicoes(tema):
-     response = chat.send_message(f'Você receberá a seguir um conjunto de dados relacionados a um estoque. Por favor responda o que for possível conforme o solicitado. Segue a pergunta:{comando}\n\n{texto_problemas}\n')
+def consulta_itens_e_posicoes(a,b):
+     response = chat.send_message(f'Você receberá a seguir um conjunto de dados relacionados a um estoque. Por favor responda o que for possível conforme o solicitado. Segue a pergunta:{a}\n\n{b}\n')
      resposta = response.text
      st.info(resposta) 
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
@@ -68,4 +68,38 @@ elif menu == "consultar posição":
                                 '''
 )
 elif menu == 'Assistente':
-     pergunta = st.chat_input()
+  texto_item = ''     
+  if selecao_item:   
+    item_rec = dados3[f'{selecao_item}']['quantidade']
+    foto = dados2[f'{selecao_item}'][f'foto']
+    st.warning(f'O item {selecao_item} possúi {item_rec} unidades em Rec')
+    for item in dados:
+      posicao = dados[f'{item}']
+      for produto in posicao:
+           quantidade = posicao[f'{produto}']['quantidade']
+           info =  f'''
+           O item {selecao_item} possúi {quantidade} unidades na posição {item}
+           '''
+           texto_item += info
+  texto_posicao =''   
+  lista_posicoes = [elemento for elemento in dados]
+  selecao_posicao = st.selectbox(label = '',placeholder='Selecione uma posição',options=lista_posicoes,index=None)
+  if selecao_posicao:
+   for item in dados:
+      posicao = dados[f'{item}']
+      for produto in posicao:
+        ativo = produto
+        quantidade = posicao[f'{produto}']['quantidade']
+        informacao = f'''
+        {ativo}-{quantidade} unidades
+        
+        '''
+        texto_posicao += informacao  
+   texto_base = f'''
+   {texto_item}
+
+   {texto_posicao}
+   '''  
+   pergunta = st.chat_input()
+   if pergunta:  
+        consulta_itens_e_posicoes(pergunta,texto_base)    
