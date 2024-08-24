@@ -19,6 +19,7 @@ if menu == 'Consultar item':
   lista_itens = [elemento for elemento in dados2]
   selecao_item = st.selectbox(label = '',placeholder='Selecione um Item',options=lista_itens,index=None)
   item_rec = dados3[f'{selecao_item}']['quantidade']
+  foto = dados2[f'{selecao_item}'][f'foto']
   st.warning(f'O item {selecao_item} possúi {item_rec} unidades em Rec')
   for item in dados:
     posicao = dados[f'{item}']
@@ -30,6 +31,7 @@ if menu == 'Consultar item':
          '''
          texto_item += info
   st.info(texto_item) 
+  st.img(foto)
 elif menu == "consultar posição":
   texto_posicao =''
   lista_posicoes = [elemento for elemento in dados]
