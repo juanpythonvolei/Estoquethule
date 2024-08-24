@@ -29,7 +29,8 @@ def consulta(item):
       else:
           pass
   st.image(foto)  
-  
+  with st.popover('Alteração'):
+    st.info('11')
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 col1,col2,col3 = st.columns(3)
 with col1:
@@ -64,8 +65,7 @@ if deposito_origem and deposito_final:
         with col5:
              with st.popover('🔍'):
                consulta(produto)
-               with st.popover('Alteração'):
-                 st.info('11')
+
   if origem and produto and quantidade and final:
       botao_transferir = st.button(f'Transferir {produto}')
       if botao_transferir:
