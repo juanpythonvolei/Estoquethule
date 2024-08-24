@@ -31,36 +31,26 @@ def consulta(item):
   st.image(foto)  
 
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
-col1,col2,col3 = st.columns(3)
-with col1:
-  deposito_origem = st.selectbox(index=None,label='',placeholder='Depósito de origem',options=['Rev','Dev','Rec','Ele'])
-with col2:
-  deposito_final= st.selectbox(index=None,label='',placeholder='Depósito final',options=['Rev','Ele'])
-if deposito_origem and deposito_final:
-  if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
-    origem = st.text_input(label='Insira a posição de Origem',value=deposito_origem)
-  else:
-    origem = st.text_input(label='',placeholder='Insira a posição de Origem')
-    colum2=origem [3:6]
-    Prat2=origem [0:2]
-    alt2 = origem [7:]
-    if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
-        st.error(f'A posição {origem} está incorreta. Insira-a novamente')
-        localizacao = None
-  col4,col5,col6 = st.columns(3)
-  with col4:
-    lista_posicoes = []
-    deposito_ref = db.reference('Depósito')
-    requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-    roteiro = requiscao.json()
-    dados = roteiro['Depósito']['Rev']
-    for item in dados:
-                if item in lista_posicoes:
-                  pass
-                else:
-                  lista_posicoes.append(item)
-    produto = st.selectbox(label='',placeholder='Insira o produto',index=None,options=lista_posicoes)
-  
+
+col4,col5,col6 = st.columns(3)
+with col4:
+    produto = st.text_input(label='',placeholder='Insira o produto')
+    col1,col2,col3 = st.columns(3)
+    with col1:
+      deposito_origem = st.selectbox(index=None,label='',placeholder='Depósito de origem',options=['Rev','Dev','Rec','Ele'])
+    with col2:
+      deposito_final= st.selectbox(index=None,label='',placeholder='Depósito final',options=['Rev','Ele'])
+    if deposito_origem and deposito_final:
+      if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
+        origem = st.text_input(label='Insira a posição de Origem',value=deposito_origem)
+      else:
+        origem = st.text_input(label='',placeholder='Insira a posição de Origem')
+        colum2=origem [3:6]
+        Prat2=origem [0:2]
+        alt2 = origem [7:]
+        if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
+            st.error(f'A posição {origem} está incorreta. Insira-a novamente')
+            localizacao = None
   if produto:
         quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
         final = st.text_input(label='',placeholder='Insira a posição Final')
