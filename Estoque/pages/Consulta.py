@@ -7,53 +7,8 @@ import requests
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
-dados = roteiro['Estoque']
-lista_produtos = []
-for item in dados:
-                item_estoque = dados[f'{item}']
-                for elemento in item_estoque:
-                    espec = item_estoque[f'{elemento}']
-                    codigo = espec['Código']
-                    if codigo in lista_produtos:
-                      pass
-                    else:
-                      lista_produtos.append(codigo)
-produtos = st.selectbox(label='',placeholder='Selecione o Produto',options=lista_produtos,index=None)
-descricao_visual = st.container()
-if produtos:
-  qtd_total = 0
-  texto=''
-  lista_foto = []
-  for item in dados:
-                quantidade2 = 0  
-                item_estoque = dados[f'{item}']
-                for elemento in item_estoque:
-                    espec = item_estoque[f'{elemento}']
-                    codigo = espec['Código']
-                    if codigo == produtos:
-                      
-                      codigo = espec['Código']
-                      descricao = espec['Descrição']
-                      quantidade = espec['Quantidade']
-                      qtd_total += quantidade
-                      quantidade2 += quantidade
-                      foto = espec['Foto']
-                      localizacao = espec['localicação']
-                      if foto in lista_foto:
-                        pass
-                      else:
-                        lista_foto.append(foto)
-                        
-                      localizacao_atual = espec['localicação']
-                if quantidade2 > 0:   
-                  texto += f'Produto {produtos} possui: {quantidade2} unidades na posição {localizacao} do depósito: Revenda  \n'
-                else:
-                  texto += ''
-  with descricao_visual:
-      
-      foto = st.image(lista_foto[0])
-      st.info(texto)
-      col1,col2,col3 = st.columns(3)
-      with col1:
-        st.metric(label=f'Total em Rev: {produtos} ',value=f'{qtd_total}')
+dados = roteiro['Depósito']
+dados2 = roteiro['Estoque']
+lista_itens = [elemento for elemento in dados2]
+selecao = st.selecbox(label = '',placeholder='Selecione um Item',options=)
 
