@@ -156,7 +156,7 @@ if produto:
                             qtd_ofc = quantidade_rec - analise
                             deposito_ref.child(caminho_rec_final).set(qtd_ofc)
                           else:
-                            qtd_ofc = quantidade_rec - (analise)*-1
+                            qtd_ofc = quantidade_rec - (analise)
                             deposito_ref.child(caminho_rec_final).set(qtd_ofc)
                           st.info(f'Item {produto} teve sua quantidade alterada para {qtd} na posição {position}')   
   
