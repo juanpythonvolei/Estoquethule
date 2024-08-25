@@ -9,7 +9,7 @@ roteiro = requiscao.json()
 dados = roteiro['Depósito']
 dados2 = roteiro['Estoque']
 def consulta(item):    
-  texto = ''
+  
   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
   roteiro = requiscao.json()
   dados = roteiro['Depósito']
@@ -18,7 +18,7 @@ def consulta(item):
   foto = dados2[f'{item}']['foto']
   st.warning(f'Item {item} possúi {qtd_Rec} unidades em Rec')
   for elemento in dados['Rev']:
-    
+    texto = ''
     localizacao = dados['Rev'][f'{elemento}']
     for x in localizacao:
       if x == item:
