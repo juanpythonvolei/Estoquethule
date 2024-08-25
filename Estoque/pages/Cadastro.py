@@ -68,7 +68,7 @@ with st.popover('Alterar informações de Produtos'):
     if alteracao_item:
            alteracao_campo = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_alteracao_campo,index=None)
            if alteracao_campo: 
-                item_alterado = st.text_input(placeholder='Insira a substituição')
+                item_alterado = st.text_input(placeholder='Insira a substituição',label='')
                 if item_alterado:
                     caminho_final = f'{alteracao_item}/{alteracao_campo}'
                     deposito_ref.child(caminho_final).set(item_alterado)
