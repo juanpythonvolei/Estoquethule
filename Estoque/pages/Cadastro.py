@@ -50,6 +50,7 @@ if codigo and descricao and foto:
 else:
         st.error('Ainda há campos a serem preenchidos')
 with st.popover('Alterar informações de Produtos'):
+    deposito_ref = db.reference('Estoque')
     requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
     roteiro = requiscao.json()
     dados = roteiro['Estoque']
