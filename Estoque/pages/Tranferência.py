@@ -147,7 +147,7 @@ if produto:
                         qtd = st.number_input(value=None,placeholder='Insira a quantidade para alteração',label='',key='Alteração')
                         if qtd:
                           analise = quantidade_rev - qtd
-                          caminho_rev_final = f'Rev/{position}/quantidade'
+                          caminho_rev_final = f'Rev/{position}/{produto}/quantidade'
                           caminho_rec_final = f'Rec/{produto}/quantidade'
                           deposito_ref.child(caminho_rev_final).set(qtd)
                           dados2 = roteiro['Depósito']['Rec']
