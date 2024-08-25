@@ -137,29 +137,27 @@ if produto:
                         posicao = dados[f'{item}']
                         for elemento in posicao:
                           if elemento == produto:
-                            quantidade_rev = posicao[f'{elemento}']['quantidade']
+                            
                             if item in lista_position:
                               pass
                             else:
                               lista_position.append(item)
                       position = st.selectbox(placeholder='Selecione a posição para alteração',index=None,options=lista_position,label='')
                       if position:
+                        quantidade_rev = dados[f'{position}'][f'{produto}']['quantidade']
                         qtd = st.number_input(value=None,placeholder='Insira a quantidade para alteração',label='',key='Alteração')
                         if qtd:
                           analise = quantidade_rev - qtd
                           caminho_rev_final = f'Rev/{position}/{produto}/quantidade'
                           caminho_rec_final = f'Rec/{produto}/quantidade'
                           deposito_ref.child(caminho_rev_final).set(qtd)
-                          dados2 = roteiro['Depósito']['Rec']
-                          for item in dados2:
-                               if item == produto:
-                                quantidade_rec = dados2[f'{item}']['quantidade']
-                                if analise > 0:
-                                      qtd_ofc = quantidade_rec - analise
-                                      deposito_ref.child(caminho_rec_final).set(qtd_ofc)
-                                else:
-                                    qtd_ofc = quantidade_rec + (analise)*-1
-                                    deposito_ref.child(caminho_rec_final).set(qtd_ofc)
+                          quantidade_rec = roteiro['Depósito']['Rec'][f'{produto}']['quantidade']
+                          if analise >0:
+                            qtd_ofc = quantidade_rec - analise
+                            deposito_ref.child(caminho_rec_final).set(qtd_ofc)
+                          else:
+                            qtd_ofc = quantidade_rec - analise
+                            deposito_ref.child(caminho_rec_final).set(qtd_ofc)
                           st.info(f'Item {produto} teve sua quantidade alterada para {qtd} na posição {position}')   
   
 
