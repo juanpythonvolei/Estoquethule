@@ -137,7 +137,7 @@ if produto:
                         posicao = dados[f'{item}']
                         for elemento in posicao:
                           if elemento == produto:
-                            quantidade_rev = posicao[f''{elemento}]['quantidade']
+                            quantidade_rev = posicao[f'{elemento}']['quantidade']
                             if item in lista_position:
                               pass
                             else:
