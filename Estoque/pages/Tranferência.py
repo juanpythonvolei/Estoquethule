@@ -40,6 +40,9 @@ with col4:
     produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
 if produto:
   col1,col2,col3 = st.columns(3)
+  with col5: 
+            with st.popover('🔍'):
+                           consulta(produto)
   with col1:
         deposito_origem = st.selectbox(index=None,label='',placeholder='Depósito de origem',options=['Rev','Dev','Rec','Ele'])
   with col2:
@@ -71,9 +74,7 @@ if produto:
                 localizacao = None
         if produto:
           
-          with col5: 
-            with st.popover('🔍'):
-                           consulta(produto)
+          
           quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
           final = st.text_input(label='',placeholder='Insira a posição Final')
           if final:
