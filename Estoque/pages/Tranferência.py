@@ -34,7 +34,7 @@ def consulta(item):
 
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 
-col4,col5,col6 = st.columns(3)
+
 with col4:
     elementos = [x for x in dados2]
     produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
@@ -70,9 +70,10 @@ if produto:
                 st.error(f'A posição {origem} está incorreta. Insira-a novamente')
                 localizacao = None
         if produto:
-         
-          with st.popover('🔍'):
-                         consulta(produto)
+          col4,col5,col6 = st.columns(3)
+          with col5: 
+            with st.popover('🔍'):
+                           consulta(produto)
           quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
           final = st.text_input(label='',placeholder='Insira a posição Final')
           if final:
