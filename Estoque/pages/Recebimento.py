@@ -39,12 +39,13 @@ for item in dados:
 tab1,tab2 = st.tabs(['Alimentação Manual','Alimentação de itens da nota'])
 with tab1:
   item = st.text_input(label='',placeholder='Insira um item')
-  if item not in lista_produtos:
-    alerta(item)
+  
   quantidade = st.number_input(placeholder=f'Insira a quantidade do item',value=None,label='')
   if item and quantidade:
     botao_adicionar = st.button(f'Adicionar Item: {item}')
     if botao_adicionar:
+      if item not in lista_produtos:
+        alerta(item)  
       deposito_ref = db.reference('Depósito')
       caminho = f'Rec/{item}'
     
