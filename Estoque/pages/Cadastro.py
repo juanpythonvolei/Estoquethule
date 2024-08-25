@@ -61,7 +61,7 @@ with st.popover('Alterar informações de Produtos'):
             lista_alteracao_campo.append(elemento)
     alteracao_item = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_produto_alteracao)
     
-    if alteracao_item
+    if alteracao_item:
            alteracao_campo = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_alteracao_campo)
 
     
