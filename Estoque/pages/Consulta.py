@@ -69,8 +69,6 @@ elif menu == "consultar posição":
 )
 elif menu == 'Assistente':
     texto_item = ''        
-    item_rec = dados3[f'{selecao_item}']['quantidade']
-    foto = dados2[f'{selecao_item}'][f'foto']
     for item in dados:
       posicao = dados[f'{item}']
       for produto in posicao:
