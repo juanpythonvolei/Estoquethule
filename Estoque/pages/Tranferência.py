@@ -26,7 +26,10 @@ def consulta(item):
           if qtd_rev>0:
             local = localizacao
             info = f'Item :{item} possúi {qtd_rev} unidades na posição {elemento}'
-            texto += info
+            if info in texto:
+              pass
+            else:
+              texto += info
       st.info(info)
 
   st.image(foto)  
