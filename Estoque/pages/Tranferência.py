@@ -70,6 +70,9 @@ if produto:
                 st.error(f'A posição {origem} está incorreta. Insira-a novamente')
                 localizacao = None
         if produto:
+          with col5:
+                       with st.popover('🔍'):
+                         consulta(produto)
           quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
           final = st.text_input(label='',placeholder='Insira a posição Final')
           if final:
@@ -159,8 +162,6 @@ if produto:
                             st.info(f'Item {produto} teve sua quantidade alterada para {qtd} na posição {position}')   
   
 
-          with col5:
-                       with st.popover('🔍'):
-                         consulta(produto)
+          
   
   
