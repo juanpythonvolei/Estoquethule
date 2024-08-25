@@ -58,10 +58,12 @@ with st.popover('Alterar informações de Produtos'):
     for item in dados:
         lista_produto_alteracao.append(item)
         for elemento in dados[f'{item}']:
-            lista_alteracao_campo.append(elemento)
-    alteracao_item = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_produto_alteracao)
-    
+            if elemento in lista_alteracao_campo:
+                pass
+            else:
+                lista_alteracao_campo.append(elemento)
+    alteracao_item = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_produto_alteracao,index=None)
     if alteracao_item:
-           alteracao_campo = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_alteracao_campo)
+           alteracao_campo = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_alteracao_campo,index=None)
 
     
