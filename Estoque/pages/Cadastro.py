@@ -33,22 +33,6 @@ excluir = st.button('Excluir Produtos')
 if excluir:
         exclusao()
 ref = db.reference('Estoque')
-if codigo and descricao and foto:
-    with col1:
-        cadastro = st.button('Cadastar Produtos')
-        if cadastro:
-            dict_produto = {'Foto':foto,'Descrição':descricao}
-            try:
-                        caminho_cadastro = f'{codigo}'
-                        ref.child(caminho_cadastro).set({
-                        'foto':foto,
-                        'Descrição':descricao
-                    })
-            except:
-                        st.error('Não há saida de dados disponível')
-
-else:
-        st.error('Ainda há campos a serem preenchidos')
 with st.popover('Alterar informações de Produtos'):
     deposito_ref = db.reference('Estoque')
     
@@ -73,5 +57,20 @@ with st.popover('Alterar informações de Produtos'):
                     caminho_final = f'{alteracao_item}/{alteracao_campo}'
                     deposito_ref.child(caminho_final).set(item_alterado)
                     st.success(f'O item {alteracao_item} foi alterado no campo {alteracao_campo} para o valor de {item_alterado}')
+if codigo and descricao and foto:
+    with col1:
+        cadastro = st.button('Cadastar Produtos')
+        if cadastro:
+            dict_produto = {'Foto':foto,'Descrição':descricao}
+            try:
+                        caminho_cadastro = f'{codigo}'
+                        ref.child(caminho_cadastro).set({
+                        'foto':foto,
+                        'Descrição':descricao
+                    })
+            except:
+                        st.error('Não há saida de dados disponível')
 
+else:
+        st.error('Ainda há campos a serem preenchidos')
     
