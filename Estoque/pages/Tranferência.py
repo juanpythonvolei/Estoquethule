@@ -27,7 +27,7 @@ def consulta(item):
             local = localizacao
             info = f'Item :{item} possúi {qtd_rev} unidades na posição {elemento}'
             texto += info
-  st.info(info)
+      st.info(info)
 
   st.image(foto)  
 
