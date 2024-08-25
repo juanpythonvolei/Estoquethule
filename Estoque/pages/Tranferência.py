@@ -25,13 +25,9 @@ def consulta(item):
           qtd_rev = localizacao[f'{x}']['quantidade']
           if qtd_rev>0:
             local = localizacao
-            info = f'Item :{item} possúi {qtd_rev} unidades na posição {elemento}'
-            if info in texto:
-              pass
-            else:
-              texto += info
-              st.info(info)
-
+            texto += f'Item :{item} possúi {qtd_rev} unidades na posição {elemento}' 
+    
+  st.info(texto)
   st.image(foto)  
 
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
