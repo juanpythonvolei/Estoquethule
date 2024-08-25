@@ -51,6 +51,7 @@ else:
         st.error('Ainda há campos a serem preenchidos')
 with st.popover('Alterar informações de Produtos'):
     deposito_ref = db.reference('Estoque')
+    
     requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
     roteiro = requiscao.json()
     dados = roteiro['Estoque']
@@ -69,6 +70,8 @@ with st.popover('Alterar informações de Produtos'):
             if alteracao_campo:
                 item_alterado = st.text_input(placeholder='Insira a substituição')
                 if item_alterado:
-                    
+                    caminho_final = f'{alteracao_item}/{alteracao_campo}'
+                    deposito_ref.child(caminho_final).set(item_alterado)
+                    st.success(f'O item {alteracao_item} foi alterado no campo {alteracao_campo} para o valor de {item_alterado}')
 
     
