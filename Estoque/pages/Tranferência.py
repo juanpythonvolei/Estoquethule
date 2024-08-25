@@ -131,11 +131,13 @@ if produto:
                       requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                       roteiro = requiscao.json()
                       dados = roteiro['Depósito']['Rev']
+                      dados2 = roteiro['Depósito']['Rec']
                       lista_position = []
                       for item in dados:
                         posicao = dados[f'{item}']
                         for elemento in posicao:
                           if elemento == produto:
+                            quantidade_rev = posicao[f''{elemento}]['quantidade']
                             if item in lista_position:
                               pass
                             else:
@@ -144,8 +146,20 @@ if produto:
                       if position:
                         qtd = st.number_input(value=None,placeholder='Insira a quantidade para alteração',label='',key='Alteração')
                         if qtd:
+                          analise = quantidade_rev - qtd
                           caminho_rev_final = f'Rev/{final}/{position}/quantidade'
+                          caminho_rec_final = f'Rec/{produto}/quantidade'
                           deposito_ref.child(caminho_rev_final).set(qtd)
+                          dados2 = roteiro['Depósito']['Rec']
+                          for item in dados2:
+                               if item == produto:
+                                 quantidade_rec = dados2[f'{item}']['quantidade']
+                          if analise > 0:
+                                qtd_ofc = quantidade_rec - analise
+                                deposito_ref.child(caminho_rec_final).set(qtd_ofc)
+                          else:
+                              qtd_ofc = quantidade_rec + analise
+                              deposito_ref.child(caminho_rec_final).set(qtd_ofc)
                           st.info(f'Item {produto} teve sua quantidade alterada para {qtd} na posição {position}')   
   
 
