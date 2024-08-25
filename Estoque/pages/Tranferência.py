@@ -30,7 +30,7 @@ def consulta(item):
               pass
             else:
               texto += info
-      st.info(info)
+  st.info(info)
 
   st.image(foto)  
 
