@@ -23,9 +23,8 @@ dados3 = roteiro['Depósito']['Rec']
 dados = roteiro['Depósito']['Rev']
 dados2 = roteiro['Estoque']
 quantidade = 0
-menu = option_menu('selecione uma opção',['Consultar item','consultar posição','Assistente'])
-col1,col2,col3 = st.columns(3)
-if menu == 'Consultar item':
+col1,col2,col3 = st.tabs(['Consultar item','consultar posição','Assistente'])
+with col1:
  
   texto_item = ''
   lista_itens = [elemento for elemento in dados2]
@@ -45,7 +44,7 @@ if menu == 'Consultar item':
            texto_item += info
     st.info(texto_item) 
     st.image(foto)       
-elif menu == "consultar posição":
+with col2:
   texto_posicao =''
   lista_posicoes = [elemento for elemento in dados]
   selecao_posicao = st.selectbox(label = '',placeholder='Selecione uma posição',options=lista_posicoes,index=None)
@@ -67,7 +66,7 @@ elif menu == "consultar posição":
              {texto_posicao}
                                 '''
 )
-elif menu == 'Assistente':
+with col3:
     texto_item = ''        
     for item in dados:
       posicao = dados[f'{item}']
