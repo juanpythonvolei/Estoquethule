@@ -49,4 +49,19 @@ if codigo and descricao and foto:
 
 else:
         st.error('Ainda há campos a serem preenchidos')
+with st.popover('Alterar informações de Produtos'):
+    requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+    roteiro = requiscao.json()
+    dados = roteiro['Estoque']
+    lista_produto_alteracao = []
+    lista_alteracao_campo = []
+    for item in dados:
+        lista_produto_alteracao.append(item)
+        for elemento in dados[f'{item}']
+            lista_alteracao_campo.append(elemento)
+    alteracao_item = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_produto_alteracao)
+    
+    if alteracao_item
+           alteracao_campo = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_alteracao_campo)
 
+    
