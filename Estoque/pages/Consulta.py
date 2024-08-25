@@ -74,7 +74,7 @@ elif menu == 'Assistente':
       for produto in posicao:
            quantidade = posicao[f'{produto}']['quantidade']
            info =  f'''
-           O item {selecao_item} possúi {quantidade} unidades na posição {item}
+           O item {produto} possúi {quantidade} unidades na posição {item}
            '''
            texto_item += info
     texto_posicao =''      
