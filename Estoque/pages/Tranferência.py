@@ -27,9 +27,8 @@ def consulta(item):
             local = localizacao
             info = f'Item :{item} possúi {qtd_rev} unidades na posição {elemento}'
             texto += info
-        st.info(info)
-      else:
-          pass
+  st.info(info)
+
   st.image(foto)  
 
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
