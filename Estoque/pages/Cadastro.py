@@ -71,7 +71,7 @@ if codigo not in lista_nomes_verif:
         with col1:
             cadastro = st.button('Cadastar Produtos')
             if cadastro:
-                if foto
+                if foto:
                     dict_produto = {'Foto':foto,'Descrição':descricao}
                     try:
                                 caminho_cadastro = f'{codigo}'
