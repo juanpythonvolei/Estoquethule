@@ -145,7 +145,7 @@ if produto:
                                   position = st.selectbox(placeholder='Selecione a posição para alteração',index=None,options=lista_position,label='')
                                   if position:
                                     quantidade_rev = dados[f'{position}'][f'{produto}']['quantidade']
-                                    qtd = st.number_input(value=None,placeholder='Insira a quantidade para alteração',label='',key='Alteração')
+                                    qtd = st.number_input(value=None,placeholder='Quantidade para alteração',label='',key='Alteração')
                                     if qtd:
                                       analise = qtd-quantidade_rev
                                       caminho_rev_final = f'Rev/{position}/{produto}/quantidade'
