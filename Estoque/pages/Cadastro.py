@@ -7,12 +7,13 @@ import requests
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
 dados = roteiro['Estoque']
-col1,col2,col3 = st.columns(3)
+
 lista_nomes_verif = [item for item in dados]
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 codigo = st.text_input(label='',placeholder='Insira o Código do produto')
 if codigo not in lista_nomes_verif:
     descricao = st.text_input(label='',placeholder='Insira uma descirção do produto')
+    col1,col2,col3 = st.columns(3)
     with col1:
         foto = st.text_input(label='',placeholder='Insira a foto do Produto')
     with col2:
