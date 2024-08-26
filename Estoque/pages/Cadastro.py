@@ -39,6 +39,7 @@ try:
                             veiculo_ref.delete()
                             rec_ref.delete()
                             for item in dados2:
+                                st.write(item)
                                 produto = dados2[f'{item}']
                                 if produto == produto_excluir:
                                     rev_ref = db.reference(f'Depósito/Rev/{item}/{produto_excluir}')
