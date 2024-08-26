@@ -41,9 +41,9 @@ try:
                             for item in dados2:
                                 st.write(item)
                                 produto = dados2[f'{item}']
-                                if str(produto) == str(produto_excluir):
-                                    rev_ref = db.reference(f'Depósito/Rev/{item}/{produto_excluir}')
-                                    rev_ref.delete()
+                                
+                                rev_ref = db.reference(f'Depósito/Rev/{item}/{produto_excluir}')
+                                rev_ref.delete()
                             st.success(f'Produto {produto_excluir} excluido')
                 else:
                         st.info(f'Você realmente deseja excluir o produto {produto_excluir}')
