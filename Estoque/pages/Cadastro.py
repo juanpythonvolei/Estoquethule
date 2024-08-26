@@ -17,6 +17,7 @@ if codigo not in lista_nomes_verif:
     with col1:
         foto = st.text_input(label='',placeholder='Insira a foto do Produto')
     with col2:
+        with st.popover('📷')
          uploaded_files = st.file_uploader("Escolha a foto", type=['png','jpg'], accept_multiple_files=False)
     col1,col2,col3 = st.columns(3)
     
