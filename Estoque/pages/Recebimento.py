@@ -15,21 +15,22 @@ def alerta(item):
     botao_sim = st.button('Sim')
     if botao_sim:
       descricao = st.text_input(label='',placeholder='Insira uma descrição')
-      deposito_ref = db.reference('Depósito')
-      caminho = f'Rec/{item}'
-      
-      Estoque_ref = db.reference('Estoque')
-      caminho_estoque = f'{item}'
-    
-    # Adicionando dados
-      deposito_ref.child(caminho).set({
-          'quantidade': quantidade  # Exemplo de dado adicional
-      })
-      Estoque_ref.child(caminho_estoque).set({
-          'Descrição': descricao,
-          'foto':None# Exemplo de dado adicional
-      })
-      st.success('Deu certo')
+      if descricao:  
+          deposito_ref = db.reference('Depósito')
+          caminho = f'Rec/{item}'
+          
+          Estoque_ref = db.reference('Estoque')
+          caminho_estoque = f'{item}'
+        
+        # Adicionando dados
+          deposito_ref.child(caminho).set({
+              'quantidade': quantidade  # Exemplo de dado adicional
+          })
+          Estoque_ref.child(caminho_estoque).set({
+              'Descrição': descricao,
+              'foto':''# Exemplo de dado adicional
+          })
+          st.success(f'O {ite} foi adicionado em {quantidade} unidades e cadastrado com sucesso')
 lista_produtos = []
 for item in dados:
                 if item in lista_produtos:
