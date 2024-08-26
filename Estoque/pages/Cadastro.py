@@ -82,14 +82,12 @@ if codigo not in lista_nomes_verif:
                     except:
                                 st.error('Não há saida de dados disponível')
                 elif uploaded_files:
-                    try:
                                 caminho_cadastro = f'{codigo}'
                                 ref.child(caminho_cadastro).set({
                                 'foto':uploaded_files,
                                 'Descrição':descricao
                             })
-                    except:
-                                st.error('Não há saida de dados disponível')
+
         
     else:
             st.error('Ainda há campos a serem preenchidos')
