@@ -126,7 +126,7 @@ if produto:
         else:
               st.error('Ainda há campos a serem preenchidos')
   with col6:
-            with st.popover('Alteração'):
+            with st.popover('⚙️'):
                                   deposito_ref = db.reference('Depósito')
                                   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                                   roteiro = requiscao.json()
