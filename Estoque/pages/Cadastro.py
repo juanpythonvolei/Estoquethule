@@ -28,11 +28,20 @@ if codigo not in lista_nomes_verif:
             requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
             roteiro = requiscao.json()
             dados = roteiro['Estoque']
+            dados2 = roteiro['Depósito']['Rev']
             lista_nomes = [item for item in dados]
+            lista_nomes_rec = [item for item in dados]
             produto_excluir = st.selectbox(label='',options=lista_nomes,index=None,placeholder='Selecione um produto')       
             if produto_excluir:
                         veiculo_ref = db.reference(f'Estoque/{produto_excluir}')
+                        rec_ref = db.reference(f'Depóstio/Rec/{produto_excluir}')
                         veiculo_ref.delete()
+                        rec_ref.delete()
+                        for item in dados2:
+                            produto = dados2[f'{item}']
+                            if produto == produto_excluir:
+                                rev_ref = db.reference(f'Depóstio/Rev/{produto_excluir}')
+                                rev_ref.delete()
                         st.success(f'Produto {produto_excluir} excluido')
             else:
                     st.info(f'Você realmente deseja excluir o produto {produto_excluir}')
