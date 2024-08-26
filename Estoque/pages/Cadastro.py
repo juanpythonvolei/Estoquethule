@@ -116,6 +116,7 @@ except:
              uploaded_files = st.file_uploader("Escolha a foto", type=['png','jpg'], accept_multiple_files=False)
     col1,col2,col3 = st.columns(3)
     if codigo and descricao and foto or uploaded_files:
+            ref = db.reference('Estoque')
             with col1:
                 cadastro = st.button('Cadastar Produtos')
                 if cadastro:
