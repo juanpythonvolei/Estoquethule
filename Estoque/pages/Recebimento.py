@@ -28,7 +28,7 @@ def alerta(item):
               'Descrição': descricao,
               'foto':''# Exemplo de dado adicional
           })
-          st.success(f'O {ite} foi adicionado em {quantidade} unidades e cadastrado com sucesso')
+          st.success(f'O {item} foi adicionado em {quantidade} unidades e cadastrado com sucesso')
 lista_produtos = []
 for item in dados:
                 if item in lista_produtos:
