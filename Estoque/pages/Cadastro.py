@@ -34,13 +34,13 @@ if codigo not in lista_nomes_verif:
             produto_excluir = st.selectbox(label='',options=lista_nomes,index=None,placeholder='Selecione um produto')       
             if produto_excluir:
                         veiculo_ref = db.reference(f'Estoque/{produto_excluir}')
-                        rec_ref = db.reference(f'Depóstio/Rec/{produto_excluir}')
+                        rec_ref = db.reference(f'Depósito/Rec/{produto_excluir}')
                         veiculo_ref.delete()
                         rec_ref.delete()
                         for item in dados2:
                             produto = dados2[f'{item}']
                             if produto == produto_excluir:
-                                rev_ref = db.reference(f'Depóstio/Rev/{produto_excluir}')
+                                rev_ref = db.reference(f'Depósito/Rev/{produto_excluir}')
                                 rev_ref.delete()
                         st.success(f'Produto {produto_excluir} excluido')
             else:
