@@ -84,7 +84,7 @@ if codigo not in lista_nomes_verif:
                 elif uploaded_files:
                                 caminho_cadastro = f'{codigo}'
                                 ref.child(caminho_cadastro).set({
-                                'foto':f'{uploaded_filesl.name}',
+                                'foto':f'{uploaded_files.name}',
                                 'Descrição':descricao
                             })
 
