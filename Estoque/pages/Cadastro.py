@@ -4,9 +4,9 @@ from firebase_admin import credentials, firestore,db
 import requests
 import os
 import requests
-if requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json'):
-    requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-    roteiro = requiscao.json()
+requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+roteiro = requiscao.json()
+if roteiro['Estoque']:
     dados = roteiro['Estoque']
     
     lista_nomes_verif = [item for item in dados]
