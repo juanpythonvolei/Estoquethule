@@ -11,10 +11,8 @@ roteiro = requiscao.json()
 dados = roteiro['Estoque']
 @st.dialog(f"Atenção") 
 def alerta(item):
-    st.warning(f'O item: {item} não conta no cadastro, Deseja continuar:')
-    botao_sim = st.button('Sim')
-    if botao_sim:
-      descricao = st.text_input(label='',placeholder='Insira uma descrição')
+    st.warning(f'O item: {item} não conta no cadastro')
+    descricao = st.text_input(label='',placeholder='Insira uma descrição')
       if descricao:  
           deposito_ref = db.reference('Depósito')
           caminho = f'Rec/{item}'
