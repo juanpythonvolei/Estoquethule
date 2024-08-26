@@ -40,7 +40,7 @@ if codigo not in lista_nomes_verif:
                         for item in dados2:
                             produto = dados2[f'{item}']
                             if produto == produto_excluir:
-                                rev_ref = db.reference(f'Depósito/Rev/{produto_excluir}')
+                                rev_ref = db.reference(f'Depósito/Rev/{item}/{produto_excluir}')
                                 rev_ref.delete()
                         st.success(f'Produto {produto_excluir} excluido')
             else:
