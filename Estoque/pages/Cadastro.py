@@ -5,8 +5,6 @@ import requests
 import os
 import requests
 
-
-lista_nomes_verif = [item for item in dados]
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 codigo = st.text_input(label='',placeholder='Insira o Código do produto')
 if codigo not in lista_nomes_verif:
