@@ -67,20 +67,30 @@ if codigo not in lista_nomes_verif:
                         caminho_final = f'{alteracao_item}/{alteracao_campo}'
                         deposito_ref.child(caminho_final).set(item_alterado)
                         st.success(f'O item {alteracao_item} foi alterado no campo {alteracao_campo} para o valor de {item_alterado}')
-    if codigo and descricao and foto:
+    if codigo and descricao and foto or uploaded_files:
         with col1:
             cadastro = st.button('Cadastar Produtos')
             if cadastro:
-                dict_produto = {'Foto':foto,'Descrição':descricao}
-                try:
-                            caminho_cadastro = f'{codigo}'
-                            ref.child(caminho_cadastro).set({
-                            'foto':foto,
-                            'Descrição':descricao
-                        })
-                except:
-                            st.error('Não há saida de dados disponível')
-    
+                if foto
+                    dict_produto = {'Foto':foto,'Descrição':descricao}
+                    try:
+                                caminho_cadastro = f'{codigo}'
+                                ref.child(caminho_cadastro).set({
+                                'foto':foto,
+                                'Descrição':descricao
+                            })
+                    except:
+                                st.error('Não há saida de dados disponível')
+                elif uploaded_files:
+                    try:
+                                caminho_cadastro = f'{codigo}'
+                                ref.child(caminho_cadastro).set({
+                                'foto':uploaded_files,
+                                'Descrição':descricao
+                            })
+                    except:
+                                st.error('Não há saida de dados disponível')
+        
     else:
             st.error('Ainda há campos a serem preenchidos')
 else:
