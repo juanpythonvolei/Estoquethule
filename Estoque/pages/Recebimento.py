@@ -47,12 +47,13 @@ with tab1:
     if botao_adicionar:
       if item not in lista_produtos:
         alerta(item)  
-      deposito_ref = db.reference('Depósito')
-      caminho = f'Rec/{item}'
-    
-    # Adicionando dados
-      deposito_ref.child(caminho).set({
-          'quantidade': quantidade  # Exemplo de dado adicional
-      })
-      st.success(f'Item {item} adicionado com sucesso')
-  
+      else:  
+          deposito_ref = db.reference('Depósito')
+          caminho = f'Rec/{item}'
+        
+        # Adicionando dados
+          deposito_ref.child(caminho).set({
+              'quantidade': quantidade  # Exemplo de dado adicional
+          })
+          st.success(f'Item {item} adicionado com sucesso')
+      
