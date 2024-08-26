@@ -5,7 +5,7 @@ import requests
 import os
 import requests
 if requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json'):
-    requisicao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+    requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
     roteiro = requiscao.json()
     dados = roteiro['Estoque']
     
