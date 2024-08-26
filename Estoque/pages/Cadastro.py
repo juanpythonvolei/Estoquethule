@@ -4,9 +4,7 @@ from firebase_admin import credentials, firestore,db
 import requests
 import os
 import requests
-requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-roteiro = requiscao.json()
-dados = roteiro['Estoque']
+
 
 lista_nomes_verif = [item for item in dados]
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
