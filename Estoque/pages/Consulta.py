@@ -51,7 +51,11 @@ with col1:
 with col2:
   texto_posicao =''
   lista_posicoes = [elemento for elemento in dados]
-  selecao_posicao = st.selectbox(label = '',placeholder='Selecione uma posição',options=lista_posicoes,index=None)
+  coletor = st.toggle('Coletor')    
+  if coletor:
+       selecao_posicao = st.text_input(label = '',placeholder='Selecione uma posição')
+  else:   
+       selecao_posicao = st.selectbox(label = '',placeholder='Selecione uma posição',options=lista_posicoes,index=None)
   if selecao_posicao:
    for item in dados:
      if item == selecao_posicao:
