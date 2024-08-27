@@ -51,7 +51,7 @@ try:
                 st.info('Por enquanto, não foram registrados produtos')
         
         
-        excluir = st.button('Excluir Produtos')
+        excluir = st.button('Excluir Produtos',class='botao_excluir')
         if excluir:
                 exclusao()
         ref = db.reference('Estoque')
