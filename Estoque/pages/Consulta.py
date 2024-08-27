@@ -28,7 +28,7 @@ with col1:
  
   texto_item = ''
   lista_itens = [elemento for elemento in dados2]
-  coletor = st.toggle('Coletor') 
+  coletor = st.toggle('Coletor',key='posicao') 
   if coletor:
        selecao_item = st.text_input(label = '',placeholder='Insira o item')
   else:   
@@ -51,7 +51,7 @@ with col1:
 with col2:
   texto_posicao =''
   lista_posicoes = [elemento for elemento in dados]
-  coletor = st.toggle('Coletor')    
+  coletor = st.toggle('Coletor',key='localizacao')    
   if coletor:
        selecao_posicao = st.text_input(label = '',placeholder='Selecione uma posição')
   else:   
