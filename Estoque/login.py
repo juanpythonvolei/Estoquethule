@@ -4,8 +4,9 @@ from firebase_admin import credentials, firestore,db
 import requests
 import os
 
-with open('styles.css','r') as file:
-    st.markdown(f"<styles>{file.read}</styles>",unsafe_allow_html=True)
+# Carregue o arquivo CSS
+st.markdown('<link rel="stylesheet" href="styles.css">', unsafe_allow_html=True)
+
 if not firebase_admin._apps:
     autenticacao  = {
             "type": st.secrets["firebase"]["type"],
