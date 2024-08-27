@@ -28,7 +28,11 @@ with col1:
  
   texto_item = ''
   lista_itens = [elemento for elemento in dados2]
-  selecao_item = st.selectbox(label = '',placeholder='Selecione um Item',options=lista_itens,index=None)   
+  coletor = st.toggle('Coletor') 
+  if coletor:
+       selecao_item = st.text_input(label = '',placeholder='Insira o item')
+  else:   
+       selecao_item = st.selectbox(label = '',placeholder='Selecione um Item',options=lista_itens,index=None)   
   if selecao_item:   
     item_rec = dados3[f'{selecao_item}']['quantidade']
     foto = dados2[f'{selecao_item}'][f'foto']
