@@ -65,7 +65,7 @@ if 'Depósito' in roteiro:
                 roteiro = requiscao.json()
                 a = roteiro['Depósito']
                 if 'Rev' not in a:
-                  pass
+                  st.error('Ainda não há rev')
                 else:
                   dados = roteiro['Depósito']['Rev']
                   lista_pos = []
@@ -165,38 +165,42 @@ if 'Depósito' in roteiro:
                                         deposito_ref = db.reference('Depósito')
                                         requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                                         roteiro = requiscao.json()
-                                        dados = roteiro['Depósito']['Rev']
-                                        dados2 = roteiro['Depósito']['Rec']
-                                        lista_position = []
-                                        for item in dados:
-                                          posicao = dados[f'{item}']
-                                          for elemento in posicao:
-                                            if elemento == produto:
-                                              
-                                              if item in lista_position:
-                                                pass
-                                              else:
-                                                lista_position.append(item)
-                                        if coletor:
-                                          position = st.text_input(label='',placeholder='Selecione a posição para alteração')
+                                        a = roteiro['Depósito']
+                                        if 'Rev' not in a:
+                                          st.error('Ainda não há rev')
                                         else:
-                                          position = st.selectbox(placeholder='Selecione a posição para alteração',index=None,options=lista_position,label='')
-                                        if position:
-                                          quantidade_rev = dados[f'{position}'][f'{produto}']['quantidade']
-                                          qtd = st.number_input(value=None,placeholder='Quantidade para alteração',label='',key='Alteração')
-                                          if qtd:
-                                            analise = qtd-quantidade_rev
-                                            caminho_rev_final = f'Rev/{position}/{produto}/quantidade'
-                                            caminho_rec_final = f'Rec/{produto}/quantidade'
-                                            deposito_ref.child(caminho_rev_final).set(qtd)
-                                            quantidade_rec = roteiro['Depósito']['Rec'][f'{produto}']['quantidade']
-                                            if analise >0:
-                                              qtd_ofc = quantidade_rec - analise
-                                              deposito_ref.child(caminho_rec_final).set(qtd_ofc)
-                                            else:
-                                              qtd_ofc = quantidade_rec + (analise*-1)
-                                              deposito_ref.child(caminho_rec_final).set(qtd_ofc)
-                                            st.info(f'Item {produto} teve sua quantidade alterada para {qtd} na posição {position}')   
+                                          dados = roteiro['Depósito']['Rev']
+                                          dados2 = roteiro['Depósito']['Rec']
+                                          lista_position = []
+                                          for item in dados:
+                                            posicao = dados[f'{item}']
+                                            for elemento in posicao:
+                                              if elemento == produto:
+                                                
+                                                if item in lista_position:
+                                                  pass
+                                                else:
+                                                  lista_position.append(item)
+                                          if coletor:
+                                            position = st.text_input(label='',placeholder='Selecione a posição para alteração')
+                                          else:
+                                            position = st.selectbox(placeholder='Selecione a posição para alteração',index=None,options=lista_position,label='')
+                                          if position:
+                                            quantidade_rev = dados[f'{position}'][f'{produto}']['quantidade']
+                                            qtd = st.number_input(value=None,placeholder='Quantidade para alteração',label='',key='Alteração')
+                                            if qtd:
+                                              analise = qtd-quantidade_rev
+                                              caminho_rev_final = f'Rev/{position}/{produto}/quantidade'
+                                              caminho_rec_final = f'Rec/{produto}/quantidade'
+                                              deposito_ref.child(caminho_rev_final).set(qtd)
+                                              quantidade_rec = roteiro['Depósito']['Rec'][f'{produto}']['quantidade']
+                                              if analise >0:
+                                                qtd_ofc = quantidade_rec - analise
+                                                deposito_ref.child(caminho_rec_final).set(qtd_ofc)
+                                              else:
+                                                qtd_ofc = quantidade_rec + (analise*-1)
+                                                deposito_ref.child(caminho_rec_final).set(qtd_ofc)
+                                              st.info(f'Item {produto} teve sua quantidade alterada para {qtd} na posição {position}')   
 else:
   st.error('Não há Estoque disponível')
       
