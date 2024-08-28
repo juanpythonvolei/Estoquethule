@@ -65,7 +65,7 @@ if 'Depósito' in roteiro:
                 roteiro = requiscao.json()
                 a = roteiro['Depósito']
                 if 'Rev' not in a:
-                  st.error('Ainda não há rev')
+                  pass
                 else:
                   dados = roteiro['Depósito']['Rev']
                   lista_pos = []
