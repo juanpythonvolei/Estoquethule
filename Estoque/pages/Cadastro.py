@@ -56,6 +56,7 @@ try:
                 exclusao()
         ref = db.reference('Estoque')
         with st.popover('Alterar informações de Produtos'):
+            coletor = st.toggle('Coletor') 
             deposito_ref = db.reference('Estoque')
             
             requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
@@ -70,7 +71,10 @@ try:
                         pass
                     else:
                         lista_alteracao_campo.append(elemento)
-            alteracao_item = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_produto_alteracao,index=None)
+            if not coletor:
+                alteracao_item = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_produto_alteracao,index=None)
+            else:
+                alteracao_item = st.text_input(label = '',placeholder='Selecione a alteração')
             if alteracao_item:
                    alteracao_campo = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_alteracao_campo,index=None)
                    if alteracao_campo: 
