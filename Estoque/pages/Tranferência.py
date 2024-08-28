@@ -34,11 +34,14 @@ def consulta(item):
   st.image(foto)  
 
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
-
+coletor = st.toggle('Coletor',key='trasferência') 
 col4,col5,col6 = st.columns(3)
 with col4:
     elementos = [x for x in dados2]
-    produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
+    if coletor:
+      produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
+    else:
+      produto = st.text_input(label='',placeholder='Insira o produto')
 if produto:
   col1,col2,col3 = st.columns(3)
   with col5: 
@@ -65,7 +68,10 @@ if produto:
                                 pass
                               else:
                                 lista_pos.append(item)
-          origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)
+          if coletor:
+            origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)
+          else:
+            origem = st.text_input(label='',palceholder='Insira a posição de Origem')
           if origem:
             colum2=origem [3:6]
             Prat2=origem [0:2]
@@ -143,7 +149,10 @@ if produto:
                                           pass
                                         else:
                                           lista_position.append(item)
-                                  position = st.selectbox(placeholder='Selecione a posição para alteração',index=None,options=lista_position,label='')
+                                  if coletor:
+                                    position = st.selectbox(placeholder='Selecione a posição para alteração',index=None,options=lista_position,label='')
+                                  else:
+                                    position = st.text_input(label='',placeholder='Selecione a posição para alteração')
                                   if position:
                                     quantidade_rev = dados[f'{position}'][f'{produto}']['quantidade']
                                     qtd = st.number_input(value=None,placeholder='Quantidade para alteração',label='',key='Alteração')
