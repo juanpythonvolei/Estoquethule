@@ -177,7 +177,8 @@ if 'Depósito' in roteiro:
                                               qtd_ofc = quantidade_rec + (analise*-1)
                                               deposito_ref.child(caminho_rec_final).set(qtd_ofc)
                                             st.info(f'Item {produto} teve sua quantidade alterada para {qtd} na posição {position}')   
-        
+else:
+  st.error('Não há Estoque disponível')
       
                 
         
