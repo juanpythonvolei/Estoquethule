@@ -70,9 +70,10 @@ if produto:
                               else:
                                 lista_pos.append(item)
           if coletor:
-            origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)
-          else:
             origem = st.text_input(label='',placeholder='Insira a posição de Origem')
+            
+          else:
+            origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)
           if origem:
             colum2=origem [3:6]
             Prat2=origem [0:2]
@@ -151,9 +152,9 @@ if produto:
                                         else:
                                           lista_position.append(item)
                                   if coletor:
-                                    position = st.selectbox(placeholder='Selecione a posição para alteração',index=None,options=lista_position,label='')
-                                  else:
                                     position = st.text_input(label='',placeholder='Selecione a posição para alteração')
+                                  else:
+                                    position = st.selectbox(placeholder='Selecione a posição para alteração',index=None,options=lista_position,label='')
                                   if position:
                                     quantidade_rev = dados[f'{position}'][f'{produto}']['quantidade']
                                     qtd = st.number_input(value=None,placeholder='Quantidade para alteração',label='',key='Alteração')
