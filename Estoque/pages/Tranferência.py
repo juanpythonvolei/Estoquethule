@@ -42,7 +42,7 @@ with col4:
       produto = st.text_input(label='',placeholder='Insira o produto')
     else:
         produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
-    if produto not in elementos:
+    if produto in elementos:
       col1,col2,col3 = st.columns(3)
       
       with col1:
