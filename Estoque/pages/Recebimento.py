@@ -29,6 +29,7 @@ def alerta(item):
               'foto':''# Exemplo de dado adicional
           })
           st.success(f'O {item} foi adicionado em {quantidade} unidades e cadastrado com sucesso')
+coletor = st.toggle('Coletor') 
 lista_produtos = []
 for item in dados:
                 if item in lista_produtos:
@@ -36,7 +37,7 @@ for item in dados:
                 else:
                       lista_produtos.append(item)
 tab1,tab2 = st.tabs(['Alimentação Manual','Alimentação de itens da nota'])
-coletor = st.toggle('Coletor') 
+
 with tab1:
   if coletor:  
       item = st.text_input(label='',placeholder='Insira um item')
