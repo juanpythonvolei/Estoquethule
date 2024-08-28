@@ -70,10 +70,7 @@ try:
                         pass
                     else:
                         lista_alteracao_campo.append(elemento)
-            if not coletor:
-                alteracao_item = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_produto_alteracao,index=None)
-            else:
-                alteracao_item = st.text_input(label = '',placeholder='Selecione a alteração')
+            alteracao_item = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_produto_alteracao,index=None)
             if alteracao_item:
                    alteracao_campo = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_alteracao_campo,index=None) 
                    if alteracao_campo: 
