@@ -30,7 +30,6 @@ try:
                   'foto':''# Exemplo de dado adicional
               })
               st.success(f'O {item} foi adicionado em {quantidade} unidades e cadastrado com sucesso')
-    coletor = st.toggle('Coletor') 
     lista_produtos = []
     for item in dados:
                     if item in lista_produtos:
@@ -40,11 +39,7 @@ try:
     tab1,tab2 = st.tabs(['Alimentação Manual','Alimentação de itens da nota'])
     
     with tab1:
-      if coletor:  
-          item = st.text_input(label='',placeholder='Insira um item')
-      else:
-          item = st.selectbox(label='',placeholder='Insira um item',index=None,options=lista_produtos)
-      
+      item = st.text_input(label='',placeholder='Insira um item')  
       quantidade = st.number_input(placeholder=f'Insira a quantidade do item',value=None,label='')
       if item and quantidade:
         botao_adicionar = st.button(f'Adicionar Item: {item}')
