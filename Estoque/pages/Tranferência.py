@@ -77,16 +77,19 @@ if 'Depósito' in roteiro:
                                         pass
                                       else:
                                         lista_pos.append(item)
-              if coletor:
-                if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
-                    origem = st.text_input(label='',placeholder='Insira a posição de Origem',value=deposito_origem)
-                else:
-                  origem = st.text_input(label='',placeholder='Insira a posição de Origem')
-              else:
+                  if coletor:
+                    if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
+                      origem = st.text_input(label='',placeholder='Insira a posição de Origem',value=deposito_origem)
+                    else:
+                      origem = st.text_input(label='',placeholder='Insira a posição de Origem')
+                  else:
                     try:
                       origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None,value=deposito_origem)
                     except:
                       pass
+                  
+                
+                                
               try:
                 if origem:
                     if origem != 'Rec':
