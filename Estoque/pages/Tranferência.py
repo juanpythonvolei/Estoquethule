@@ -83,7 +83,7 @@ if 'Depósito' in roteiro:
                     try:
                       origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)
                     except:
-                      st.info('Selecione o modo sem coletor para adicionar uma rev')
+                      pass
               if origem:
                   if origem != 'Rec':
                     colum2=origem [3:6]
