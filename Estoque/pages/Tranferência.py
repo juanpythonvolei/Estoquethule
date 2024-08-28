@@ -80,8 +80,11 @@ if 'Depósito' in roteiro:
                   if coletor:
                     origem = st.text_input(label='',placeholder='Insira a posição de Origem')
                   else:
-                    origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)
-                  if origem:
+                    try:
+                      origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)
+                    except:
+                      st.info('Selecione o modo sem coletor para adicionar uma rev')
+          if origem:
                     colum2=origem [3:6]
                     Prat2=origem [0:2]
                     alt2 = origem [7:]
