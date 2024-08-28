@@ -76,7 +76,10 @@ try:
             else:
                 alteracao_item = st.text_input(label = '',placeholder='Selecione a alteração')
             if alteracao_item:
-                   alteracao_campo = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_alteracao_campo,index=None)
+                   if not coletor: 
+                       alteracao_campo = st.selectbox(placeholder='Selecione a alteração',label='',options=lista_alteracao_campo,index=None)
+                   else:
+                       alteracao_campo = st.text_input(label='',placeholder='Selecione a alteração')
                    if alteracao_campo: 
                         item_alterado = st.text_input(placeholder='Insira a substituição',label='')
                         if item_alterado:
