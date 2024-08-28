@@ -31,7 +31,7 @@ def consulta(item):
             st.info(texto)
     
   
-  st.image(foto)  
+    st.image(foto)  
 
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 coletor = st.toggle('Coletor',key='trasferência') 
