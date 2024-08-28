@@ -36,8 +36,12 @@ for item in dados:
                 else:
                       lista_produtos.append(item)
 tab1,tab2 = st.tabs(['Alimentação Manual','Alimentação de itens da nota'])
+coletor = st.toggle('Coletor') 
 with tab1:
-  item = st.text_input(label='',placeholder='Insira um item')
+  if coletor:  
+      item = st.text_input(label='',placeholder='Insira um item')
+  else:
+      item = st.selctbox(label='',placeholder='Insira um item',index=None,options=lista_produtos)
   
   quantidade = st.number_input(placeholder=f'Insira a quantidade do item',value=None,label='')
   if item and quantidade:
