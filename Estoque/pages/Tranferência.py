@@ -59,7 +59,7 @@ if 'Depósito' in roteiro:
           if produto in elementos:
               
                 origem = st.text_input(label='Insira a posição de Origem',value=deposito_origem)
-              else:
+      
                 deposito_ref = db.reference('Depósito')
                 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                 roteiro = requiscao.json()
