@@ -57,7 +57,7 @@ if 'Depósito' in roteiro:
               deposito_final= st.selectbox(index=None,label='',placeholder='Depósito final',options=['Rev','Ele'])
         if deposito_origem and deposito_final:
           if produto in elementos:
-              if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
+              
                 origem = st.text_input(label='Insira a posição de Origem',value=deposito_origem)
               else:
                 deposito_ref = db.reference('Depósito')
@@ -78,10 +78,11 @@ if 'Depósito' in roteiro:
                                       else:
                                         lista_pos.append(item)
               if coletor:
-                    origem = st.text_input(label='',placeholder='Insira a posição de Origem')
+                if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
+                    origem = st.text_input(label='',placeholder='Insira a posição de Origem',value=deposito_origem)
               else:
                     try:
-                      origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)
+                      origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None,value=deposito_origem)
                     except:
                       pass
               try:
