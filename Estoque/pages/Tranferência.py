@@ -56,6 +56,7 @@ if produto:
   with col2:
         deposito_final= st.selectbox(index=None,label='',placeholder='Depósito final',options=['Rev','Ele'])
   if deposito_origem and deposito_final:
+    if produto in elementos:
         if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
           origem = st.text_input(label='Insira a posição de Origem',value=deposito_origem)
         else:
@@ -137,6 +138,8 @@ if produto:
                   
         else:
               st.error('Ainda há campos a serem preenchidos')
+    else:
+      st.error(f'Item {produto} não está cadastrado')
   with col6:
             with st.popover('⚙️'):
                                   deposito_ref = db.reference('Depósito')
