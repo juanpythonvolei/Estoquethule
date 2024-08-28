@@ -39,9 +39,10 @@ col4,col5,col6 = st.columns(3)
 with col4:
     elementos = [x for x in dados2]
     if coletor:
-      produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
-    else:
       produto = st.text_input(label='',placeholder='Insira o produto')
+      
+    else:
+      produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
 if produto:
   col1,col2,col3 = st.columns(3)
   with col5: 
