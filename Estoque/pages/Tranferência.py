@@ -40,7 +40,8 @@ with col4:
     elementos = [x for x in dados2]
     if coletor:
       produto = st.text_input(label='',placeholder='Insira o produto')
-      
+      if produto not in elementos:
+        st.error('Insira um Produto cadastrado')
     else:
       produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
 if produto:
