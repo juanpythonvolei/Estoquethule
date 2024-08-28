@@ -10,24 +10,24 @@ dados = roteiro['Depósito']
 dados2 = roteiro['Estoque']
 
 def consulta(item):    
-  
-  requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-  roteiro = requiscao.json()
-  dados = roteiro['Depósito']
-  dados2 = roteiro['Estoque']
-  qtd_Rec = dados['Rec'][f'{item}']['quantidade']
-  foto = dados2[f'{item}']['foto']
-  st.warning(f'Item {item} possúi {qtd_Rec} unidades em Rec')
-  for elemento in dados['Rev']:
-    texto = ''
-    localizacao = dados['Rev'][f'{elemento}']
-    for x in localizacao:
-      if x == item:
-          qtd_rev = localizacao[f'{x}']['quantidade']
-          if qtd_rev>0:
-            local = localizacao
-            info = f'Item :{item} possúi {qtd_rev} unidades na posição {elemento}' 
-            texto  += info
+  if produto in elementos:
+    requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+    roteiro = requiscao.json()
+    dados = roteiro['Depósito']
+    dados2 = roteiro['Estoque']
+    qtd_Rec = dados['Rec'][f'{item}']['quantidade']
+    foto = dados2[f'{item}']['foto']
+    st.warning(f'Item {item} possúi {qtd_Rec} unidades em Rec')
+    for elemento in dados['Rev']:
+      texto = ''
+      localizacao = dados['Rev'][f'{elemento}']
+      for x in localizacao:
+        if x == item:
+            qtd_rev = localizacao[f'{x}']['quantidade']
+            if qtd_rev>0:
+              local = localizacao
+              info = f'Item :{item} possúi {qtd_rev} unidades na posição {elemento}' 
+              texto  += info
             st.info(texto)
     
   
