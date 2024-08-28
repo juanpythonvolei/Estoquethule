@@ -114,7 +114,7 @@ try:
         st.error(f'O item {codigo} já existe no cadastro')
 except:
     image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
-    codigo = st.text_input(label='',placeholder='Insira o Código do produto')
+    codigo = st.text_input(label='',placeholder='Insira o Código do produto',key='codigo')
     descricao = st.text_input(label='',placeholder='Insira uma descirção do produto')
     col1,col2,col3 = st.columns(3)
     with col1:
