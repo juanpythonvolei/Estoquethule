@@ -6,7 +6,7 @@ import os
 import requests
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
-try:
+if 'Estoque' in roteiro:
     dados = roteiro['Estoque']
     
     lista_nomes_verif = [item for item in dados]
@@ -105,7 +105,7 @@ try:
                 st.error('Ainda há campos a serem preenchidos')
     else:
         st.error(f'O item {codigo} já existe no cadastro')
-except:
+else:
     image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
     codigo = st.text_input(label='',placeholder='Insira o Código do produto',key='codigo')
     descricao = st.text_input(label='',placeholder='Insira uma descirção do produto',key='descricao')
