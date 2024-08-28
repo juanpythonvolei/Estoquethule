@@ -92,6 +92,8 @@ if 'Depósito' in roteiro:
                     if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
                         st.error(f'A posição {origem} está incorreta. Insira-a novamente')
                         localizacao = None
+              else:
+                st.info('Selecione o modo coletor por enquanto')
               quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
               if quantidade:
                       if origem == 'Rec':
