@@ -105,3 +105,5 @@ if 'Depósito' in roteiro:
          pergunta = st.chat_input()       
          if pergunta:         
                        consulta_itens_e_posicoes(pergunta,texto_base)          
+else:
+     st.error('Não há estoque disponível')
