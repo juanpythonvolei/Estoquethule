@@ -84,15 +84,16 @@ if 'Depósito' in roteiro:
                       origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)
                     except:
                       pass
-              if origem:
-                  if origem != 'Rec':
-                    colum2=origem [3:6]
-                    Prat2=origem [0:2]
-                    alt2 = origem [7:]
-                    if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
-                        st.error(f'A posição {origem} está incorreta. Insira-a novamente')
-                        localizacao = None
-              else:
+              try:
+                if origem:
+                    if origem != 'Rec':
+                      colum2=origem [3:6]
+                      Prat2=origem [0:2]
+                      alt2 = origem [7:]
+                      if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
+                          st.error(f'A posição {origem} está incorreta. Insira-a novamente')
+                          localizacao = None
+              except:
                 st.info('Selecione o modo coletor por enquanto')
               quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
               if quantidade:
