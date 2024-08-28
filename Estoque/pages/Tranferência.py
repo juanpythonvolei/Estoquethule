@@ -42,6 +42,7 @@ with col4:
       produto = st.text_input(label='',placeholder='Insira o produto')
       if produto not in elementos:
         st.error('Insira um Produto cadastrado')
+        break
     else:
       produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
 if produto:
