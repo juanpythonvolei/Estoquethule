@@ -47,7 +47,7 @@ if 'Depósito' in roteiro:
         produto = st.text_input(label='',placeholder='Insira o produto')
       else:
           produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
-      if produto in elementos:
+  if produto in elementos:
         
         
         with col1:
@@ -62,21 +62,25 @@ if 'Depósito' in roteiro:
                 deposito_ref = db.reference('Depósito')
                 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                 roteiro = requiscao.json()
-                dados = roteiro['Depósito']['Rev']
-                lista_pos = []
-                for item in dados:
-                  posicao = dados[f'{item}']
-                  for elemento in posicao:
-                                  if elemento == produto:
-                                    if item in lista_pos:
-                                      pass
-                                    else:
-                                      lista_pos.append(item)
-                if coletor:
-                  origem = st.text_input(label='',placeholder='Insira a posição de Origem')
-                  
+                a = roteiro['Depósito']
+                if 'Rev' not in a:
+                  pass
                 else:
-                  origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)
+                  dados = roteiro['Depósito']['Rev']
+                  lista_pos = []
+                  for item in dados:
+                    posicao = dados[f'{item}']
+                    for elemento in posicao:
+                                    if elemento == produto:
+                                      if item in lista_pos:
+                                        pass
+                                      else:
+                                        lista_pos.append(item)
+                  if coletor:
+                    origem = st.text_input(label='',placeholder='Insira a posição de Origem')
+                    
+                  else:
+                    origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)
                 if origem:
                   colum2=origem [3:6]
                   Prat2=origem [0:2]
