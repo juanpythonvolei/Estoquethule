@@ -79,7 +79,6 @@ if 'Depósito' in roteiro:
                                         lista_pos.append(item)
                   if coletor:
                     origem = st.text_input(label='',placeholder='Insira a posição de Origem')
-                    
                   else:
                     origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)
                   if origem:
