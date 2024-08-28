@@ -36,6 +36,7 @@ def consulta(item):
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 coletor = st.toggle('Coletor',key='trasferência') 
 col4,col5,col6 = st.columns(3)
+col1,col2,col3 = st.columns(3)
 with col4:
     elementos = [x for x in dados2]
     if coletor:
@@ -43,7 +44,7 @@ with col4:
     else:
         produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
     if produto in elementos:
-      col1,col2,col3 = st.columns(3)
+      
       
       with col1:
             deposito_origem = st.selectbox(index=None,label='',placeholder='Depósito de origem',options=['Rev','Dev','Rec','Ele'])
