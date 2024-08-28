@@ -4,6 +4,8 @@ from firebase_admin import credentials, firestore,db
 import requests
 import os
 import requests           
+
+image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
 if 'Depósito' in roteiro:
@@ -35,7 +37,7 @@ if 'Depósito' in roteiro:
     
       st.image(foto)  
   
-  image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
+  
   coletor = st.toggle('Coletor',key='trasferência') 
   col4,col5,col6 = st.columns(3)
   col1,col2,col3 = st.columns(3)
