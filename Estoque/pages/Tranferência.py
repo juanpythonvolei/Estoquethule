@@ -89,74 +89,74 @@ if 'Depósito' in roteiro:
                     if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
                         st.error(f'A posição {origem} está incorreta. Insira-a novamente')
                         localizacao = None
-              quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
-              if quantidade:
-                if origem == 'Rec':
-                  q_rec = dados2['Rec'][f'{produto}'][f'{quantidade}']
-                  if quantidade > q_rec:
-                    st.error(f'O item {produto} possúi apenas {q_rec} em rec.')
+                  quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
+                  if quantidade:
+                    if origem == 'Rec':
+                      q_rec = dados2['Rec'][f'{produto}'][f'{quantidade}']
+                      if quantidade > q_rec:
+                        st.error(f'O item {produto} possúi apenas {q_rec} em rec.')
+                      else:
+                        pass
+                    elif origem == 'Rev':
+                      q_rev = dados[f'{origem}'][f'{produto}']['quantidade']
+                      if origem > q_rev:
+                        st.error(f'A posição {origem} não possúi quantidade suficiente para o item {produto}')
+                      else:
+                        pass
+                  final = st.text_input(label='',placeholder='Insira a posição Final')
+                  if final:
+                      colum=final[3:6]
+                      Prat=final[0:2]
+                      alt = final[7:]
+                      if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
+                            st.error(f'A posição {final} está incorreta. Insira-a novamente')
+                            localizacao = None
+                  if origem and produto and quantidade and final:
+                      botao_transferir = st.button(f'Transferir {produto}')
+                      if botao_transferir:
+                          if deposito_origem == 'Rec':
+                            requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+                            roteiro = requiscao.json()
+                            dados = roteiro['Depósito']
+                            quantidade_atual_rec = dados['Rec'][f'{produto}']['quantidade']
+                            deposito_ref = db.reference('Depósito')
+                            caminho_rec = f'Rec/{produto}/quantidade'
+                            nova_quantidade = quantidade_atual_rec-quantidade
+                            deposito_ref.child(caminho_rec).set(nova_quantidade)
+                            try: 
+                              dados['Rev'][f'{localizacao}'][f'{produto}']['quantidade']
+                              quantidade_atual_rec = dados['Rev'][f'{localizacao}'][f'{produto}']['quantidade']
+                              nova_quantidade_rev = quantidade_atual_rec + quantidade
+                              caminho_rev = f'Rev/{final}/{produto}'
+                              deposito_ref.child(caminho_rev).set({
+                              'quantidade':nova_quantidade_rev  # Exemplo de dado adicional
+                          })
+                              st.success(f'item {produto} transferido para a localização {final}')
+                            except:
+                              caminho_rev = f'Rev/{final}/{produto}'
+                              deposito_ref.child(caminho_rev).set({
+                              'quantidade':quantidade  # Exemplo de dado adicional
+                          })
+                              st.success(f'item {produto} transferido para a localização {final}')
+                          elif deposito_origem == 'Rev':
+                            requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+                            roteiro = requiscao.json()
+                            dados = roteiro['Depósito']
+                            quantidade_atual_rev_origem = dados['Rev'][f'{origem}'][f'{produto}']['quantidade']
+                            nova_quantidade_rev_origem =  quantidade_atual_rev_origem-quantidade
+                            deposito_ref = db.reference('Depósito')
+                            caminho_rev_origem = f'Rev/{origem}/{produto}/quantidade'
+                            deposito_ref.child(caminho_rev_origem).set(nova_quantidade_rev_origem)
+                            quantidade_atual_rev_final = dados['Rev'][f'{final}'][f'{produto}']['quantidade']
+                            nova_quantidade_rev_final =  quantidade_atual_rev_final+quantidade
+                            caminho_rev_final = f'Rev/{final}/{produto}/quantidade'
+                            deposito_ref.child(caminho_rev_final).set(nova_quantidade_rev_final)
+                            st.success(f'Produto {produto} transferido com sucesso')
+                            
                   else:
-                    pass
-                elif origem == 'Rev':
-                  q_rev = dados[f'{origem}'][f'{produto}']['quantidade']
-                  if origem > q_rev:
-                    st.error(f'A posição {origem} não possúi quantidade suficiente para o item {produto}')
-                  else:
-                    pass
-              final = st.text_input(label='',placeholder='Insira a posição Final')
-              if final:
-                  colum=final[3:6]
-                  Prat=final[0:2]
-                  alt = final[7:]
-                  if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
-                        st.error(f'A posição {final} está incorreta. Insira-a novamente')
-                        localizacao = None
-              if origem and produto and quantidade and final:
-                  botao_transferir = st.button(f'Transferir {produto}')
-                  if botao_transferir:
-                      if deposito_origem == 'Rec':
-                        requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-                        roteiro = requiscao.json()
-                        dados = roteiro['Depósito']
-                        quantidade_atual_rec = dados['Rec'][f'{produto}']['quantidade']
-                        deposito_ref = db.reference('Depósito')
-                        caminho_rec = f'Rec/{produto}/quantidade'
-                        nova_quantidade = quantidade_atual_rec-quantidade
-                        deposito_ref.child(caminho_rec).set(nova_quantidade)
-                        try: 
-                          dados['Rev'][f'{localizacao}'][f'{produto}']['quantidade']
-                          quantidade_atual_rec = dados['Rev'][f'{localizacao}'][f'{produto}']['quantidade']
-                          nova_quantidade_rev = quantidade_atual_rec + quantidade
-                          caminho_rev = f'Rev/{final}/{produto}'
-                          deposito_ref.child(caminho_rev).set({
-                          'quantidade':nova_quantidade_rev  # Exemplo de dado adicional
-                      })
-                          st.success(f'item {produto} transferido para a localização {final}')
-                        except:
-                          caminho_rev = f'Rev/{final}/{produto}'
-                          deposito_ref.child(caminho_rev).set({
-                          'quantidade':quantidade  # Exemplo de dado adicional
-                      })
-                          st.success(f'item {produto} transferido para a localização {final}')
-                      elif deposito_origem == 'Rev':
-                        requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-                        roteiro = requiscao.json()
-                        dados = roteiro['Depósito']
-                        quantidade_atual_rev_origem = dados['Rev'][f'{origem}'][f'{produto}']['quantidade']
-                        nova_quantidade_rev_origem =  quantidade_atual_rev_origem-quantidade
-                        deposito_ref = db.reference('Depósito')
-                        caminho_rev_origem = f'Rev/{origem}/{produto}/quantidade'
-                        deposito_ref.child(caminho_rev_origem).set(nova_quantidade_rev_origem)
-                        quantidade_atual_rev_final = dados['Rev'][f'{final}'][f'{produto}']['quantidade']
-                        nova_quantidade_rev_final =  quantidade_atual_rev_final+quantidade
-                        caminho_rev_final = f'Rev/{final}/{produto}/quantidade'
-                        deposito_ref.child(caminho_rev_final).set(nova_quantidade_rev_final)
-                        st.success(f'Produto {produto} transferido com sucesso')
-                        
+                        st.error('Ainda há campos a serem preenchidos')
               else:
-                    st.error('Ainda há campos a serem preenchidos')
-          else:
-            st.error(f'Item {produto} não está cadastrado')
+                st.error(f'Item {produto} não está cadastrado')
         with col5: 
                   with st.popover('🔍'):
                                  consulta(produto)
