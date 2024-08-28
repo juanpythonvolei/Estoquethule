@@ -167,7 +167,7 @@ if 'Depósito' in roteiro:
                             
           else:
                         st.error('Ainda há campos a serem preenchidos')
-      else:
+    else:
                 st.error(f'Item {produto} não está cadastrado')
         with col5: 
                   with st.popover('🔍'):
