@@ -72,7 +72,7 @@ if produto:
           if coletor:
             origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)
           else:
-            origem = st.text_input(label='',palceholder='Insira a posição de Origem')
+            origem = st.text_input(label='',placeholder='Insira a posição de Origem')
           if origem:
             colum2=origem [3:6]
             Prat2=origem [0:2]
