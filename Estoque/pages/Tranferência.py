@@ -92,7 +92,7 @@ if 'Depósito' in roteiro:
                     st.error(f'O item {produto} possúi apenas {q_rec} em rec.')
                   else:
                     pass
-                else origem == 'Rev':
+                elif origem == 'Rev':
                   q_rev = dados[f'{origem}'][f'{produto}']['quantidade']
                   if origem > q_rev:
                     st.error(f'A posição {origem} não possúi quantidade suficiente para o item {produto}')
