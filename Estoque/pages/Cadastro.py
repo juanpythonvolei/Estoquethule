@@ -115,18 +115,18 @@ try:
 except:
     image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
     codigo = st.text_input(label='',placeholder='Insira o Código do produto',key='codigo')
-    descricao = st.text_input(label='',placeholder='Insira uma descirção do produto')
+    descricao = st.text_input(label='',placeholder='Insira uma descirção do produto',key='descricao')
     col1,col2,col3 = st.columns(3)
     with col1:
-            foto = st.text_input(label='',placeholder='Insira a foto do Produto')
+            foto = st.text_input(label='',placeholder='Insira a foto do Produto',key='foto')
     with col2:
             with st.popover('📷'):
-             uploaded_files = st.file_uploader("Escolha a foto", type=['png','jpg'], accept_multiple_files=False)
+             uploaded_files = st.file_uploader("Escolha a foto", type=['png','jpg'], accept_multiple_files=Falsem,'upload')
     col1,col2,col3 = st.columns(3)
     if codigo and descricao and foto or uploaded_files:
             ref = db.reference('Estoque')
             with col1:
-                cadastro = st.button('Cadastar Produtos')
+                cadastro = st.button('Cadastar Produtos',key='cadastro')
                 if cadastro:
                     if foto:
                         dict_produto = {'Foto':foto,'Descrição':descricao}
