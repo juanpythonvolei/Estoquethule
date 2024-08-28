@@ -121,7 +121,7 @@ except:
             foto = st.text_input(label='',placeholder='Insira a foto do Produto',key='foto')
     with col2:
             with st.popover('📷'):
-             uploaded_files = st.file_uploader("Escolha a foto", type=['png','jpg'], accept_multiple_files=Falsem,'upload')
+             uploaded_files = st.file_uploader("Escolha a foto", type=['png','jpg'], accept_multiple_files=False,key='upload')
     col1,col2,col3 = st.columns(3)
     if codigo and descricao and foto or uploaded_files:
             ref = db.reference('Estoque')
