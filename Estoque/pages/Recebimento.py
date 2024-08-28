@@ -8,7 +8,7 @@ import requests
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
-try:
+if 'Estoque' in roteiro:
     dados = roteiro['Estoque']
     @st.dialog(f"Atenção") 
     def alerta(item):
@@ -59,6 +59,6 @@ try:
                   'quantidade': quantidade  # Exemplo de dado adicional
               })
               st.success(f'Item {item} adicionado com sucesso')
-except:
+else:
     st.error('Não há estoque diponível')
       
