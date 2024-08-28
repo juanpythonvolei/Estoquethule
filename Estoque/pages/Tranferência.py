@@ -85,6 +85,7 @@ if 'Depósito' in roteiro:
                     except:
                       st.info('Selecione o modo sem coletor para adicionar uma rev')
               if origem:
+                  if origem != 'Rec'
                     colum2=origem [3:6]
                     Prat2=origem [0:2]
                     alt2 = origem [7:]
