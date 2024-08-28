@@ -84,19 +84,19 @@ if 'Depósito' in roteiro:
                       origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)
                     except:
                       st.info('Selecione o modo sem coletor para adicionar uma rev')
-          if origem:
+                if origem:
                     colum2=origem [3:6]
                     Prat2=origem [0:2]
                     alt2 = origem [7:]
                     if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
                         st.error(f'A posição {origem} está incorreta. Insira-a novamente')
                         localizacao = None
-                  quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
-                  if quantidade:
-                    if origem == 'Rec':
-                      q_rec = dados2['Rec'][f'{produto}'][f'{quantidade}']
-                      if quantidade > q_rec:
-                        st.error(f'O item {produto} possúi apenas {q_rec} em rec.')
+                    quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
+                    if quantidade:
+                      if origem == 'Rec':
+                        q_rec = dados2['Rec'][f'{produto}'][f'{quantidade}']
+                        if quantidade > q_rec:
+                          st.error(f'O item {produto} possúi apenas {q_rec} em rec.')
                       else:
                         pass
                     elif origem == 'Rev':
@@ -105,15 +105,15 @@ if 'Depósito' in roteiro:
                         st.error(f'A posição {origem} não possúi quantidade suficiente para o item {produto}')
                       else:
                         pass
-                  final = st.text_input(label='',placeholder='Insira a posição Final')
-                  if final:
+                    final = st.text_input(label='',placeholder='Insira a posição Final')
+                    if final:
                       colum=final[3:6]
                       Prat=final[0:2]
                       alt = final[7:]
                       if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
                             st.error(f'A posição {final} está incorreta. Insira-a novamente')
                             localizacao = None
-                  if origem and produto and quantidade and final:
+                    if origem and produto and quantidade and final:
                       botao_transferir = st.button(f'Transferir {produto}')
                       if botao_transferir:
                           if deposito_origem == 'Rec':
@@ -155,9 +155,9 @@ if 'Depósito' in roteiro:
                             deposito_ref.child(caminho_rev_final).set(nova_quantidade_rev_final)
                             st.success(f'Produto {produto} transferido com sucesso')
                             
-                  else:
+                    else:
                         st.error('Ainda há campos a serem preenchidos')
-          else:
+        else:
                 st.error(f'Item {produto} não está cadastrado')
         with col5: 
                   with st.popover('🔍'):
