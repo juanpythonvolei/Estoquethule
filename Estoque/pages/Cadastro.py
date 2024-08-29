@@ -85,13 +85,13 @@ if 'Estoque' in roteiro:
                     if foto:
                         
                         dict_produto = {'Foto':foto,'Descrição':descricao}
-                        caminho_cadastro = f'Estoque/{codigo}'
+                        caminho_cadastro = f'{codigo}'
                         ref.child(caminho_cadastro).set({
                                     'foto':foto,
                                     'Descrição':descricao
                                 })
                     elif uploaded_files:
-                                    caminho_cadastro = f'Estoque/{codigo}'
+                                    caminho_cadastro = f'{codigo}'
                                     ref.child(caminho_cadastro).set({
                                     'foto':f'{uploaded_files.name}',
                                     'Descrição':descricao
