@@ -170,7 +170,10 @@ if 'Depósito' in roteiro:
                             deposito_ref = db.reference('Depósito')
                             caminho_rev_origem = f'Rev/{origem}/{produto}/quantidade'
                             deposito_ref.child(caminho_rev_origem).set(nova_quantidade_rev_origem)
-                            quantidade_atual_rev_final = dados['Rev'][f'{final}'][f'{produto}']['quantidade']
+                            try:
+                              quantidade_atual_rev_final = dados['Rev'][f'{final}'][f'{produto}']['quantidade']
+                            except:
+                              quantidade_atual_rev_final = 0
                             nova_quantidade_rev_final =  quantidade_atual_rev_final+quantidade
                             caminho_rev_final = f'Rev/{final}/{produto}/quantidade'
                             deposito_ref.child(caminho_rev_final).set(nova_quantidade_rev_final)
