@@ -11,7 +11,10 @@ roteiro = requiscao.json()
 if 'Depósito' in roteiro:
 
   dados = roteiro['Depósito']
-  dados2 = roteiro['Estoque']
+  try:
+    dados2 = roteiro['Estoque']
+  except:
+    pass
   
   def consulta(item):    
     if produto in elementos:
