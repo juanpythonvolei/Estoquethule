@@ -113,6 +113,15 @@ else:
     with col2:
             with st.popover('📷'):
              uploaded_files = st.file_uploader("Escolha a foto", type=['png','jpg'], accept_multiple_files=False,key='upload')
+    with col3:
+        ref = db.reference('Estoque')
+        caminho_ean = f'Estoque/{codigo}'
+        st.popover('🖥️'):
+                
+            ean = st.text_input(label='',placeholder='Insira a foto do Produto',key='ean')
+            if ean:
+                ref.child(caminho_ean).set({'EAN':ean})
+                
     col1,col2,col3 = st.columns(3)
     if codigo and descricao and foto or uploaded_files:
             
@@ -121,7 +130,7 @@ else:
                 if cadastro:
                     if foto:
                         dict_produto = {'Foto':foto,'Descrição':descricao}
-                    
+                        ref = db.reference('Estoque')
                         caminho_cadastro = f'Estoque/{codigo}'
                         ref.child(caminho_cadastro).set(dict_prpduto)
                         st.success(f'Item {codigo} cadastrado com sucesso')
