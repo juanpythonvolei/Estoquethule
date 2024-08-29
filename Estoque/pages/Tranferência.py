@@ -112,13 +112,15 @@ if 'Depósito' in roteiro:
             quantidade_rec_consu = dados[f'Rec'][f'{produto}']['quantidade']
             if deposito_origem == 'Rec':
               if quantidade > quantidade_rec_consu:
-                st.error('Quantidade não disónível para o item')
+                st.error(f'Quantidade {quantidade} para o item {produto } não disónível para o item. Rec possúi {quantidade_rec_consu} unidades')
+                quantidade = None
               else:
                 pass
             elif deposito_origem == 'Rev':
               quantidade_rev_consu = dados[f'Rev'][f'{origem}'][f'{produto}']['quantidade']
               if quantidade > quantidade_rev_consu:
-                st.error('Quantidade não pode ser atendida')
+                st.error(f'Quantidade não pode ser atendida para o item {produto} na posição {localizacao}, pois a mesma possúi {quantidade_rev_consu} unidades')
+                quantidade = None
               else:
                 pass
           final = st.text_input(label='',placeholder='Insira a posição Final')  
