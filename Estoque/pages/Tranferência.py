@@ -117,7 +117,7 @@ if 'Depósito' in roteiro:
                 pass
             elif deposito_origem == 'Rev':
               quantidade_rev_consu = dados[f'Rev'][f'{origem}'][f'{produto}']['quantidade']
-              if quantiade > quantidade_rev_consu:
+              if quantidade > quantidade_rev_consu:
                 st.error('Quantidade não pode ser atendida')
               else:
                 pass
