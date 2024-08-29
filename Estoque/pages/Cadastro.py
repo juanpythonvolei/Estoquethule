@@ -116,8 +116,7 @@ else:
     with col3:
         ref = db.reference('Estoque')
         caminho_ean = f'Estoque/{codigo}'
-        st.popover('🖥️'):
-                
+        with st.popover('🖥️'):
             ean = st.text_input(label='',placeholder='Insira a foto do Produto',key='ean')
             if ean:
                 ref.child(caminho_ean).set({'EAN':ean})
