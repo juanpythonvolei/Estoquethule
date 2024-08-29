@@ -22,10 +22,12 @@ if 'Estoque' in roteiro:
              uploaded_files = st.file_uploader("Escolha a foto", type=['png','jpg'], accept_multiple_files=False)
         with col3:
             ref = db.reference('Estoque')
-            caminho_ean = f'Estoque/{codigo}'
+           
             with st.popover('🖥️'):
-                ean = st.text_input(label='',placeholder='Insira a foto do Produto',key='ean')
+                item =  st.text_input(label='',placeholder=f'Insira o código',key='item')
+                ean = st.text_input(label='',placeholder=f'Insira o código do produto ',key='ean')
                 if ean:
+                    caminho_ean = f'Estoque/{item}'
                     ref.child(caminho_ean).set({'EAN':ean})
         col1,col2,col3 = st.columns(3)
         
