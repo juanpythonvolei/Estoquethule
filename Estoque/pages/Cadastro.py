@@ -76,7 +76,7 @@ if 'Estoque' in roteiro:
                         item_alterado = st.text_input(placeholder='Insira a substituição',label='')
                         if item_alterado:
                             caminho_final = f'{alteracao_item}/{alteracao_campo}'
-                            deposito_ref.child(caminho_final).set(item_alterado)
+                            ref.child(caminho_final).set(item_alterado)
                             st.success(f'O item {alteracao_item} foi alterado no campo {alteracao_campo}')
         if codigo and descricao and foto or uploaded_files:
             ref = db.reference('Estoque')
