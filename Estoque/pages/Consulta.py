@@ -48,7 +48,8 @@ if 'Depósito' in roteiro:
                 O item {selecao_item} possúi {quantidade} unidades na posição {item}
                 '''
                 texto_item += info
-         st.info(texto_item) 
+         if quantidade > 0:  
+              st.info(texto_item) 
          st.image(foto)       
      with col2:
        texto_posicao =''
