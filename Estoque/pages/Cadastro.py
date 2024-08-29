@@ -121,11 +121,7 @@ else:
                 if cadastro:
                     if foto:
                         dict_produto = {'Foto':foto,'Descrição':descricao}
-                        try:
-                                    caminho_cadastro = f'{codigo}'
-                                    ref.child(caminho_cadastro).set({
-                                    'foto':foto,
-                                    'Descrição':descricao
-                                })
-                        except:
-                                    st.error('Não há saida de dados disponível')
+                    
+                        caminho_cadastro = f'{codigo}'
+                        ref.child(caminho_cadastro).set(dict_prpduto)
+                        
