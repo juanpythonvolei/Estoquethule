@@ -115,13 +115,13 @@ else:
              uploaded_files = st.file_uploader("Escolha a foto", type=['png','jpg'], accept_multiple_files=False,key='upload')
     col1,col2,col3 = st.columns(3)
     if codigo and descricao and foto or uploaded_files:
-            ref = db.reference('Estoque')
+            
             with col1:
                 cadastro = st.button('Cadastar Produtos',key='cadastro')
                 if cadastro:
                     if foto:
                         dict_produto = {'Foto':foto,'Descrição':descricao}
                     
-                        caminho_cadastro = f'{codigo}'
+                        caminho_cadastro = f'Estoque/{codigo}'
                         ref.child(caminho_cadastro).set(dict_prpduto)
                         
