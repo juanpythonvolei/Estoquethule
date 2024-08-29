@@ -103,7 +103,7 @@ if 'Depósito' in roteiro:
                       alt2 = origem [7:]
                       if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
                           st.error(f'A posição {origem} está incorreta. Insira-a novamente')
-                          localizacao = None
+                          origem = None
           except:
                 st.info('Selecione o modo coletor por enquanto')
           quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
@@ -128,9 +128,10 @@ if 'Depósito' in roteiro:
                       colum=final[3:6]
                       Prat=final[0:2]
                       alt = final[7:]
-                      if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
+                      if len(colum) != 3 or len(alt)!= 2 or len(Prat)!= 2:
+                            final = None 
                             st.error(f'A posição {final} está incorreta. Insira-a novamente')
-                            localizacao = None
+                           
           if origem and produto and quantidade and final:
                       botao_transferir = st.button(f'Transferir {produto}')
                       if botao_transferir:
