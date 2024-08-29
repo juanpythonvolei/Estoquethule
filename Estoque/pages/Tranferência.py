@@ -109,7 +109,18 @@ if 'Depósito' in roteiro:
           quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
           if quantidade:
             dados = roteiro['Depósito']
-            quantidade_rec_consu = dados[f'Rec'][f'{produto}']['quantidad']
+            quantidade_rec_consu = dados[f'Rec'][f'{produto}']['quantidade']
+            if deposito_oritem == 'Rec':
+              if quantidade > quantidade_rec_consu:
+                st.error('Quantidade não disónível para o item')
+              else:
+                pass
+            elif deposito_orige == 'Rev':
+              quantidade_rev_consu = dados[f'Rev'][f'{origem}'][f'{produto}']['quantidade']
+              if quantiade > quantidade_rev_consu:
+                st.error('Quantidade não pode ser atendida')
+            
+            \
           final = st.text_input(label='',placeholder='Insira a posição Final')  
           if final:
                       colum=final[3:6]
