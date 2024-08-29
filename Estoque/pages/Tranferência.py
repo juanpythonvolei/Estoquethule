@@ -119,8 +119,8 @@ if 'Depósito' in roteiro:
               quantidade_rev_consu = dados[f'Rev'][f'{origem}'][f'{produto}']['quantidade']
               if quantiade > quantidade_rev_consu:
                 st.error('Quantidade não pode ser atendida')
-            
-            \
+              else:
+                pass
           final = st.text_input(label='',placeholder='Insira a posição Final')  
           if final:
                       colum=final[3:6]
