@@ -84,7 +84,7 @@ if 'Estoque' in roteiro:
                     if foto:
                         dict_produto = {'Foto':foto,'Descrição':descricao}
                         try:
-                                    caminho_cadastro = f'{codigo}'
+                                    caminho_cadastro = f'Estoque/{codigo}'
                                     ref.child(caminho_cadastro).set({
                                     'foto':foto,
                                     'Descrição':descricao
@@ -92,7 +92,7 @@ if 'Estoque' in roteiro:
                         except:
                                     st.error('Não há saida de dados disponível')
                     elif uploaded_files:
-                                    caminho_cadastro = f'{codigo}'
+                                    caminho_cadastro = f'Estoque/{codigo}'
                                     ref.child(caminho_cadastro).set({
                                     'foto':f'{uploaded_files.name}',
                                     'Descrição':descricao
