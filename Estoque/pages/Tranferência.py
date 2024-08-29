@@ -163,7 +163,10 @@ if 'Depósito' in roteiro:
                             roteiro = requiscao.json()
                             dados = roteiro['Depósito']
                             quantidade_atual_rev_origem = dados['Rev'][f'{origem}'][f'{produto}']['quantidade']
-                            nova_quantidade_rev_origem =  quantidade_atual_rev_origem-quantidade
+                            if quantidade_atual_rev_origem > 0 or quantidade_atual_rev_origem != '':
+                              nova_quantidade_rev_origem =  quantidade_atual_rev_origem-quantidade
+                            elif quantidade_atual_rev_origem == '' or quantidade_atual_rev_origem <=0:
+                              nova_quantidade_rev_origem  = quantidade
                             deposito_ref = db.reference('Depósito')
                             caminho_rev_origem = f'Rev/{origem}/{produto}/quantidade'
                             deposito_ref.child(caminho_rev_origem).set(nova_quantidade_rev_origem)
