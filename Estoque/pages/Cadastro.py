@@ -61,6 +61,7 @@ if 'Estoque' in roteiro:
             dados = roteiro['Estoque']
             lista_produto_alteracao = []
             lista_alteracao_campo = []
+            ref = db.reference('Estoque')
             for item in dados:
                 lista_produto_alteracao.append(item)
                 for elemento in dados[f'{item}']:
@@ -76,7 +77,7 @@ if 'Estoque' in roteiro:
                         if item_alterado:
                             caminho_final = f'{alteracao_item}/{alteracao_campo}'
                             deposito_ref.child(caminho_final).set(item_alterado)
-                            st.success(f'O item {alteracao_item} foi alterado no campo {alteracao_campo} para o valor de {item_alterado}')
+                            st.success(f'O item {alteracao_item} foi alterado no campo {alteracao_campo}')
         if codigo and descricao and foto or uploaded_files:
             ref = db.reference('Estoque')
             with col1:
@@ -116,11 +117,12 @@ else:
     if codigo and descricao and foto or uploaded_files:
             
             with col1:
-                cadastro = st.button('Cadastar Produtos',key='cadastro')
+                cadastro = st.button(f'Cadastar Produto: {codigo}',key='cadastro')
                 if cadastro:
                     if foto:
                         dict_produto = {'Foto':foto,'Descrição':descricao}
                     
                         caminho_cadastro = f'Estoque/{codigo}'
                         ref.child(caminho_cadastro).set(dict_prpduto)
+                        st.success(f'Item {codigo} cadastrado com sucesso')
                         
