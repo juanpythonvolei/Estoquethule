@@ -108,7 +108,7 @@ if 'Depósito' in roteiro:
           if quantidade:
                       if origem == 'Rec':
                         q_rec = dados['Rec'][f'{produto}'][f'{quantidade}']
-                        if quantidade > q_rec:
+                        if int(quantidade) > q_rec:
                           st.error(f'O item {produto} possúi apenas {q_rec} em rec.')
                         else:
                           pass
