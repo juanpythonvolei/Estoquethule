@@ -110,12 +110,12 @@ if 'Depósito' in roteiro:
           if quantidade:
             dados = roteiro['Depósito']
             quantidade_rec_consu = dados[f'Rec'][f'{produto}']['quantidade']
-            if deposito_oritem == 'Rec':
+            if deposito_origem == 'Rec':
               if quantidade > quantidade_rec_consu:
                 st.error('Quantidade não disónível para o item')
               else:
                 pass
-            elif deposito_orige == 'Rev':
+            elif deposito_origem == 'Rev':
               quantidade_rev_consu = dados[f'Rev'][f'{origem}'][f'{produto}']['quantidade']
               if quantiade > quantidade_rev_consu:
                 st.error('Quantidade não pode ser atendida')
