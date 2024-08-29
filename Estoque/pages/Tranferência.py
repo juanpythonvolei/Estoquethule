@@ -107,7 +107,9 @@ if 'Depósito' in roteiro:
           except:
                 st.info('Selecione o modo coletor por enquanto')
           quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
-          quantidade_rec_consu = dados[f'Rec'][f'{produto}']['quantidad']
+          if quantidade:
+            dados = roteiro['Depósito']
+            quantidade_rec_consu = dados[f'Rec'][f'{produto}']['quantidad']
           final = st.text_input(label='',placeholder='Insira a posição Final')  
           if final:
                       colum=final[3:6]
