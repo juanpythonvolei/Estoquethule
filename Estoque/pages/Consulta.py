@@ -37,7 +37,7 @@ if 'Depósito' in roteiro:
             selecao_item = st.selectbox(label = '',placeholder='Selecione um Item',options=lista_itens,index=None)   
        if selecao_item:   
          item_rec = dados3[f'{selecao_item}']['quantidade']
-         foto = dados2[f'{selecao_item}'][f'foto']
+         foto = dados2[f'{selecao_item}'][f'Foto']
          st.warning(f'O item {selecao_item} possúi {item_rec} unidades em Rec')
          for item in dados:
            posicao = dados[f'{item}']
