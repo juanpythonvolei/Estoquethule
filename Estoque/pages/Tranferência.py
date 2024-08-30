@@ -102,7 +102,7 @@ if 'Depósito' in roteiro:
                                 
   
          
-            if origem != 'Rec':
+          if origem != 'Rec':
                       colum2=origem [3:6]
                       Prat2=origem [0:2]
                       alt2 = origem [7:]
