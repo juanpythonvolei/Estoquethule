@@ -27,8 +27,8 @@ if 'Estoque' in roteiro:
                 ean = st.text_input(label='',placeholder=f'Insira o código do produto ',key='ean')
                 if ean:
                     ref = db.reference('Estoque')
-                    caminho_ean = f'Estoque/{item}'
-                    ref.child(caminho_ean).set({'EAN':ean})
+                    caminho_ean = f'Estoque/{item}/EAN'
+                    ref.child(caminho_ean).set(ean)
         if inserir_ean:
                 if codigo:
                     ean_cadastro = st.text_input(label='',placeholder=f'Insira o código ean do {codigo} ',key='ean_cadastro')
