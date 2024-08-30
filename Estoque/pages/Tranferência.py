@@ -64,9 +64,6 @@ if 'Depósito' in roteiro:
         with col2:
               deposito_final= st.selectbox(index=None,label='',placeholder='Depósito final',options=['Rev','Ele'])
         if deposito_origem and deposito_final:
-          if produto in elementos:
-              
-      
                 deposito_ref = db.reference('Depósito')
                 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                 roteiro = requiscao.json()
@@ -84,7 +81,7 @@ if 'Depósito' in roteiro:
                                         pass
                                       else:
                                         lista_pos.append(item)
-                  if coletor:
+                if coletor:
                     if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
                       origem = st.text_input(label='',placeholder='Insira a posição de Origem',value=deposito_origem)
                     else:
@@ -95,7 +92,7 @@ if 'Depósito' in roteiro:
                         if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
                             st.error(f'A posição {origem} está incorreta. Insira-a novamente')
                             origem = None
-                  else:
+                else:
                     if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
                       origem = st.text_input(label='',placeholder='Insira a posição de Origem',value=deposito_origem)
                     else:
