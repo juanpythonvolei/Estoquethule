@@ -86,7 +86,7 @@ if 'Estoque' in roteiro:
                    if alteracao_campo: 
                         item_alterado = st.text_input(placeholder='Insira a substituição',label='')
                         if item_alterado:
-                            ref = db.reference('Estoque')
+                           
                             caminho_final = f'{alteracao_item}/{alteracao_campo}'
                             ref.child(caminho_final).set(item_alterado)
                             st.success(f'O item {alteracao_item} foi alterado no campo {alteracao_campo}')
