@@ -15,12 +15,7 @@ if 'Depósito' in roteiro:
     dados2 = roteiro['Estoque']
   except:
     pass
-  def ean_func(item):
-    base_dados  = dados['Estoque']
-    for item in base_dados:
-      codigo = base_dados[f'{item}']['EAN']
-      return codigo_func
-    
+  
   def consulta(item):    
     if produto in elementos:
       requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
@@ -29,7 +24,7 @@ if 'Depósito' in roteiro:
       if 'Rev' in dados:
         dados2 = roteiro['Estoque']
         qtd_Rec = dados['Rec'][f'{item}']['quantidade']
-        foto = dados2[f'{item}']['Foto']
+        foto = dados2[f'{item}']['foto']
         st.warning(f'Item {item} possúi {qtd_Rec} unidades em Rec')
         for elemento in dados['Rev']:
           texto = ''
@@ -64,6 +59,10 @@ if 'Depósito' in roteiro:
         with col2:
               deposito_final= st.selectbox(index=None,label='',placeholder='Depósito final',options=['Rev','Ele'])
         if deposito_origem and deposito_final:
+          if produto in elementos:
+              
+                origem = st.text_input(label='Insira a posição de Origem',value=deposito_origem)
+      
                 deposito_ref = db.reference('Depósito')
                 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                 roteiro = requiscao.json()
@@ -81,48 +80,40 @@ if 'Depósito' in roteiro:
                                         pass
                                       else:
                                         lista_pos.append(item)
-                if coletor:
+                  if coletor:
                     if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
                       origem = st.text_input(label='',placeholder='Insira a posição de Origem',value=deposito_origem)
                     else:
-                        origem = st.text_input(label='',placeholder='Insira a posição de Origem')
-                        colum2=origem [3:6]
-                        Prat2=origem [0:2]
-                        alt2 = origem [7:]
-                        if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
-                            st.error(f'A posição {origem} está incorreta. Insira-a novamente')
-                            origem = None
-                else:
-                    if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
-                      origem = st.text_input(label='',placeholder='Insira a posição de Origem',value=deposito_origem)
-                    else:
-                      origem = st.selectbox(label='',placeholder='Insira a posição de Origem',index=None,options=lista_pos)
+                      origem = st.text_input(label='',placeholder='Insira a posição de Origem')
+                  else:
+                    try:
+                      origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None,value=deposito_origem)
+                    except:
+                      pass
+                  
+                
+                                
+          try:
+                if origem:
+                    if origem != 'Rec':
+                      colum2=origem [3:6]
+                      Prat2=origem [0:2]
+                      alt2 = origem [7:]
+                      if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
+                          st.error(f'A posição {origem} está incorreta. Insira-a novamente')
+                          localizacao = None
+          except:
+                st.info('Selecione o modo coletor por enquanto')
           quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
-          if quantidade:
-            dados = roteiro['Depósito']
-            quantidade_rec_consu = dados[f'Rec'][f'{produto}']['quantidade']
-            if deposito_origem == 'Rec':
-              if quantidade > quantidade_rec_consu:
-                st.error(f'Quantidade {quantidade} para o item {produto } não disónível para o item. Rec possúi {quantidade_rec_consu} unidades')
-                quantidade = None
-              else:
-                pass
-            elif deposito_origem == 'Rev':
-              quantidade_rev_consu = dados[f'Rev'][f'{origem}'][f'{produto}']['quantidade']
-              if quantidade > quantidade_rev_consu:
-                st.error(f'Quantidade não pode ser atendida para o item {produto} na posição {origem}, pois a mesma possúi {quantidade_rev_consu} unidades')
-                quantidade = None
-              else:
-                pass
+          
           final = st.text_input(label='',placeholder='Insira a posição Final')  
           if final:
                       colum=final[3:6]
                       Prat=final[0:2]
                       alt = final[7:]
-                      if len(colum) != 3 or len(alt)!= 2 or len(Prat)!= 2:
-                            final = None 
+                      if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
                             st.error(f'A posição {final} está incorreta. Insira-a novamente')
-                           
+                            localizacao = None
           if origem and produto and quantidade and final:
                       botao_transferir = st.button(f'Transferir {produto}')
                       if botao_transferir:
@@ -155,17 +146,11 @@ if 'Depósito' in roteiro:
                             roteiro = requiscao.json()
                             dados = roteiro['Depósito']
                             quantidade_atual_rev_origem = dados['Rev'][f'{origem}'][f'{produto}']['quantidade']
-                            if quantidade_atual_rev_origem > 0 or quantidade_atual_rev_origem != '':
-                              nova_quantidade_rev_origem =  quantidade_atual_rev_origem-quantidade
-                            elif quantidade_atual_rev_origem == '' or quantidade_atual_rev_origem <=0:
-                              nova_quantidade_rev_origem  = quantidade
+                            nova_quantidade_rev_origem =  quantidade_atual_rev_origem-quantidade
                             deposito_ref = db.reference('Depósito')
                             caminho_rev_origem = f'Rev/{origem}/{produto}/quantidade'
                             deposito_ref.child(caminho_rev_origem).set(nova_quantidade_rev_origem)
-                            try:
-                              quantidade_atual_rev_final = dados['Rev'][f'{final}'][f'{produto}']['quantidade']
-                            except:
-                              quantidade_atual_rev_final = 0
+                            quantidade_atual_rev_final = dados['Rev'][f'{final}'][f'{produto}']['quantidade']
                             nova_quantidade_rev_final =  quantidade_atual_rev_final+quantidade
                             caminho_rev_final = f'Rev/{final}/{produto}/quantidade'
                             deposito_ref.child(caminho_rev_final).set(nova_quantidade_rev_final)
