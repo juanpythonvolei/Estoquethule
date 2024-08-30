@@ -6,7 +6,14 @@ import os
 import requests           
 
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
+pages = {
+    "Minha Página": minha_pagina,
+    "Dashboard": dashboard,
+    # Adicione outras páginas aqui...
+}
 
+selected_page = st.sidebar.selectbox("Selecione uma página", list(pages.keys()))
+pagesselected_page
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
 if 'Depósito' in roteiro:
