@@ -21,8 +21,6 @@ if 'Estoque' in roteiro:
             with st.popover('📷'):
              uploaded_files = st.file_uploader("Escolha a foto", type=['png','jpg'], accept_multiple_files=False)
         with col3:
-            ref = db.reference('Estoque')
-           
             with st.popover('🖥️'):
                 item =  st.text_input(label='',placeholder=f'Insira o código',key='item')
                 ean = st.text_input(label='',placeholder=f'Insira o código do produto ',key='ean')
