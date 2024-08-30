@@ -55,7 +55,7 @@ if 'Depósito' in roteiro:
             item = codigos[f'{codigo}']
             codigo_ean = item['EAN']
             if codigo_ean == produto:
-              produto = item
+              produto = codigo
               st.info(f'Você selecionou o item {produto}')
       else:
           produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
