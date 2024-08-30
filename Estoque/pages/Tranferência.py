@@ -24,7 +24,7 @@ if 'Depósito' in roteiro:
       if 'Rev' in dados:
         dados2 = roteiro['Estoque']
         qtd_Rec = dados['Rec'][f'{item}']['quantidade']
-        foto = dados2[f'{item}']['foto']
+        foto = dados2[f'{item}']['Foto']
         st.warning(f'Item {item} possúi {qtd_Rec} unidades em Rec')
         for elemento in dados['Rev']:
           texto = ''
