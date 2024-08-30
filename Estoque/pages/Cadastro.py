@@ -6,6 +6,7 @@ import os
 import requests
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
+ref = db.reference('Estoque')
 if 'Estoque' in roteiro:
     dados = roteiro['Estoque']
     lista_nomes_verif = [item for item in dados]
