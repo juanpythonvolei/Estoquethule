@@ -198,7 +198,7 @@ if 'Depósito' in roteiro:
     
         with col5: 
                   with st.popover('🔍'):
-                                 consulta(produto)
+                                 consulta(ean_func(produto))
         with col6:
                   with st.popover('⚙️'):
                                         deposito_ref = db.reference('Depósito')
