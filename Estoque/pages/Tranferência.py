@@ -126,6 +126,8 @@ if 'Depósito' in roteiro:
                             roteiro = requiscao.json()
                             dados = roteiro['Depósito']
                             quantidade_atual_rec = dados['Rec'][f'{produto}']['quantidade']
+                            if quantidade > quantidade_atual_rec:
+                              st.error(f'Atenção, você está inserindo um valor que não pode ser comtemplado na localização Rec para o produto {produto}')
                             deposito_ref = db.reference('Depósito')
                             caminho_rec = f'Rec/{produto}/quantidade'
                             nova_quantidade = quantidade_atual_rec-quantidade
