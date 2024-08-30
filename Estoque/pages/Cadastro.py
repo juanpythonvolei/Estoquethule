@@ -67,7 +67,7 @@ if 'Estoque' in roteiro:
         if excluir:
                 exclusao()
         with st.popover('Alterar informações de Produtos'):
-            
+            ref = db.reference('Estoque')
             requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
             roteiro = requiscao.json()
             dados = roteiro['Estoque']
