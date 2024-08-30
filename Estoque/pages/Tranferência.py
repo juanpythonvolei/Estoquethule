@@ -105,7 +105,7 @@ if 'Depósito' in roteiro:
           quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
           if quantidade:
             if deposito_origem == 'Rev':
-              quantidade_rev  = roteiro['Depósito']['Rev'][f'{origem}'][f'{produto}']['quantidade']
+              quantidade_rev  = roteiro['Depósito'][f'Rev'][f'{origem}'][f'{produto}']['quantidade']
               if quantidade > quantidade_rev:
                 quantidade = None
                 st.error(f'Atenção, você está inserindo um valor que não pode ser comtemplado na localização {origem} para o produto {produto}')
