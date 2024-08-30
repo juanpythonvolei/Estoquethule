@@ -96,14 +96,14 @@ if 'Estoque' in roteiro:
                 if cadastro:
                     if foto:
                         if inserir_ean:
-                            dict_produto = {'Foto':foto,'Descrição':descricao,'EAN':ean}
+                            dict_produto = {'Foto':foto,'Descrição':descricao,'EAN':inserir_ean}
                         else:
                             dict_produto = {'Foto':foto,'Descrição':descricao}
                         caminho_cadastro = f'{codigo}'
                         ref.child(caminho_cadastro).set(dict_produto)
                     elif uploaded_files:
                         if inserir_ean:
-                            dict_produto = {'Foto':foto,f'{uploaded_files.name}':descricao,'EAN':ean}
+                            dict_produto = {'Foto':foto,f'{uploaded_files.name}':descricao,'EAN':inserir_ean}
                         else:
                             dict_produto = {'Foto':f'{uploaded_files.name}','Descrição':descricao}
                         caminho_cadastro = f'{codigo}'
