@@ -17,7 +17,7 @@ if 'Depósito' in roteiro:
     pass
   
     
-  def consulta(item):    
+  def consulta(item,elementos):    
     if produto in elementos:
       requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
       roteiro = requiscao.json()
@@ -198,7 +198,7 @@ if 'Depósito' in roteiro:
     
         with col5: 
                   with st.popover('🔍'):
-                                 consulta(ean_func(produto))
+                                 consulta(ean_func(produto),elementos)
         with col6:
                   with st.popover('⚙️'):
                                         deposito_ref = db.reference('Depósito')
