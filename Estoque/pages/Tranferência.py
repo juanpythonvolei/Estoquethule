@@ -111,7 +111,7 @@ if 'Depósito' in roteiro:
                 st.error(f'Atenção, você está inserindo um valor que não pode ser comtemplado na localização {origem} para o produto {produto}')
               else:
                 pass
-            else deposito_origem == 'Rec':
+            elif deposito_origem == 'Rec':
                   quantidade_rec  = dados[f'Rec']['quantidade'] 
                   if quantidade > quantidade_rec:
                     quantidade = None
