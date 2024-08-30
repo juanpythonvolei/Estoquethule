@@ -19,7 +19,6 @@ if 'Depósito' in roteiro:
     requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
     roteiro = requiscao.json()
     dados = roteiro['Estoque']
-    base_dados  = dados['Estoque']
     for item in dados:
       codigo = base_dados[f'{item}']['EAN']
       return codigo_func
