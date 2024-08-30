@@ -87,7 +87,8 @@ if 'Estoque' in roteiro:
                                           ref_cadastro.child(caminho_cadastro).set(dict_produto)
                                           contagem += 1                      
                     st.success(f'{contagem} produtos foram cadastrados')    
-                                      
+              except:
+                  pass
 else:
     st.error('Não há estoque diponível')
       
