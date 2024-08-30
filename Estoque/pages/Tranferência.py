@@ -88,6 +88,8 @@ if 'Depósito' in roteiro:
                       origem = st.text_input(label='',placeholder='Insira a posição de Origem',value=deposito_origem)
                     else:
                       origem = st.text_input(label='',placeholder='Insira a posição de Origem')
+                      if '#' in origem:
+                        origem = origem.replace('#','')
                       if origem:
                         if origem != 'Rec':
                           colum2=origem [3:6]
@@ -96,15 +98,14 @@ if 'Depósito' in roteiro:
                           if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
                               st.error(f'A posição {origem} está incorreta. Insira-a novamente')
                               origem = None
+                          elif int(colum.replace('0','')) > 19 or int(alt.replace('0','')) > 4 or int(Prat.replace('0','')) > 7:
+                              st.error(f'A posição {final} não existe')
+                              origem = None
                   else:
                     if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
                       origem = st.text_input(label='',placeholder='Insira a posição de Origem',value=deposito_origem)
                     else:
-                      origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)
-
-                  
-                
-                                
+                      origem = st.selectbox(label='',placeholder='Insira a posição de Origem',options=lista_pos,index=None)     
           
           quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
           if quantidade:
@@ -123,7 +124,9 @@ if 'Depósito' in roteiro:
                   else:
                     pass
           final = st.text_input(label='',placeholder='Insira a posição Final')  
-          if final:
+          if final
+                      if '#' in final:
+                        final = final.replace('#','')
                       colum=final[3:6]
                       Prat=final[0:2]
                       alt = final[7:]
