@@ -60,7 +60,7 @@ if 'Estoque' in roteiro:
                   'quantidade': quantidade  # Exemplo de dado adicional
               })
               st.success(f'Item {item} adicionado com sucesso')
-     with tab2:
+    with tab2:
           lista_filtrada = []   
           tipo_arquivo = st.selectbox(label='',placeholder='Selecione o tipo de arquivo de cadastro automático',['xml','xlsx','csv'])   
           uploaded_files = st.file_uploader("Escolha os arquivos", type=[f'{tipo_arquivo}'], accept_multiple_files=True)
