@@ -106,7 +106,8 @@ if 'Depósito' in roteiro:
           if quantidade:
             quantidade_rec  = dados[f'{origem}'][f'{produto}']['quantidade']
             if quantidade > quantidade_rec:
-              st.error(f'Atenção, você está inserindo um valor que não pode ser comtemplado nessa localização para esse produto')
+              quantidade = None
+              st.error(f'Atenção, você está inserindo um valor que não pode ser comtemplado na localização {origem} para o produto {produto}')
             else:
               pass
           final = st.text_input(label='',placeholder='Insira a posição Final')  
