@@ -60,9 +60,6 @@ if 'Depósito' in roteiro:
               deposito_final= st.selectbox(index=None,label='',placeholder='Depósito final',options=['Rev','Ele'])
         if deposito_origem and deposito_final:
           if produto in elementos:
-              
-                origem = st.text_input(label='Insira a posição de Origem',value=deposito_origem)
-      
                 deposito_ref = db.reference('Depósito')
                 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                 roteiro = requiscao.json()
