@@ -20,7 +20,7 @@ if 'Depósito' in roteiro:
     roteiro = requiscao.json()
     dados = roteiro['Estoque']
     base_dados  = dados['Estoque']
-    for item in base_dados:
+    for item in dados:
       codigo = base_dados[f'{item}']['EAN']
       return codigo_func
     
