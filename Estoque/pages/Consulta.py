@@ -44,12 +44,15 @@ if 'Depósito' in roteiro:
            for produto in posicao:
              if produto == selecao_item:
                 quantidade = posicao[f'{produto}']['quantidade']
-                info =  f'''
+                if quantidade >0:  
+                     info =  f'''
                 O item {selecao_item} possúi {quantidade} unidades na posição {item}
                 '''
-                texto_item += info
-         if quantidade > 0:  
-              st.info(texto_item) 
+                     texto_item += info
+                
+                
+         
+         st.info(texto_item)      
          st.image(foto)       
      with col2:
        texto_posicao =''
