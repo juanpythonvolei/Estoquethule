@@ -15,13 +15,15 @@ if 'Depósito' in roteiro:
     dados2 = roteiro['Estoque']
   except:
     pass
-  def ean_func(item):
+  def ean_func(x):
     requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
     roteiro = requiscao.json()
     dados = roteiro['Estoque']
     for item in dados:
       codigo_func = dados[f'{item}']['EAN']
-      return codigo_func
+      if x == codigo_func:
+        retorno = item
+      return retorno
     
   def consulta(item):    
     if produto in elementos:
