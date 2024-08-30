@@ -15,9 +15,13 @@ if 'Depósito' in roteiro:
     dados2 = roteiro['Estoque']
   except:
     pass
-  
+  def ean_func(item):
+    base_dados  = dados['Estoque']
+    for item in base_dados:
+      codigo = base_dados[f'{item}']['EAN']
+      return codigo_func
     
-  def consulta(item,elementos):    
+  def consulta(item):    
     if produto in elementos:
       requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
       roteiro = requiscao.json()
@@ -41,16 +45,7 @@ if 'Depósito' in roteiro:
         
       
         st.image(foto)  
-  def ean_func(x):
-    requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-    roteiro = requiscao.json()
-    dados = roteiro['Estoque']
-    for item in dados:
-      codigo_func = dados[f'{item}']['EAN']
-      if x == codigo_func:
-        retorno = item
-        x = item
-        return retorno  
+  
   
   coletor = st.toggle('Coletor',key='trasferência') 
   col4,col5,col6 = st.columns(3)
@@ -59,9 +54,6 @@ if 'Depósito' in roteiro:
       elementos = [x for x in dados2]
       if coletor:
         produto = st.text_input(label='',placeholder='Insira o produto')
-        if produto:
-            produto = ean_func(produto)
-            st.info(f'{produto}')
       else:
           produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
   if produto in elementos:
@@ -198,7 +190,7 @@ if 'Depósito' in roteiro:
     
         with col5: 
                   with st.popover('🔍'):
-                                 consulta(ean_func(produto),elementos)
+                                 consulta(produto)
         with col6:
                   with st.popover('⚙️'):
                                         deposito_ref = db.reference('Depósito')
