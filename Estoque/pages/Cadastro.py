@@ -67,7 +67,7 @@ if 'Estoque' in roteiro:
         if excluir:
                 exclusao()
         with st.popover('Alterar informações de Produtos'):
-            ref = db.reference('Estoque')
+            
             requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
             roteiro = requiscao.json()
             dados = roteiro['Estoque']
@@ -86,6 +86,7 @@ if 'Estoque' in roteiro:
                    if alteracao_campo: 
                         item_alterado = st.text_input(placeholder='Insira a substituição',label='')
                         if item_alterado:
+                            ref = db.reference('Estoque')
                             caminho_final = f'{alteracao_item}/{alteracao_campo}'
                             ref.child(caminho_final).set(item_alterado)
                             st.success(f'O item {alteracao_item} foi alterado no campo {alteracao_campo}')
