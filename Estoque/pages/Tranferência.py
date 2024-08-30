@@ -124,7 +124,7 @@ if 'Depósito' in roteiro:
                   else:
                     pass
           final = st.text_input(label='',placeholder='Insira a posição Final')  
-          if final
+          if final:
                       if '#' in final:
                         final = final.replace('#','')
                       colum=final[3:6]
