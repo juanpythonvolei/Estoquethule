@@ -6,6 +6,7 @@ import os
 import requests           
 
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
+
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
 if 'Depósito' in roteiro:
@@ -49,11 +50,16 @@ if 'Depósito' in roteiro:
       elementos = [x for x in dados2]
       if coletor:
         produto = st.text_input(label='',placeholder='Insira o produto')
+        codigos =  roteiro['Estoque']
+        for codigo in codigos:
+            item = codigos[f'{codigo}']
+            codigo_ean = item['EAN']
+            if codigo_ean == produto:
+              produto = item
+              st.info(f'Você selecionou o item {produto}')
       else:
           produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
   if produto in elementos:
-        
-        
         with col1:
               deposito_origem = st.selectbox(index=None,label='',placeholder='Depósito de origem',options=['Rev','Dev','Rec','Ele'])
         with col2:
@@ -82,6 +88,14 @@ if 'Depósito' in roteiro:
                       origem = st.text_input(label='',placeholder='Insira a posição de Origem',value=deposito_origem)
                     else:
                       origem = st.text_input(label='',placeholder='Insira a posição de Origem')
+                      if origem:
+                        if origem != 'Rec':
+                          colum2=origem [3:6]
+                          Prat2=origem [0:2]
+                          alt2 = origem [7:]
+                          if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
+                              st.error(f'A posição {origem} está incorreta. Insira-a novamente')
+                              localizacao = None
                   else:
                     if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
                       origem = st.text_input(label='',placeholder='Insira a posição de Origem',value=deposito_origem)
@@ -91,17 +105,7 @@ if 'Depósito' in roteiro:
                   
                 
                                 
-          try:
-                if origem:
-                    if origem != 'Rec':
-                      colum2=origem [3:6]
-                      Prat2=origem [0:2]
-                      alt2 = origem [7:]
-                      if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
-                          st.error(f'A posição {origem} está incorreta. Insira-a novamente')
-                          localizacao = None
-          except:
-                st.info('Selecione o modo coletor por enquanto')
+          
           quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
           if quantidade:
             if deposito_origem == 'Rev':
