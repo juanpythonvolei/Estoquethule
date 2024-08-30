@@ -129,7 +129,11 @@ if 'Depósito' in roteiro:
                       alt = final[7:]
                       if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
                             st.error(f'A posição {final} está incorreta. Insira-a novamente')
-                            localizacao = None
+                            final = None
+                      elif int(colum) > 7 or int(alt) > 4 or int(Prat) > 19:
+                        st.error(f'A posição {final} não existe')
+                        final = None
+                  
           if origem and produto and quantidade and final:
                       botao_transferir = st.button(f'Transferir {produto}')
                       if botao_transferir:
