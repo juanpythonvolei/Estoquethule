@@ -29,10 +29,8 @@ if 'Estoque' in roteiro:
                     caminho_ean = f'Estoque/{item}'
                     ref.child(caminho_ean).set({'EAN':ean})
         if inserir_ean:
-                ean_cadastro = st.text_input(label='',placeholder=f'Insira o código ean do {codigo} ',key='ean_cadastro')
-                if ean:
-                    caminho_ean = f'Estoque/{codigo}'
-                    ref.child(caminho_ean).set({'EAN':ean})
+                if codigo:
+                    ean_cadastro = st.text_input(label='',placeholder=f'Insira o código ean do {codigo} ',key='ean_cadastro')
         col1,col2,col3 = st.columns(3)
         
         
@@ -97,19 +95,19 @@ if 'Estoque' in roteiro:
                 cadastro = st.button('Cadastar Produtos')
                 if cadastro:
                     if foto:
-                        
-                        dict_produto = {'Foto':foto,'Descrição':descricao}
+                        if inserir_ean:
+                            dict_produto = {'Foto':foto,'Descrição':descricao,'EAN':ean}
+                        else:
+                            dict_produto = {'Foto':foto,'Descrição':descricao}
                         caminho_cadastro = f'{codigo}'
-                        ref.child(caminho_cadastro).set({
-                                    'foto':foto,
-                                    'Descrição':descricao
-                                })
+                        ref.child(caminho_cadastro).set(dict_produto)
                     elif uploaded_files:
-                                    caminho_cadastro = f'{codigo}'
-                                    ref.child(caminho_cadastro).set({
-                                    'foto':f'{uploaded_files.name}',
-                                    'Descrição':descricao
-                                })
+                        if inserir_ean:
+                            dict_produto = {'Foto':foto,f'{uploaded_files.name}':descricao,'EAN':ean}
+                        else:
+                            dict_produto = {'Foto':f'{uploaded_files.name}','Descrição':descricao}
+                        caminho_cadastro = f'{codigo}'
+                        ref.child(caminho_cadastro).set(dict_produto)
     
             
         else:
