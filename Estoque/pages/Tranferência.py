@@ -105,12 +105,19 @@ if 'Depósito' in roteiro:
           quantidade = st.number_input(label='',placeholder='Insira a quantidade',value=None)
           if quantidade:
             if deposito_origem == 'Rev':
-              quantidade_rec  = dados[f'{origem}'][f'{produto}']['quantidade']
-              if quantidade > quantidade_rec:
+              quantidade_rev  = dados[f'{origem}'][f'{produto}']['quantidade']
+              if quantidade > quantidade_rev:
                 quantidade = None
                 st.error(f'Atenção, você está inserindo um valor que não pode ser comtemplado na localização {origem} para o produto {produto}')
               else:
                 pass
+            else deposito_origem == 'Rec':
+                  quantidade_rec  = dados[f'Rec']['quantidade'] 
+                  if quantidade > quantidade_rec:
+                    quantidade = None
+                    st.error(f'Atenção, você está inserindo um valor que não pode ser comtemplado na localização Rec para o produto {produto}')
+                  else:
+                    pass
           final = st.text_input(label='',placeholder='Insira a posição Final')  
           if final:
                       colum=final[3:6]
@@ -127,8 +134,6 @@ if 'Depósito' in roteiro:
                             roteiro = requiscao.json()
                             dados = roteiro['Depósito']
                             quantidade_atual_rec = dados['Rec'][f'{produto}']['quantidade']
-                            if quantidade > quantidade_atual_rec:
-                              st.error(f'Atenção, você está inserindo um valor que não pode ser comtemplado na localização Rec para o produto {produto}')
                             deposito_ref = db.reference('Depósito')
                             caminho_rec = f'Rec/{produto}/quantidade'
                             nova_quantidade = quantidade_atual_rec-quantidade
