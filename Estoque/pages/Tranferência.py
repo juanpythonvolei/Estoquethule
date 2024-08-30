@@ -130,7 +130,7 @@ if 'Depósito' in roteiro:
                       if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
                             st.error(f'A posição {final} está incorreta. Insira-a novamente')
                             final = None
-                      elif int(colum) > 7 or int(alt) > 4 or int(Prat) > 19:
+                      elif int(colum*100) > 7 or int(alt) > 4 or int(Prat) > 19:
                         st.error(f'A posição {final} não existe')
                         final = None
                   
