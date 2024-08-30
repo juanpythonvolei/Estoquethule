@@ -8,6 +8,7 @@ import requests
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
+ref_cadastro = db.reference('Estoque')
 if 'Estoque' in roteiro:
     dados = roteiro['Estoque']
     @st.dialog(f"Atenção") 
@@ -59,6 +60,34 @@ if 'Estoque' in roteiro:
                   'quantidade': quantidade  # Exemplo de dado adicional
               })
               st.success(f'Item {item} adicionado com sucesso')
+     with tab2:
+          lista_filtrada = []   
+          tipo_arquivo = st.selectbox(label='',placeholder='Selecione o tipo de arquivo de cadastro automático',['xml','xlsx','csv'])   
+          uploaded_files = st.file_uploader("Escolha os arquivos", type=[f'{tipo_arquivo}'], accept_multiple_files=True)
+          lista = []   
+          contagem = 0    
+          for item in dados:
+              if item not in lista:
+                  lista.append(item)
+              else:
+                  pass
+          if uploaded_files:
+             try:
+                    for nota in uploaded_files:
+                                      xml_data = nota.read()
+                                      documento = xmltodict.parse(xml_data)
+                                      codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
+                                      if codigo_produto in lista:
+                                          pass
+                                      else:  
+                                          descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']   
+                                          ean_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cEAN']     
+                                          dict_produto={'Foto':'','Descrição':descricao_produt}
+                                          caminho_cadastro = f'{codigo_produto}'
+                                          ref_cadastro.child(caminho_cadastro).set(dict_produto)
+                                          contagem += 1                      
+                      st.success(f'{contagem} produtos foram cadastrados')  
+                                      
 else:
     st.error('Não há estoque diponível')
       
