@@ -95,7 +95,7 @@ if 'Depósito' in roteiro:
                           alt2 = origem [7:]
                           if len(colum2) != 3 or len(alt2)!= 2 or len(Prat2)!=2:
                               st.error(f'A posição {origem} está incorreta. Insira-a novamente')
-                              localizacao = None
+                              origem = None
                   else:
                     if deposito_origem == 'Rec' or deposito_origem == 'Dev'or deposito_origem == 'Ele':
                       origem = st.text_input(label='',placeholder='Insira a posição de Origem',value=deposito_origem)
@@ -130,7 +130,7 @@ if 'Depósito' in roteiro:
                       if len(colum) != 3 or len(alt)!= 2 or len(Prat)!=2:
                             st.error(f'A posição {final} está incorreta. Insira-a novamente')
                             final = None
-                      elif int(colum*100) > 7 or int(alt) > 4 or int(Prat) > 19:
+                      elif int(colum*10) > 7 or int(alt*10) > 4 or int(Prat*100) > 19:
                         st.error(f'A posição {final} não existe')
                         final = None
                   
