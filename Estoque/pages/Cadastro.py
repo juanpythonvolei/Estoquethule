@@ -73,7 +73,6 @@ if 'Estoque' in roteiro:
             dados = roteiro['Estoque']
             lista_produto_alteracao = []
             lista_alteracao_campo = []
-            ref = db.reference('Estoque')
             for item in dados:
                 lista_produto_alteracao.append(item)
                 for elemento in dados[f'{item}']:
