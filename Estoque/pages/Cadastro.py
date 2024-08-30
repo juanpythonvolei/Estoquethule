@@ -8,7 +8,7 @@ requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.fireba
 roteiro = requiscao.json()
 if 'Estoque' in roteiro:
     dados = roteiro['Estoque']
-    
+    inserir_ean = st.toggle('Cadastrar com EAN')
     lista_nomes_verif = [item for item in dados]
     image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
     codigo = st.text_input(label='',placeholder='Insira o Código do produto')
@@ -20,12 +20,18 @@ if 'Estoque' in roteiro:
         with col2:
             with st.popover('📷'):
              uploaded_files = st.file_uploader("Escolha a foto", type=['png','jpg'], accept_multiple_files=False)
+                
         with col3:
             with st.popover('🖥️'):
                 item =  st.text_input(label='',placeholder=f'Insira o código',key='item')
                 ean = st.text_input(label='',placeholder=f'Insira o código do produto ',key='ean')
                 if ean:
                     caminho_ean = f'Estoque/{item}'
+                    ref.child(caminho_ean).set({'EAN':ean})
+        if inserir_ean:
+                ean_cadastro = st.text_input(label='',placeholder=f'Insira o código ean do {codigo} ',key='ean_cadastro')
+                if ean:
+                    caminho_ean = f'Estoque/{codigo}'
                     ref.child(caminho_ean).set({'EAN':ean})
         col1,col2,col3 = st.columns(3)
         
