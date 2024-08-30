@@ -16,6 +16,9 @@ if 'Depósito' in roteiro:
   except:
     pass
   def ean_func(item):
+    requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+    roteiro = requiscao.json()
+    dados = roteiro['Depósito']
     base_dados  = dados['Estoque']
     for item in base_dados:
       codigo = base_dados[f'{item}']['EAN']
