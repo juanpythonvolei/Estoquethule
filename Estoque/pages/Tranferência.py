@@ -23,6 +23,7 @@ if 'Depósito' in roteiro:
       codigo_func = dados[f'{item}']['EAN']
       if x == codigo_func:
         retorno = item
+        x = item
         return retorno
     
   def consulta(item):    
