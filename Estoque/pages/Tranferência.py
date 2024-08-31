@@ -38,8 +38,10 @@ if 'Depósito' in roteiro:
                   texto  += info
                 st.info(texto)
         
-      
-        st.image(foto)  
+        try:
+          st.image(foto)  
+        except:
+          pass
   
   
   coletor = st.toggle('Coletor',key='trasferência') 
