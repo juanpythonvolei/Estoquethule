@@ -93,7 +93,7 @@ if 'Estoque' in roteiro:
                                               caminho_cadastro = f'{codigo_produto}'
                                               caminho_rec = f'Rec/{codigo_produto}'
                                               ref_cadastro.child(caminho_cadastro).set(dict_produto)
-                                              dict_rec = {'quantidade':quantidade_produto}
+                                              dict_rec = {'quantidade':int(quantidade_produto)}
                                               ref_rec.child(caminho_rec).set(dict_rec)
                                               contagem += 1
                                           except:
