@@ -60,7 +60,6 @@ if 'Depósito' in roteiro:
                 produto = codigo
                 st.info(f'Você selecionou o item {produto}')
             except:
-              st.warning(f'Atenção, o item {produto} não possúi um código ean')
               produto = produto
               pass
       else:
