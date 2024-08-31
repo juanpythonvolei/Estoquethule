@@ -9,6 +9,7 @@ import xmltodict
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
+dados = roteiro['Depósito']['Rec']
 ref_cadastro = db.reference('Estoque')
 ref_rec = db.reference('Depósito')
 if 'Estoque' in roteiro:
@@ -18,6 +19,7 @@ if 'Estoque' in roteiro:
         st.warning(f'O item: {item} não conta no cadastro')
         descricao = st.text_input(label='',placeholder='Insira uma descrição')
         if descricao:  
+                
               deposito_ref = db.reference('Depósito')
               caminho = f'Rec/{item}'
               
@@ -47,8 +49,10 @@ if 'Estoque' in roteiro:
           item = st.text_input(label='',placeholder='Insira um item')  
       else:
           item = st.selectbox(label='',placeholder='Insira um item',index=None,options=lista_produtos)
+      quantidade_atual_rec = dados[f'{item}']['quantidade']  
       quantidade = st.number_input(placeholder=f'Insira a quantidade do item',value=None,label='')
       if item and quantidade:
+        adicionar = quantidade + quantidade_atual_rec
         botao_adicionar = st.button(f'Adicionar Item: {item}')
         if botao_adicionar:
           if item not in lista_produtos:
@@ -59,7 +63,7 @@ if 'Estoque' in roteiro:
             
             # Adicionando dados
               deposito_ref.child(caminho).set({
-                  'quantidade': quantidade  # Exemplo de dado adicional
+                  'quantidade': adicionar  # Exemplo de dado adicional
               })
               st.success(f'Item {item} adicionado com sucesso')
     with tab2:
