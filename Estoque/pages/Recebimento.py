@@ -82,7 +82,7 @@ if 'Estoque' in roteiro:
                                       else:  
                                           descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']   
                                           ean_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cEAN']     
-                                          dict_produto={'Foto':'','Descrição':descricao_produt}
+                                          dict_produto={'Foto':'','Descrição':descricao_produto}
                                           caminho_cadastro = f'{codigo_produto}'
                                           ref_cadastro.child(caminho_cadastro).set(dict_produto)
                                           contagem += 1                      
