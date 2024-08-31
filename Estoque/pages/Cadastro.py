@@ -64,7 +64,7 @@ if 'Estoque' in roteiro:
                 st.info('Por enquanto, não foram registrados produtos')
         
         
-        excluir = st.button('Excluir Produtos',key='botao_excluir')
+        excluir = st.button('🗑️',key='botao_excluir')
         if excluir:
                 exclusao()
         with st.popover('Alterar informações de Produtos'):
@@ -96,7 +96,7 @@ if 'Estoque' in roteiro:
                 foto = ''
             ref = db.reference('Estoque')
             with col1:
-                cadastro = st.button('Cadastar Produtos')
+                cadastro = st.button(f'Cadastar Produto {codigo}')
                 if cadastro:
                     if foto or foto == '':
                         if inserir_ean:
