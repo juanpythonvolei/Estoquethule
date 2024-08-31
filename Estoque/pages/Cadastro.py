@@ -92,7 +92,7 @@ if 'Estoque' in roteiro:
                             ref.child(caminho_final).set(item_alterado)
                             st.success(f'O item {alteracao_item} foi alterado no campo {alteracao_campo}')
         if codigo and descricao:
-            if not foto:
+            if not foto and uploaded_files:
                 foto = ''
             ref = db.reference('Estoque')
             with col1:
