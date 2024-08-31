@@ -90,6 +90,9 @@ if 'Estoque' in roteiro:
                                               ean_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cEAN']     
                                               dict_produto={'Foto':'','Descrição':descricao_produto,'EAN':codigo_ean}
                                               quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom']  
+                                              if '.' in quantidade_produto:
+                                                  numero,excesso = quantidade_produto.split('.')
+                                                  quantidade_produto = numero
                                               caminho_cadastro = f'{codigo_produto}'
                                               caminho_rec = f'Rec/{codigo_produto}'
                                               ref_cadastro.child(caminho_cadastro).set(dict_produto)
