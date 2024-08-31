@@ -64,56 +64,57 @@ if 'Estoque' in roteiro:
               st.success(f'Item {item} adicionado com sucesso')
     with tab2:
           lista_filtrada = []   
-          tipo_arquivo = st.selectbox(label='',placeholder='Selecione o tipo de arquivo de cadastro automático',options=['xml','xlsx','csv'],index=None)   
-          uploaded_files = st.file_uploader("Escolha os arquivos", type=[f'{tipo_arquivo}'], accept_multiple_files=True)
-          lista = []   
-          contagem = 0    
-          erro = 0  
-          valor = 0  
-          for item in dados:
-              if item not in lista:
-                  lista.append(item)
-              else:
-                  pass
-          if uploaded_files:
-                    for nota in uploaded_files:
-                                      try:  
-                                          xml_data = nota.read()
-                                          documento = xmltodict.parse(xml_data)
-                                          codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
-                                          codigo_ean = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cEAN']
-                                      except:
-                                          pass
-                                      if codigo_produto in lista:
-                                          pass
-                                      else:  
-                                          try:
-                                              descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']   
-                                              ean_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cEAN']     
-                                              dict_produto={'Foto':'','Descrição':descricao_produto,'EAN':codigo_ean}
-                                              quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom']  
-                                              valor_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['vProd']
-                                              valor += float(valor_produto)
-                                              if '.' in quantidade_produto:
-                                                  numero,excesso = quantidade_produto.split('.')
-                                                  quantidade_produto = numero
-                                              caminho_cadastro = f'{codigo_produto}'
-                                              caminho_rec = f'Rec/{codigo_produto}'
-                                              ref_cadastro.child(caminho_cadastro).set(dict_produto)
-                                              dict_rec = {'quantidade':int(quantidade_produto)}
-                                              ref_rec.child(caminho_rec).set(dict_rec)
-                                              contagem += 1
+          tipo_arquivo = st.selectbox(label='',placeholder='Selecione o tipo de arquivo de cadastro automático',options=['xml','xlsx','csv'],index=None) 
+          if tipo_arquivo:  
+              uploaded_files = st.file_uploader("Escolha os arquivos", type=[f'{tipo_arquivo}'], accept_multiple_files=True)
+              lista = []   
+              contagem = 0    
+              erro = 0  
+              valor = 0  
+              for item in dados:
+                  if item not in lista:
+                      lista.append(item)
+                  else:
+                      pass
+              if uploaded_files:
+                        for nota in uploaded_files:
+                                          try:  
+                                              xml_data = nota.read()
+                                              documento = xmltodict.parse(xml_data)
+                                              codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
+                                              codigo_ean = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cEAN']
                                           except:
-                                              erro += 1
                                               pass
-                    col1,col2,col3 = st.columns(3)
-                    with col1:  
-                        st.metric(label='Total de itens cadastrados',value=contagem)
-                    with col2:
-                        st.metric(label='Total de itens não possíveis de cadastrar',value=erro)
-                    with col3:
-                        st.metric(label='Valor Total dos itens cadastrados',value=f'{valor} R$')
-                    st.success(f'Processo Concluído')    
+                                          if codigo_produto in lista:
+                                              pass
+                                          else:  
+                                              try:
+                                                  descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']   
+                                                  ean_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cEAN']     
+                                                  dict_produto={'Foto':'','Descrição':descricao_produto,'EAN':codigo_ean}
+                                                  quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom']  
+                                                  valor_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['vProd']
+                                                  valor += float(valor_produto)
+                                                  if '.' in quantidade_produto:
+                                                      numero,excesso = quantidade_produto.split('.')
+                                                      quantidade_produto = numero
+                                                  caminho_cadastro = f'{codigo_produto}'
+                                                  caminho_rec = f'Rec/{codigo_produto}'
+                                                  ref_cadastro.child(caminho_cadastro).set(dict_produto)
+                                                  dict_rec = {'quantidade':int(quantidade_produto)}
+                                                  ref_rec.child(caminho_rec).set(dict_rec)
+                                                  contagem += 1
+                                              except:
+                                                  erro += 1
+                                                  pass
+                        col1,col2,col3 = st.columns(3)
+                        with col1:  
+                            st.metric(label='Total de itens cadastrados',value=contagem)
+                        with col2:
+                            st.metric(label='Total de itens não possíveis de cadastrar',value=erro)
+                        with col3:
+                            st.metric(label='Valor Total dos itens cadastrados',value=f'{valor} R$')
+                        st.success(f'Processo Concluído')    
 
 else:
     st.error('Não há estoque diponível')
