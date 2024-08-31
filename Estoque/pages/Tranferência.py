@@ -61,6 +61,7 @@ if 'Depósito' in roteiro:
                 st.info(f'Você selecionou o item {produto}')
             except:
               st.warning(f'Atenção, o item {produto} não possúi um código ean')
+              pass
       else:
           produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
   if produto in elementos:
