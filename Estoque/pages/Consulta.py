@@ -52,8 +52,11 @@ if 'Depósito' in roteiro:
                 
                 
          
-         st.info(texto_item)      
-         st.image(foto)       
+         st.info(texto_item)  
+         try:   
+              st.image(foto)    
+         except:
+              pass
      with col2:
        texto_posicao =''
        lista_posicoes = [elemento for elemento in dados]
