@@ -91,7 +91,9 @@ if 'Estoque' in roteiro:
                             caminho_final = f'{alteracao_item}/{alteracao_campo}'
                             ref.child(caminho_final).set(item_alterado)
                             st.success(f'O item {alteracao_item} foi alterado no campo {alteracao_campo}')
-        if codigo and descricao and foto or uploaded_files:
+        if codigo and descricao:
+            if not foto:
+                foto = ''
             ref = db.reference('Estoque')
             with col1:
                 cadastro = st.button('Cadastar Produtos')
