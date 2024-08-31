@@ -68,6 +68,8 @@ if 'Estoque' in roteiro:
           uploaded_files = st.file_uploader("Escolha os arquivos", type=[f'{tipo_arquivo}'], accept_multiple_files=True)
           lista = []   
           contagem = 0    
+          erro = 0  
+          valor = 0  
           for item in dados:
               if item not in lista:
                   lista.append(item)
@@ -90,6 +92,8 @@ if 'Estoque' in roteiro:
                                               ean_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cEAN']     
                                               dict_produto={'Foto':'','Descrição':descricao_produto,'EAN':codigo_ean}
                                               quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom']  
+                                              valor_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['vProd']
+                                              valor += valor_produto
                                               if '.' in quantidade_produto:
                                                   numero,excesso = quantidade_produto.split('.')
                                                   quantidade_produto = numero
@@ -100,8 +104,16 @@ if 'Estoque' in roteiro:
                                               ref_rec.child(caminho_rec).set(dict_rec)
                                               contagem += 1
                                           except:
+                                              erro += 1
                                               pass
-                    st.success(f'{contagem} produtos foram cadastrados')    
+                    col1,col2,col3 = st.columns(3)
+                    with col1:  
+                        st.metric(label='Total de itens cadastrados',value=contagem)
+                    with col2:
+                        st.metric(label='Total de itens não possíveis de cadastrar',value=erro)
+                    with col3:
+                        st.metric(label='Valor Total dos itens cadastrados',value=f'{valor} R$')
+                    st.success(f'Processo Concluído')    
 
 else:
     st.error('Não há estoque diponível')
