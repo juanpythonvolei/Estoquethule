@@ -77,13 +77,14 @@ if 'Estoque' in roteiro:
                                       xml_data = nota.read()
                                       documento = xmltodict.parse(xml_data)
                                       codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
+                                      codigo_ean = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cEAN']
                                       if codigo_produto in lista:
                                           pass
                                       else:  
                                           try:
                                               descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']   
                                               ean_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cEAN']     
-                                              dict_produto={'Foto':'','Descrição':descricao_produto}
+                                              dict_produto={'Foto':'','Descrição':descricao_produto,'EAN':codigo_ean}
                                               caminho_cadastro = f'{codigo_produto}'
                                               ref_cadastro.child(caminho_cadastro).set(dict_produto)
                                               contagem += 1
