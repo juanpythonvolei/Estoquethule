@@ -73,7 +73,7 @@ if 'Depósito' in roteiro:
              ativo = produto
              quantidade = posicao[f'{produto}']['quantidade']
              informacao = f'''
-             {ativo}-{quantidade} unidades
+             {ativo} -  {quantidade} unidades
              
              '''
              texto_posicao += informacao
