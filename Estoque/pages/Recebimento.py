@@ -74,10 +74,13 @@ if 'Estoque' in roteiro:
                   pass
           if uploaded_files:
                     for nota in uploaded_files:
-                                      xml_data = nota.read()
-                                      documento = xmltodict.parse(xml_data)
-                                      codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
-                                      codigo_ean = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cEAN']
+                                      try:  
+                                          xml_data = nota.read()
+                                          documento = xmltodict.parse(xml_data)
+                                          codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
+                                          codigo_ean = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cEAN']
+                                      except:
+                                          pass
                                       if codigo_produto in lista:
                                           pass
                                       else:  
