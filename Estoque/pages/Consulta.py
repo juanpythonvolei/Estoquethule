@@ -36,6 +36,8 @@ if 'Depósito' in roteiro:
        else:   
             selecao_item = st.selectbox(label = '',placeholder='Selecione um Item',options=lista_itens,index=None)   
        if selecao_item:   
+         total_quantidade = 0
+         total_posicoes = 0 
          item_rec = dados3[f'{selecao_item}']['quantidade']
          foto = dados2[f'{selecao_item}'][f'Foto']
          st.warning(f'O item {selecao_item} possúi {item_rec} unidades em Rec')
@@ -44,19 +46,24 @@ if 'Depósito' in roteiro:
            for produto in posicao:
              if produto == selecao_item:
                 quantidade = posicao[f'{produto}']['quantidade']
-                if quantidade >0:  
+                    
+                if quantidade > 0:  
+                     total_quantidade += quantidade
+                     total_posicoes += 1
                      info =  f'''
                 O item {selecao_item} possúi {quantidade} unidades na posição {item}
                 '''
                      texto_item += info
                 
                 
-         
+           
          st.info(texto_item)  
          try:   
               st.image(foto)    
          except:
               pass
+         st.metric(label=f'Total unidades item {item}',value=total_quantidade)
+         st.metric(label=f'Total posicoes para o item {item}',value=total_posicoes)  
      with col2:
        texto_posicao =''
        lista_posicoes = [elemento for elemento in dados]
