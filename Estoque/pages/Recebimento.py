@@ -49,9 +49,9 @@ if 'Estoque' in roteiro:
           item = st.text_input(label='',placeholder='Insira um item')  
       else:
           item = st.selectbox(label='',placeholder='Insira um item',index=None,options=lista_produtos)
-      quantidade_atual_rec = dados2[f'{item}']['quantidade']  
       quantidade = st.number_input(placeholder=f'Insira a quantidade do item',value=None,label='')
       if item and quantidade:
+        quantidade_atual_rec = dados2[f'{item}']['quantidade']   
         adicionar = quantidade + quantidade_atual_rec
         botao_adicionar = st.button(f'Adicionar Item: {item}')
         if botao_adicionar:
