@@ -54,10 +54,13 @@ if 'Depósito' in roteiro:
         codigos =  roteiro['Estoque']
         for codigo in codigos:
             item = codigos[f'{codigo}']
-            codigo_ean = item['EAN']
-            if codigo_ean == produto:
-              produto = codigo
-              st.info(f'Você selecionou o item {produto}')
+            try:
+              codigo_ean = item['EAN']
+              if codigo_ean == produto:
+                produto = codigo
+                st.info(f'Você selecionou o item {produto}')
+            except:
+              st.warning(f'Atenção, o item {produto} não possúi um código ean')
       else:
           produto = st.selectbox(label='',placeholder='Insira o produto',options=elementos,index=None)
   if produto in elementos:
