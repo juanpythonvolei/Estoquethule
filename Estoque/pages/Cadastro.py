@@ -98,7 +98,7 @@ if 'Estoque' in roteiro:
             with col1:
                 cadastro = st.button('Cadastar Produtos')
                 if cadastro:
-                    if foto:
+                    if foto or foto == '':
                         if inserir_ean:
                             dict_produto = {'Foto':foto,'Descrição':descricao,'EAN':inserir_ean}
                         else:
