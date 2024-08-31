@@ -80,12 +80,15 @@ if 'Estoque' in roteiro:
                                       if codigo_produto in lista:
                                           pass
                                       else:  
-                                          descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']   
-                                          ean_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cEAN']     
-                                          dict_produto={'Foto':'','Descrição':descricao_produto}
-                                          caminho_cadastro = f'{codigo_produto}'
-                                          ref_cadastro.child(caminho_cadastro).set(dict_produto)
-                                          contagem += 1                      
+                                          try:
+                                              descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']   
+                                              ean_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cEAN']     
+                                              dict_produto={'Foto':'','Descrição':descricao_produto}
+                                              caminho_cadastro = f'{codigo_produto}'
+                                              ref_cadastro.child(caminho_cadastro).set(dict_produto)
+                                              contagem += 1
+                                          except:
+                                              pass
                     st.success(f'{contagem} produtos foram cadastrados')    
 
 else:
