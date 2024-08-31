@@ -10,6 +10,7 @@ image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
 ref_cadastro = db.reference('Estoque')
+ref_rec = db.reference('Depósito')
 if 'Estoque' in roteiro:
     dados = roteiro['Estoque']
     @st.dialog(f"Atenção") 
@@ -88,8 +89,12 @@ if 'Estoque' in roteiro:
                                               descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']   
                                               ean_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cEAN']     
                                               dict_produto={'Foto':'','Descrição':descricao_produto,'EAN':codigo_ean}
+                                              quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom']  
                                               caminho_cadastro = f'{codigo_produto}'
+                                              caminho_rec = f'Rec/{codigo_produto}'
                                               ref_cadastro.child(caminho_cadastro).set(dict_produto)
+                                              dict_rec = {'quantidade':quantidade_produto}
+                                              ref_rec.child(caminho_rec).set(dict_rec)
                                               contagem += 1
                                           except:
                                               pass
