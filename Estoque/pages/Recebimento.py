@@ -72,7 +72,6 @@ if 'Estoque' in roteiro:
               else:
                   pass
           if uploaded_files:
-             try:
                     for nota in uploaded_files:
                                       xml_data = nota.read()
                                       documento = xmltodict.parse(xml_data)
@@ -87,8 +86,7 @@ if 'Estoque' in roteiro:
                                           ref_cadastro.child(caminho_cadastro).set(dict_produto)
                                           contagem += 1                      
                     st.success(f'{contagem} produtos foram cadastrados')    
-             except:         
-                  pass
+
 else:
     st.error('Não há estoque diponível')
       
