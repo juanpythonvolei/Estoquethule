@@ -93,7 +93,7 @@ if 'Estoque' in roteiro:
                                               dict_produto={'Foto':'','Descrição':descricao_produto,'EAN':codigo_ean}
                                               quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom']  
                                               valor_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['vProd']
-                                              valor += valor_produto
+                                              valor += float(valor_produto)
                                               if '.' in quantidade_produto:
                                                   numero,excesso = quantidade_produto.split('.')
                                                   quantidade_produto = numero
