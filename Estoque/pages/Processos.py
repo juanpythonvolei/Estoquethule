@@ -18,7 +18,7 @@ for elemento in dados:
       info = notas[f'{item}']
       numero_processo = info['processo']
       lista_numero_processo.append(numero_processo)
-lista_numero_processo = sorted(list(set(lista_numero_processo,Reverse=True)))
+lista_numero_processo = sorted(lista_numero_processo)
 if len(lista_numero_processo) < 0:
   numero_processo = 0
 else:
