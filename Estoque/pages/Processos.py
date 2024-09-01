@@ -24,7 +24,6 @@ if barra_lateral == 'Faturamento':
                                               documento = xmltodict.parse(xml_data)
                                               codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
                                               descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']       
-                                              dict_produto={'Foto':'','Descrição':descricao_produto,'EAN':codigo_ean}
                                               quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom']  
                                               valor_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['vProd']
                                               cliente = documento['nfeProc']['NFe']['infNFe']['emit']
