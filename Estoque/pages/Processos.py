@@ -4,5 +4,7 @@ from firebase_admin import credentials, firestore,db
 import requests
 import os
 import requests
-barra_lateral = st.sidebar.selectbox('selecione uma aba',['faturamento','mercado','separação'])
+barra_lateral = st.sidebar.selectbox('Selecione uma aba',['Faturamento','Mercado','Separação'])
+if barra_lateral == 'Faturamento':
+  
 
