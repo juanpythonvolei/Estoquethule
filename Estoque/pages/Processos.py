@@ -8,8 +8,7 @@ import random
 import xmltodict
 barra_lateral = st.sidebar.selectbox('Selecione uma aba',['Faturamento','Mercado','Separação'])
 ref_faturamento = db.reference('Faturamento')
-numero_processo = 1
-caminho_faturamento = f'{numero_processo}'
+numero_processo = 0
 if barra_lateral == 'Faturamento':
               
               lista_filtrada = []         
@@ -20,18 +19,23 @@ if barra_lateral == 'Faturamento':
               valor = 0  
               if uploaded_files:
                         numero_processo +=1
+                        
+                        
                         for nota in uploaded_files:
                           try:
+                                              
                                               xml_data = nota.read()
                                               documento = xmltodict.parse(xml_data)
                                               codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
                                               descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']       
-                                              quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom']  
+                                              quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom'] 
+                                              quantidade_produto,x = str(quantidade_produto.split('.'))
                                               valor_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['vProd']
                                               cliente = documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
                                               numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
                                               data_emit = documento['nfeProc']['NFe']['infNFe']['ide']['dhEmi'][:10]
-                                              dict_pedido = {'cliente':cliente,'produtos':f'Produto:{codigo_produto} - Valor:{valor_produto}','descrição do produto':descricao_produto,'quantidade':quantidade_produto,'processo':numero_processo,'Data':data_emit,'numero da nota':numero_da_nota}
+                                              caminho_faturamento = f'{data_emit}'
+                                              dict_pedido = {'cliente':cliente,'produtos':f'Produto:{codigo_produto} - Valor:{valor_produto}','descrição do produto':descricao_produto,'quantidade':int(quantidade_produto),'processo':numero_processo,'Data':data_emit,'numero da nota':numero_da_nota}
                                               ref_faturamento.child(caminho_faturamento).set(dict_pedido)
                                               contagem += 1
                           except:     
