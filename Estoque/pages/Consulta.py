@@ -26,8 +26,9 @@ if 'Depósito' in roteiro:
      dados2 = roteiro['Estoque']
      quantidade = 0
      col1,col2,col3 = st.tabs(['Consultar item','consultar posição','Assistente'])
+     col4,col5,col6 = st.columns(3) 
      with col1:
-       col1,col2,col3 = st.columns(3)    
+          
        texto_item = ''
        lista_itens = [elemento for elemento in dados2]
        coletor = st.toggle('Coletor',key='posicao') 
@@ -62,9 +63,9 @@ if 'Depósito' in roteiro:
               st.image(foto)    
          except:
               pass
-         with col1: 
+         with col4: 
               st.metric(label=f'Total unidades item {selecao_item}',value=total_quantidade)
-         with col2: 
+         with col2-5: 
               st.metric(label=f'Total posicoes para o item {selecao_item}',value=total_posicoes)  
      with col2:
        texto_posicao =''
