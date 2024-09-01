@@ -7,6 +7,7 @@ import requests
 import random
 import xmltodict
 from datetime import datetime
+image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 barra_lateral = st.sidebar.selectbox('Selecione uma aba',['Faturamento','Mercado','Separação'])
 ref_faturamento = db.reference('Faturamento')
 numero_processo = 0
