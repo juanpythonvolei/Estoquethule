@@ -41,7 +41,7 @@ if barra_lateral == 'Faturamento':
                                               contagem += 1
                                           except:   
                                               erro += 1
-                      st.metric(label='Total de notas processadas',value=contagem)
-                      st.metric(label='Total de notas não processadas',value=erro)
+                        st.metric(label='Total de notas processadas',value=contagem)
+                        st.metric(label='Total de notas não processadas',value=erro)
                                                   
 
