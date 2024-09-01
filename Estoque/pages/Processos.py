@@ -33,7 +33,7 @@ if barra_lateral == 'Faturamento':
                                               dict_pedido = {'cliente':cliente,'produtos':f'{codigo_produto} - {valor_produto}','descrição do produto':descricao_produto,'quantidade':quantidade_produto,'processo':numero_processo}
                                               ref_faturamento.child(caminho_faturamento).set(dict_pedido)
                                               contagem += 1
-                           except:  
+                          except:     
                              error += 1
                         st.metric(label='Total de notas processadas',value=contagem)
                         st.metric(label='Total de notas não processadas',value=erro)
