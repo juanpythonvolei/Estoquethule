@@ -43,7 +43,9 @@ if barra_lateral == 'Faturamento':
                         st.metric(label='Total de notas processadas',value=contagem)
                         st.metric(label='Total de notas não processadas',value=erro)
 elif barra_lateral ==  'Mercado':
+  col1,col2,col3=st.columns(3)
   lista_processos = []
+  lista_datas =[]
   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
   roteiro = requiscao.json()
   dados = roteiro['Faturamento']
@@ -52,8 +54,22 @@ elif barra_lateral ==  'Mercado':
     for item in notas:
       info = notas[f'{item}']
       numero_processo = info['processo']
-      if numero_processo in lista_processos:
-        pass
-      else:
-        lista_processos.append(numero_processo)
-  selecao = st.selectbox(label='',placeholder='selecione o Processo',options = lista_processos,index=None)
+      data = info['Data']
+      if data ==data_atual: 
+        if data in lista_datas:
+          pass
+        else:
+          lista_processos.append(data)
+  with col1:
+    selecao = st.selectbox(label='',placeholder='selecione o Processo',options = lista_processos,index=None)
+  if selecao:
+    with col2:
+      for item in dados:
+      notas = dados[f'{item}']
+      for item in notas:
+        info = notas[f'{item}']
+        numero_processo = info['processo']
+        if numero_processo in lista_processos:
+          pass
+        else:
+          lista_processos.append(numero_processo)
