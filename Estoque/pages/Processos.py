@@ -16,7 +16,7 @@ if barra_lateral == 'Faturamento':
               lista = []   
               contagem = 0    
               erro = 0  
-              valor = 0  
+              valor = 0
               if uploaded_files:
                         numero_processo +=1
                         
