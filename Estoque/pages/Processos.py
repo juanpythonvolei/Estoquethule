@@ -8,7 +8,7 @@ import random
 import xmltodict
 barra_lateral = st.sidebar.selectbox('Selecione uma aba',['Faturamento','Mercado','Separação'])
 ref_faturamento = db.reference('Faturamento')
-numero_processo = random.randint(1,10000)
+numero_processo = 1
 caminho_faturamento = f'{numero_processo}'
 if barra_lateral == 'Faturamento':
               
@@ -19,6 +19,7 @@ if barra_lateral == 'Faturamento':
               erro = 0  
               valor = 0  
               if uploaded_files:
+                        numero_processo +=1
                         for nota in uploaded_files:
                           try:
                                               xml_data = nota.read()
