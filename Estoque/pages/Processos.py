@@ -13,7 +13,7 @@ numero_processo = 0
 data_hora_atual = datetime.now()
 data_atual = data_hora_atual.strftime("%d-%m-%Y")
 if barra_lateral == 'Faturamento':
-              
+              numero_processo +=1
               lista_filtrada = []         
               uploaded_files = st.file_uploader("Escolha os arquivos", type=[f'xml'], accept_multiple_files=True)
               lista = []   
