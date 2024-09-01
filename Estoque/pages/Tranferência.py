@@ -22,6 +22,7 @@ if 'Depósito' in roteiro:
       roteiro = requiscao.json()
       dados = roteiro['Depósito']
       if 'Rev' in dados:
+        quantidade_tranferida = 0
         dados2 = roteiro['Estoque']
         qtd_Rec = dados['Rec'][f'{item}']['quantidade']
         foto = dados2[f'{item}']['Foto']
@@ -32,6 +33,7 @@ if 'Depósito' in roteiro:
           for x in localizacao:
             if x == item:
                 qtd_rev = localizacao[f'{x}']['quantidade']
+                quantidade_transferida += qtd_rev
                 if qtd_rev>0:
                   local = localizacao
                   info = f'Item :{item} possúi {qtd_rev} unidades na posição {elemento}' 
@@ -42,6 +44,8 @@ if 'Depósito' in roteiro:
           st.image(foto)  
         except:
           pass
+          st.metric(label=f'Total transferido',value=quantidade_transferida)
+            
   
   
   coletor = st.toggle('Coletor',key='trasferência') 
