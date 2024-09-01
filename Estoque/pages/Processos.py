@@ -55,4 +55,4 @@ elif barra_lateral ==  'Mercado':
         pass
       else:
         lista_processos.append(numero_processo)
-  selecao = st.selectbox(label='',palceholder='selecione o Processo',options = lista_processos,index=None)
+  selecao = st.selectbox(label='',placeholder='selecione o Processo',options = lista_processos,index=None)
