@@ -25,7 +25,7 @@ if 'Estoque' in roteiro:
         with col3:
             with st.popover('🖥️'):
                 item =  st.text_input(label='',placeholder=f'Insira o código',key='item')
-                ean = st.text_input(label='',placeholder=f'Insira o código do produto ',key='ean')
+                ean = st.text_input(label='',placeholder=f'Insira o código EAN do produto ',key='ean')
                 if ean:
                     ref = db.reference('Estoque')
                     caminho_ean = f'{item}/EAN'
