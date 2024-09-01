@@ -34,7 +34,7 @@ if barra_lateral == 'Faturamento':
                                               ref_faturamento.child(caminho_faturamento).set(dict_pedido)
                                               contagem += 1
                           except:     
-                             error += 1
+                             erro += 1
                         st.metric(label='Total de notas processadas',value=contagem)
                         st.metric(label='Total de notas não processadas',value=erro)
                                                   
