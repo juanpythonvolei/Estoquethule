@@ -22,7 +22,7 @@ if 'Depósito' in roteiro:
       roteiro = requiscao.json()
       dados = roteiro['Depósito']
       if 'Rev' in dados:
-        quantidade_tranferida = 0
+        quantidade_transferida = 0
         dados2 = roteiro['Estoque']
         qtd_Rec = dados['Rec'][f'{item}']['quantidade']
         foto = dados2[f'{item}']['Foto']
