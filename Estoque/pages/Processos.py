@@ -49,8 +49,8 @@ elif barra_lateral ==  'Mercado':
   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
   roteiro = requiscao.json()
   dados = roteiro['Faturamento']
-  for item in dados:
-    notas = dados[f'{item}']
+  for elemento in dados:
+    notas = dados[f'{elemento}']
     for item in notas:
       info = notas[f'{item}']
       numero_processo = info['processo']
@@ -58,7 +58,7 @@ elif barra_lateral ==  'Mercado':
       if data in lista_datas:
           pass
       else:
-          lista_datas.append(notas)
+          lista_datas.append(elemento)
   with col1:
     selecao_datas = st.selectbox(label='',placeholder='selecione o Processo',options = lista_datas,index=None)
   if selecao_datas:
