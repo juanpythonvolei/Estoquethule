@@ -9,7 +9,6 @@ import xmltodict
 from datetime import datetime
 barra_lateral = st.sidebar.selectbox('Selecione uma aba',['Faturamento','Mercado','Separação'])
 ref_faturamento = db.reference('Faturamento')
-numero_processo = 0
 data_hora_atual = datetime.now()
 data_atual = data_hora_atual.strftime("%d/%m/%Y %H:%M:%S")
 if barra_lateral == 'Faturamento':
@@ -21,9 +20,6 @@ if barra_lateral == 'Faturamento':
               erro = 0  
               valor = 0
               if uploaded_files:
-                        numero_processo +=1
-                        
-                        
                         for nota in uploaded_files:
                           try:
                                               
