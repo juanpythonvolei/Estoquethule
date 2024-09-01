@@ -55,8 +55,7 @@ elif barra_lateral ==  'Mercado':
       info = notas[f'{item}']
       numero_processo = info['processo']
       data = info['Data']
-      if data ==data_atual: 
-        if data in lista_datas:
+      if data in lista_datas:
           pass
         else:
           lista_processos.append(data)
