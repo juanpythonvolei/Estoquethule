@@ -6,9 +6,11 @@ import os
 import requests
 import random
 import xmltodict
+from datetime import datetime
 barra_lateral = st.sidebar.selectbox('Selecione uma aba',['Faturamento','Mercado','Separação'])
 ref_faturamento = db.reference('Faturamento')
 numero_processo = 0
+data_atual = datetime.now()
 if barra_lateral == 'Faturamento':
               
               lista_filtrada = []         
@@ -33,7 +35,7 @@ if barra_lateral == 'Faturamento':
                                               cliente = documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
                                               numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
                                               data_emit = documento['nfeProc']['NFe']['infNFe']['ide']['dhEmi'][:10]
-                                              caminho_faturamento = f'{data_emit}'
+                                              caminho_faturamento = f'{data_atual}'
                                               dict_pedido = {'cliente':cliente,'produtos':f'Produto:{codigo_produto} - Valor:{valor_produto}','descrição do produto':descricao_produto,'quantidade':quantidade_produto,'processo':numero_processo,'Data':data_emit,'numero da nota':numero_da_nota}
                                               ref_faturamento.child(caminho_faturamento).set(dict_pedido)
                                               contagem += 1
