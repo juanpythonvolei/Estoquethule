@@ -17,13 +17,7 @@ if barra_lateral == 'Faturamento':
               contagem = 0    
               erro = 0  
               valor = 0  
-              for item in dados:
-                  if item not in lista:
-                      lista.append(item)
-                  else:
-                      pass
               if uploaded_files:
-                        
                         for nota in uploaded_files:
                                           try:  
                                               xml_data = nota.read()
