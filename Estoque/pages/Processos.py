@@ -58,7 +58,7 @@ elif barra_lateral ==  'Mercado':
       if data in lista_datas:
           pass
       else:
-          lista_datas.append(dados)
+          lista_datas.append(notas)
   with col1:
     selecao_datas = st.selectbox(label='',placeholder='selecione o Processo',options = lista_datas,index=None)
   if selecao_datas:
