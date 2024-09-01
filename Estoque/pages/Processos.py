@@ -10,7 +10,7 @@ from datetime import datetime
 barra_lateral = st.sidebar.selectbox('Selecione uma aba',['Faturamento','Mercado','Separação'])
 ref_faturamento = db.reference('Faturamento')
 numero_processo = 0
-data_atual = datetime.now()
+data_atual = data_hora_atual.strftime("%d/%m/%Y %H:%M:%S")
 if barra_lateral == 'Faturamento':
               
               lista_filtrada = []         
