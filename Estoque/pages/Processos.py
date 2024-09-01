@@ -8,10 +8,10 @@ import random
 import xmltodict
 barra_lateral = st.sidebar.selectbox('Selecione uma aba',['Faturamento','Mercado','Separação'])
 ref_faturamento = db.reference('Faturamento')
-
+numero_processo = random.randint(1,10000)
+caminho_faturamento = f'{numero_processo}'
 if barra_lateral == 'Faturamento':
-              numero_processo = random.randint(1,10000)
-              caminho_faturamento = f'{numero_processo}'
+              
               lista_filtrada = []         
               uploaded_files = st.file_uploader("Escolha os arquivos", type=[f'xml'], accept_multiple_files=True)
               lista = []   
