@@ -8,9 +8,24 @@ import random
 import xmltodict
 from datetime import datetime
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
+lista_numero_processo = []
+requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+roteiro = requiscao.json()
+dados = roteiro['Faturamento']
+for elemento in dados:
+    notas = dados[f'{elemento}']
+    for item in notas:
+      info = notas[f'{item}']
+      numero_processo = info['processo']
+      lista_numero_processo.append(numero_processo)
+lista_numero_processo = sorted(list(set(lista_numero_processo,Reverse=True)))
+if len(lista_numero_processo) < 0:
+  numero_processo = 0
+else:
+  numero_processo = lista_numero_processo[0]
 barra_lateral = st.sidebar.selectbox('Selecione uma aba',['Faturamento','Mercado','Separação'])
 ref_faturamento = db.reference('Faturamento')
-numero_processo = 0
+
 data_hora_atual = datetime.now()
 data_atual = data_hora_atual.strftime("%d-%m-%Y")
 if barra_lateral == 'Faturamento':
