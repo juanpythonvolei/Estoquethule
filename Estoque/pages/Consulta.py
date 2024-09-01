@@ -63,10 +63,8 @@ if 'Depósito' in roteiro:
               st.image(foto)    
          except:
               pass
-         with col4: 
-              st.metric(label=f'Total unidades item {selecao_item}',value=total_quantidade)
-         with col5: 
-              st.metric(label=f'Total posicoes para o item {selecao_item}',value=total_posicoes)  
+          st.metric(label=f'Total unidades item {selecao_item}',value=total_quantidade)
+          st.metric(label=f'Total posicoes para o item {selecao_item}',value=total_posicoes)  
      with col2:
        texto_posicao =''
        lista_posicoes = [elemento for elemento in dados]
