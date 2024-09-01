@@ -44,7 +44,7 @@ if 'Depósito' in roteiro:
           st.image(foto)  
         except:
           pass
-          st.metric(label=f'Total transferido',value=quantidade_transferida)
+        st.metric(label=f'Total transferido',value=quantidade_transferida)
             
   
   
