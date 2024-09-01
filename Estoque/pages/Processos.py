@@ -30,7 +30,7 @@ if barra_lateral == 'Faturamento':
                                               cliente = documento['nfeProc']['NFe']['infNFe']['emit']
                                               #numero_da_nota = documento['nfeProc']['NFe']['infNFe']['nNF']
                                               #data_emit = documento['nfeProc']['NFe']['infNFe']['dhEmi']
-                                              dict_pedido = {'cliente':cliente,'produtos':f'{codigo_produto} - {valor_produto}','descrição do produto':descricao_produto,'quantidade':quantidade_produto,'processo':processo}
+                                              dict_pedido = {'cliente':cliente,'produtos':f'{codigo_produto} - {valor_produto}','descrição do produto':descricao_produto,'quantidade':quantidade_produto,'processo':numero_processo}
                                               ref_faturamento.child(caminho_faturamento).set(dict_pedido)
                                               contagem += 1
  
