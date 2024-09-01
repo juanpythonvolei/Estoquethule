@@ -8,6 +8,7 @@ import requests
 import xmltodict
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+barra_lateral = st.sidebar(['Faturamento'])
 roteiro = requiscao.json()
 dados2 = roteiro['Depósito']['Rec']
 ref_cadastro = db.reference('Estoque')
