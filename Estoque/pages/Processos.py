@@ -5,6 +5,7 @@ import requests
 import os
 import requests
 import random
+import xmltodict
 barra_lateral = st.sidebar.selectbox('Selecione uma aba',['Faturamento','Mercado','Separação'])
 ref_faturamento = db.reference('Faturamento')
 
