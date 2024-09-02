@@ -87,7 +87,7 @@ elif barra_lateral ==  'Mercado':
                           numero_nota = info['numero da nota']
                           cliente = info['cliente']
                           data = info['Data']
-                          quantidade,resto = info['quantidade'].split('.')
+                          quantidade = info['quantidade'].split('.')
                         
                           descricao = info['descrição do produto']
                           produtos = info['produtos'].split(' - ') 
@@ -105,7 +105,7 @@ for item in lista_dicionarios:
     with col5:
         coleta = st.text_input(label=f'Posição do item {item['produtos'][0]}',key=f'{item['produtos'][0]}')
     with col6:
-        qtd = item['quantidade']
+        qtd = item['quantidade'][0]
         if coleta:
             if coleta == item['produtos'][0]:
                 if qtd == 0:
