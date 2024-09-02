@@ -90,7 +90,7 @@ elif barra_lateral ==  'Mercado':
                           quantidade = int(info['quantidade'])  
                           descricao = info['descrição do produto']
                           produtos = info['produtos']  
-                          dicionario = {'precesso':numero_processo,'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descicao,'produtos':produtos}  
+                          dicionario = {'precesso':numero_processo,'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produtos}  
                           if dicionario in lista_dicionarios:
                               pass
                           else:  
