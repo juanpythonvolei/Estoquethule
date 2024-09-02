@@ -100,7 +100,7 @@ for item in lista_dicionarios:
     with col4:
         st.info(f'''Nota:{item['numero_nota']}\n
         Cliente:{item['cliente']}\n
-        {item['produtos'][0]}\''')
+        {item['produtos'][0]}\n''')
     with col5:
         st.text_input(label=f'Posição do item {item['produtos'][0]}',key=f'{item['produtos'][0]}')
     with col6:
