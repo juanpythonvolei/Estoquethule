@@ -59,6 +59,7 @@ if barra_lateral == 'Faturamento':
                         st.metric(label='Total de notas não processadas',value=erro)
 elif barra_lateral ==  'Mercado':
   col1,col2,col3=st.columns(3)
+    
   lista_processos = []
   lista_datas =[]
   lista_dicionarios = []  
@@ -97,7 +98,10 @@ elif barra_lateral ==  'Mercado':
                           else:  
                               lista_dicionarios.append(dicionario)  
 for item in lista_dicionarios:
-    qtd = int(item['quantidade'][0])  
+    lista_conferencia = []
+    qtd = int(item['quantidade'][0])
+    for i in range(int(qtd))
+        lista_conferencia.append(1)
     col4,col5,col6 = st.columns(3)
     with col4:
         st.info(f'''Nota:{item['numero_nota']}\n
@@ -105,7 +109,16 @@ for item in lista_dicionarios:
     {item['produtos'][0]}\n''')
     with col5:
         coleta = st.text_input(label=f'Posição do item {item['produtos'][0]}',key=f'{item['produtos'][0]}')
-        
+        if coleta :
+            if coleta == item['produtos'][0]:
+                valor = len(lista_conferencia)
+                if valor > 0:
+                    valor -= 1
+                    qtd = valor
+                else:
+                    valor = 'já coletado'
+                    qtd = valor
+            
     with col6:
                 st.metric(f'Quantidade restante',value=qtd)
 
