@@ -76,7 +76,7 @@ elif barra_lateral ==  'Mercado':
       else:
           lista_datas.append(elemento)
   with col1:
-    selecao_datas=st.time_input(label='x')
+    selecao_datas=st.date_input(label='x')
   if selecao_datas:  
         for x in dados:
                 if x == selecao_datas:
