@@ -25,12 +25,12 @@ if len(lista_numero_processo) < 0:
   numero_processo = 0
 else:
   numero_processo = lista_numero_processo[0]
-barra_lateral = st.sidebar.selectbox('Selecione uma aba',['Faturamento','Mercado','Separação'])
+tab1,tab2,tab3 = st.tabs(['Faturamento','Mercado','Separação'])
 ref_faturamento = db.reference('Faturamento')
 
 data_hora_atual = datetime.now()
 data_atual = data_hora_atual.strftime("%d-%m-%Y")
-if barra_lateral == 'Faturamento':
+with tab1:
               numero_processo +=1
               lista_filtrada = []         
               uploaded_files = st.file_uploader("Escolha os arquivos", type=[f'xml'], accept_multiple_files=True)
@@ -59,7 +59,7 @@ if barra_lateral == 'Faturamento':
                              erro += 1
                         st.metric(label='Total de notas processadas',value=contagem)
                         st.metric(label='Total de notas não processadas',value=erro)
-elif barra_lateral ==  'Mercado':
+with tab2:
   lista_processos = []
   lista_datas =[]
   lista_dicionarios = []  
