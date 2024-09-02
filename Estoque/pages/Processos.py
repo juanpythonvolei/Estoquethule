@@ -90,7 +90,6 @@ elif barra_lateral ==  'Mercado':
       selecao_processos = st.selectbox(label='',placeholder='selecione o Processo',options = lista_processos,index=None)
     if selecao_processos and selecao_datas:
         for item in dados:
-            if item == selecao_datas:
                 notas = dados[f'{item}']
                 for item in notas:
                   info = notas[f'{item}']
