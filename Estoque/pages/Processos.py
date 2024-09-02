@@ -110,10 +110,11 @@ for item in lista_dicionarios:
             while qtd > 0:
                 if coleta:
                     qtd -= 1
+                    st.metric(f'Quantidade restante',value=qtd)
             else:
                 break
                 qtd = 'já coletado'
-            st.metric(f'Quantidade restante',value=qtd)
+                st.metric(f'Quantidade restante',value=qtd)
 
       
             
