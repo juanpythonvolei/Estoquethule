@@ -108,13 +108,15 @@ for item in lista_dicionarios:
         
     with col6:
         while qtd > 0:
+            st.metric(f'Quantidade restante',value=qtd)
             if coleta:
                         qtd -= 1     
         else:
             qtd = 'ja coletado'
+            st.metric(f'Quantidade restante',value=qtd)
             break
-        if qtd:
-            st.metric(f'Quantidade restante',value=st.session_state.qtd)
+      
+            
                    
                 
         
