@@ -94,7 +94,7 @@ elif barra_lateral ==  'Mercado':
                 for item in notas:
                   info = notas[f'{item}']
                   numero_processo = info['processo']
-                  if numero_processo == selecao_processos:  
+                  if int(numero_processo) == int(selecao_processos):  
                       col1,col2,col3 = st.columns(3)
                       numero_nota = info['numero da nota']
                       cliente = info['cliente']
