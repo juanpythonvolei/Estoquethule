@@ -107,14 +107,8 @@ for item in lista_dicionarios:
         coleta = st.text_input(label=f'Posição do item {item['produtos'][0]}',key=f'{item['produtos'][0]}')
         
     with col6:
-        while qtd > 0:
             st.metric(f'Quantidade restante',value=qtd)
-            if coleta:
-                        qtd -= 1     
-        else:
-            qtd = 'ja coletado'
-            st.metric(f'Quantidade restante',value=qtd)
-            break
+
       
             
                    
