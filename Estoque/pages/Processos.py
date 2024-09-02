@@ -97,7 +97,8 @@ elif barra_lateral ==  'Mercado':
                               pass
                           else:  
                               lista_dicionarios.append(dicionario)  
-    for item in lista_dicionarios:
+    
+  for item in lista_dicionarios:  
         lista_conferencia = []
         qtd = int(item['quantidade'][0])
         for i in range(int(qtd)):
