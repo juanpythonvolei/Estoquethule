@@ -88,3 +88,26 @@ elif barra_lateral ==  'Mercado':
           else:
             lista_processos.append(numero_processo)
       selecao_processos = st.selectbox(label='',placeholder='selecione o Processo',options = lista_processos,index=None)
+    if selecao_processos and selecao_datas:
+        for item in dados:
+            if item == selecao_datas:
+                notas = dados[f'{item}']
+                for item in notas:
+                  info = notas[f'{item}']
+                  numero_processo = info['processo']
+                  if numero_processo == selecao_processos:  
+                      numero_nota = info['numero da nota']
+                      cliente = info['cliente']
+                      data = info['Data']
+                      quantidade = int(info['quantidade'])  
+                      descricao = info['descrição do produto']
+                      produtos = info['produtos']  
+                      banner = st.container(
+                          col1,col2,col3 = st.columns
+                          with col1:
+                              st.info('algo')
+                          with col2:
+                              st.metric(label='valor',value=10)
+                      )
+        
+        
