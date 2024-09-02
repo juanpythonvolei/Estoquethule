@@ -112,8 +112,14 @@ for item in lista_dicionarios:
                 else:
                     qtd-=1 
     with col6:
-        
-        st.metric(f'Quantidade restante',value=qtd)
+        if coleta:
+            if str(coleta) == str(item['produtos'][0]):
+                if int(qtd) == 0:
+                    qtd = 'Já coletado'
+                else:
+                    qtd-=1 
+        if qtd:
+            st.metric(f'Quantidade restante',value=qtd)
                    
                 
         
