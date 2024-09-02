@@ -87,7 +87,7 @@ elif barra_lateral ==  'Mercado':
                           numero_nota = info['numero da nota']
                           cliente = info['cliente']
                           data = info['Data']
-                          quantidade = int(info['quantidade'])  
+                          quantidade = info['quantidade']
                           descricao = info['descrição do produto']
                           produtos = info['produtos']  
                           dicionario = {'precesso':numero_processo,'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produtos}  
