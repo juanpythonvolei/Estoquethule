@@ -100,7 +100,7 @@ elif barra_lateral ==  'Mercado':
 for item in lista_dicionarios:
     lista_conferencia = []
     qtd = int(item['quantidade'][0])
-    for i in range(int(qtd))
+    for i in range(int(qtd)):
         lista_conferencia.append(1)
     col4,col5,col6 = st.columns(3)
     with col4:
