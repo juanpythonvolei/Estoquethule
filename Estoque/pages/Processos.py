@@ -102,11 +102,8 @@ elif barra_lateral ==  'Mercado':
                       quantidade = int(info['quantidade'])  
                       descricao = info['descrição do produto']
                       produtos = info['produtos']  
-                      with col1:
-                          st.info(f'''{produtos}-{quantidade}
-                          {numero_nota}''')
-                      with col2:
-                          st.metric(label='valor',value=10)
-                      st.divider()                  
+                      st.info(f'''{produtos}-{quantidade}
+                        {numero_nota}''')
+                   
                 
         
