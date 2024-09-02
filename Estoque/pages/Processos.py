@@ -96,7 +96,7 @@ elif barra_lateral ==  'Mercado':
                           else:  
                               lista_dicionarios.append(dicionario)  
 for item in lista_dicionarios:
-    col4,col5,col6 = st.columns(3):
+    col4,col5,col6 = st.columns(3)
     with col4:
         st.info('algo')
                    
