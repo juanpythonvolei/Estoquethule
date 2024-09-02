@@ -58,8 +58,6 @@ if barra_lateral == 'Faturamento':
                         st.metric(label='Total de notas processadas',value=contagem)
                         st.metric(label='Total de notas não processadas',value=erro)
 elif barra_lateral ==  'Mercado':
-  col1,col2,col3=st.columns(3)
-    
   lista_processos = []
   lista_datas =[]
   lista_dicionarios = []  
@@ -116,6 +114,7 @@ elif barra_lateral ==  'Mercado':
                 
         with col6:
                     st.metric(f'Quantidade restante',value=len(lista_conferencia))
+        st.divider   
 
       
             
