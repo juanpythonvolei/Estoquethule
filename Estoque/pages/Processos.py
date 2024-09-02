@@ -97,7 +97,7 @@ elif barra_lateral ==  'Mercado':
                               lista_dicionarios.append(dicionario)  
 for item in lista_dicionarios:
     col4,col5,col6 = st.columns(3)
-    with col4 and col5:
+    with col4:
         st.info(f'''Nota:{item['numero_nota']}
         Cliente:{item['cliente']}
         
