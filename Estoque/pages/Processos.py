@@ -61,6 +61,7 @@ elif barra_lateral ==  'Mercado':
   col1,col2,col3=st.columns(3)
   lista_processos = []
   lista_datas =[]
+  lista_dicionarios = []  
   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
   roteiro = requiscao.json()
   dados = roteiro['Faturamento']
@@ -89,18 +90,23 @@ elif barra_lateral ==  'Mercado':
             lista_processos.append(numero_processo)
       selecao_processos = st.selectbox(label='',placeholder='selecione o Processo',options = lista_processos,index=None)
     if selecao_processos and selecao_datas:
-        for item in dados:
-                notas = dados[f'{item}']
-                for item in notas:
-                      info = notas[f'{item}']
-                      numero_processo = info['processo']
-                      col1,col2,col3 = st.columns(3)
-                      numero_nota = info['numero da nota']
-                      cliente = info['cliente']
-                      data = info['Data']
-                      quantidade = int(info['quantidade'])  
-                      descricao = info['descrição do produto']
-                      produtos = info['produtos']  
+        for x in dados:
+                if x == selecao_datas:
+                    notas = dados[f'{x}']
+                    for item in notas:
+                          info = notas[f'{item}']
+                          numero_processo = info['processo']
+                          numero_nota = info['numero da nota']
+                          cliente = info['cliente']
+                          data = info['Data']
+                          quantidade = int(info['quantidade'])  
+                          descricao = info['descrição do produto']
+                          produtos = info['produtos']  
+                          dicionario = {'precesso':numero_processo,'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descicao,'produtos':produtos}  
+                          if dicionario in lista_dicionarios:
+                              pass
+                          else:  
+                              lista_dicionarios.append(dicionario)  
     st.info('algo')        
                    
                 
