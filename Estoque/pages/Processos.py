@@ -8,7 +8,7 @@ import random
 import xmltodict
 from datetime import datetime
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
-col1,col2,col3=st.columns(3)
+
 lista_numero_processo = []
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
@@ -60,6 +60,7 @@ with tab1:
                         st.metric(label='Total de notas processadas',value=contagem)
                         st.metric(label='Total de notas não processadas',value=erro)
 with tab2:
+  col1,col2,col3=st.columns(3)  
   lista_processos = []
   lista_datas =[]
   lista_dicionarios = []  
