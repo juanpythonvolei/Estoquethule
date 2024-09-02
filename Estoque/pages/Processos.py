@@ -114,7 +114,7 @@ elif barra_lateral ==  'Mercado':
                 
         with col6:
                     st.metric(f'Quantidade restante',value=len(lista_conferencia))
-        st.divider   
+        st.divider()   
 
       
             
