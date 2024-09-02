@@ -100,8 +100,9 @@ for item in lista_dicionarios:
     with col4:
         st.info(f'''Nota:{item['numero_nota']}
         Cliente:{item['cliente']}
-        
         {item['produtos'][0]}''')
+    with col5:
+        st.text(label=f'Posição do item {item['produtos'][0]}')
     with col6:
         st.metric(f'Quantidade restante',value=item['quantidade'])
                    
