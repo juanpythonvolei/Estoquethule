@@ -119,7 +119,7 @@ for item in lista_dicionarios:
                 else:
                     qtd -= 1 
         if qtd:
-            st.metric(f'Quantidade restante',value=qtd,key=f'{item['produtos'][0]}')
+            st.metric(f'Quantidade restante',value=qtd)
                    
                 
         
