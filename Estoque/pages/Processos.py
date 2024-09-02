@@ -108,9 +108,9 @@ for item in lista_dicionarios:
         if coleta:
             if str(coleta) == str(item['produtos'][0]):
                 if int(qtd) == 0:
-                    int(qtd) = 'Já coletado'
+                    qtd = 'Já coletado'
                 else:
-                    int(qtd)-=1 
+                    qtd-=1 
     with col6:
         
         st.metric(f'Quantidade restante',value=qtd)
