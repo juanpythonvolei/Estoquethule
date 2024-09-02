@@ -97,7 +97,8 @@ elif barra_lateral ==  'Mercado':
                           else:  
                               lista_dicionarios.append(dicionario)  
 for item in lista_dicionarios:
-    qtd = int(item['quantidade'][0])
+    if 'qtd' not in st.session_state:
+        st.session_state.qtd = int(item['quantidade'][0])
     col4,col5,col6 = st.columns(3)
     with col4:
         st.info(f'''Nota:{item['numero_nota']}\n
@@ -105,21 +106,16 @@ for item in lista_dicionarios:
     {item['produtos'][0]}\n''')
     with col5:
         coleta = st.text_input(label=f'Posição do item {item['produtos'][0]}',key=f'{item['produtos'][0]}')
-        if coleta:
-            if str(coleta) == str(item['produtos'][0]):
-                if int(qtd) == 0:
-                    qtd = 'Já coletado'
-                else:
-                    qtd-=1 
+        
     with col6:
         if coleta:
             if str(coleta) == str(item['produtos'][0]):
-                if int(qtd) == 0:
-                    qtd = 'Já coletado'
+                if int(st.session_state.qtd) == 0:
+                    st.session_state.qtd = 'Já coletado'
                 else:
-                    qtd -= 1 
-        if qtd:
-            st.metric(f'Quantidade restante',value=qtd)
+                    st.session_state.qtd-=1 
+        if st.session_state.qtd:
+            st.metric(f'Quantidade restante',value=st.session_state.qtd)
                    
                 
         
