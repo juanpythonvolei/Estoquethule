@@ -117,9 +117,9 @@ for item in lista_dicionarios:
                 if int(qtd) == 0:
                     qtd = 'Já coletado'
                 else:
-                    qtd-=1 
+                    qtd -= 1 
         if qtd:
-            st.metric(f'Quantidade restante',value=qtd)
+            st.metric(f'Quantidade restante',value=qtd,key=f'{item['produtos'][0]}')
                    
                 
         
