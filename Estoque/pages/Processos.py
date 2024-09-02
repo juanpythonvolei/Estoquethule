@@ -87,7 +87,8 @@ elif barra_lateral ==  'Mercado':
                           numero_nota = info['numero da nota']
                           cliente = info['cliente']
                           data = info['Data']
-                          quantidade = info['quantidade']
+                          quantidade,resto = info['quantidade'].split('.')
+                        
                           descricao = info['descrição do produto']
                           produtos = info['produtos'].split(' - ') 
                           dicionario = {'precesso':numero_processo,'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produtos}  
@@ -100,11 +101,20 @@ for item in lista_dicionarios:
     with col4:
         st.info(f'''Nota:{item['numero_nota']}\n
         Cliente:{item['cliente']}\n
-        {item['produtos'][0]}\n''')
+    {item['produtos'][0]}\n''')
     with col5:
-        st.text_input(label=f'Posição do item {item['produtos'][0]}',key=f'{item['produtos'][0]}')
+        coleta = st.text_input(label=f'Posição do item {item['produtos'][0]}',key=f'{item['produtos'][0]}')
     with col6:
-        st.metric(f'Quantidade restante',value=item['quantidade'])
+        qtd = item['quantidade']
+        if coleta:
+            if coleta == item['produtos'][0]:
+                if qtd == 0:
+                    qtd = 'Já coletado'
+                else:
+                    qtd -1 
+                
+            
+            st.metric(f'Quantidade restante',value=)
                    
                 
         
