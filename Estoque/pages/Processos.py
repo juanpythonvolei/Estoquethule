@@ -92,9 +92,8 @@ elif barra_lateral ==  'Mercado':
         for item in dados:
                 notas = dados[f'{item}']
                 for item in notas:
-                  info = notas[f'{item}']
-                  numero_processo = info['processo']
-                  if int(numero_processo) == int(selecao_processos):  
+                      info = notas[f'{item}']
+                      numero_processo = info['processo']
                       col1,col2,col3 = st.columns(3)
                       numero_nota = info['numero da nota']
                       cliente = info['cliente']
@@ -103,7 +102,7 @@ elif barra_lateral ==  'Mercado':
                       descricao = info['descrição do produto']
                       produtos = info['produtos']  
                       st.info(f'''{produtos}-{quantidade}
-                        {numero_nota}'''
+                        {numero_nota}''')
                    
                 
         
