@@ -77,9 +77,9 @@ elif barra_lateral ==  'Mercado':
           lista_datas.append(elemento)
   with col1:
     selecao_datas=st.date_input(label='selecione uma data')
-    ano =selecao_datas[0:4]
-    mes = selecao_datas[5:7]
-    dia = selecao_datas[8:] 
+    ano = str(selecao_datas)[0:4]
+    mes = str(selecao_datas)[5:7]
+    dia = str(selecao_datas)[8:] 
     selecao_datas = f'{dia}-{mes}-{ano}'
   if selecao_datas:  
         for x in dados:
