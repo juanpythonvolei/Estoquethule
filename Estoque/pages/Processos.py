@@ -103,7 +103,7 @@ elif barra_lateral ==  'Mercado':
                       descricao = info['descrição do produto']
                       produtos = info['produtos']  
                       banner = st.container(
-                          col1,col2,col3 = st.columns
+                          col1,col2,col3 = st.columns(3)
                           with col1:
                               st.info('algo')
                           with col2:
