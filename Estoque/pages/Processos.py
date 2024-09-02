@@ -103,11 +103,11 @@ elif barra_lateral ==  'Mercado':
                       quantidade = int(info['quantidade'])  
                       descricao = info['descrição do produto']
                       produtos = info['produtos']  
-                      banner = st.container(
-                          with col1:
-                              st.info('algo')
-                          with col2:
-                              st.metric(label='valor',value=10)
-                      )
-        
+                      with col1:
+                          st.info(f'''{produtos}-{quantidade}
+                          {numero_nota}''')
+                      with col2:
+                          st.metric(label'valor',value=10)
+                      st.divider()                  
+                
         
