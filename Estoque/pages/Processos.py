@@ -102,7 +102,7 @@ for item in lista_dicionarios:
         Cliente:{item['cliente']}\n
         {item['produtos'][0]}\nSSS''')
     with col5:
-        st.text_input(laSbel=f'Posição do item {item['produtos'][0]}',key=f'{item['produtos'][0]}')
+        st.text_input(label=f'Posição do item {item['produtos'][0]}',key=f'{item['produtos'][0]}')
     with col6:
         st.metric(f'Quantidade restante',value=item['quantidade'])
                    
