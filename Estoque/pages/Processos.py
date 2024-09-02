@@ -111,10 +111,8 @@ for item in lista_dicionarios:
                 if qtd == 0:
                     qtd = 'Já coletado'
                 else:
-                    qtd -1 
-                
-            
-            st.metric(f'Quantidade restante',value=)
+                    qtd -=1 
+            st.metric(f'Quantidade restante',value=qtd)
                    
                 
         
