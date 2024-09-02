@@ -98,7 +98,11 @@ elif barra_lateral ==  'Mercado':
 for item in lista_dicionarios:
     col4,col5,col6 = st.columns(3)
     with col4:
-        st.info('algo')
+        st.info(f'''{item['numero_nota']}
+        {item['cliente']}
+        {item['produtos']}''')
+    with col5:
+        st.metric(f'Quantidade restante',value=item['quantidade'])
                    
                 
         
