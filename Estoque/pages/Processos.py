@@ -101,7 +101,7 @@ elif barra_lateral ==  'Mercado':
                       quantidade = int(info['quantidade'])  
                       descricao = info['descrição do produto']
                       produtos = info['produtos']  
-                st.info('algo')
+          st.info('algo')      
                    
                 
         
