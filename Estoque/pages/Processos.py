@@ -103,7 +103,7 @@ elif barra_lateral ==  'Mercado':
                       descricao = info['descrição do produto']
                       produtos = info['produtos']  
                       st.info(f'''{produtos}-{quantidade}
-                        {numero_nota}''')
+                        {numero_nota}'''
                    
                 
         
