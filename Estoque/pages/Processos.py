@@ -77,19 +77,7 @@ elif barra_lateral ==  'Mercado':
           lista_datas.append(elemento)
   with col1:
     selecao_datas = st.selectbox(label='',placeholder='selecione o Processo',options = lista_datas,index=None)
-  if selecao_datas:
-    with col2:
-      for item in dados:
-        notas = dados[f'{item}']
-        for item in notas:
-          info = notas[f'{item}']
-          numero_processo = info['processo']
-          if numero_processo in lista_processos:
-            pass
-          else:
-            lista_processos.append(numero_processo)
-      selecao_processos = st.selectbox(label='',placeholder='selecione o Processo',options = lista_processos,index=None)
-    if selecao_processos and selecao_datas:
+  if selecao_datas:  
         for x in dados:
                 if x == selecao_datas:
                     notas = dados[f'{x}']
