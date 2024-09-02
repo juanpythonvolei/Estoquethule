@@ -96,6 +96,7 @@ elif barra_lateral ==  'Mercado':
                   info = notas[f'{item}']
                   numero_processo = info['processo']
                   if numero_processo == selecao_processos:  
+                      col1,col2,col3 = st.columns(3)
                       numero_nota = info['numero da nota']
                       cliente = info['cliente']
                       data = info['Data']
@@ -103,7 +104,6 @@ elif barra_lateral ==  'Mercado':
                       descricao = info['descrição do produto']
                       produtos = info['produtos']  
                       banner = st.container(
-                          col1,col2,col3 = st.columns(3)
                           with col1:
                               st.info('algo')
                           with col2:
