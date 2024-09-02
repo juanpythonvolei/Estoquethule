@@ -107,8 +107,7 @@ elif barra_lateral ==  'Mercado':
                               pass
                           else:  
                               lista_dicionarios.append(dicionario)  
-    for item in lista_dicionarios:
-        st.info('algo')        
+st.write(lista_dicionarios)        
                    
                 
         
