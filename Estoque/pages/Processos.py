@@ -44,7 +44,7 @@ with tab1:
               valor = 0
               if uploaded_files:
                         for nota in uploaded_files:
-                          try:
+                          
                                               
                                               xml_data = nota.read()
                                               documento = xmltodict.parse(xml_data)
@@ -72,8 +72,7 @@ with tab1:
                                                   dict_pedido = {'cliente':cliente,'produtos':f'Produto:{codigo_produto} - Valor:{valor_produto}','descrição do produto':descricao_produto,'quantidade':quantidade_produto,'processo':numero_processo,'Data':data_emit,'numero da nota':numero_da_nota,'posi':posicao}
                                                   ref_faturamento.child(caminho_faturamento).set(dict_pedido)
                                                   contagem += 1
-                          except:     
-                             erro += 1
+
                         st.metric(label='Total de notas processadas',value=contagem)
                         st.metric(label='Total de notas não processadas',value=erro)
 with tab2: 
