@@ -69,6 +69,7 @@ with tab1:
                                                        lista_ver.append(f'{h}/ {posicao}')
                                                        for item in lista_ver:
                                                           pass
+                                              st.write(lista_ver)
                                               for position in dados2:
                                                            itens = dados2[f'{position}']
                                                            if quantidade:
