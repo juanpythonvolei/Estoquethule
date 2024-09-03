@@ -98,7 +98,7 @@ with tab2:
              itens = dados2[f'{y}']
              for h in itens:
                
-               if h == produto:
+               if str(h) == str(produto):
                  st.write('x')   
                  for h in itens:
                      quantidade = itens[f'{h}']['quantidade']  
