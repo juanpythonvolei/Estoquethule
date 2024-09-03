@@ -97,7 +97,7 @@ with tab2:
         for y in dados2:
              itens = dados2[f'{y}']
              for h in itens:
-               
+               st.write(f'{h}-{produto}')
                if str(h) == str(produto):
                  st.write('x')   
                  for h in itens:
