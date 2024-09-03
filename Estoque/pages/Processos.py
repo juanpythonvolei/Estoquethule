@@ -64,9 +64,9 @@ with tab1:
                                                  itens_consta = ''
                                                  itens = dados2[f'{y}']
                                                  for h in itens:
-                                                   itens_consta += f'{h} - {y}'
+                                                   itens_consta += f'{h}/{y}'
                                                    st.write(itens_consta)
-                                                   hist = itens_consta.split(' - ')
+                                                   hist = itens_consta.split('/')
                                                    if hist[0] == str(codigo_produto): 
                                                        for h in itens:
                                                            quantidade = itens[f'{h}']['quantidade']
