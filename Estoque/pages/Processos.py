@@ -64,7 +64,7 @@ with tab1:
                                                                  posicao = y
                                                              else:
                                                                  posi = ''
-                                              if posi != ''                   
+                                              if posi != '':                   
                                                   dict_pedido = {'cliente':cliente,'produtos':f'Produto:{codigo_produto} - Valor:{valor_produto}','descrição do produto':descricao_produto,'quantidade':quantidade_produto,'processo':numero_processo,'Data':data_emit,'numero da nota':numero_da_nota,'posi':posi}
                                                   ref_faturamento.child(caminho_faturamento).set(dict_pedido)
                                                   contagem += 1
