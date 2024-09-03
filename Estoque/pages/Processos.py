@@ -12,6 +12,10 @@ lista_numero_processo = []
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
 ref_faturamento = db.reference('Faturamento')
+if ref_faturamento:
+    pass
+else:
+    ref_faturamento.child('Faturamento').set('')
 try:
     dados = roteiro['Faturamento']
     dados2 = roteiro['Depósito']['Rev'] 
