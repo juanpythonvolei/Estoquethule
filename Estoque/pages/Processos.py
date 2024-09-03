@@ -95,10 +95,10 @@ with tab2:
   for item in lista_dicionarios:  
         for y in dados2:
              itens = dados2[f'{y}']
-             if itens == item:
+             if str(itens) == str(item):
                  for z in itens:
                      quantidade = itens[f'{z}']['quantidade']  
-                     if quantidade >= item['quantidade'][0]:
+                     if int(quantidade) >= (item['quantidade'][0]):
                          posi = y
         lista_conferencia = []
         qtd = int(item['quantidade'][0])
