@@ -14,18 +14,21 @@ roteiro = requiscao.json()
 ref_faturamento = db.reference('Faturamento')
 dados = roteiro['Faturamento']
 dados2 = roteiro['Depósito']['Rev'] 
-for elemento in dados:
-    notas = dados[f'{elemento}']
-    for item in notas:
-      info = notas[f'{item}']
-      numero_processo = info['processo']
-      lista_numero_processo.append(numero_processo)
-lista_numero_processo = list(set(lista_numero_processo))        
-lista_numero_processo = sorted(lista_numero_processo)
-if len(lista_numero_processo) < 0:
-  numero_processo = 0
+if dados:
+    for elemento in dados:
+        notas = dados[f'{elemento}']
+        for item in notas:
+          info = notas[f'{item}']
+          numero_processo = info['processo']
+          lista_numero_processo.append(numero_processo)
+    lista_numero_processo = list(set(lista_numero_processo))        
+    lista_numero_processo = sorted(lista_numero_processo)
+    if len(lista_numero_processo) < 0:
+      numero_processo = 0
+    else:
+      numero_processo = lista_numero_processo[0]
 else:
-  numero_processo = lista_numero_processo[0]
+    numero_processo = 0
 tab1,tab2,tab3 = st.tabs(['Faturamento','Mercado','Separação'])
 
 data_hora_atual = datetime.now()
