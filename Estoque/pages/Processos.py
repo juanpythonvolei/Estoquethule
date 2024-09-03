@@ -94,7 +94,7 @@ with tab2:
   posi = None       
   for item in lista_dicionarios:  
         produto=str(item['produtos'][0]).replace('Produto:','')
-        quantidade_dict = int(item['quantidade'])
+        quantidade_dict = item['quantidade']
         for y in dados2:
              itens = dados2[f'{y}']
              for h in itens:
