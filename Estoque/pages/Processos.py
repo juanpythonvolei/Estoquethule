@@ -65,6 +65,7 @@ with tab1:
                                                  itens = dados2[f'{y}']
                                                  for h in itens:
                                                    itens_consta += h
+                                                   st.write(itens_consta)
                                                    if str(h) == str(codigo_produto): 
                                                      if str(codigo_produto) in itens_consta:
                                                        for h in itens:
