@@ -59,20 +59,19 @@ with tab1:
                              erro += 1
                         st.metric(label='Total de notas processadas',value=contagem)
                         st.metric(label='Total de notas não processadas',value=erro)
-with tab2:
-  col1,col2,col3=st.columns(3)  
+with tab2: 
   lista_processos = []
   lista_datas =[]
   lista_dicionarios = []  
   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
   roteiro = requiscao.json()
   dados = roteiro['Faturamento']
-  with col1:
-    selecao_datas=st.date_input(label='selecione uma data')
-    ano = str(selecao_datas)[0:4]
-    mes = str(selecao_datas)[5:7]
-    dia = str(selecao_datas)[8:] 
-    selecao_datas = f'{dia}-{mes}-{ano}'
+  dados2 = roteiro['Depósito']['Rev']  
+  selecao_datas=st.date_input(label='selecione uma data')
+  ano = str(selecao_datas)[0:4]
+  mes = str(selecao_datas)[5:7]
+  dia = str(selecao_datas)[8:] 
+  selecao_datas = f'{dia}-{mes}-{ano}'              
   if selecao_datas:  
         for x in dados:
                 if x == selecao_datas:
@@ -92,8 +91,15 @@ with tab2:
                               pass
                           else:  
                               lista_dicionarios.append(dicionario)  
-    
+         
   for item in lista_dicionarios:  
+        for y in dados2:
+             itens = dados2[f'{y}']
+             if itens == item:
+                 for z in itens:
+                     quantidade = itens[f'{z}']['quantidade']  
+                     if quantidade >= item['quantidade'][0]:
+                         posi = y
         lista_conferencia = []
         qtd = int(item['quantidade'][0])
         for i in range(int(qtd)):
@@ -104,7 +110,8 @@ with tab2:
             Cliente:{item['cliente']}\n
         {item['produtos'][0]}\n''')
         with col5:
-            coleta = st.text_input(label=f'Posição do item {item['produtos'][0]}',key=f'{item['produtos'][0]}')
+            coleta = st.text_input(label=f'''Posição do item {item['produtos'][0]}
+            posição:{posi}''',key=f'{item['produtos'][0]}')
             if coleta :
                 if len(lista_conferencia) > 0:
                     lista_conferencia.remove(1)
