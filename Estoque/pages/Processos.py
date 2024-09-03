@@ -91,19 +91,18 @@ with tab2:
                               pass
                           else:  
                               lista_dicionarios.append(dicionario)  
-         
+  posi = None       
   for item in lista_dicionarios:  
         produto=str(item['produtos'][0]).replace('Produto:','')
         for y in dados2:
              itens = dados2[f'{y}']
              for h in itens:
-               st.write(f'{h}-{produto}')
-               if str(h) == str(produto):
-                 st.write('x')   
+               if str(h) == str(produto): 
                  for h in itens:
                      quantidade = itens[f'{h}']['quantidade']  
-                     st.write(quantidade)
-                     #if int(quantidade) >= int(item['quantidade'][0])
+                     if quantidade >= item['quantidade']:
+                         posi = y
+                         
         lista_conferencia = []
         qtd = int(item['quantidade'][0])
         for i in range(int(qtd)):
