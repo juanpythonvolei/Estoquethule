@@ -62,16 +62,16 @@ with tab1:
                                               data_emit = documento['nfeProc']['NFe']['infNFe']['ide']['dhEmi'][:10]
                                               
                                               for y in dados2:
-                                                 itens_consta = ''
+                                                 y = posicao 
                                                  itens = dados2[f'{y}']
                                                  for h in itens:
                                                    if h == str(codigo_produto): 
-                                                       lista_ver.append(codigo_produto)
+                                                       lista_ver.append(f'{h}/ {posicao}')
                                                        for item in lista_ver:
-                                                         st.write(item)
-                                                         st.write(f'{item}/{y}')
-                                                       for h in itens:
-                                                           quantidade = itens[f'{h}']['quantidade']
+                                                          pass
+                                              for position in dados2:
+                                                           itens = dados2[f'{position}']
+                                                           for a in itens
                                                            if quantidade:
                                                                if float(quantidade) >= float(quantidade_produto):
                                                                    numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
