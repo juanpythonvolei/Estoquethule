@@ -82,7 +82,7 @@ with tab2:
                           numero_nota = info['numero da nota']
                           cliente = info['cliente']
                           data = info['Data']
-                          quantidade = info['quantidade'].split('.')
+                          quantidade = float(info['quantidade'].split('.'))
                         
                           descricao = info['descrição do produto']
                           produtos = info['produtos'].split(' - ') 
