@@ -71,7 +71,6 @@ with tab1:
                                                           pass
                                               for position in dados2:
                                                            itens = dados2[f'{position}']
-                                                           for a in itens
                                                            if quantidade:
                                                                if float(quantidade) >= float(quantidade_produto):
                                                                    numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
