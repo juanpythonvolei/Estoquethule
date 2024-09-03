@@ -83,9 +83,9 @@ with tab2:
                           cliente = info['cliente']
                           data = info['Data']
                           try:  
-                              quantidade = float(info['quantidade'].split('.'))
+                              quantidade = float(info['quantidade'][0].split('.'))
                           except:
-                              quantidade = int(info['quantidade'].split('.'))
+                              quantidade = int(info['quantidade'][0].split('.'))
                           else:
                               pass
                           descricao = info['descrição do produto']
