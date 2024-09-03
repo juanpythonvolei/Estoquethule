@@ -98,6 +98,7 @@ with tab2:
              for h in itens:
                
                if h == item:
+                 st.write('x')   
                  for h in itens:
                      quantidade = itens[f'{h}']['quantidade']  
                      if int(quantidade) >= int(item['quantidade'][0]):
