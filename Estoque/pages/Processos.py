@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit as s
 import firebase_admin
 from firebase_admin import credentials, firestore,db
 import requests
