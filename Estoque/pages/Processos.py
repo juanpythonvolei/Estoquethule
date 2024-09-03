@@ -14,7 +14,7 @@ roteiro = requiscao.json()
 ref_faturamento = db.reference('Faturamento')
 dados = roteiro['Faturamento']
 dados2 = roteiro['Depósito']['Rev'] 
-if dados:
+try:
     for elemento in dados:
         notas = dados[f'{elemento}']
         for item in notas:
@@ -27,7 +27,7 @@ if dados:
       numero_processo = 0
     else:
       numero_processo = lista_numero_processo[0]
-else:
+except:
     numero_processo = 0
 tab1,tab2,tab3 = st.tabs(['Faturamento','Mercado','Separação'])
 
