@@ -100,7 +100,7 @@ with tab2:
                if str(h) == str(produto): 
                  for h in itens:
                      quantidade = itens[f'{h}']['quantidade']  
-                     if quantidade > quantidade_dict:
+                     if list(quantidade) > quantidade_dict:
                          posi = y
                          
         lista_conferencia = []
