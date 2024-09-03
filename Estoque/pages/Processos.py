@@ -99,9 +99,11 @@ with tab2:
              for h in itens:
                if str(h) == str(produto): 
                  for h in itens:
-                     quantidade = itens[f'{h}']['quantidade']  
-                     if quantidade >= float(quantidade_dict[0]):
-                         posi = y
+                     if quantidade = itens[f'{h}']['quantidade']:  
+                         if quantidade >= float(quantidade_dict[0]):
+                             posi = y
+                         else:
+                             posi = None
                          
         lista_conferencia = []
         qtd = int(item['quantidade'][0])
