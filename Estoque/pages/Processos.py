@@ -71,7 +71,7 @@ with tab1:
                                                        for h in itens:
                                                            quantidade = itens[f'{h}']['quantidade']
                                                            if quantidade:
-                                                               if float(quantidade) >= float(quantidade_produto) and  hist[0] == str(codigo_produto):
+                                                               if float(quantidade) >= float(quantidade_produto):
                                                                    numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
                                                                    caminho_faturamento = f'{data_atual}/{numero_da_nota}'
                                                                    posicao = hist[1]
@@ -80,6 +80,7 @@ with tab1:
                                                                    contagem += 1  
                                                                else:
                                                                    posicao = None
+                                                                 
                                             except:
                                               erro += 1 
                         st.metric(label='Total de notas processadas',value=contagem)
