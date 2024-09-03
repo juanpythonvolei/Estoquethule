@@ -95,8 +95,8 @@ with tab2:
   for item in lista_dicionarios:  
         for y in dados2:
              itens = dados2[f'{y}']
-             st.write(itens)
-             if str(itens) == str(item):
+             for h in itens:
+               if str(h) == str(item):
                  for z in itens:
                      quantidade = itens[f'{z}']['quantidade']  
                      if int(quantidade) >= (item['quantidade'][0]):
