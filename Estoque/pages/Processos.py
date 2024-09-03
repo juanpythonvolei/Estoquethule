@@ -45,6 +45,7 @@ with tab1:
               contagem = 0    
               erro = 0  
               valor = 0
+              lista_ver = []
               if uploaded_files:
                         for nota in uploaded_files:
                           
@@ -68,6 +69,9 @@ with tab1:
                                                    st.write(itens_consta)
                                                    hist = itens_consta.split('/')
                                                    if hist[0] == str(codigo_produto): 
+                                                       lista_ver.append(codigo_produto)
+                                                       for item in lista_ver:
+                                                         st.write(item)
                                                        for h in itens:
                                                            quantidade = itens[f'{h}']['quantidade']
                                                            if quantidade:
