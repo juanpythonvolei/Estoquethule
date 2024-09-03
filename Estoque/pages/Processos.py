@@ -96,12 +96,13 @@ with tab2:
         for y in dados2:
              itens = dados2[f'{y}']
              for h in itens:
-               st.write(h)
+               
                if h == item:
                  for h in itens:
                      quantidade = itens[f'{h}']['quantidade']  
                      if int(quantidade) >= int(item['quantidade'][0]):
                          posi = y
+                         st.write(posi)
         lista_conferencia = []
         qtd = int(item['quantidade'][0])
         for i in range(int(qtd)):
