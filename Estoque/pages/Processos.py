@@ -94,6 +94,7 @@ with tab2:
          
   for item in lista_dicionarios:  
         for y in dados2:
+             st.write(y)
              itens = dados2[f'{y}']
              if str(itens) == str(item):
                  for z in itens:
