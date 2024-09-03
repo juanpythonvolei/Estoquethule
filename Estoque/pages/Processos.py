@@ -51,7 +51,7 @@ with tab1:
                                               
                                               xml_data = nota.read()
                                               documento = xmltodict.parse(xml_data)
-                                              codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
+                                              codigo_produto = str(documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd'])
                                              
                                               descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']       
                                               quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom'] 
@@ -63,7 +63,7 @@ with tab1:
                                               for y in dados2:
                                                  itens = dados2[f'{y}']
                                                  for h in itens:
-                                                   if h == codigo_produto: 
+                                                   if str(h) == str(codigo_produto): 
                                                      for h in itens:
                                                          quantidade = itens[f'{h}']['quantidade']
                                                          if quantidade:
