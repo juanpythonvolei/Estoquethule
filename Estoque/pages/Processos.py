@@ -8,11 +8,11 @@ import random
 import xmltodict
 from datetime import datetime
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
-
 lista_numero_processo = []
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
 dados = roteiro['Faturamento']
+dados2 = roteiro['Depósito']['Rev']  
 for elemento in dados:
     notas = dados[f'{elemento}']
     for item in notas:
@@ -45,6 +45,7 @@ with tab1:
                                               xml_data = nota.read()
                                               documento = xmltodict.parse(xml_data)
                                               codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
+                                             
                                               descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']       
                                               quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom'] 
                                               valor_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['vProd']
@@ -52,9 +53,21 @@ with tab1:
                                               numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
                                               data_emit = documento['nfeProc']['NFe']['infNFe']['ide']['dhEmi'][:10]
                                               caminho_faturamento = f'{data_atual}/{numero_da_nota}'
-                                              dict_pedido = {'cliente':cliente,'produtos':f'Produto:{codigo_produto} - Valor:{valor_produto}','descrição do produto':descricao_produto,'quantidade':quantidade_produto,'processo':numero_processo,'Data':data_emit,'numero da nota':numero_da_nota}
-                                              ref_faturamento.child(caminho_faturamento).set(dict_pedido)
-                                              contagem += 1
+                                              for y in dados2:
+                                                 itens = dados2[f'{y}']
+                                                 for h in itens:
+                                                   if h == codigo_produto: 
+                                                     for h in itens:
+                                                         quantidade = itens[f'{h}']['quantidade']
+                                                         if quantidade:
+                                                             if quantidade >= quantidade_produto:
+                                                                 posicao = y
+                                                             else:
+                                                                 posi = ''
+                                              if posi != ''                   
+                                                  dict_pedido = {'cliente':cliente,'produtos':f'Produto:{codigo_produto} - Valor:{valor_produto}','descrição do produto':descricao_produto,'quantidade':quantidade_produto,'processo':numero_processo,'Data':data_emit,'numero da nota':numero_da_nota,'posi':posi}
+                                                  ref_faturamento.child(caminho_faturamento).set(dict_pedido)
+                                                  contagem += 1
                           except:     
                              erro += 1
                         st.metric(label='Total de notas processadas',value=contagem)
@@ -85,27 +98,13 @@ with tab2:
                           quantidade = info['quantidade'][0].split('.')
                           descricao = info['descrição do produto']
                           produtos = info['produtos'].split(' - ') 
-                          dicionario = {'precesso':numero_processo,'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produtos}  
+                          posi = info['posi']
+                          dicionario = {'precesso':numero_processo,'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produtos,'posi':posi}  
                           if dicionario in lista_dicionarios:
                               pass
                           else:  
-                              lista_dicionarios.append(dicionario)  
-  posi = None       
+                              lista_dicionarios.append(dicionario)   
   for item in lista_dicionarios:  
-        produto=str(item['produtos'][0]).replace('Produto:','')
-        quantidade_dict = item['quantidade']
-        for y in dados2:
-             itens = dados2[f'{y}']
-             for h in itens:
-               if h == produto: 
-                 for h in itens:
-                     quantidade = itens[f'{h}']['quantidade']
-                     if quantidade:
-                         if quantidade >= float(quantidade_dict[0]):
-                             posi = y
-                         else:
-                             posi = None
-                         
         lista_conferencia = []
         qtd = int(item['quantidade'][0])
         for i in range(int(qtd)):
@@ -118,7 +117,7 @@ with tab2:
         with col5:
             try:
                 coleta = st.text_input(label=f'''Posição do item {item['produtos'][0]}
-                posição:{posi}''',key=f'{item['produtos'][0]}')
+                posição:{item['posi']}''',key=f'{item['produtos'][0]}')
                 if coleta :
                     if len(lista_conferencia) > 0:
                         lista_conferencia.remove(1)
