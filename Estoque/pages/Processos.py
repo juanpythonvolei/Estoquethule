@@ -110,11 +110,14 @@ with tab2:
             Cliente:{item['cliente']}\n
         {item['produtos'][0]}\n''')
         with col5:
-            coleta = st.text_input(label=f'''Posição do item {item['produtos'][0]}
-            posição:{posi}''',key=f'{item['produtos'][0]}')
-            if coleta :
-                if len(lista_conferencia) > 0:
-                    lista_conferencia.remove(1)
+            try:
+                coleta = st.text_input(label=f'''Posição do item {item['produtos'][0]}
+                posição:{posi}''',key=f'{item['produtos'][0]}')
+                if coleta :
+                    if len(lista_conferencia) > 0:
+                        lista_conferencia.remove(1)
+            except:
+                st.error('Item não consta em rev')
                 
         with col6:
                     st.metric(f'Quantidade restante',value=len(lista_conferencia))
