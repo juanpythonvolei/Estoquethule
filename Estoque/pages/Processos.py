@@ -101,9 +101,8 @@ with tab2:
                  st.write('x')   
                  for h in itens:
                      quantidade = itens[f'{h}']['quantidade']  
-                     if int(quantidade) >= int(item['quantidade'][0]):
-                         posi = y
-                         st.write(posi)
+                     st.write(quantidade)
+                     #if int(quantidade) >= int(item['quantidade'][0])
         lista_conferencia = []
         qtd = int(item['quantidade'][0])
         for i in range(int(qtd)):
