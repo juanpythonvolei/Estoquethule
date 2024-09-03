@@ -57,9 +57,9 @@ with tab1:
                                               quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom'] 
                                               valor_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['vProd']
                                               cliente = documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
-                                              numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
+                                             
                                               data_emit = documento['nfeProc']['NFe']['infNFe']['ide']['dhEmi'][:10]
-                                              caminho_faturamento = f'{data_atual}/{numero_da_nota}'
+                                              
                                               for y in dados2:
                                                  itens_consta = ''
                                                  itens = dados2[f'{y}']
@@ -72,6 +72,8 @@ with tab1:
                                                            quantidade = itens[f'{h}']['quantidade']
                                                            if quantidade:
                                                                if float(quantidade) >= float(quantidade_produto) and str(h) == str(codigo_produto):
+                                                                   numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
+                                                                   caminho_faturamento = f'{data_atual}/{numero_da_nota}'
                                                                    posicao = y
                                                                    dict_pedido = {'cliente':cliente,'produtos':f'Produto:{codigo_produto} - Valor:{valor_produto}','descrição do produto':descricao_produto,'quantidade':quantidade_produto,'processo':numero_processo,'Data':data_emit,'numero da nota':numero_da_nota,'posi':posicao}
                                                                    ref_faturamento.child(caminho_faturamento).set(dict_pedido)
