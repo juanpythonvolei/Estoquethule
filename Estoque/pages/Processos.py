@@ -82,12 +82,7 @@ with tab2:
                           numero_nota = info['numero da nota']
                           cliente = info['cliente']
                           data = info['Data']
-                          try:  
-                              quantidade = float(info['quantidade'][0].split('.'))
-                          except:
-                              quantidade = int(info['quantidade'][0].split('.'))
-                          else:
-                              pass
+                          quantidade = info['quantidade'][0].split('.')
                           descricao = info['descrição do produto']
                           produtos = info['produtos'].split(' - ') 
                           dicionario = {'precesso':numero_processo,'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produtos}  
