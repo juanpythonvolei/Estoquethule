@@ -67,7 +67,7 @@ with tab1:
                                                      for h in itens:
                                                          quantidade = itens[f'{h}']['quantidade']
                                                          if quantidade:
-                                                             if float(quantidade) >= float(quantidade_produto):
+                                                             if float(quantidade) >= float(quantidade_produto) and str(h) == str(codigo_produto):
                                                                  posicao = y
                                                              else:
                                                                  posicao = ''
