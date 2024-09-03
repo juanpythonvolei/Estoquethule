@@ -93,8 +93,7 @@ with tab2:
                               lista_dicionarios.append(dicionario)  
          
   for item in lista_dicionarios:  
-        produto=item['produtos'][0]
-        produto = str(produto).replace('produto:','')
+        produto=str(item['produtos'][0]).replace('produto:','')
         for y in dados2:
              itens = dados2[f'{y}']
              for h in itens:
