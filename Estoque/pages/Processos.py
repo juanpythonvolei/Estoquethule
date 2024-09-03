@@ -11,8 +11,7 @@ image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702
 lista_numero_processo = []
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
-dados = roteiro['Faturamento']
-dados2 = roteiro['Depósito']['Rev']  
+ 
 for elemento in dados:
     notas = dados[f'{elemento}']
     for item in notas:
@@ -27,7 +26,8 @@ else:
   numero_processo = lista_numero_processo[0]
 tab1,tab2,tab3 = st.tabs(['Faturamento','Mercado','Separação'])
 ref_faturamento = db.reference('Faturamento')
-
+dados = roteiro['Faturamento']
+dados2 = roteiro['Depósito']['Rev'] 
 data_hora_atual = datetime.now()
 data_atual = data_hora_atual.strftime("%d-%m-%Y")
 with tab1:
