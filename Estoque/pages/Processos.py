@@ -73,12 +73,11 @@ with tab1:
                                                            if quantidade:
                                                                if float(quantidade) >= float(quantidade_produto) and str(h) == str(codigo_produto):
                                                                    posicao = y
+                                                                   dict_pedido = {'cliente':cliente,'produtos':f'Produto:{codigo_produto} - Valor:{valor_produto}','descrição do produto':descricao_produto,'quantidade':quantidade_produto,'processo':numero_processo,'Data':data_emit,'numero da nota':numero_da_nota,'posi':posicao}
+                                                                   ref_faturamento.child(caminho_faturamento).set(dict_pedido)
+                                                                   contagem += 1  
                                                                else:
                                                                    posicao = ''
-                                              if posicao != '':                   
-                                                  dict_pedido = {'cliente':cliente,'produtos':f'Produto:{codigo_produto} - Valor:{valor_produto}','descrição do produto':descricao_produto,'quantidade':quantidade_produto,'processo':numero_processo,'Data':data_emit,'numero da nota':numero_da_nota,'posi':posicao}
-                                                  ref_faturamento.child(caminho_faturamento).set(dict_pedido)
-                                                  contagem += 1
                                             except:
                                               erro += 1 
                         st.metric(label='Total de notas processadas',value=contagem)
