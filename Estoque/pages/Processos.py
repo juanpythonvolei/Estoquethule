@@ -65,9 +65,7 @@ with tab1:
                                                  itens_consta = ''
                                                  itens = dados2[f'{y}']
                                                  for h in itens:
-                                                   
-                                                   hist = itens_consta.split('/')
-                                                   if hist[0] == str(codigo_produto): 
+                                                   if h == str(codigo_produto): 
                                                        lista_ver.append(codigo_produto)
                                                        for item in lista_ver:
                                                          st.write(item)
