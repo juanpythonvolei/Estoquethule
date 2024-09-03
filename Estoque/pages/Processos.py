@@ -99,7 +99,7 @@ with tab2:
              for h in itens:
                if str(h) == str(produto): 
                  for h in itens:
-                     quantidade = itens[f'{h}']['quantidade']:  
+                     quantidade = itens[f'{h}']['quantidade']
                      if quantidade:
                          if quantidade >= float(quantidade_dict[0]):
                              posi = y
