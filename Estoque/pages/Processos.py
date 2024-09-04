@@ -118,7 +118,7 @@ with tab2:
                               cliente = espec['cliente']
                               data = espec['data']
                               quantidade = espec['quantidade']
-                              descricao = espec['descição']
+                              descricao = espec['descicao']
                               produto = espec['produtos']
                               posi = espec['posicao']
                             dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produtos,'posi':posi}  
