@@ -147,7 +147,7 @@ with tab2:
         with col4:
             st.info(f'''Nota:{item['numero_nota']}\n
             Cliente:{item['cliente']}\n
-        {item['produtos'][0]}\n''')
+  {item['produtos']}\n''')
         with col5:
             try:
                 coleta = st.text_input(label=f'''Posição do item {item['produtos']}
