@@ -88,7 +88,7 @@ with tab1:
                             for item in posicao:
                               item_posicao = posicao[f'{item}']
                               st.write(item)
-                              if item_posicao == pedido['produto']:
+                              if str(item_posicao) == str(pedido['produto']):
                                 quantidade = item_posicao[f'quantidade']
                                 if quantidade >= pedido['quantidade'][0]:
                                   info = f'{pedido['produto']}/{posicao}/{pedido['quantidade'][0]}'
