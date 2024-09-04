@@ -29,13 +29,18 @@ with tab1:
               erro = 0  
               valor = 0
               lista_ver = []
+              
               if uploaded_files:
                         for nota in uploaded_files:
+                          lista_mais_produtos = []
                           try:
                                              
                                               xml_data = nota.read()
                                               documento = xmltodict.parse(xml_data)
                                               codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
+                                              lista_mais_proudutos.append(codigo_produto)
+                                              if len(lista_mais_proudutos) > 1:
+                                                st.write('lista')
                                               numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
                                               descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']       
                                               quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom'] 
