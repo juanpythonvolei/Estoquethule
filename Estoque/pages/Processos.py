@@ -107,20 +107,9 @@ with tab2:
   dia = str(selecao_datas)[8:] 
   selecao_datas = f'{dia}-{mes}-{ano}'              
   if selecao_datas:  
-        for x in dados2:
+        for x in dados:
                 if x == selecao_datas:
-                    notas = dados[f'{x}']
-                    st.write(notas)
-                    for item in notas:
-                          
-                          info = notas[f'{item}']
-                          numero_nota = info['numero da nota']
-                          cliente = info['cliente']
-                          data = info['Data']
-                          quantidade = info['quantidade'][0].split('.')
-                          descricao = info['descrição do produto']
-                          produtos = info['produtos'].split(' - ') 
-                          posi = info['posi']
+                          st.write(x)
                           dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produtos,'posi':posi}  
                           if dicionario in lista_dicionarios:
                               pass
