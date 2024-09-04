@@ -99,10 +99,10 @@ with tab1:
                                   info = f'{pedido['produto']}/{posicaoo}/{pedido['quantidade'][0]}'
                                   lista_database.append(info)  
                                   pedido.update({'posicao':posicaoo})
-                        for item in lista_ver:
-                          caminho_faturamento = f'{data_atual}/{random.randint(10,1000)}/{numero_da_nota}'
-                          ref_faturamento.child(caminho_faturamento).set(item)
-                          contagem +=1
+                        
+                        caminho_faturamento = f'{data_atual}/{random.randint(10,1000)}/{numero_da_nota}'
+                        ref_faturamento.child(caminho_faturamento).set(lista_ver)
+                        contagem +=1
                         st.metric(label='Notas faturadas',value=contagem)
                             
                           
