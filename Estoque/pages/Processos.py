@@ -168,7 +168,7 @@ with tab2:
         st.divider()   
   if len(lista_conferencia) == contagem:
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}'
-                rev_faturamento.child(caminho_faturamento).set('concluido')
+                ref_faturamento.child(caminho_faturamento).set('concluido')
                 st.success('Processo Concluido')   
           
             
