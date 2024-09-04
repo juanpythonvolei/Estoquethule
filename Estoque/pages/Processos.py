@@ -82,7 +82,7 @@ with tab1:
                             pass
                         lista_database = []
                         for pedido in lista_ver:
-                          for posicao in dados2:
+                          for posicaoo in dados2:
                             posicao = dados2[f'{posicao}']
                             for item in posicao:
                               carac = posicao[f'{item}']
@@ -95,7 +95,7 @@ with tab1:
                                   pass
                                  
                                 if float(quantidade) >= float(quantidade_pedido[0]):
-                                  info = f'{pedido['produto']}/{posicao}/{pedido['quantidade'][0]}'
+                                  info = f'{pedido['produto']}/{posicaoo}/{pedido['quantidade'][0]}'
                                   lista_database.append(info)  
                         st.write(lista_database)
                             
