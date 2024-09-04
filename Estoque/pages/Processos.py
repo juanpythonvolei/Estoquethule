@@ -84,7 +84,7 @@ with tab1:
                         st.write(lista_ver)
                         for pedido in lista_ver:
                           for posicao in dados2:
-                            posicao = dados[f'{posicao}']
+                            posicao = dados2[f'{posicao}']
                             for item in posicao:
                               item_posicao = posicao[f'{item}']
                               if item_posicao == pedido['produto']:
