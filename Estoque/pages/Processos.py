@@ -94,7 +94,7 @@ with tab1:
                                 except:
                                   pass
                                 st.write('ok') 
-                                if float(quantidade) >= float(quantidade_pedido):
+                                if float(quantidade) >= float(quantidade_pedido[0]):
                                   info = f'{pedido['produto']}/{posicao}/{pedido['quantidade'][0]}'
                                   lista_database.append(info)  
                             
