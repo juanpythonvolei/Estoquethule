@@ -129,7 +129,7 @@ with tab1:
                         caminho_faturamento = f'{data_atual}/{random.randint(10,1000)}'
                         ref_faturamento.child(caminho_faturamento).set(lista_ver)
                         st.metric(label='Notas faturadas',value=contagem)
-                        st.metric(label='Produtos não estocados',value=len(list(set(nao_rev))))s
+                        st.metric(label='Produtos não estocados',value=len(list(set(nao_rev))))
                             
                           
                                 
