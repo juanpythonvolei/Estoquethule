@@ -65,7 +65,7 @@ with tab1:
                                                 for item in itens_posicao:
                                                   if str(item)  == str(codigo_produto):
                                                     lista_ver.append(item)
-                                              st.write(listaver)
+                                              st.write(lista_ver)
                                                 
 
                                              
