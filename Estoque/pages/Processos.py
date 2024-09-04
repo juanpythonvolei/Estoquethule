@@ -172,7 +172,7 @@ with tab2:
                 posição:{item['posi']}''',key=f'{item['produtos']}')
               
                 if coleta :
-                    for ean_ingo in lista_ean:
+                    for ean_info in lista_ean:
                       produto,ean = ean_info
                       if ean == coleta:
                         coleta = produto
