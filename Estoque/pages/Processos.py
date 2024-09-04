@@ -53,34 +53,22 @@ with tab1:
                                               xml_data = nota.read()
                                               documento = xmltodict.parse(xml_data)
                                               codigo_produto = str(documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd'])
-                                             
+                                              numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
                                               descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']       
                                               quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom'] 
                                               valor_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['vProd']
                                               cliente = documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
-                                             
+                                              caminho_faturamento = f'{data_atual}/{numero_da_nota}'
                                               data_emit = documento['nfeProc']['NFe']['infNFe']['ide']['dhEmi'][:10]
-                                              
-                                              for y in dados2:
-                                                 y = posicao 
-                                                 itens = dados2[f'{y}']
-                                                 for h in itens:
-                                                   if h == str(codigo_produto): 
-                                                         lista_ver.append(f'{h}/ {posicao}')
-                                                         st.write(lista_ver)
+                                              for posicao in dados2:
+                                                itens_posicao = dados2[f'{posicao}']
+                                                for item in itens_posicao:
+                                                  if item  == codigo_produto:
+                                                    lista_ver.append(item)
+                                              st.write(listaver)
+                                                
 
-                                              for position in dados2:
-                                                           itens = dados2[f'{position}']
-                                                           if quantidade:
-                                                               if float(quantidade) >= float(quantidade_produto):
-                                                                   numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
-                                                                   caminho_faturamento = f'{data_atual}/{numero_da_nota}'
-                                                                   posicao = hist[1]
-                                                                   dict_pedido = {'cliente':cliente,'produtos':f'Produto:{codigo_produto} - Valor:{valor_produto}','descrição do produto':descricao_produto,'quantidade':quantidade_produto,'processo':numero_processo,'Data':data_emit,'numero da nota':numero_da_nota,'posi':posicao}
-                                                                   ref_faturamento.child(caminho_faturamento).set(dict_pedido)
-                                                                   contagem += 1  
-                                                               else:
-                                                                   posicao = None
+                                             
                                                                  
                                             except:
                                               erro += 1 
