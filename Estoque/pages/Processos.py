@@ -107,7 +107,7 @@ with tab2:
   dia = str(selecao_datas)[8:] 
   selecao_datas = f'{dia}-{mes}-{ano}'              
   if selecao_datas:  
-        for x in dadose:
+        for x in dados2:
                 if x == selecao_datas:
                     notas = dados[f'{x}']
                     st.write(item)
