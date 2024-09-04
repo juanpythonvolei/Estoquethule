@@ -167,12 +167,20 @@ with tab2:
     Produto:{item['produtos']}\n''')
         with col5:
             try:
-                coleta = st.text_input(label=f'''Posição do item {item['produtos']}
+                coleta = st.text_input(label=f'''Posição do item {item['produtos']} 
+    
                 posição:{item['posi']}''',key=f'{item['produtos']}')
+              
                 if coleta :
-                    if len(lista_conferencia) > 0:
+                    for ean_ingo in lista_ean:
+                      produto,ean = ean_info
+                      if ean == coleta:
+                        coleta = produto
+                        st.info(f'voce seleiconou o item {produto}')
+                    if coleta:    
+                      if len(lista_conferencia) > 0:
                         lista_conferencia.remove(1)
-                    else:
+                      else:
                       contagem +=1
             except:
                 st.error('Item não consta em rev')
