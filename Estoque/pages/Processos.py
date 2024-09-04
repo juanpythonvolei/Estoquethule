@@ -65,12 +65,10 @@ with tab1:
                                                  y = posicao 
                                                  itens = dados2[f'{y}']
                                                  for h in itens:
-                                                   if h == str(codigo_produto): 
+                                                 if h == str(codigo_produto): 
                                                        lista_ver.append(f'{h}/ {posicao}')
                                                        st.write(lista_ver)
-                                                       for item in lista_ver:
-                                                          pass
-                                              
+
                                               for position in dados2:
                                                            itens = dados2[f'{position}']
                                                            if quantidade:
