@@ -109,7 +109,7 @@ with tab2:
   selecao_datas = f'{dia}-{mes}-{ano}'              
   if selecao_datas:  
     for a in dados:
-                if x == selecao_datas:
+                if a == selecao_datas:
                           infos = dados[f'{a}']
                           for processo in infos:
                             if processo in lista_processos:
