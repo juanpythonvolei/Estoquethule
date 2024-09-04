@@ -32,7 +32,7 @@ with tab1:
               
               if uploaded_files:
                         for nota in uploaded_files:
-                          try:
+                          
                                              
                                               xml_data = nota.read()
                                               documento = xmltodict.parse(xml_data)
@@ -66,8 +66,7 @@ with tab1:
                                                         
                                                       }
                                                                       )
-                                                  except:
-                                                    pass
+                                                
                                                 
                           except:
                             pass
