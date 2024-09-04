@@ -18,22 +18,6 @@ data_atual = data_hora_atual.strftime("%d-%m-%Y")
 #ref_faturamento.child(caminho_faturamento).set('a')
 dados = roteiro['Faturamento']
 dados2 = roteiro['Depósito']['Rev'] 
-try:
-  for elemento in dados:
-          notas = dados[f'{elemento}']
-          for item in notas:
-            info = notas[f'{item}']
-            numero_processo = info['processo']
-            lista_numero_processo.append(numero_processo)
-  lista_numero_processo = list(set(lista_numero_processo))        
-  lista_numero_processo = sorted(lista_numero_processo)
-  if len(lista_numero_processo) < 0:
-        numero_processo = 0
-  else:
-        numero_processo = lista_numero_processo[0]
-except:
-  numero_processo = 0
-
 tab1,tab2,tab3 = st.tabs(['Faturamento','Mercado','Separação'])
 
 
@@ -73,7 +57,7 @@ with tab1:
                                                          'quantidade': quantidade_produto,
                                                          'cliente':cliente,
                                                          'valor':valor_produto,
-                                                         'processo':numero_processo 
+                                                        
                                                       }
                                                                       )
                                                   except:
@@ -100,7 +84,7 @@ with tab1:
                                   lista_database.append(info)  
                                   pedido.update({'posicao':posicaoo})
                         
-                        caminho_faturamento = f'{data_atual}/{random.randint(10,1000)}/{numero_da_nota}'
+                        caminho_faturamento = f'{data_atual}/{random.randint(10,1000)}'
                         ref_faturamento.child(caminho_faturamento).set(lista_ver)
                         contagem +=1
                         st.metric(label='Notas faturadas',value=contagem)
@@ -129,7 +113,6 @@ with tab2:
                     notas = dados[f'{x}']
                     for item in notas:
                           info = notas[f'{item}']
-                          numero_processo = info['processo']
                           numero_nota = info['numero da nota']
                           cliente = info['cliente']
                           data = info['Data']
@@ -137,7 +120,7 @@ with tab2:
                           descricao = info['descrição do produto']
                           produtos = info['produtos'].split(' - ') 
                           posi = info['posi']
-                          dicionario = {'precesso':numero_processo,'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produtos,'posi':posi}  
+                          dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produtos,'posi':posi}  
                           if dicionario in lista_dicionarios:
                               pass
                           else:  
