@@ -56,6 +56,7 @@ with tab1:
                                                          'quantidade': quantidade_produto,
                                                          'cliente':cliente,
                                                          'valor':valor_produto,
+                                                         'data':data_emit 
                                                         
                                                       }
                                                                       )
@@ -113,12 +114,18 @@ with tab2:
                           for processo in infos:
                             notas = infos[f'{processo}']
                             for espec in notas:
-                              st.write(espec)
-                          dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produtos,'posi':posi}  
-                          if dicionario in lista_dicionarios:
-                              pass
-                          else:  
-                              lista_dicionarios.append(dicionario)   
+                              numero_nota = espec['nota']
+                              cliente = espec['cliente']
+                              data = espec['data']
+                              quantidade = espec['quantidade']
+                              descricao = espec['descição']
+                              produto = espec['produtos']
+                              posi = espec['posicao']
+                            dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produtos,'posi':posi}  
+                            if dicionario in lista_dicionarios:
+                                pass
+                            else:  
+                                lista_dicionarios.append(dicionario)   
   for item in lista_dicionarios:  
         lista_conferencia = []
         qtd = int(item['quantidade'][0])
