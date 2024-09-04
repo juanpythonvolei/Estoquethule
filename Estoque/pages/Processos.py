@@ -22,7 +22,6 @@ tab1,tab2,tab3 = st.tabs(['Faturamento','Mercado','Separação'])
 
 
 with tab1:
-              numero_processo +=1
               lista_filtrada = []         
               uploaded_files = st.file_uploader("Escolha os arquivos", type=[f'xml'], accept_multiple_files=True)
               lista = []   
