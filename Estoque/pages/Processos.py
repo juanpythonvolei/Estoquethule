@@ -119,7 +119,7 @@ with tab2:
                               data = espec['data']
                               quantidade = espec['quantidade']
                               descricao = espec['descricao']
-                              produto = espec['produtos']
+                              produto = espec['produto']
                               posi = espec['posicao']
                             dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produtos,'posi':posi}  
                             if dicionario in lista_dicionarios:
