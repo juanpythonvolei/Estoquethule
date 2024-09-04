@@ -175,8 +175,8 @@ with tab2:
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/status'
                 ref_faturamento.child(caminho_faturamento).set('concluido')
                 st.success('Processo Concluido')  
-else:
- st.error('mercado já concluído')
+ else:
+  st.error('mercado já concluído')
           
             
                    
