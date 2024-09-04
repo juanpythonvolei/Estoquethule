@@ -162,11 +162,13 @@ with tab2:
                 
         with col6:
                     st.metric(f'Quantidade restante',value=len(lista_conferencia))
-        if len(lista_conclusao) == len(lista_dicionarios):
-          st.succes('Processo Concluido')
+  
         st.divider()   
-
-      
+  st.write(len(lista_conclusao))
+  st.write(len(lista_dicionarios))
+  if len(lista_conclusao) == len(lista_dicionarios):
+          st.succes('Processo Concluido')
+          
             
                    
                 
