@@ -132,11 +132,11 @@ with tab2:
                                 descricao = espec['descricao']
                                 produto = espec['produto']
                                 posi = espec['posicao']
-                              dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi}  
-                              if dicionario in lista_dicionarios:
-                                  pass
-                              else:  
-                                  lista_dicionarios.append(dicionario)   
+                                dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi}  
+                                if dicionario in lista_dicionarios:
+                                    pass
+                                else:  
+                                    lista_dicionarios.append(dicionario)   
   st.write(lista_dicionarios)
   for item in lista_dicionarios:  
         lista_conferencia = []
