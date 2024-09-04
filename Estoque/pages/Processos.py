@@ -110,8 +110,9 @@ with tab2:
         for x in dados:
                 if x == selecao_datas:
                     notas = dados[f'{x}']
+                    st.write(item)
                     for item in notas:
-                          st.write(item)
+                          
                           info = notas[f'{item}']
                           numero_nota = info['numero da nota']
                           cliente = info['cliente']
