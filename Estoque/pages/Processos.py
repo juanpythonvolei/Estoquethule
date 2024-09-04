@@ -111,7 +111,7 @@ with tab2:
       pass
     else:
      lista_ean.append(comparacao)
-  st.write()
+  
   selecao_datas=st.date_input(label='selecione uma data')
   ano = str(selecao_datas)[0:4]
   mes = str(selecao_datas)[5:7]
@@ -134,7 +134,7 @@ with tab2:
                         for processo in infos:
                           if processo ==  selecao_processos:
                             notas = infos[f'{processo}']
-                            st.write(notas)
+                            
                             if 'status' not in notas:
                              for espec in notas:
                                 numero_nota = espec['nota']
