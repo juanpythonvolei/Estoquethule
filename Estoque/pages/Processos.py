@@ -181,7 +181,7 @@ with tab2:
                       if len(lista_conferencia) > 0:
                         lista_conferencia.remove(1)
                       else:
-                      contagem +=1
+                        contagem +=1
             except:
                 st.error('Item não consta em rev')
                 
