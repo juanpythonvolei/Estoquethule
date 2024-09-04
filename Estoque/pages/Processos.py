@@ -80,7 +80,24 @@ with tab1:
                                                 
                           except:
                             pass
-                        st.write(lista_ver) 
+                        lista_database = []
+                        st.write(lista_ver)
+                        for pedido in lista_ver:
+                          for posicao in dados2:
+                            posicao = dados[f'{posicao}']
+                            for item in posicao:
+                              item_posicao = posicao[f'{item}']
+                              if item_posicao == pedido['produto']:
+                                quantidade = item_posicao[f'quantidade']
+                                if quantidade >= pedido['quantidade'][0]:
+                                  info = f'{pedido['produto']}/{posicao}/{pedido['quantidade'][0]}'
+                                  if info in lista_database:
+                                    pass
+                                  else:
+                                    lista_database.append()
+                        st.write(lista_database)     
+                          
+                                  
                                              
                                                                  
          
