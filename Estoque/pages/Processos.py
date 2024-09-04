@@ -41,7 +41,7 @@ with tab1:
                                               if isinstance(codigo_produto,list):
                                                 st.write('lista')
                                               else:
-                                                st.write(f'não é uma lista. nota {numero_da_nota}')
+                                                st.write(f'não é uma lista. nota {codigo_produto}')
                                               
                                               descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']       
                                               quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom'] 
