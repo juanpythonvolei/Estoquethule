@@ -89,10 +89,11 @@ with tab1:
                               st.write(item)
                               if str(item_posicao) == str(pedido['produto']):
                                 quantidade = item_posicao[f'quantidade']
+                                st.write(quantidade) 
                                 if quantidade >= pedido['quantidade']:
                                   info = f'{pedido['produto']}/{posicao}/{pedido['quantidade']}'
                                   lista_database.append(info)  
-                        st.write(lista_database)     
+                            
                           
                                   
                                              
