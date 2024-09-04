@@ -81,7 +81,6 @@ with tab1:
                           except:
                             pass
                         lista_database = []
-                        st.write(lista_ver)
                         for pedido in lista_ver:
                           for posicao in dados2:
                             posicao = dados2[f'{posicao}']
