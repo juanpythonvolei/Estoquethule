@@ -94,7 +94,7 @@ with tab1:
                         st.metric(label='Notas faturadas',value=contagem)
                             
                           
-                                  
+                                
                                              
                                                                  
          
