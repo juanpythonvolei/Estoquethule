@@ -137,7 +137,7 @@ with tab2:
                                     pass
                                 else:  
                                     lista_dicionarios.append(dicionario)   
-  st.write(lista_dicionarios)
+  lista_conclusao = []
   for item in lista_dicionarios:  
         lista_conferencia = []
         qtd = int(item['quantidade'][0])
@@ -155,11 +155,15 @@ with tab2:
                 if coleta :
                     if len(lista_conferencia) > 0:
                         lista_conferencia.remove(1)
+                    else:
+                      lista_conclusao.append(1)
             except:
                 st.error('Item não consta em rev')
                 
         with col6:
                     st.metric(f'Quantidade restante',value=len(lista_conferencia))
+        if len(lista_conclusao) == len(lista_dicionarios):
+          st.succes('Processo Concluido')
         st.divider()   
 
       
