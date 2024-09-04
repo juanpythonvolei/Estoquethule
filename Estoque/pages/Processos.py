@@ -37,11 +37,12 @@ with tab1:
                                               xml_data = nota.read()
                                               documento = xmltodict.parse(xml_data)
                                               codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
+                                              numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
                                               if isinstance(codigo_produto,list):
                                                 st.write('lista')
                                               else:
-                                                st.write('não é uma lista')
-                                              numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
+                                                st.write(f'não é uma lista. nota {numero_da_nota}')
+                                              
                                               descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']       
                                               quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom'] 
                                               valor_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['vProd']
