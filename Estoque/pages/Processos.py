@@ -66,6 +66,8 @@ with tab1:
                                                         
                                                       }
                                                                       )
+                                                   except:
+                                                     pass
                                                 
                                                 
 
