@@ -95,10 +95,10 @@ with tab1:
                                                            }
                                                                         )
                                                         else:
-                                                            if codigo_produto in nao_rev:
+                                                            if f'{codigo_produto}/{numero_da_nota}}' in nao_rev:
                                                               pass
                                                             else:
-                                                              nao_rev.append(codigo_produto)
+                                                              nao_rev.append(f'{codigo_produto}/{numero_da_nota}}')
                                                           
                                                 
                                                 
@@ -106,7 +106,7 @@ with tab1:
                                                      
                                                 
                                                 
-
+                        st.write(nao_rev)
                         lista_database = []
                         for pedido in lista_ver:
                           for posicaoo in dados2:
