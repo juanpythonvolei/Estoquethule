@@ -65,13 +65,22 @@ with tab1:
                                                 for item in itens_posicao:
                                                   try:
                                                     if str(item)  == str(codigo_produto):
-                                                      lista_ver.append(item)
+                                                      lista_ver.append(
+                                                        {
+                                                         'produto':item,
+                                                         'nota':numero_da_nota,
+                                                         'descricao': descricao_produto,
+                                                         'quantidade': quantidade_produto,
+                                                         'cliente':cliente,
+                                                         'valor':valor_produto 
+                                                      }
+                                                                      )
                                                   except:
                                                     pass
-                                              st.write(lista_ver)
+                                                
                           except:
                             pass
-
+                        st.write(lista_ver) 
                                              
                                                                  
          
