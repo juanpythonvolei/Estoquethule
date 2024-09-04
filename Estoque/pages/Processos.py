@@ -68,8 +68,7 @@ with tab1:
                                                                       )
                                                 
                                                 
-                          except:
-                            pass
+
                         lista_database = []
                         for pedido in lista_ver:
                           for posicaoo in dados2:
