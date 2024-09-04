@@ -38,45 +38,63 @@ with tab1:
                                               documento = xmltodict.parse(xml_data)
                                               try:
                                                 codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
+                                                numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
+                                                descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']       
+                                                quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom'] 
+                                                valor_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['vProd']
+                                                cliente = documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
+                                                caminho_faturamento = f'{data_atual}/{numero_da_nota}'
+                                                data_emit = documento['nfeProc']['NFe']['infNFe']['ide']['dhEmi'][:10]
+                                                for posicao in dados2:
+                                                  itens_posicao = dados2[f'{posicao}']
+                                                  for item in itens_posicao:
+                                                    try:
+                                                      if str(item) == str(codigo_produto):
+                                                        lista_ver.append(
+                                                          {
+                                                           'produto':item,
+                                                           'nota':numero_da_nota,
+                                                           'descricao': descricao_produto,
+                                                           'quantidade': quantidade_produto,
+                                                           'cliente':cliente,
+                                                           'valor':valor_produto,
+                                                           'data':data_emit 
+                                                          
+                                                        }
+                                                                        )
+                                                    except:
+                                                      pass
                                               except:
                                                 produtos_excessao = documento['nfeProc']['NFe']['infNFe']['det']
                                                 for produto in produtos_excessao:
+                                                  codigo_produto = produto['prod']['cProd']
                                                   descricao_produto = produto['prod']['xProd']       
                                                   quantidade_produto = produto['prod']['qCom'] 
                                                   valor_produto = produto['prod']['vProd']
                                                   cliente = documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
                                                   numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
                                                   descricao_produto = produto['prod']['xProd']
-                                                  ativo = f'{descricao_produto}/{quantidade_produto}/{valor_produto}/{descricao_produto}'
-                                                  lista_mais.append(ativo)
-                                                  st.write(ativo)
+                                                  for posicao in dados2:
+                                                    itens_posicao = dados2[f'{posicao}']
+                                                    for item in itens_posicao:
+                                                      try:
+                                                        if str(item) == str(codigo_produto):
+                                                          lista_ver.append(
+                                                            {
+                                                             'produto':item,
+                                                             'nota':numero_da_nota,
+                                                             'descricao': descricao_produto,
+                                                             'quantidade': quantidade_produto,
+                                                             'cliente':cliente,
+                                                             'valor':valor_produto,
+                                                             'data':data_emit 
+                                                            
+                                                          }
+                                                                        )
                                                 
-                                              numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
-                                              descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']       
-                                              quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom'] 
-                                              valor_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['vProd']
-                                              cliente = documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
-                                              caminho_faturamento = f'{data_atual}/{numero_da_nota}'
-                                              data_emit = documento['nfeProc']['NFe']['infNFe']['ide']['dhEmi'][:10]
-                                              for posicao in dados2:
-                                                itens_posicao = dados2[f'{posicao}']
-                                                for item in itens_posicao:
-                                                  try:
-                                                    if str(item) == str(codigo_produto):
-                                                      lista_ver.append(
-                                                        {
-                                                         'produto':item,
-                                                         'nota':numero_da_nota,
-                                                         'descricao': descricao_produto,
-                                                         'quantidade': quantidade_produto,
-                                                         'cliente':cliente,
-                                                         'valor':valor_produto,
-                                                         'data':data_emit 
-                                                        
-                                                      }
-                                                                      )
-                                                  except:
-                                                     pass
+                                                
+                                              
+                                                     
                                                 
                                                 
 
