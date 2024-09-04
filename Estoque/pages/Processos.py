@@ -109,9 +109,10 @@ with tab2:
   if selecao_datas:  
         for x in dados:
                 if x == selecao_datas:
-                          processos = dados[f'{x}']
-                          for nota in processos:
-                            st.write(nota)
+                          infos = dados[f'{x}']
+                          for processo in infos:
+                            notas = infos[f'{processo}']
+                            st.write(notas)
                           dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produtos,'posi':posi}  
                           if dicionario in lista_dicionarios:
                               pass
