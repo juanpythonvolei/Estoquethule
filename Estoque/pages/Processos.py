@@ -91,10 +91,7 @@ with tab1:
                                 quantidade = item_posicao[f'quantidade']
                                 if quantidade >= pedido['quantidade'][0]:
                                   info = f'{pedido['produto']}/{posicao}/{pedido['quantidade'][0]}'
-                                  if info in lista_database:
-                                    pass
-                                  else:
-                                    lista_database.append(info)
+                                  lista_database.append(info)  
                         st.write(lista_database)     
                           
                                   
