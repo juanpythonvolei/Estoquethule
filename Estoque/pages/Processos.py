@@ -110,7 +110,7 @@ with tab2:
         for x in dados2:
                 if x == selecao_datas:
                     notas = dados[f'{x}']
-                    st.write(item)
+                    st.write(notas)
                     for item in notas:
                           
                           info = notas[f'{item}']
