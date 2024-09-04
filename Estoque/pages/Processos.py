@@ -156,7 +156,7 @@ with tab2:
                     if len(lista_conferencia) > 0:
                         lista_conferencia.remove(1)
                     elif len(lista_conferencia) == 0:
-                      lista_conclusao.append(1)
+                      lista_conclusao.append('ok')
             except:
                 st.error('Item não consta em rev')
                 
