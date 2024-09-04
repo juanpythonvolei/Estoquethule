@@ -52,7 +52,7 @@ with tab1:
                                             try:  
                                               xml_data = nota.read()
                                               documento = xmltodict.parse(xml_data)
-                                              codigo_produto = str(documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd'])
+                                              codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
                                               numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
                                               descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']       
                                               quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom'] 
@@ -63,7 +63,7 @@ with tab1:
                                               for posicao in dados2:
                                                 itens_posicao = dados2[f'{posicao}']
                                                 for item in itens_posicao:
-                                                  if item  == codigo_produto:
+                                                  if str(item)  == str(codigo_produto):
                                                     lista_ver.append(item)
                                               st.write(listaver)
                                                 
