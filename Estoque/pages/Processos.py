@@ -106,7 +106,13 @@ with tab1:
                                                      
                                                 
                                                 
-                        st.write(nao_rev)
+                        if len(nao_rev) > 0:
+                          lista_nao = []
+                          for nao in nao_rev:
+                            informacao = str(nao).split('/')
+                            numero_nao = informacao[1]
+                            lista_nao.append(numero_nao)
+                        
                         lista_database = []
                         for pedido in lista_ver:
                           for posicaoo in dados2:
@@ -130,6 +136,7 @@ with tab1:
                         ref_faturamento.child(caminho_faturamento).set(lista_ver)
                         st.metric(label='Notas faturadas',value=contagem)
                         st.metric(label='Produtos não estocados',value=len(list(set(nao_rev))))
+                        st.metric(label='Notas não Faturadas por falta de cadastro',value=len(list(set(lista_nao))))
                             
                           
                                 
