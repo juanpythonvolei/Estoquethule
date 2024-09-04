@@ -39,8 +39,6 @@ with tab1:
                                               documento = xmltodict.parse(xml_data)
                                               codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
                                               lista_mais_proudutos.append(codigo_produto)
-                                              if len(lista_mais_proudutos) > 1:
-                                                st.write('lista')
                                               numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
                                               descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']       
                                               quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom'] 
@@ -52,7 +50,7 @@ with tab1:
                                                 itens_posicao = dados2[f'{posicao}']
                                                 for item in itens_posicao:
                                                   try:
-                                                    if str(item)  == str(codigo_produto):
+                                                    if str(item) == str(codigo_produto):
                                                       lista_ver.append(
                                                         {
                                                          'produto':item,
