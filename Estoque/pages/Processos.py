@@ -108,6 +108,16 @@ with tab2:
   dia = str(selecao_datas)[8:] 
   selecao_datas = f'{dia}-{mes}-{ano}'              
   if selecao_datas:  
+    for a in dados:
+                if x == selecao_datas:
+                          infos = dados[f'{a}']
+                          for processo in infos:
+                            if processo in lista_processos:
+                              pass
+                            else:
+                              lista_processos.append(processo)
+  selecao_processos = st.selectbox(label='',placeholder='Selecione um Processo',index=None,options=lista_processos) 
+  if selecao_datas and selecao_processos:
         for x in dados:
                 if x == selecao_datas:
                           infos = dados[f'{x}']
