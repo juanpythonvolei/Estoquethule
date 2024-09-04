@@ -98,7 +98,7 @@ with tab1:
                                                             if f'{codigo_produto}/{numero_da_nota}}' in nao_rev:
                                                               pass
                                                             else:
-                                                              nao_rev.append(f'{codigo_produto}/{numero_da_nota}}')
+                                                              nao_rev.append(f'{codigo_produto}/{numero_da_nota}')
                                                           
                                                 
                                                 
