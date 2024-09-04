@@ -87,7 +87,7 @@ with tab1:
                                   info = f'{pedido['produto']}/{posicaoo}/{pedido['quantidade'][0]}'
                                   lista_database.append(info)  
                                   pedido.update({'posicao':posicaoo})
-                        
+                        st.write(lista_ver)
                         caminho_faturamento = f'{data_atual}/{random.randint(10,1000)}'
                         ref_faturamento.child(caminho_faturamento).set(lista_ver)
                         contagem +=1
