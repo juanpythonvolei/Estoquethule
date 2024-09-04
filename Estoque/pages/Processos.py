@@ -28,7 +28,7 @@ with tab1:
               contagem = 0    
               erro = 0  
               valor = 0
-              nao_rev = 0
+              nao_rev = []
               lista_ver = []
               lista_mais = []
               if uploaded_files:
@@ -95,7 +95,10 @@ with tab1:
                                                            }
                                                                         )
                                                         else:
-                                                            nao_rev +=1
+                                                            if codigo_produto in nao_rev:
+                                                              pass
+                                                            else:
+                                                              nao_rev.append(codigo_produto)
                                                           
                                                 
                                                 
@@ -126,7 +129,7 @@ with tab1:
                         caminho_faturamento = f'{data_atual}/{random.randint(10,1000)}'
                         ref_faturamento.child(caminho_faturamento).set(lista_ver)
                         st.metric(label='Notas faturadas',value=contagem)
-                        st.metric(label='Produtos não estocados',value=nao_rev)
+                        st.metric(label='Produtos não estocados',value=len(list(set(nao_rev))))s
                             
                           
                                 
