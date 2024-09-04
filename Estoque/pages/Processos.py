@@ -85,10 +85,10 @@ with tab1:
                           for posicao in dados2:
                             posicao = dados2[f'{posicao}']
                             for item in posicao:
-                              item_posicao = posicao[f'{item}']
+                              carac = posicao[f'{item}']
                               st.write(item)
-                              if str(item_posicao) == str(pedido['produto']):
-                                quantidade = item_posicao[f'quantidade']
+                              if str(item) == str(pedido['produto']):
+                                quantidade = carac[f'quantidade']
                                 st.write('ok') 
                                 if quantidade >= pedido['quantidade']:
                                   info = f'{pedido['produto']}/{posicao}/{pedido['quantidade']}'
