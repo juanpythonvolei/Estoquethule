@@ -94,7 +94,7 @@ with tab1:
                                   if info in lista_database:
                                     pass
                                   else:
-                                    lista_database.append()
+                                    lista_database.append(info)
                         st.write(lista_database)     
                           
                                   
