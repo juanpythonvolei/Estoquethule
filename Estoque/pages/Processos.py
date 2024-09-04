@@ -63,7 +63,7 @@ with tab1:
                                                           
                                                             }
                                                                          )
-                                                       else:
+                                                      else:
                                                           nao_rev +=1
                                                     except:
                                                       pass
@@ -94,7 +94,7 @@ with tab1:
                                                             
                                                            }
                                                                         )
-                                                          else:
+                                                        else:
                                                             nao_rev +=1
                                                           
                                                 
