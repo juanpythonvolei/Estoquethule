@@ -155,7 +155,7 @@ with tab2:
                 if coleta :
                     if len(lista_conferencia) > 0:
                         lista_conferencia.remove(1)
-                    else:
+                    elif len(lista_conferencia) == 0:
                       lista_conclusao.append(1)
             except:
                 st.error('Item não consta em rev')
@@ -164,10 +164,10 @@ with tab2:
                     st.metric(f'Quantidade restante',value=len(lista_conferencia))
   
         st.divider()   
-  st.write(len(lista_conclusao))
-  st.write(len(lista_dicionarios))
-  if len(lista_conclusao) == len(lista_dicionarios):
-          st.succes('Processo Concluido')
+        st.write(len(lista_conclusao))
+        st.write(len(lista_dicionarios))
+        if len(lista_conclusao) == len(lista_dicionarios):
+                st.succes('Processo Concluido')
           
             
                    
