@@ -83,7 +83,7 @@ with tab1:
                         lista_database = []
                         for pedido in lista_ver:
                           for posicaoo in dados2:
-                            posicao = dados2[f'{posicao}']
+                            posicao = dados2[f'{posicaoo}']
                             for item in posicao:
                               carac = posicao[f'{item}']
                               st.write(item)
