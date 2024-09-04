@@ -49,7 +49,7 @@ with tab1:
               if uploaded_files:
                         for nota in uploaded_files:
                           
-                                            try:  
+                                             
                                               xml_data = nota.read()
                                               documento = xmltodict.parse(xml_data)
                                               codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
@@ -70,10 +70,7 @@ with tab1:
 
                                              
                                                                  
-                                            except:
-                                              erro += 1 
-                        st.metric(label='Total de notas processadas',value=contagem)
-                        st.metric(label='Total de notas não processadas',value=erro)
+         
 with tab2: 
   lista_processos = []
   lista_datas =[]
