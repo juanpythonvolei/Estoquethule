@@ -120,11 +120,12 @@ with tab2:
   if selecao_datas and selecao_processos:
         for x in dados:
                 if x == selecao_datas:
-                          infos = dados[f'{x}']
-                          for processo in infos:
-                            if processo ==  selecao_processos:
-                              notas = infos[f'{processo}']
-                              for espec in notas:
+                        infos = dados[f'{x}']
+                        for processo in infos:
+                          if processo ==  selecao_processos:
+                            notas = infos[f'{processo}']
+                            for espec in notas:
+                              if espec !='status':  
                                 numero_nota = espec['nota']
                                 cliente = espec['cliente']
                                 data = espec['data']
