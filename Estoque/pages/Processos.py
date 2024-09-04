@@ -97,7 +97,7 @@ with tab1:
                                 if float(quantidade) >= float(quantidade_pedido[0]):
                                   info = f'{pedido['produto']}/{posicaoo}/{pedido['quantidade'][0]}'
                                   lista_database.append(info)  
-                                  pedido['posicao':posicaoo]
+                                  pedido.update('posicao':posicaoo})
                         for item in lista_ver:
                           caminho_faturamento = f'{data_atual}/{numero_processo}/{numero_da_nota}'
                           ref_faturamento.child(caminho_faturamento).set(item)
