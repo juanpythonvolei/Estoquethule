@@ -87,6 +87,7 @@ with tab1:
                             posicao = dados2[f'{posicao}']
                             for item in posicao:
                               item_posicao = posicao[f'{item}']
+                              st.write(item)
                               if item_posicao == pedido['produto']:
                                 quantidade = item_posicao[f'quantidade']
                                 if quantidade >= pedido['quantidade'][0]:
