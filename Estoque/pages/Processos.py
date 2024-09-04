@@ -29,20 +29,29 @@ with tab1:
               erro = 0  
               valor = 0
               lista_ver = []
-              
+              lista_mais = []
               if uploaded_files:
                         for nota in uploaded_files:
                           
                                              
                                               xml_data = nota.read()
                                               documento = xmltodict.parse(xml_data)
-                                              codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
+                                              try:
+                                                codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
+                                              except:
+                                                produtos_excessao = documento['nfeProc']['NFe']['infNFe']['det']
+                                                for produto in produtos_excessao:
+                                                  descricao_produto = produto['prod']['xProd']       
+                                                  quantidade_produto = produto['prod']['qCom'] 
+                                                  valor_produto = produto['prod']['vProd']
+                                                  cliente = documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
+                                                  numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
+                                                  descricao_produto = produto['prod']['xProd']
+                                                  ativo = f'{descricao_produto}/{quantidade_produto}/{valor_produto}/{descricao_produto}'
+                                                  lista_mais.append(ativo)
+                                                  st.write(ativo)
+                                                
                                               numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
-                                              if isinstance(codigo_produto,list):
-                                                st.write('lista')
-                                              else:
-                                                st.write(f'não é uma lista. nota {codigo_produto}')
-                                              
                                               descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']       
                                               quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom'] 
                                               valor_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['vProd']
