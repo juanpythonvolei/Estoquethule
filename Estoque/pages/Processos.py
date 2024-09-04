@@ -71,7 +71,6 @@ with tab1:
                             posicao = dados2[f'{posicaoo}']
                             for item in posicao:
                               carac = posicao[f'{item}']
-                              st.write(item)
                               if str(item) == str(pedido['produto']):
                                 quantidade = carac[f'quantidade']
                                 try:
@@ -95,13 +94,24 @@ with tab1:
                                                                  
          
 with tab2: 
+  lista_ean = []
   lista_processos = []
   lista_datas =[]
   lista_dicionarios = []  
   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
   roteiro = requiscao.json()
   dados = roteiro['Faturamento']
-  dados2 = roteiro['Depósito']['Rev']  
+  dados2 = roteiro['Depósito']['Rev']
+  dados3 = roteiro['Estoque']
+  for produto in dados3:
+    infoprod = dados3[f'{produto}']
+    ean = infoprod['EAN']
+    comparacao = (produto,ean)
+    if comparacao in lista_ean:
+      pass
+    else:
+     lista_ean.append(comparacao)
+  st.write()
   selecao_datas=st.date_input(label='selecione uma data')
   ano = str(selecao_datas)[0:4]
   mes = str(selecao_datas)[5:7]
