@@ -122,20 +122,21 @@ with tab2:
                 if x == selecao_datas:
                           infos = dados[f'{x}']
                           for processo in infos:
-                            notas = infos[f'{processo}']
-                            for espec in notas:
-                              numero_nota = espec['nota']
-                              cliente = espec['cliente']
-                              data = espec['data']
-                              quantidade = espec['quantidade']
-                              descricao = espec['descricao']
-                              produto = espec['produto']
-                              posi = espec['posicao']
-                            dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi}  
-                            if dicionario in lista_dicionarios:
-                                pass
-                            else:  
-                                lista_dicionarios.append(dicionario)   
+                            if process ==  selecao_processos:
+                              notas = infos[f'{processo}']
+                              for espec in notas:
+                                numero_nota = espec['nota']
+                                cliente = espec['cliente']
+                                data = espec['data']
+                                quantidade = espec['quantidade']
+                                descricao = espec['descricao']
+                                produto = espec['produto']
+                                posi = espec['posicao']
+                              dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi}  
+                              if dicionario in lista_dicionarios:
+                                  pass
+                              else:  
+                                  lista_dicionarios.append(dicionario)   
   for item in lista_dicionarios:  
         lista_conferencia = []
         qtd = int(item['quantidade'][0])
