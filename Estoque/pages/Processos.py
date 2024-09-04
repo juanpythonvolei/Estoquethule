@@ -138,8 +138,9 @@ with tab2:
                                 else:  
                                     lista_dicionarios.append(dicionario)   
   lista_conclusao = []
+  contagem = 0
   for item in lista_dicionarios:  
-        contagem = 0
+        
         lista_conferencia = []
         qtd = int(item['quantidade'][0])
         for i in range(int(qtd)):
@@ -163,10 +164,10 @@ with tab2:
                 
         with col6:
                     st.metric(f'Quantidade restante',value=len(lista_conferencia))
-        if len(lista_conferencia) == contagem:
-                st.success('Processo Concluido')
-        st.divider()   
         
+        st.divider()   
+  if len(lista_conferencia) == contagem:
+                st.success('Processo Concluido')   
           
             
                    
