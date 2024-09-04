@@ -151,9 +151,10 @@ with tab2:
                                     lista_dicionarios.append(dicionario)   
                             else:
                               lista_dicionarios.append('concluido')
-  lista_conclusao = []
-  contagem = 0
-  if 'concluido' not in lista_dicionarios:
+  if selecao_datas and selecao_processos:                          
+   lista_conclusao = []
+   contagem = 0
+   if 'concluido' not in lista_dicionarios:
     for item in lista_dicionarios:  
         
         lista_conferencia = []
@@ -193,8 +194,8 @@ with tab2:
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/status'
                 ref_faturamento.child(caminho_faturamento).set('concluido')
                 st.success('Processo Concluido')  
-  else:
-   st.error('mercado já concluído')
+   else:
+    st.error('mercado já concluído')
            
             
                    
