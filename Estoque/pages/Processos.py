@@ -113,7 +113,7 @@ with tab2:
                           for processo in infos:
                             notas = infos[f'{processo}']
                             for espec in notas:
-                              st.write(notas[f'{espec}']['quantidade'])
+                              st.write(espec)
                           dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produtos,'posi':posi}  
                           if dicionario in lista_dicionarios:
                               pass
