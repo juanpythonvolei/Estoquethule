@@ -77,7 +77,7 @@ with tab1:
                                                   for posicao in dados2:
                                                     itens_posicao = dados2[f'{posicao}']
                                                     for item in itens_posicao:
-                                                      try:
+                                                      
                                                         if str(item) == str(codigo_produto):
                                                           lista_ver.append(
                                                             {
