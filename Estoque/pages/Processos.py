@@ -97,7 +97,11 @@ with tab1:
                                 if float(quantidade) >= float(quantidade_pedido[0]):
                                   info = f'{pedido['produto']}/{posicaoo}/{pedido['quantidade'][0]}'
                                   lista_database.append(info)  
-                        st.write(lista_database)
+                        for item in lista_database:
+                          caminho_faturamento = f'{data_atual}/{numero_processo}/{numero_da_nota}'
+                          ref.child(caminho_faturamento).set(item)
+                          contagem +=1
+                        st.metric(label='Notas faturadas',value=contagem)
                             
                           
                                   
