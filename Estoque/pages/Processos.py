@@ -99,7 +99,7 @@ with tab1:
                                   lista_database.append(info)  
                         for item in lista_database:
                           caminho_faturamento = f'{data_atual}/{numero_processo}/{numero_da_nota}'
-                          ref.child(caminho_faturamento).set(item)
+                          ref_faturamento.child(caminho_faturamento).set(item)
                           contagem +=1
                         st.metric(label='Notas faturadas',value=contagem)
                             
