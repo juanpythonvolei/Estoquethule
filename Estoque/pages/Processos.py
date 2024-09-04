@@ -63,8 +63,11 @@ with tab1:
                                               for posicao in dados2:
                                                 itens_posicao = dados2[f'{posicao}']
                                                 for item in itens_posicao:
-                                                  if str(item)  == str(codigo_produto):
-                                                    lista_ver.append(item)
+                                                  try:
+                                                    if str(item)  == str(codigo_produto):
+                                                      lista_ver.append(item)
+                                                  except:
+                                                    pass
                                               st.write(lista_ver)
                                                 
 
