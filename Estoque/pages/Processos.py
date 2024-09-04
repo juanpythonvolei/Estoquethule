@@ -122,7 +122,7 @@ with tab2:
                 if x == selecao_datas:
                           infos = dados[f'{x}']
                           for processo in infos:
-                            if process ==  selecao_processos:
+                            if processo ==  selecao_processos:
                               notas = infos[f'{processo}']
                               for espec in notas:
                                 numero_nota = espec['nota']
