@@ -125,8 +125,8 @@ with tab2:
                           if processo ==  selecao_processos:
                             notas = infos[f'{processo}']
                             st.write(notas)
-                            for espec in notas:
-                              
+                            if 'status' not in notas:
+                             for espec in notas:
                                 numero_nota = espec['nota']
                                 cliente = espec['cliente']
                                 data = espec['data']
