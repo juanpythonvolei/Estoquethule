@@ -167,7 +167,7 @@ with tab2:
         st.divider()   
         st.write(contagem)
         st.write(len(lista_dicionarios))
-        if len(lista_conclusao) == len(lista_dicionarios):
+        if len(lista_conferencia) == contagem:
                 st.succes('Processo Concluido')
           
             
