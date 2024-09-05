@@ -273,8 +273,6 @@ with tab3:
                           for processo in infos:
                               notas = infos[f'{processo}']
                               if 'status' not in notas:
-                                pass
-                              else:
                                 for espec in notas:
                                   numero_nota = espec['nota']
                                   cliente = espec['cliente']
@@ -289,6 +287,9 @@ with tab3:
                                     pass
                                   else:
                                     lista_separacao.append(dicionario)
+                              else:
+                                pass
+                                
     for  dict in lista_separacao:
      transp = dict['transportadora']
      lista_transp.append(transp)
