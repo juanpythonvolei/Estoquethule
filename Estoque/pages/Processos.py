@@ -293,6 +293,8 @@ with tab3:
     for  dict in lista_separacao:
      transp = dict['transportadora']
      transp = str(transp).casefold()
+     if 'ltda.' transp:
+       transp.replace('ltda.','ltda')
      if transp in lista_transp:
        pass
      else:
