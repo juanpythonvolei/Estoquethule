@@ -306,8 +306,8 @@ with tab3:
        pass
      else:
        lista_transp.append(transp)
-     selecao_transp = st.selectbox(label='',placeholder='Selecione uma tranportadora',options=lista_transp,index=None)
-     if selecao_transp:
+    selecao_transp = st.selectbox(label='',placeholder='Selecione uma tranportadora',options=lista_transp,index=None)
+    if selecao_transp:
        for dict in lista_separacao:
          if str(dict['transportadora']).casefold() == selecao_transp:
             col4,col5,col6 = st.columns(3)
