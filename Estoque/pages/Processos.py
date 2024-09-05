@@ -72,7 +72,7 @@ with tab1:
                                               except:
                                                 produtos_excessao = documento['nfeProc']['NFe']['infNFe']['det']
                                                 for produto in produtos_excessao:
-                                                  codigo_produto = produto['prod']['cProd']
+                                                  codigo_produto = produto['cProd']
                                                   descricao_produto = produto['prod']['xProd']       
                                                   quantidade_produto = produto['prod']['qCom'] 
                                                   valor_produto = produto['prod']['vProd']
