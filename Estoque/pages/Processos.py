@@ -316,7 +316,7 @@ with tab3:
             with col5:
               st.text_input(placeholder='Insira o ean do item',label='',key=dict['numero_nota'])
             with col6:
-              st.text_input(placeholder='Insira o ean da posição',label='',key=dict['cliente'])
+              st.text_input(placeholder='Insira o ean da posição',label='',key=dict['descrição'])
             st.divider()
            
     
