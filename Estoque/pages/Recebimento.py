@@ -123,12 +123,12 @@ if 'Estoque' in roteiro:
                                                   if '.' in quantidade_produto:
                                                               numero,excesso = quantidade_produto.split('.')
                                                               quantidade_produto = numero
-                                                          caminho_cadastro = f'{codigo_produto}'
-                                                          caminho_rec = f'Rec/{codigo_produto}'
-                                                          ref_cadastro.child(caminho_cadastro).set(dict_produto)
-                                                          dict_rec = {'quantidade':int(quantidade_produto)}
-                                                          ref_rec.child(caminho_rec).set(dict_rec)
-                                                          contagem += 1  
+                                                  caminho_cadastro = f'{codigo_produto}'
+                                                  caminho_rec = f'Rec/{codigo_produto}'
+                                                  ref_cadastro.child(caminho_cadastro).set(dict_produto)
+                                                  dict_rec = {'quantidade':int(quantidade_produto)}
+                                                  ref_rec.child(caminho_rec).set(dict_rec)
+                                                  contagem += 1  
                         col1,col2,col3 = st.columns(3)
                         with col1:  
                             st.metric(label='Total de itens cadastrados',value=contagem)
