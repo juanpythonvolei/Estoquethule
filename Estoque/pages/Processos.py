@@ -154,7 +154,7 @@ with tab1:
                                                                  
          
 with tab2: 
-  col1,col2,col3 = st.columns(3)
+  col7,col8,col9 = st.columns(3)
   lista_ean = []
   lista_processos = []
   lista_datas =[]
@@ -177,7 +177,7 @@ with tab2:
   ano = str(selecao_datas)[0:4]
   mes = str(selecao_datas)[5:7]
   dia = str(selecao_datas)[8:] 
-  with col1:
+  with col17
    selecao_datas = f'{dia}-{mes}-{ano}'              
   if selecao_datas:  
     for a in dados:
@@ -188,7 +188,7 @@ with tab2:
                               pass
                             else:
                               lista_processos.append(processo)
-  with col2:                            
+  with col8:                            
     selecao_processos = st.selectbox(label='',placeholder='Selecione um Processo',index=None,options=lista_processos) 
   if selecao_datas and selecao_processos:
         for x in dados:
