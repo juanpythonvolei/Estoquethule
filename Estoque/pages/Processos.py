@@ -311,14 +311,15 @@ with tab3:
      if selecao_transp:
        for dict in lista_separacao:
          if dict['tranportadora'] == selecao_transp:
-           col4,col5,col6 = st.columns(3)
-           with col4:
+            col4,col5,col6 = st.columns(3)
+            with col4:
              st.text_input(placeholder='Insira o ean do volume',label='',key=1)
-          with col5:
-            st.text_input(placeholder='Insira o ean do item',label='',key=2)
-          with col6:
-            st.text_input(placeholder='Insira o ean da posição',label='',key=3)
-         
+            with col5:
+              st.text_input(placeholder='Insira o ean do item',label='',key=2)
+            with col6:
+              st.text_input(placeholder='Insira o ean da posição',label='',key=3)
+            st.divider()
+           
     
      
                    
