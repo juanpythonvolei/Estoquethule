@@ -259,7 +259,7 @@ with tab2:
 with tab3:
   lista_processos = []
   ref_separacao = ('Separacao')
-  selecao_datas=st.date_input(label='selecione uma data')
+  selecao_datas=st.date_input(label='selecione uma data',key='separacao')
   ano = str(selecao_datas)[0:4]
   mes = str(selecao_datas)[5:7]
   dia = str(selecao_datas)[8:] 
@@ -273,7 +273,7 @@ with tab3:
                               pass
                             else:
                               lista_processos.append(processo)
-  selecao_processos = st.selectbox(label='',placeholder='Selecione um Processo',index=None,options=lista_processos)             
+  selecao_processos = st.selectbox(label='',placeholder='Selecione um Processo',index=None,options=lista_processos,key='separacao')             
                    
                 
         
