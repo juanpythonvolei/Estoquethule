@@ -40,7 +40,8 @@ with tab1:
                                               try:
                                                 codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
                                                 numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
-                                                descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']       
+                                                descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']
+                                                transportadora = documento['nfeProc']['NFe']['infNFe']['transp']['trasporta']
                                                 quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom'] 
                                                 valor_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['vProd']
                                                 cliente = documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
@@ -59,7 +60,8 @@ with tab1:
                                                            'quantidade': quantidade_produto,
                                                            'cliente':cliente,
                                                            'valor':valor_produto,
-                                                           'data':data_emit 
+                                                           'data':data_emit ,
+                                                           'transportadora':trasportadora 
                                                           
                                                             }
                                                                          )
@@ -76,6 +78,7 @@ with tab1:
                                                   valor_produto = produto['prod']['vProd']
                                                   cliente = documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
                                                   numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
+                                                  transportadora = documento['nfeProc']['NFe']['infNFe']['transp']['trasporta']
                                                   descricao_produto = produto['prod']['xProd']
                                                   for posicao in dados2:
                                                     itens_posicao = dados2[f'{posicao}']
@@ -90,7 +93,8 @@ with tab1:
                                                              'quantidade': quantidade_produto,
                                                              'cliente':cliente,
                                                              'valor':valor_produto,
-                                                             'data':data_emit 
+                                                             'data':data_emit,
+                                                             'trasportadora':trasportadora 
                                                             
                                                            }
                                                                         )
@@ -246,7 +250,8 @@ with tab2:
                 st.success('Processo Concluido')  
    else:
     st.error('mercado já concluído')
-           
+with tab3:
+  ref_separacao = ('Separacao')
             
                    
                 
