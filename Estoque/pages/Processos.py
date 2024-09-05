@@ -322,7 +322,7 @@ with tab3:
                it = st.text_input(placeholder='Insira o ean do item',label='',key=dict['numero_nota'])
                if it :
                 with col6:
-                st.text_input(placeholder='Insira o ean da posição',label='',key=dict['descrição'])
+                 st.text_input(placeholder='Insira o ean da posição',label='',key=dict['descrição'])
         st.divider()
            
     
