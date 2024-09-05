@@ -78,7 +78,7 @@ with tab1:
                                                   quantidade_produto = produto['prod']['qCom'] 
                                                   valor_produto = produto['prod']['vProd']
                                                   cliente = documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
-                                                  transportadora = documento['nfeProc']['NFe']['infNFe']['transp']['trasporta']
+                                                  #transportadora = documento['nfeProc']['NFe']['infNFe']['transp']['trasporta']
                                                   numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
                                                   
                                                   descricao_produto = produto['prod']['xProd']
@@ -143,7 +143,7 @@ with tab1:
                         ref_faturamento.child(caminho_faturamento).set(lista_ver)
                         st.metric(label='Notas faturadas',value=contagem)
                         st.metric(label='Produtos não estocados',value=len(list(set(nao_rev))))
-                        st.metric(label='Notas não Faturadas por falta de cadastro',value=len(list(set(lista_nao))))
+                        st.metric(label='Notas não Faturadas',value=len(list(set(lista_nao))))
                             
                           
                                 
