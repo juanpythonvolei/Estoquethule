@@ -262,14 +262,18 @@ with tab2:
    else:
     st.error('mercado já concluído')
 with tab3:
+  ref_separacao = db.reference('separacao')
+  caminho_separacao
+  col1,col2,col3 = st.columns(3)
   lista_separacao = []
   lista_transp = []
   selecao_datas=st.date_input(label='selecione uma data',key='separacao')
   ano = str(selecao_datas)[0:4]
   mes = str(selecao_datas)[5:7]
   dia = str(selecao_datas)[8:] 
-  selecao_datas = f'{dia}-{mes}-{ano}'              
-  if selecao_datas:
+  selecao_datas = f'{dia}-{mes}-{ano}' 
+  with col1:
+   if selecao_datas:
     for x in dados:
                   if x == selecao_datas:
                           infos = dados[f'{x}']
@@ -293,7 +297,7 @@ with tab3:
                               else:
                                 pass
                                 
-    for  dict in lista_separacao:
+    for dict in lista_separacao:
      transp = dict['transportadora']
      transp = str(transp).casefold()
      if 'ltda.' in transp:
@@ -302,7 +306,20 @@ with tab3:
        pass
      else:
        lista_transp.append(transp)
-    selecao_transp = st.selectbox(label='',placeholder='Selecione uma tranportadora',options=lista_transp,index=None)
+    with col2:
+     selecao_transp = st.selectbox(label='',placeholder='Selecione uma tranportadora',options=lista_transp,index=None)
+     if selecao_transp:
+       for dict in lista_separacao:
+         if dict['tranportadora'] == selecao_transp:
+           col4,col5,col6 = st.columns(3)
+           with col4:
+             st.text_input(placeholder='Insira o ean do volume',label='',key=1)
+          with col5:
+            st.text_input(placeholder='Insira o ean do item',label='',key=2)
+          with col6:
+            st.text_input(placeholder='Insira o ean da posição',label='',key=3)
+         
+    
      
                    
                 
