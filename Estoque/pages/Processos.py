@@ -172,13 +172,13 @@ with tab2:
       pass
     else:
      lista_ean.append(comparacao)
-  
-  selecao_datas=st.date_input(label='selecione uma data')
+  with col7:
+   selecao_datas=st.date_input(label='selecione uma data')
   ano = str(selecao_datas)[0:4]
   mes = str(selecao_datas)[5:7]
   dia = str(selecao_datas)[8:] 
-  with col7:
-   selecao_datas = f'{dia}-{mes}-{ano}'              
+  
+  selecao_datas = f'{dia}-{mes}-{ano}'              
   if selecao_datas:  
     for a in dados:
                 if a == selecao_datas:
