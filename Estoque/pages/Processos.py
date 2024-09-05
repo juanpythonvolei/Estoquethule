@@ -292,7 +292,11 @@ with tab3:
                                 
     for  dict in lista_separacao:
      transp = dict['transportadora']
-     lista_transp.append(transp)
+     transp = str(transp).casefold()
+     if transp in lista_transp:
+       pass
+     else:
+       lista_transp.append(transp)
     selecao_transp = st.selectbox(label='',placeholder='Selecione uma tranportadora',options=lista_transp,index=None)
      
                    
