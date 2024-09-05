@@ -260,6 +260,7 @@ with tab2:
     st.error('mercado já concluído')
 with tab3:
   lista_separacao = []
+  lista_transp = []
   selecao_datas=st.date_input(label='selecione uma data',key='separacao')
   ano = str(selecao_datas)[0:4]
   mes = str(selecao_datas)[5:7]
@@ -274,8 +275,25 @@ with tab3:
                               if 'status' not in notas:
                                 pass
                               else:
-                                
-                                
+                                for espec in notas:
+                                  numero_nota = espec['nota']
+                                  cliente = espec['cliente']
+                                  data = espec['data']
+                                  quantidade = espec['quantidade']
+                                  descricao = espec['descricao']
+                                  produto = espec['produto']
+                                  posi = espec['posicao']
+                                  tranportadora = espec['trasportadora']
+                                  dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transportadora':transportadora}  
+                                  if dicionario in lista_separacao:
+                                    pass
+                                  else:
+                                    lista_separacao.append(dicionario)
+    for  dict in lista_separacao:
+     transp = dict['transportadora']
+     lista_transp.append(transp)
+    selecao_transp = st.selectbox(label='',placeholder='Selecione uma tranportadora',options=lista_transp,index=None)
+     
                    
                 
         
