@@ -309,7 +309,10 @@ with tab3:
     selecao_transp = st.selectbox(label='',placeholder='Selecione uma tranportadora',options=lista_transp,index=None)
     if selecao_transp:
        for dict in lista_separacao:
-         if str(dict['transportadora']).casefold() == selecao_transp:
+         transp_dict = str(dict['transportadora']).casefold()
+         if 'ltda.' in transp_dict:
+           transp_dict = transp_dict.replace('ltda','ltda')
+         if  == selecao_transp:
             col4,col5,col6 = st.columns(3)
             with col4:
              st.text_input(placeholder='Insira o ean do volume',label='',key=dict['produtos'])
