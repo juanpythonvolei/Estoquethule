@@ -281,7 +281,7 @@ with tab3:
                                   descricao = espec['descricao']
                                   produto = espec['produto']
                                   posi = espec['posicao']
-                                  tranportadora = espec['transportadora']
+                                  transportadora = espec['transportadora']
                                   dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transportadora':transportadora}  
                                   if dicionario in lista_separacao:
                                     pass
