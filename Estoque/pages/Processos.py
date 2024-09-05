@@ -177,7 +177,7 @@ with tab2:
   ano = str(selecao_datas)[0:4]
   mes = str(selecao_datas)[5:7]
   dia = str(selecao_datas)[8:] 
-  with col17
+  with col7:
    selecao_datas = f'{dia}-{mes}-{ano}'              
   if selecao_datas:  
     for a in dados:
@@ -309,18 +309,21 @@ with tab3:
     selecao_transp = st.selectbox(label='',placeholder='Selecione uma tranportadora',options=lista_transp,index=None)
     if selecao_transp:
        for dict in lista_separacao:
+         st.title(f'Nota: {dict['numero_nota']}')
          transp_dict = str(dict['transportadora']).casefold()
          if 'ltda.' in transp_dict:
            transp_dict = transp_dict.replace('ltda','ltda')
          if transp_dict == selecao_transp:
             col4,col5,col6 = st.columns(3)
             with col4:
-             st.text_input(placeholder='Insira o ean do volume',label='',key=dict['produtos'])
-            with col5:
-              st.text_input(placeholder='Insira o ean do item',label='',key=dict['numero_nota'])
-            with col6:
-              st.text_input(placeholder='Insira o ean da posição',label='',key=dict['descrição'])
-            st.divider()
+             volume st.text_input(placeholder='Insira o ean do volume',label='',key=dict['produtos'])
+             if volume:
+              with col5:
+              it =st.text_input(placeholder='Insira o ean do item',label='',key=dict['numero_nota'])
+              if it :
+                with col6:
+                st.text_input(placeholder='Insira o ean da posição',label='',key=dict['descrição'])
+        st.divider()
            
     
      
