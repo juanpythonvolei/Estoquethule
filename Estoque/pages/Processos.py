@@ -72,7 +72,8 @@ with tab1:
                                               except:
                                                 produtos_excessao = documento['nfeProc']['NFe']['infNFe']['det']
                                                 for produto in produtos_excessao:
-                                                  codigo_produto = produto['cProd']
+                                                 try:
+                                                  codigo_produto = produto['prod']['cProd']
                                                   descricao_produto = produto['prod']['xProd']       
                                                   quantidade_produto = produto['prod']['qCom'] 
                                                   valor_produto = produto['prod']['vProd']
@@ -103,7 +104,8 @@ with tab1:
                                                               pass
                                                             else:
                                                               nao_rev.append(f'{codigo_produto}/{numero_da_nota}')
-                                                          
+                                                 except:
+                                                     pass
                                                 
                                                 
                                               
