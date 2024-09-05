@@ -61,7 +61,7 @@ with tab1:
                                                            'cliente':cliente,
                                                            'valor':valor_produto,
                                                            'data':data_emit ,
-                                                           'transportadora':tranportadora 
+                                                           'transportadora':transportadora 
                                                            
                                                           
                                                             }
