@@ -310,7 +310,7 @@ with tab3:
      selecao_transp = st.selectbox(label='',placeholder='Selecione uma tranportadora',options=lista_transp,index=None)
      if selecao_transp:
        for dict in lista_separacao:
-         if dict['tranportadora'] == selecao_transp:
+         if dict['transportadora'] == selecao_transp:
             col4,col5,col6 = st.columns(3)
             with col4:
              st.text_input(placeholder='Insira o ean do volume',label='',key=1)
