@@ -316,10 +316,10 @@ with tab3:
          if transp_dict == selecao_transp:
             col4,col5,col6 = st.columns(3)
             with col4:
-             volume st.text_input(placeholder='Insira o ean do volume',label='',key=dict['produtos'])
+             volume = st.text_input(placeholder='Insira o ean do volume',label='',key=dict['produtos'])
              if volume:
               with col5:
-              it =st.text_input(placeholder='Insira o ean do item',label='',key=dict['numero_nota'])
+              it = st.text_input(placeholder='Insira o ean do item',label='',key=dict['numero_nota'])
               if it :
                 with col6:
                 st.text_input(placeholder='Insira o ean da posição',label='',key=dict['descrição'])
