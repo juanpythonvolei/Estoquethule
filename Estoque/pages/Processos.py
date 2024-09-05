@@ -41,7 +41,7 @@ with tab1:
                                                 codigo_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['cProd']
                                                 numero_da_nota = documento['nfeProc']['NFe']['infNFe']['ide']['nNF']
                                                 descricao_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['xProd']
-                                                #transportadora = documento['nfeProc']['NFe']['infNFe']['transp']['trasporta']
+                                                transportadora = documento['nfeProc']['NFe']['infNFe']['transp']['trasporta']['xNome']
                                                 quantidade_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['qCom'] 
                                                 valor_produto = documento['nfeProc']['NFe']['infNFe']['det']['prod']['vProd']
                                                 cliente = documento['nfeProc']['NFe']['infNFe']['dest']['xNome']
@@ -61,6 +61,7 @@ with tab1:
                                                            'cliente':cliente,
                                                            'valor':valor_produto,
                                                            'data':data_emit ,
+                                                           'transportadora':tranportadora 
                                                            
                                                           
                                                             }
