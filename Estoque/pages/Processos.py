@@ -253,27 +253,29 @@ with tab2:
     if len(lista_conferencia) == contagem:
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/status'
                 ref_faturamento.child(caminho_faturamento).set('concluido')
+                caminho_faturamento = f'{selecao_datas}/{selecao_processos}/separacao'
+                ref_faturamento.child(caminho_faturamento).set('aberto')
                 st.success('Processo Concluido')  
    else:
     st.error('mercado já concluído')
 with tab3:
-  lista_processos = []
-  ref_separacao = ('Separacao')
+  lista_separacao = []
   selecao_datas=st.date_input(label='selecione uma data',key='separacao')
   ano = str(selecao_datas)[0:4]
   mes = str(selecao_datas)[5:7]
   dia = str(selecao_datas)[8:] 
   selecao_datas = f'{dia}-{mes}-{ano}'              
-  if selecao_datas:  
-    for a in dados:
-                if a == selecao_datas:
-                          infos = dados[f'{a}']
+  if selecao_datas:
+    for x in dados:
+                  if x == selecao_datas:
+                          infos = dados[f'{x}']
                           for processo in infos:
-                            if processo in lista_processos:
-                              pass
-                            else:
-                              lista_processos.append(processo)
-  selecao_processos = st.selectbox(label='',placeholder='Selecione um Processo',index=None,options=lista_processos,key='separacao')             
+                              notas = infos[f'{processo}']
+                              if 'status' not in notas:
+                                pass
+                              else:
+                                
+                                
                    
                 
         
