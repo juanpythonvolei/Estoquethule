@@ -312,7 +312,7 @@ with tab3:
          transp_dict = str(dict['transportadora']).casefold()
          if 'ltda.' in transp_dict:
            transp_dict = transp_dict.replace('ltda','ltda')
-         if  == selecao_transp:
+         if transp_dict == selecao_transp:
             col4,col5,col6 = st.columns(3)
             with col4:
              st.text_input(placeholder='Insira o ean do volume',label='',key=dict['produtos'])
