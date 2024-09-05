@@ -263,7 +263,7 @@ with tab2:
     st.error('mercado já concluído')
 with tab3:
   ref_separacao = db.reference('separacao')
-  caminho_separacao
+  
   col1,col2,col3 = st.columns(3)
   lista_separacao = []
   lista_transp = []
