@@ -116,6 +116,7 @@ if 'Estoque' in roteiro:
                                                 for produto in produtos_excessao:
                                                   codigo_produto = produto['prod']['cProd']
                                                   ean_produto = produto['prod']['cEAN']     
+                                                  codigo_ean = produto['prod']['cEAN']  
                                                   descricao_produto = produto['prod']['xProd']    
                                                   dict_produto={'Foto':'','Descrição':descricao_produto,'EAN':codigo_ean}
                                                   quantidade_produto = produto['prod']['qCom']  
