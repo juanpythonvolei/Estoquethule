@@ -319,8 +319,8 @@ with tab3:
              volume = st.text_input(placeholder='Insira o ean do volume',label='',key=dict['produtos'])
              if volume:
               with col5:
-              it = st.text_input(placeholder='Insira o ean do item',label='',key=dict['numero_nota'])
-              if it :
+               it = st.text_input(placeholder='Insira o ean do item',label='',key=dict['numero_nota'])
+               if it :
                 with col6:
                 st.text_input(placeholder='Insira o ean da posição',label='',key=dict['descrição'])
         st.divider()
