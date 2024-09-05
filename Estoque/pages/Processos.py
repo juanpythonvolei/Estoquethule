@@ -312,11 +312,11 @@ with tab3:
          if str(dict['transportadora']).casefold() == selecao_transp:
             col4,col5,col6 = st.columns(3)
             with col4:
-             st.text_input(placeholder='Insira o ean do volume',label='',key=1)
+             st.text_input(placeholder='Insira o ean do volume',label='')
             with col5:
-              st.text_input(placeholder='Insira o ean do item',label='',key=2)
+              st.text_input(placeholder='Insira o ean do item',label='')
             with col6:
-              st.text_input(placeholder='Insira o ean da posição',label='',key=3)
+              st.text_input(placeholder='Insira o ean da posição',label='')
             st.divider()
            
     
