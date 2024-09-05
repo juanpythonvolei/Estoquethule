@@ -323,7 +323,7 @@ with tab3:
                if it :
                 with col6:
                  st.text_input(placeholder='Insira o ean da posição',label='',key=dict['descrição'])
-        st.divider()
+      st.divider()
            
     
      
