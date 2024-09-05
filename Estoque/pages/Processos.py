@@ -294,7 +294,7 @@ with tab3:
      transp = dict['transportadora']
      transp = str(transp).casefold()
      if 'ltda.' in transp:
-       transp.replace('ltda.','ltda')
+       transp = transp.replace('ltda.','ltda')
      if transp in lista_transp:
        pass
      else:
