@@ -143,7 +143,8 @@ with tab1:
                         ref_faturamento.child(caminho_faturamento).set(lista_ver)
                         st.metric(label='Notas faturadas',value=contagem)
                         st.metric(label='Produtos não estocados',value=len(list(set(nao_rev))))
-                        st.metric(label='Notas não Faturadas',value=len(list(set(lista_nao))))
+                        if len(list(set(lista_nao))) > 0:
+                          st.metric(label='Notas não Faturadas',value=len(list(set(lista_nao))))
                             
                           
                                 
