@@ -250,9 +250,9 @@ with tab2:
                         coleta = produto
                         st.info(f'voce seleiconou o item {produto}')
                     if coleta:    
-                      if len(contagem) < quantidade_mercado:
+                      if int(len(contagem)) < int(quantidade_mercado):
                         contagem.append('ok')
-                      elif len(contagem) == quantidade_mercado:
+                      elif int(len(contagem)) == int(quantidade_mercado):
                         contagem_final += 1
                       with col6:
                           st.metric(f'Quantidade restante',value=len(contagem))
