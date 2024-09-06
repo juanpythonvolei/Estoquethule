@@ -229,7 +229,7 @@ with tab2:
    contagem_final = 0 
     
    for item in lista_dicionarios:  
-        quantidade_mercado = int(item['quantidade'])+1
+        quantidade_mercado = int(item['quantidade'])
         st.write(quantidade_mercado)
         contagem = []
         col4,col5,col6 = st.columns(3)
