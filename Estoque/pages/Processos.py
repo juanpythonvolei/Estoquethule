@@ -249,9 +249,9 @@ with tab2:
                         st.info(f'voce seleiconou o item {produto}')
                     if coleta:    
                       if len(contagem) < quantidade_mercado:
-                        contagem.append('ok')
+                        contagem.append(1)
                       else:
-                        contagem_final.append('ok')
+                        contagem_final.append(1)
             except:
                 st.error('Item não consta em rev')
                 
