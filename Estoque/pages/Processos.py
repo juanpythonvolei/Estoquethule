@@ -254,6 +254,11 @@ with tab2:
                         contagem_final.append('ok')    
                       else:
                         contagem.append('ok')
+                    else:
+                      try:
+                        contagem.remove('ok')
+                      except:
+                        pass
             except:
                 st.error('Item não consta em rev')
                 
