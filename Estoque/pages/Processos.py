@@ -200,8 +200,6 @@ with tab2:
                             notas = infos[f'{processo}']
                             
                             for espec in notas:
-                                st.write(espec)
-                               
                                 numero_nota = espec['nota']
                                 cliente = espec['cliente']
                                 data = espec['data']
