@@ -292,7 +292,7 @@ with tab3:
                                     descricao =notas[f'{espec_sep}']['descricao']
                                     produto = notas[f'{espec_sep}']['produto']
                                     posi = notas[f'{espec_sep}']['posicao']
-                                    transportadora = enotas[f'{espec_sep}']['transportadora']
+                                    transportadora = notas[f'{espec_sep}']['transportadora']
                                     dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transportadora':transportadora}  
                                     if dicionario in lista_separacao:
                                       pass
