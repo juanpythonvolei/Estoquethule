@@ -254,6 +254,7 @@ with tab2:
                       if float(len(contagem)) < float(ver[1]):
                        
                         contagem.append('ok')
+                        st.write(len(contagem))
                       elif float(len(contagem)) == float(ver[1]):
                          contagem_final += 1
                       with col6:
