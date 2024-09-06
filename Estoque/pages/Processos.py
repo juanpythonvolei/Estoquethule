@@ -254,11 +254,12 @@ with tab2:
                         contagem_final += 1
                       else:
                         contagem.append('ok')
+                        with col6:
+                          st.metric(f'Quantidade restante',value=len(contagem))
             except:
                 st.error('Item não consta em rev')
                 
-        with col6:
-                    st.metric(f'Quantidade restante',value=len(contagem)+1)
+       
         
         st.divider()   
    st.write(len(lista_dicionarios))
