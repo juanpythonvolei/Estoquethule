@@ -258,7 +258,7 @@ with tab2:
                 st.error('Item não consta em rev')
                 
         with col6:
-                    st.metric(f'Quantidade restante',value=len(contagem))
+                    st.metric(f'Quantidade restante',value=len(contagem+1))
         
         st.divider()   
    st.write(len(lista_dicionarios))
