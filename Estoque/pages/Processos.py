@@ -251,15 +251,15 @@ with tab2:
                         coleta = produto
                         st.info(f'voce seleiconou o item {produto}')
                     if coleta:    
-                      if int(len(contagem)) < int(ver[1]):
+                      if int(contagem) < int(ver[1]):
                        
                         contagem += 1
                         st.write(int(contagem))
                         st.write(int(ver[1]))
-                      elif int(len(contagem)) == int(ver[1]):
+                      elif int(contagem) == int(ver[1]):
                          contagem_final += 1
                       with col6:
-                          st.metric(f'Quantidade a separar',value=len(contagem))
+                          st.metric(f'Quantidade a separar',value=contagem)
             except:
                 st.error('Item não consta em rev')
                 
