@@ -226,7 +226,7 @@ with tab2:
                               else:
                                 pass
   if selecao_datas and selecao_processos:                          
-   contagem_final = [] 
+   contagem_final = 0 
    for item in lista_dicionarios:  
         quantidade_mercado = int(item['quantidade'])
         st.write(quantidade_mercado)
@@ -252,7 +252,7 @@ with tab2:
                       if len(contagem) < quantidade_mercado:
                         contagem.append(1)
                       else:
-                        contagem_final.append(1)
+                        contagem_final += 1
             except:
                 st.error('Item não consta em rev')
                 
@@ -261,8 +261,8 @@ with tab2:
         
         st.divider()   
    st.write(len(lista_dicionarios))
-   st.write(contagem_final) 
-   if contagem_final == len(lista_dicionarios):
+   st.write(len(contagem_final) 
+   if lencontagem_final == len(lista_dicionarios):
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/status'
                 ref_faturamento.child(caminho_faturamento).set('concluido')
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/separacao'
