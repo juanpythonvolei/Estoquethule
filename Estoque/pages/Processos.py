@@ -275,7 +275,7 @@ with tab3:
 
   if selecao_datas:
     for x in dados:
-                  if x == selecao_datas:
+                  
                           infos = dados[f'{x}']
                           for processo in infos:
                               notas = infos[f'{processo}']
