@@ -252,7 +252,7 @@ with tab2:
                     if coleta:    
                       if len(contagem) == quantidade_mercado:
                         contagem_final.append('ok')    
-                      st.write(len(contagem))
+                        st.write(len(contagem))
                       else:
                         contagem.append('ok')
                     else:
