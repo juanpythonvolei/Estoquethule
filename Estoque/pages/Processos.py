@@ -280,9 +280,9 @@ with tab3:
                           infos = dados[f'{x}']
                           for processo in infos:
                               notas = infos[f'{processo}']
-                              
-                              for espec in notas:
-                                  if espec != 'status':
+                              if processo != 'status':
+                               for espec in notas:
+                                  
                                     numero_nota = espec['nota']
                                     cliente = espec['cliente']
                                     data = espec['data']
@@ -296,7 +296,7 @@ with tab3:
                                       pass
                                     else:
                                       lista_separacao.append(dicionario)
-                                  else:
+                              else:
                                     pass
     i = 0                            
     for dict in lista_separacao:
