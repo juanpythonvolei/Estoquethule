@@ -231,7 +231,7 @@ with tab2:
    for item in lista_dicionarios:  
         ver = (item['produtos'],item['quantidade'])
         st.write(ver)
-        contagem = []
+        contagem = 0
         col4,col5,col6 = st.columns(3)
         with col4:
             st.info(f'''Nota:{item['numero_nota']}\n
@@ -253,10 +253,10 @@ with tab2:
                     if coleta:    
                       if int(len(contagem)) < int(ver[1]):
                        
-                        contagem.append('ok')
-                        st.write(len(contagem))
+                        contagem += 1
+                        st.write(int(contagem))
                         st.write(int(ver[1]))
-                      elif int(len(contagem))+1 == int(ver[1]):
+                      elif int(len(contagem)) == int(ver[1]):
                          contagem_final += 1
                       with col6:
                           st.metric(f'Quantidade a separar',value=len(contagem))
