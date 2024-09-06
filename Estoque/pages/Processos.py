@@ -284,6 +284,7 @@ with tab3:
                               
                               for espec in notas:
                                   if espec != 'status' and espec!='separacao':
+                                    st.write(espec)
                                     numero_nota = notas[f'{espec}']['nota']
                                     cliente = notas[f'{espec}']['cliente']
                                     data = notas[f'{espec}']['data']
