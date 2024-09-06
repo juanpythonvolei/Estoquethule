@@ -251,12 +251,12 @@ with tab2:
                         coleta = produto
                         st.info(f'voce seleiconou o item {produto}')
                     if coleta:    
-                      if float(len(contagem)) < float(ver[1]):
+                      if int(len(contagem)) < int(ver[1]):
                        
                         contagem.append('ok')
                         st.write(len(contagem))
                         st.write(int(ver[1]))
-                      elif float(len(contagem)) == float(ver[1]):
+                      elif int(len(contagem)) == int(ver[1]):
                          contagem_final += 1
                       with col6:
                           st.metric(f'Quantidade a separar',value=len(contagem))
