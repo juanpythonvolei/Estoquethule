@@ -266,7 +266,7 @@ with tab2:
                     st.metric(f'Quantidade restante',value=len(lista_conferencia))
         
         st.divider()   
-    if contagem == len(lista_concusao):
+    if contagem == len(lista_conclusao):
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/status'
                 ref_faturamento.child(caminho_faturamento).set('concluido')
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/separacao'
