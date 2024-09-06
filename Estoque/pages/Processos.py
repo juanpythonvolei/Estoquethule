@@ -252,7 +252,6 @@ with tab2:
                     if coleta:    
                       if len(contagem) < quantidade_mercado:
                         contagem_final += 1
-                        
                       else:
                         contagem.append(1)
             except:
