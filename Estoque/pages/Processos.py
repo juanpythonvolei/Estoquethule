@@ -311,10 +311,7 @@ with tab3:
     selecao_transp = st.selectbox(label='',placeholder='Selecione uma tranportadora',options=lista_transp,index=None)
     
     if selecao_transp:
-        
        for dict in lista_separacao:
-         
-         
          transp_dict = str(dict['transportadora']).casefold()
          if 'ltda.' in transp_dict:
            transp_dict = transp_dict.replace('ltda.','ltda')
@@ -322,6 +319,15 @@ with tab3:
             st.title(f'Nota: {dict['numero_nota']}') 
             st.write(dict) 
             col4,col5,col6 = st.columns(3)
+            with col4:
+              st.text_input(label = '',placeholder='Insira o código ean do produto',key=i)
+              i += 1 
+            with col5:
+              st.text_input(label = '',placeholder='Insira o código ean do volume',key=i)
+              i += 1 
+            with col6:
+              st.text_input(label = '',placeholder='Insira o código ean da posição',key=i)
+              i += 1 
        st.divider()
            
     
