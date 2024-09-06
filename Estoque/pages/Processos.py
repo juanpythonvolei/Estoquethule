@@ -253,7 +253,7 @@ with tab2:
                     
                     contagem += 1
                     if contagem == ver[1]:
-                          contagem_final += 1
+                          contagem_final += contagem
                     else:
                         contagem +=1
                         st.write(int(contagem))
