@@ -251,7 +251,7 @@ with tab2:
                         coleta = produto
                         st.info(f'voce seleiconou o item {produto}')
                     if coleta:    
-                      if int(len(contagem)) < int(quantidade_mercado):
+                      if stt(len(contagem)) < str(quantidade_mercado):
                         contagem.append('ok')
                       elif str(len(contagem)) == str(quantidade_mercado):
                         contagem_final += 1
