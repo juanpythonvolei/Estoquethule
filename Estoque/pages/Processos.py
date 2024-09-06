@@ -285,7 +285,7 @@ with tab3:
                               for espec_sep in notas:
                                   if espec_sep != 'status' and espec_sep!='separacao':
                                     st.write(espec_sep)
-                                    numero_nota = espec_sep['nota']
+                                    numero_nota = notas[f'{espec_sep}']['nota']
                                     cliente = espec_sep['cliente']
                                     data = espec_sep['data']
                                     quantidade = espec_sep['quantidade']
