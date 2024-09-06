@@ -229,7 +229,7 @@ with tab2:
    contagem_final = 0 
     
    for item in lista_dicionarios:  
-        quantidade_mercado = int(item['quantidade'])
+        quantidade_mercado = int(item['quantidade']+1)
         st.write(quantidade_mercado)
         contagem = []
         col4,col5,col6 = st.columns(3)
@@ -266,8 +266,6 @@ with tab2:
        
         
         st.divider()   
-   st.write(len(lista_dicionarios))
-   st.write(contagem_final) 
    if contagem_final == len(lista_dicionarios):
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/status'
                 ref_faturamento.child(caminho_faturamento).set('concluido')
