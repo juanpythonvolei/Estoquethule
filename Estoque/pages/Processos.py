@@ -283,7 +283,7 @@ with tab3:
                               notasy = infos[f'{processo}']
                               
                               for espec_sep in notasy:
-                                 
+                                  st.write(espec_sep) 
                                   if espec_sep != 'status' and espec_sep!='separacao':
                                     
                                     numero_nota = espec_sep['nota']
