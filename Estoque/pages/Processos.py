@@ -253,7 +253,7 @@ with tab2:
                       if len(contagem) < quantidade_mercado:
                         contagem_final += 1
                       else:
-                        contagem.append(1)
+                        contagem.append('ok')
             except:
                 st.error('Item não consta em rev')
                 
