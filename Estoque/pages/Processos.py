@@ -313,12 +313,14 @@ with tab3:
     if selecao_transp:
         
        for dict in lista_separacao:
-         st.write(dict)
-         st.title(f'Nota: {dict['numero_nota']}')
+         
+         
          transp_dict = str(dict['transportadora']).casefold()
          if 'ltda.' in transp_dict:
            transp_dict = transp_dict.replace('ltda','ltda')
          if transp_dict == selecao_transp:
+            st.title(f'Nota: {dict['numero_nota']}') 
+            st.write(dict) 
             col4,col5,col6 = st.columns(3)
        st.divider()
            
