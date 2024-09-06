@@ -282,22 +282,22 @@ with tab3:
                               notas = infos[f'{processo}']
                               
                               for espec in notas:
-                                  st.write(espec)
-                                  numero_nota = espec['nota']
-                                  cliente = espec['cliente']
-                                  data = espec['data']
-                                  quantidade = espec['quantidade']
-                                  descricao = espec['descricao']
-                                  produto = espec['produto']
-                                  posi = espec['posicao']
-                                  transportadora = espec['transportadora']
-                                  dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transportadora':transportadora}  
-                                  if dicionario in lista_separacao:
-                                    pass
+                                  if espec != 'status':
+                                    numero_nota = espec['nota']
+                                    cliente = espec['cliente']
+                                    data = espec['data']
+                                    quantidade = espec['quantidade']
+                                    descricao = espec['descricao']
+                                    produto = espec['produto']
+                                    posi = espec['posicao']
+                                    transportadora = espec['transportadora']
+                                    dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transportadora':transportadora}  
+                                    if dicionario in lista_separacao:
+                                      pass
+                                    else:
+                                      lista_separacao.append(dicionario)
                                   else:
-                                    lista_separacao.append(dicionario)
-                              else:
-                                pass
+                                    pass
     i = 0                            
     for dict in lista_separacao:
      transp = dict['transportadora']
