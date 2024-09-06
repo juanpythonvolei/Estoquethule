@@ -282,7 +282,7 @@ with tab3:
                               notas = infos[f'{processo}']
                               
                               for espec in notas:
-                                  if espec == 'status':
+                                  if espec != 'status':
                                     st.write(espec)
         
 
