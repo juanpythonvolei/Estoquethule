@@ -317,7 +317,7 @@ with tab3:
          
          transp_dict = str(dict['transportadora']).casefold()
          if 'ltda.' in transp_dict:
-           transp_dict = transp_dict.replace('ltda','ltda')
+           transp_dict = transp_dict.replace('ltda.','ltda')
          if transp_dict == selecao_transp:
             st.title(f'Nota: {dict['numero_nota']}') 
             st.write(dict) 
