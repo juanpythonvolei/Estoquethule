@@ -280,12 +280,9 @@ with tab3:
                           infos = dados[f'{x}']
                           for processo in infos:
                               notas = infos[f'{processo}']
-                              if processo == 'status':
-                                  st.write(processo)
-           
-    
-     
-                   
-                
+                              
+                              for espec in notas:
+                                  if espec == 'status':
+                                    st.write(espec)
         
 
