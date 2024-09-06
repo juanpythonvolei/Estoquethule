@@ -229,8 +229,8 @@ with tab2:
    contagem_final = 0 
     
    for item in lista_dicionarios:  
-        quantidade_mercado = int(item['quantidade'])
-        st.write(quantidade_mercado)
+        ver = (item['produtos'],item['quantidade'])
+        st.write(ver)
         contagem = []
         col4,col5,col6 = st.columns(3)
         with col4:
@@ -251,11 +251,11 @@ with tab2:
                         coleta = produto
                         st.info(f'voce seleiconou o item {produto}')
                     if coleta:    
-                      if float(len(contagem)) ==float(quantidade_mercado):
-                        contagem_final += 1
-                        
-                      elif float(len(contagem)) == float(quantidade_mercado):
+                      if float(len(contagem)) < float(ver[1]):
+                       
                         contagem.append('ok')
+                      elif float(len(contagem)) == float(ver[1]):
+                         contagem_final += 1
                       with col6:
                           st.metric(f'Quantidade a separar',value=len(contagem))
             except:
