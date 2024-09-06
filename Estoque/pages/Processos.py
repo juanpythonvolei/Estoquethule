@@ -332,7 +332,7 @@ with tab3:
                         ean_valido_posicao = st.text_input(label = '',placeholder=f'Insira o código ean da posição: {dict['posi']}',key=i)
                         i += 1
                         if ean_valid_posicao == ver_comparar[1]:
-                          st.info(f'Posição {dict['posi']})
+                          st.info(f'Posição {dict['posi']} ok')
        st.divider()
            
     
