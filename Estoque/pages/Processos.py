@@ -227,11 +227,9 @@ with tab2:
                                 pass
   if selecao_datas and selecao_processos:                          
    contagem_final = [] 
-   st.write(lista_dicionarios) 
    for item in lista_dicionarios:  
         quantidade_mercado = int(item['quantidade'])
         contagem = []
-        
         col4,col5,col6 = st.columns(3)
         with col4:
             st.info(f'''Nota:{item['numero_nota']}\n
@@ -250,16 +248,10 @@ with tab2:
                         coleta = produto
                         st.info(f'voce seleiconou o item {produto}')
                     if coleta:    
-                      if len(contagem) == quantidade_mercado:
-                        contagem_final.append('ok')    
-                        st.write(len(contagem))
-                      else:
+                      if len(contagem) < quantidade_mercado:
                         contagem.append('ok')
-                    else:
-                      try:
-                        contagem.remove('ok')
-                      except:
-                        pass
+                      else:
+                        contagem_final.append('ok')
             except:
                 st.error('Item não consta em rev')
                 
