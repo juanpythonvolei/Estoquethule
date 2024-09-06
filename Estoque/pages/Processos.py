@@ -321,7 +321,7 @@ with tab3:
             col4,col5,col6 = st.columns(3)
             with col4:
               ean_valido_produto = st.text_input(label = '',placeholder='Insira o código ean do produto',key=i)
-              if ean_valido_produton==dict['produto']:
+              if ean_valido_produto==dict['produto']:
                 i += 1 
                 if ean_valido_produto:
                   with col5:
