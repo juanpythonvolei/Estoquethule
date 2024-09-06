@@ -250,15 +250,15 @@ with tab2:
                       if ean == coleta:
                         coleta = produto
                         st.info(f'voce seleiconou o item {produto}')
-                    if coleta:    
-                        contagem += 1
-                        if contagem == ver[1]:
+                    
+                    contagem += 1
+                    if contagem == ver[1]:
                           contagem_final += 1
-                        else:
-                          contagem +=1
-                        st.write(int(contagem))
-                        st.write(int(ver[1]))
-                        with col6:
+                    else:
+                        contagem +=1
+                      st.write(int(contagem))
+                      st.write(int(ver[1]))
+                    with col6:
                             st.metric(f'Quantidade separada',value=contagem)
             except:
                 st.error('Item não consta em rev')
