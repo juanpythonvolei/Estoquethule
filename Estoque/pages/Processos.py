@@ -198,8 +198,6 @@ with tab2:
                         for processo in infos:
                           if processo ==  selecao_processos:
                             notas = infos[f'{processo}']
-                            
-                            if 'status' not in notas:
                              for espec in notas:
                                if espec != 'status' and espec !=  'separacao':
                                 numero_nota = notas[f'{espec}']['nota']
