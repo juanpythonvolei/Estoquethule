@@ -228,8 +228,8 @@ with tab2:
   if selecao_datas and selecao_processos:                          
    lista_conclusao = []
    contagem = 0
-   if 'concluido' not in lista_dicionarios:
-    for item in lista_dicionarios:  
+   st.write(lista_dicionarios) 
+   for item in lista_dicionarios:  
         
         lista_conferencia = []
         qtd = int(item['quantidade'][0])
