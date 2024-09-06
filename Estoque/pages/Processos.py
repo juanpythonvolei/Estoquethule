@@ -140,7 +140,7 @@ with tab1:
                                   lista_database.append(info)  
                                   pedido.update({'posicao':posicaoo})
                                   contagem +=1
-                        st.write(lista_ver)
+                       
                         caminho_faturamento = f'{data_atual}/{random.randint(10,1000)}'
                         ref_faturamento.child(caminho_faturamento).set(lista_ver)
                         st.metric(label='Notas faturadas',value=contagem)
@@ -316,18 +316,21 @@ with tab3:
          if 'ltda.' in transp_dict:
            transp_dict = transp_dict.replace('ltda.','ltda')
          if transp_dict == selecao_transp:
+            ver_comparar = (dict['produto'],dict['posi'],dict['quantidade']]) 
             st.title(f'Nota: {dict['numero_nota']}') 
-            st.write(dict) 
             col4,col5,col6 = st.columns(3)
             with col4:
-              st.text_input(label = '',placeholder='Insira o código ean do produto',key=i)
-              i += 1 
-            with col5:
-              st.text_input(label = '',placeholder='Insira o código ean do volume',key=i)
-              i += 1 
-            with col6:
-              st.text_input(label = '',placeholder='Insira o código ean da posição',key=i)
-              i += 1 
+              ean_valido_produto = st.text_input(label = '',placeholder='Insira o código ean do produto',key=i)
+              if ean_valido_produton==dict['produto']:
+                i += 1 
+                if ean_valido_produto:
+                  with col5:
+                    ean_valido_volume = st.text_input(label = '',placeholder='Insira o código ean do volume',key=i)
+                    i += 1 
+                    if ean_valido_volume:
+                      with col6:
+                        ean_valido_posicao = st.text_input(label = '',placeholder='Insira o código ean da posição',key=i)
+                        i += 1 
        st.divider()
            
     
