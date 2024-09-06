@@ -224,7 +224,7 @@ with tab2:
                                   posi =notas[f'{espec}']['posicao']
                                   dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi}
                               else:
-                                st.info(f'Mercado {espec} está concluido')
+                                pass
   if selecao_datas and selecao_processos:                          
    lista_conclusao = []
    contagem = 0
