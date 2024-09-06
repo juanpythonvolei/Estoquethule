@@ -285,22 +285,32 @@ with tab3:
                               for espec_sep in notasy:
                                   
                                   if espec_sep != 'status' and espec_sep!='separacao':
-                                    st.write(espec_sep) 
-                                    numero_nota = notasy[f'{espec_sep}']['nota']
-                                    cliente =notasy[f'{espec_sep}']['cliente']
-                                    data = notasy[f'{espec_sep}']['data']
-                                    quantidade = notasy[f'{espec_sep}']['quantidade']
-                                    descricao =notasy[f'{espec_sep}']['descricao']
-                                    produto = notasy[f'{espec_sep}']['produto']
-                                    posi =notasy[f'{espec_sep}']['posicao']
-                                    transportadora = notasy[f'{espec_sep}']['transportadora']
-                                    dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transportadora':transportadora}  
-                                    if dicionario in lista_separacao:
-                                      pass
-                                    else:
-                                      lista_separacao.append(dicionario)
-                              else:
-                                    pass
+                                    try: 
+                                      numero_nota = notasy[f'{espec_sep}']['nota']
+                                      cliente =notasy[f'{espec_sep}']['cliente']
+                                      data = notasy[f'{espec_sep}']['data']
+                                      quantidade = notasy[f'{espec_sep}']['quantidade']
+                                      descricao =notasy[f'{espec_sep}']['descricao']
+                                      produto = notasy[f'{espec_sep}']['produto']
+                                      posi =notasy[f'{espec_sep}']['posicao']
+                                      transportadora = notasy[f'{espec_sep}']['transportadora']
+                                      dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transportadora':transportadora}  
+                                      if dicionario in lista_separacao:
+                                        pass
+                                      else:
+                                        lista_separacao.append(dicionario)
+                                    except:
+                                      numero_nota = espec_sep['nota']
+                                      cliente =espec_sep['cliente']
+                                      data = espec_sep['data']
+                                      quantidade = espec_sep['quantidade']
+                                      descricao =espec_sep['descricao']
+                                      produto = espec_sep['produto']
+                                      posi =espec_sep['posicao']
+                                      transportadora = espec_sep['transportadora']
+                                      dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transportadora':transportadora}  
+                                  else:
+                                        pass
     i = 0                            
     for dict in lista_separacao:
      transp = dict['transportadora']
