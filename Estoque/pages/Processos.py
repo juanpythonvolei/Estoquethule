@@ -209,7 +209,7 @@ with tab2:
                                   descricao = espec['descricao']
                                   produto = espec['produto']
                                   posi =espec['posicao']
-                                  dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi}  
+                                  dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'sequencia':processo}  
                                   if dicionario in lista_dicionarios:
                                       pass
                                   else:  
@@ -245,6 +245,7 @@ with tab2:
                 posição:{item['posi']}''',key=f'{item['produtos']}')
               
                 if coleta :
+                    caminho_pedido = f'{}'
                     for ean_info in lista_ean:
                       produto,ean = ean_info
                       if ean == coleta:
