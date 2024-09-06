@@ -309,25 +309,17 @@ with tab3:
      else:
        lista_transp.append(transp)
     selecao_transp = st.selectbox(label='',placeholder='Selecione uma tranportadora',options=lista_transp,index=None)
+    
     if selecao_transp:
+        
        for dict in lista_separacao:
+         st.write(dict)
          st.title(f'Nota: {dict['numero_nota']}')
          transp_dict = str(dict['transportadora']).casefold()
          if 'ltda.' in transp_dict:
            transp_dict = transp_dict.replace('ltda','ltda')
          if transp_dict == selecao_transp:
             col4,col5,col6 = st.columns(3)
-            with col4:
-             volume = st.text_input(placeholder='Insira o ean do volume',label='',key=i)
-             i += 1
-             if volume:
-              with col5:
-               it = st.text_input(placeholder='Insira o ean do item',label='',key=i)
-               i += 1 
-               if it :
-                with col6:
-                 st.text_input(placeholder='Insira o ean da posição',label='',key=i)
-                 i += 1 
        st.divider()
            
     
