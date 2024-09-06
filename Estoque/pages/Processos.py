@@ -274,8 +274,7 @@ with tab2:
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/separacao'
                 ref_faturamento.child(caminho_faturamento).set('aberto')
                 st.success('Processo Concluido')  
-   else:
-    st.error('mercado já concluído')
+
 with tab3:
   ref_separacao = db.reference('separacao')
   
