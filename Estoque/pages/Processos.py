@@ -201,7 +201,7 @@ with tab2:
                             
                             if 'status' not in notas:
                              for espec in notas:
-                               if espec != 'status' or espec !=  'separacao':
+                               if espec != 'status' and espec !=  'separacao':
                                 numero_nota = notas[f'{espec}']['nota']
                                 cliente = notas[f'{espec}']['cliente']
                                 data = notas[f'{espec}']['data']
