@@ -188,7 +188,8 @@ with tab2:
                               pass
                             else:
                               lista_processos.append(processo)
-    with col8:                            
+  with col8:   
+    if selecao_datas:
       selecao_processos = st.selectbox(label='',placeholder='Selecione um Processo',index=None,options=lista_processos) 
   if selecao_datas and selecao_processos:
         for x in dados:
