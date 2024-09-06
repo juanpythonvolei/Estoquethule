@@ -266,6 +266,8 @@ with tab2:
                     st.metric(f'Quantidade restante',value=len(contagem))
         
         st.divider()   
+   st.write(len(lista_dicionarios))
+   st.write(contagem_final) 
    if contagem_final == len(lista_dicionarios):
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/status'
                 ref_faturamento.child(caminho_faturamento).set('concluido')
