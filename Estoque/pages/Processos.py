@@ -256,7 +256,7 @@ with tab2:
                         contagem.append('ok')
                         st.write(len(contagem))
                         st.write(int(ver[1]))
-                      elif int(len(contagem)) == int(ver[1]):
+                      elif int(len(contagem))+1 == int(ver[1]):
                          contagem_final += 1
                       with col6:
                           st.metric(f'Quantidade a separar',value=len(contagem))
