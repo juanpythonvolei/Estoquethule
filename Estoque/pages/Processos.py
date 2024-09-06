@@ -202,13 +202,13 @@ with tab2:
                             for espec in notas:
                                 st.write(espec)
                                
-                                numero_nota = notas[f'{espec}']['nota']
-                                cliente = notas[f'{espec}']['cliente']
-                                data = notas[f'{espec}']['data']
-                                quantidade = notas[f'{espec}']['quantidade']
-                                descricao = notas[f'{espec}']['descricao']
-                                produto = notas[f'{espec}']['produto']
-                                posi =notas[f'{espec}']['posicao']
+                                numero_nota = espec['nota']
+                                cliente = espec['cliente']
+                                data = espec['data']
+                                quantidade =espec['quantidade']
+                                descricao = espec['descricao']
+                                produto = espec['produto']
+                                posi =espec['posicao']
                                 dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi}  
                                 if dicionario in lista_dicionarios:
                                     pass
