@@ -226,15 +226,12 @@ with tab2:
                               else:
                                 pass
   if selecao_datas and selecao_processos:                          
-   lista_conclusao = []
-   contagem = 0
+   contagem_final = [] 
    st.write(lista_dicionarios) 
    for item in lista_dicionarios:  
+        quantidade_mercado = int(item['quantidade'])
+        contagem = []
         
-        lista_conferencia = []
-        qtd = int(item['quantidade'][0])
-        for i in range(int(qtd)):
-            lista_conferencia.append(1)
         col4,col5,col6 = st.columns(3)
         with col4:
             st.info(f'''Nota:{item['numero_nota']}\n
@@ -253,18 +250,18 @@ with tab2:
                         coleta = produto
                         st.info(f'voce seleiconou o item {produto}')
                     if coleta:    
-                      if len(lista_conferencia) > 0:
-                        lista_conferencia.remove(1)    
+                      if len(contagem) == quantidade_mercado:
+                        contagem_final.append('ok')    
                       else:
-                        contagem +=1
+                        contagem.append('ok')
             except:
                 st.error('Item não consta em rev')
                 
         with col6:
-                    st.metric(f'Quantidade restante',value=len(lista_conferencia))
+                    st.metric(f'Quantidade restante',value=len(contagem))
         
         st.divider()   
-   if contagem == len(lista_dicionarios):
+   if contagem_fina == len(lista_dicionarios):
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/status'
                 ref_faturamento.child(caminho_faturamento).set('concluido')
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/separacao'
