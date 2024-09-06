@@ -254,13 +254,9 @@ with tab2:
                         st.info(f'voce seleiconou o item {produto}')
                     if coleta:    
                       if len(lista_conferencia) > 0:
-                        lista_conferencia.remove(1)
-                          
+                        lista_conferencia.remove(1)    
                       else:
                         contagem +=1
-                        st.write(contegem)
-                        st.write(len(lista_dicionarios))
-                        lista_conclusao.append('ok')
             except:
                 st.error('Item não consta em rev')
                 
