@@ -258,6 +258,8 @@ with tab2:
                           
                       else:
                         contagem +=1
+                        st.write(contegem)
+                        st.write(len(lista_dicionarios))
                         lista_conclusao.append('ok')
             except:
                 st.error('Item não consta em rev')
