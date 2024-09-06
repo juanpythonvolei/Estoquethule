@@ -198,10 +198,10 @@ with tab2:
                         for processo in infos:
                           if processo ==  selecao_processos:
                             notas = infos[f'{processo}']
-                            st.write(processo) 
+                            st.write(notas)
                             for espec in notas:
                                
-                               if espec != 'status' and espec !=  'separacao':
+                               
                                 numero_nota = notas[f'{espec}']['nota']
                                 cliente = notas[f'{espec}']['cliente']
                                 data = notas[f'{espec}']['data']
