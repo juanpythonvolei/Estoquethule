@@ -283,14 +283,14 @@ with tab3:
                               
                               for espec in notas:
                                   if espec != 'status' and espec!='separacao':
-                                    numero_nota = espec['nota']
-                                    cliente = espec['cliente']
-                                    data = espec['data']
-                                    quantidade = espec['quantidade']
-                                    descricao = espec['descricao']
-                                    produto = espec['produto']
-                                    posi = espec['posicao']
-                                    transportadora = espec['transportadora']
+                                    numero_nota = notas[f'{espec}']['nota']
+                                    cliente = notas[f'{espec}']['cliente']
+                                    data = notas[f'{espec}']['data']
+                                    quantidade = notas[f'{espec}']['quantidade']
+                                    descricao = notas[f'{espec}']['descricao']
+                                    produto = notas[f'{espec}']['produto']
+                                    posi = notas[f'{espec}']['posicao']
+                                    transportadora = notas[f'{espec}']['transportadora']
                                     dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transportadora':transportadora}  
                                     if dicionario in lista_separacao:
                                       pass
