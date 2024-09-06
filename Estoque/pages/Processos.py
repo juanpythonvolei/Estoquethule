@@ -286,13 +286,13 @@ with tab3:
                                   if espec_sep != 'status' and espec_sep!='separacao':
                                     st.write(espec_sep)
                                     numero_nota = notas[f'{espec_sep}']['nota']
-                                    cliente = espec_sep['cliente']
-                                    data = espec_sep['data']
-                                    quantidade = espec_sep['quantidade']
-                                    descricao = espec_sep['descricao']
-                                    produto = espec_sep['produto']
-                                    posi = espec_sep['posicao']
-                                    transportadora = espec_sep['transportadora']
+                                    cliente = notas[f'{espec_sep}']['cliente']
+                                    data = notas[f'{espec_sep}']['data']
+                                    quantidade = notas[f'{espec_sep}']['quantidade']
+                                    descricao =notas[f'{espec_sep}']['descricao']
+                                    produto = notas[f'{espec_sep}']['produto']
+                                    posi = notas[f'{espec_sep}']['posicao']
+                                    transportadora = enotas[f'{espec_sep}']['transportadora']
                                     dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transportadora':transportadora}  
                                     if dicionario in lista_separacao:
                                       pass
