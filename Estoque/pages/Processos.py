@@ -253,7 +253,7 @@ with tab2:
                     if coleta:    
                         contagem += 1
                         if contagem == ver[1]:
-                          contagem_final += 1:
+                          contagem_final += 1
                         else:
                           contagem +=1
                         st.write(int(contagem))
