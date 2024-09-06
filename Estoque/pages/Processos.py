@@ -268,13 +268,13 @@ with tab3:
   col1,col2,col3 = st.columns(3)
   lista_separacao = []
   lista_transp = []
-  selecao_datas=st.date_input(label='selecione uma data',key='separacao')
-  ano = str(selecao_datas)[0:4]
-  mes = str(selecao_datas)[5:7]
-  dia = str(selecao_datas)[8:] 
-  selecao_datas = f'{dia}-{mes}-{ano}' 
+  selecao_datas_separacao=st.date_input(label='selecione uma data',key='separacao')
+  ano = str(selecao_datas_separacao)[0:4]
+  mes = str(selecao_datas_separacao)[5:7]
+  dia = str(selecao_datas_separacao)[8:] 
+  selecao_datas_separacao = f'{dia}-{mes}-{ano}' 
 
-  if selecao_datas:
+  if selecao_datas_separacao:
     for x in dados:
                   
                           infos = dados[f'{x}']
