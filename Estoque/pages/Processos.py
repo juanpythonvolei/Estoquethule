@@ -253,10 +253,10 @@ with tab2:
                       if len(contagem) < quantidade_mercado:
                         contagem.append('ok')
                       else:
-                        
                         contagem_final += 1
                       with col6:
                           st.metric(f'Quantidade restante',value=len(contagem))
+                          st.write(len(contagem))
             except:
                 st.error('Item não consta em rev')
                 
