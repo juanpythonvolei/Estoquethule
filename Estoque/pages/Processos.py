@@ -283,8 +283,9 @@ with tab3:
                               notas = infos[f'{processo}']
                               
                               for espec_sep in notas:
+                                  st.write(espec_sep)
                                   if espec_sep != 'status' and espec_sep!='separacao':
-                                    st.write(espec_sep)
+                                    
                                     numero_nota = notas[f'{espec_sep}']['nota']
                                     cliente = notas[f'{espec_sep}']['cliente']
                                     data = notas[f'{espec_sep}']['data']
