@@ -281,7 +281,7 @@ with tab3:
                           for processo in infos:
                               notas = infos[f'{processo}']
                               
-                                for espec in notas:
+                              for espec in notas:
                                   st.write(espec)
                                   numero_nota = espec['nota']
                                   cliente = espec['cliente']
