@@ -256,8 +256,8 @@ with tab2:
                           contagem_final += 1
                     else:
                         contagem +=1
-                      st.write(int(contagem))
-                      st.write(int(ver[1]))
+                        st.write(int(contagem))
+                        st.write(int(ver[1]))
                     with col6:
                             st.metric(f'Quantidade separada',value=contagem)
             except:
