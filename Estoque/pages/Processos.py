@@ -239,19 +239,13 @@ with tab2:
       else:
        for item in lista_dicionarios:  
             col4,col5,col6 = st.columns(3)
-            with col4:
-              volume = st.text_input(label='',placeholder='Insira o ean do volume')
-              if volume:
-                with col5:
-                  ativo = st.text_input(label='',placeholder='Insira o ean do produto')
-                  if ativo:
-                    with col6:
-                      localizacao = st.text_input(label='',placeholder='insira o ean da l')
-              st.info(f'''Nota:{item['numero_nota']}\n
+            st.info(f'''Nota:{item['numero_nota']}\n
                   Cliente:{item['cliente']}\n
         Produto:{item['produtos']}\n
         quantidade: {item['quantidade']}\n
-        localização: {item['posi']}''')
+        localização: {item['posi']}''') 
+        acao = st.text_input(label='',placeholder=f'Insira o item {item['produtos']}')
+            
     except:
         pass 
 
