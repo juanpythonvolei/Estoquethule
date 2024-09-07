@@ -334,7 +334,7 @@ with tab3:
                           if ean_valid_posicao == ver_comparar[1]:
                             st.info(f'Posição {dict['posi']} ok')
                             st.info(f'Nota {dict['numero_nota']} separada com sucesso')
-       st.divider()
+         st.divider()
            
     
      
