@@ -319,18 +319,18 @@ with tab3:
             st.title(f'Nota: {dict['numero_nota']}') 
             col4,col5,col6 = st.columns(3)
             with col4:
-              ean_valido_produto = st.text_input(label = '',placeholder=f'código ean do produto:  {dict['produtos']}',key=i)
+              ean_valido_produto = st.text_input(label = f'código ean do produto:  {dict['produtos']}',placeholder=,key=i)
               i += 1
               if ean_valido_produto==ver_comparar[0]:
                   st.info(f'{dict['produtos']} ok')
                   with col5:
-                    ean_valido_volume = st.text_input(label = '',placeholder='código ean do volume',key=i)
+                    ean_valido_volume = st.text_input(label = f'código ean do volume {dict['ean_volume']}' ,key=i)
                     i += 1 
                     if ean_valido == ver_comparar[5]:
                       st.info('Volume ok')
                       if ean_valido_volume:
                         with col6:
-                          ean_valido_posicao = st.text_input(label = '',placeholder=f'código ean da posição: {dict['posi']}',key=i)
+                          ean_valido_posicao = st.text_input(label = f'código ean da posição: {dict['posi']}',key=i)
                           i += 1
                           if ean_valid_posicao == ver_comparar[1]:
                             st.info(f'Posição {dict['posi']} ok')
