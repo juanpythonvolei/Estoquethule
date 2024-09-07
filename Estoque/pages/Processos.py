@@ -251,7 +251,7 @@ with tab2:
             if str(acao) == str(item['produtos']):
                 volume_mercado = random.randint(0,10000)
                 caminho_mercado = f'{selecao_datas}/{volume_mercado}'
-                dict_mercado = {'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'concluido':'nao','quantidade':item['quantidade'],'transp':item['transp']}
+                dict_mercado = {'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'mercado_concluido':'sim','quantidade':item['quantidade'],'transp':item['transp']}
                 ref_mercado.child(caminho_mercado).set(dict_mercado)
                 st.success(f'Mercado de volume: {volume_mercado} registrado')
             st.divider() 
@@ -276,11 +276,9 @@ with tab3:
                   
                           infos = dados4[f'{y}']
                           for nota in infos:
-                              notas = infos[f'{nota}']
+                              elementos = infos[f'{nota}']
                               st.write(notas)
-                              for espec_sep in notasy:
-                                  
-                                  if espec_sep != 'status' and espec_sep!='separacao':
+                              if elemento:
                                     try: 
                                       numero_nota = notasy[f'{espec_sep}']['nota']
                                       cliente =notasy[f'{espec_sep}']['cliente']
