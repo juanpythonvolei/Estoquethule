@@ -346,7 +346,8 @@ with tab3:
               dict_separacao = {
                   'cliente':dict['cliente'],
                   'nota':dict['numero_nota'],
-                  'volumes':dict['quantidade']    
+                  'volumes':dict['quantidade'],
+                  'separacao_concluido':'sim'
               }
               ref_separacao.child(caminho_separacao).set(dict_separacao)
               st.success(f'Separacao da nota {dict['numero_nota']} concluida com sucesso')
