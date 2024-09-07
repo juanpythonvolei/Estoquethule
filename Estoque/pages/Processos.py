@@ -249,7 +249,8 @@ with tab2:
             acao = st.text_input(label='',placeholder=f'Insira o item {item['produtos']}',key=i)
             i += 1 
             if str(acao) == str(item['produtos']):
-                dict_mercado = {'ean_volume':rando.randint(0,10000),'itens':item['produtos'],'nota':item['nota'],'posicao':item['posi'],'concluido':False}
+                st.write('Feito')
+                dict_mercado = {'ean_volume':random.randint(0,10000),'itens':item['produtos'],'nota':item['nota'],'posicao':item['posi'],'concluido':False}
                 ref_mercado.child(caminho_mercado).set(dict_mercado)
                 st.success('Mercado registrado')
             st.divider() 
