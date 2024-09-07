@@ -344,7 +344,7 @@ with tab3:
               caminho_separacao = f'{selecao_datas_separacao}/{dict['transportadora']}'
               dict_separacao = {
                   'cliente':dict['cliente'],
-                  'nota':dict['nota'],
+                  'nota':dict['numero_nota'],
                   'volumes':dict['quantidade']    
               }
               ref_separacao.child(caminho_separacao).set(dict_separacao)
