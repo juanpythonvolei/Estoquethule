@@ -234,6 +234,9 @@ with tab2:
    
     try: 
        for item in lista_dicionarios:  
+         if item == 'já coletadoSS':
+           pass
+         else:
             contagem=[] 
             ver = (item['produtos'],item['quantidade'])
             st.write(ver)
@@ -248,10 +251,6 @@ with tab2:
         localização: {item['posi']}''')
     except:
         st.info('Mercado já concluido')
-
-                
-       
-        
         st.divider()   
 
 with tab3:
