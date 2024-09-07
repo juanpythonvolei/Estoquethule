@@ -303,7 +303,7 @@ with tab3:
                                       posi =espec_sep['posicao']
                                       transportadora = espec_sep['transportadora']
                                       dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transportadora':transportadora}  
-                                  else:
+                              else:
                                         pass
     i = 0                            
     for dict in lista_separacao:
