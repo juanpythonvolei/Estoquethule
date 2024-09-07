@@ -225,9 +225,10 @@ with tab2:
                                   dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'sequencia_processo':processo,'sequencia_nota':espec}
                               else:
                                 pass
+                                
   if selecao_datas and selecao_processos:                          
    contagem_final = 0 
-    
+   st.write(lista_dicionarios) 
    for item in lista_dicionarios:  
         ver = (item['produtos'],item['quantidade'])
         st.write(ver)
