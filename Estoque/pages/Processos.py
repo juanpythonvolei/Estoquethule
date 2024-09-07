@@ -239,7 +239,8 @@ with tab2:
         st.info(f'''Nota:{item['numero_nota']}\n
             Cliente:{item['cliente']}\n
     Produto:{item['produtos']}\n
-    quantidade: {item['quantidade']}''')
+    quantidade: {item['quantidade']}\n
+    localização: {item['posi']}''')
 
                 
        
