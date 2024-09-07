@@ -233,8 +233,6 @@ with tab2:
                               
   if selecao_datas and selecao_processos:       
     i = 0 
-    
-    caminho_mercado = f'{selecao_datas}'
     try: 
       if 'já coletadoSS' in lista_dicionarios:
         st.info('Mercado já concluido')
@@ -250,7 +248,9 @@ with tab2:
             i += 1 
             if str(acao) == str(item['produtos']):
                 st.write('Feito')
-                dict_mercado = {'processo':selecao_processos,'ean_volume':random.randint(0,10000),'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'concluido':'nao','quantidade':item['quantidade']}
+                volume_mercado = random.randint(0,10000)
+                caminho_mercado = f'{selecao_datas}/{volume_mercado}'
+                dict_mercado = {'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'concluido':'nao','quantidade':item['quantidade']}
                 ref_mercado.child(caminho_mercado).set(dict_mercado)
                 st.success('Mercado registrado')
             st.divider() 
