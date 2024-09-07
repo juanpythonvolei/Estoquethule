@@ -348,7 +348,7 @@ with tab3:
                   'nota':dict['numero_nota'],
                   'volumes':dict['quantidade']    
               }
-              ref_separacao.child(caminho_separacao).set(transp_dict)
+              ref_separacao.child(caminho_separacao).set(dict_separacao)
               st.success(f'Separacao da nota {dict['numero_nota']} concluida com sucesso')
              
          st.divider()
