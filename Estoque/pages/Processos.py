@@ -322,16 +322,12 @@ with tab3:
               i += 1
               if ean_valido_produto==ver_comparar[0]:
                   st.info(f'{dict['produtos']} ok')
-              else:
-                ean_valido_produto = None
                   with col5:
                     ean_valido_volume = st.text_input(label = '',placeholder='Insira o código ean do volume',key=i)
                     i += 1 
                     if ean_valido == ver_comparar[5]:
                       st.info('Volume ok')
-                    else:
-                      ean_valido = None
-                    if ean_valido_volume:
+                      if ean_valido_volume:
                       with col6:
                         ean_valido_posicao = st.text_input(label = '',placeholder=f'Insira o código ean da posição: {dict['posi']}',key=i)
                         i += 1
