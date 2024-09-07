@@ -209,7 +209,7 @@ with tab2:
                                   descricao = espec['descricao']
                                   produto = espec['produto']
                                   posi =espec['posicao']
-                                  dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'sequencia_processo':processo,'sequencia_nota':infos}  
+                                  dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'sequencia_processo':processo,'sequencia_nota':notas}  
                                   if dicionario in lista_dicionarios:
                                       pass
                                   else:  
@@ -222,7 +222,7 @@ with tab2:
                                   descricao = notas[f'{espec}']['descricao']
                                   produto = notas[f'{espec}']['produto']
                                   posi =notas[f'{espec}']['posicao']
-                                  dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'sequencia_processo':processo,'sequencia_nota':infos}
+                                  dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'sequencia_processo':processo,'sequencia_nota':notas}
                               else:
                                 pass
                                 
