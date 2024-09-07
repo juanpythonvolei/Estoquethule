@@ -245,6 +245,10 @@ with tab2:
         quantidade: {item['quantidade']}\n
         localização: {item['posi']}''') 
             acao = st.text_input(label='',placeholder=f'Insira o item {item['produtos']}')
+            if acao:
+              if acao == item['produtos']:
+                ref_faturamento
+            st.divider() 
             
     except:
         pass 
