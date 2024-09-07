@@ -223,6 +223,10 @@ with tab2:
                                   produto = notas[f'{espec}']['produto']
                                   posi =notas[f'{espec}']['posicao']
                                   dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi}
+                                  if dicionario in lista_dicionarios:
+                                      pass
+                                  else:  
+                                      lista_dicionarios.append(dicionario)  
                               else:
                                 pass
                                 
