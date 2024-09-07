@@ -255,10 +255,10 @@ with tab2:
                         st.info(f'voce seleiconou o item {produto}')
                     
                     
-                    if len(contagem) == ver[1]:
+                    if len(contagem) ==0:
                            contagem_final += 1
                     else:
-                        contagem.append(1)
+                        contagem.remove(1)
                         st.write(len(contagem))
                         st.write(int(ver[1]))
                     with col6:
