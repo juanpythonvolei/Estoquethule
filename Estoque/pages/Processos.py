@@ -232,7 +232,8 @@ with tab2:
    for item in lista_dicionarios:  
         ver = (item['produtos'],item['quantidade'])
         st.write(ver)
-        contagem = 0
+        if 'contagem' not in st.session_state:
+         st.session_state.contagem = 0
         col4,col5,col6 = st.columns(3)
         with col4:
             st.info(f'''Nota:{item['numero_nota']}\n
@@ -257,11 +258,11 @@ with tab2:
                     if contagem == ver[1]:
                            st.session_state.contagem_final += 1
                     else:
-                        contagem +=1
+                        st.session_state.contagem +=1
                         st.write(int(contagem))
                         st.write(int(ver[1]))
                     with col6:
-                            st.metric(f'Quantidade separada',value=contagem)
+                            st.metric(f'Quantidade separada',value=st.session_state.contagem)
             except:
                 st.error('Item não consta em rev')
                 
