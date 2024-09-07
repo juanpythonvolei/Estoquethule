@@ -209,7 +209,7 @@ with tab2:
                                   descricao = espec['descricao']
                                   produto = espec['produto']
                                   posi =espec['posicao']
-                                  dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'sequencia_processo':processo,'sequencia_nota':notas}  
+                                  dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi}  
                                   if dicionario in lista_dicionarios:
                                       pass
                                   else:  
@@ -222,13 +222,13 @@ with tab2:
                                   descricao = notas[f'{espec}']['descricao']
                                   produto = notas[f'{espec}']['produto']
                                   posi =notas[f'{espec}']['posicao']
-                                  dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'sequencia_processo':processo,'sequencia_nota':notas}
+                                  dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi}
                               else:
                                 pass
                                 
-  if selecao_datas and selecao_processos:                          
-   contagem_final = 0 
-   st.write(lista_dicionarios) 
+  if selecao_datas and selecao_processos:       
+   if 'contagem_final' not in st.session_state:
+     st.session_state.contagem_final = 0
    for item in lista_dicionarios:  
         ver = (item['produtos'],item['quantidade'])
         st.write(ver)
@@ -253,9 +253,9 @@ with tab2:
                         coleta = produto
                         st.info(f'voce seleiconou o item {produto}')
                     
-                    contagem += 1
+                    
                     if contagem == ver[1]:
-                          contagem_final += contagem
+                           st.session_state.contagem_final += 1
                     else:
                         contagem +=1
                         st.write(int(contagem))
@@ -269,12 +269,13 @@ with tab2:
         
         st.divider()   
    st.write(contagem_final)
-   if contagem_final == len(lista_dicionarios):
+   if st.session_state.contagem_final == len(lista_dicionarios):
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/status'
                 ref_faturamento.child(caminho_faturamento).set('concluido')
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/separacao'
                 ref_faturamento.child(caminho_faturamento).set('aberto')
                 st.success('Processo Concluido')  
+                st.session_state.contagem_final = 0 
 
 with tab3:
   ref_separacao = db.reference('separacao')
