@@ -258,7 +258,7 @@ with tab2:
                     if contagem == ver[1]:
                            contagem_final += 1
                     else:
-                        contagem +=1
+                        contagem.append(1)
                         st.write(int(contagem))
                         st.write(int(ver[1]))
                     with col6:
