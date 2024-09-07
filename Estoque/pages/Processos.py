@@ -287,7 +287,9 @@ with tab3:
                                       produto = elementos['itens']
                                       posi =elementos['posicao']
                                       transportadora =elementos['transp']
-                                      dicionario = {'numero_nota':numero_nota,'cliente':cliente,'quantidade':quantidade,'produtos':produto,'posi':posi,'transportadora':transportadora}  
+                                      ean_volume = elementos['ean_volume']
+                                      
+                                      dicionario = {'ean_volume':ean_volume,'numero_nota':numero_nota,'cliente':cliente,'quantidade':quantidade,'produtos':produto,'posi':posi,'transportadora':transportadora}  
                                       if dicionario in lista_separacao:
                                         pass
                                       else:
@@ -303,14 +305,16 @@ with tab3:
      else:
        lista_transp.append(transp)
     selecao_transp = st.selectbox(label='',placeholder='Selecione uma tranportadora',options=lista_transp,index=None)
+
     
     if selecao_transp:
+       lista_tuplas_separacao = [] 
        for dict in lista_separacao:
          transp_dict = str(dict['transportadora']).casefold()
          if 'ltda.' in transp_dict:
            transp_dict = transp_dict.replace('ltda.','ltda')
          if transp_dict == selecao_transp:
-            ver_comparar = (dict['produtos'],dict['posi'],dict['quantidade']) 
+            ver_comparar = (dict['produtos'],dict['posi'],dict['quantidade'],dict['cliente'],'ean_volume',dict['ean_volume'])
             st.title(f'Nota: {dict['numero_nota']}') 
             col4,col5,col6 = st.columns(3)
             with col4:
@@ -318,15 +322,22 @@ with tab3:
               i += 1
               if ean_valido_produto==ver_comparar[0]:
                   st.info(f'{dict['produtos']} ok')
+              else:
+                ean_valido_produto = None
                   with col5:
                     ean_valido_volume = st.text_input(label = '',placeholder='Insira o código ean do volume',key=i)
                     i += 1 
+                    if ean_valido == ver_comparar[5]:
+                      st.info('Volume ok')
+                    else:
+                      ean_valido = None
                     if ean_valido_volume:
                       with col6:
                         ean_valido_posicao = st.text_input(label = '',placeholder=f'Insira o código ean da posição: {dict['posi']}',key=i)
                         i += 1
                         if ean_valid_posicao == ver_comparar[1]:
                           st.info(f'Posição {dict['posi']} ok')
+            st.info(f'Nota {dict['numero_nota']} separada com sucesso')
        st.divider()
            
     
