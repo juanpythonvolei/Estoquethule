@@ -209,9 +209,9 @@ with tab2:
                                   quantidade =espec['quantidade']
                                   descricao = espec['descricao']
                                   produto = espec['produto']
-                                  posi =espec['posicao']
-                                  transportadora = espec['transportadora']
-                                  dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'trasnsportadora':trasnportadora}  
+                                  posi = espec['posicao']
+                                 
+                                  dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi}  
                                   if dicionario in lista_dicionarios:
                                       pass
                                   else:  
@@ -220,12 +220,12 @@ with tab2:
                                   numero_nota = notas[f'{espec}']['nota']
                                   cliente = notas[f'{espec}']['cliente']
                                   data = notas[f'{espec}']['data']
-                                  quantidade =notas[f'{espec}']['quantidade']
+                                  quantidade = notas[f'{espec}']['quantidade']
                                   descricao = notas[f'{espec}']['descricao']
                                   produto = notas[f'{espec}']['produto']
-                                  posi =notas[f'{espec}']['posicao']
-                                  transportadora = notas[f'{espec}']['transportadora']
-                                  dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'trasnsportadora':trasnportadora}
+                                  posi = notas[f'{espec}']['posicao']
+                                  
+                                  dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi}
                                   if dicionario in lista_dicionarios:
                                       pass
                                   else:  
@@ -251,7 +251,7 @@ with tab2:
             if str(acao) == str(item['produtos']):
                 volume_mercado = random.randint(0,10000)
                 caminho_mercado = f'{selecao_datas}/{volume_mercado}'
-                dict_mercado = {'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'concluido':'nao','quantidade':item['quantidade'],'trasnportadora':item['transportadora']}
+                dict_mercado = {'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'concluido':'nao','quantidade':item['quantidade']}
                 ref_mercado.child(caminho_mercado).set(dict_mercado)
                 st.success(f'Mercado de volume: {volume_mercado} registrado')
             st.divider() 
