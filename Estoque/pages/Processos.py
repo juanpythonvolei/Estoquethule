@@ -262,7 +262,7 @@ with tab2:
                         st.write(len(contagem))
                         st.write(int(ver[1]))
                     with col6:
-                            st.metric(f'Quantidade separada',value=contagem)
+                            st.metric(f'Quantidade separada',value=len(contagem))
             except:
                 st.error('Item não consta em rev')
                 
