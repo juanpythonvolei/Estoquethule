@@ -231,22 +231,24 @@ with tab2:
                                 lista_dicionarios.append('já coletadoSS')
                                 
   if selecao_datas and selecao_processos:       
-   
+    i = 0 
     try: 
       if 'já coletadoSS' in lista_dicionarios:
         st.info('Mercado já concluido')
         st.divider()  
       else:
        for item in lista_dicionarios:  
-            contagem=[] 
-            ver = (item['produtos'],item['quantidade'])
-            st.write(ver)
-            for i in range(int(ver[1])):
-              contagem.append(1)
             col4,col5,col6 = st.columns(3)
-            
-            st.info(f'''Nota:{item['numero_nota']}\n
-                Cliente:{item['cliente']}\n
+            with col4:
+              volume = st.text_input(label='',placeholder='Insira o ean do volume')
+              if volume:
+                with col5:
+                  ativo = st.text_input(label='',placeholder='Insira o ean do produto')
+                  if ativo:
+                    with col6:
+                      localizacao = st.text_input(label='',placeholder='insira o ean da l')
+              st.info(f'''Nota:{item['numero_nota']}\n
+                  Cliente:{item['cliente']}\n
         Produto:{item['produtos']}\n
         quantidade: {item['quantidade']}\n
         localização: {item['posi']}''')
