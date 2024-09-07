@@ -280,7 +280,6 @@ with tab3:
                               elementos = infos[f'{nota}']
                               st.write(notas)
                               if elemento['mercado_concluido'] == 'sim':
-                                    try: 
                                       numero_nota = elemento['nota']
                                       cliente =elemento['cliente']
                                       quantidade = elemento['quantidade']
