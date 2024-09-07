@@ -323,17 +323,23 @@ with tab3:
               i += 1
               if ean_valido_produto==ver_comparar[0]:
                   st.info(f'{dict['produtos']} ok')
-                  with col5:
+              else:
+                ean_valido_produto = None
+            with col5:
                     ean_valido_volume = st.text_input(label = f'código ean do volume {dict['ean_volume']}' ,key=i)
                     i += 1 
                     if str(ean_valido_volume) == str(ver_comparar[4]):
                       st.info('Volume ok')
-                      with col6:
+                    else:
+                      ean_valido_volume = None
+            with col6:
                           ean_valido_posicao = st.text_input(label = f'código ean da posição: {dict['posi']}',key=i)
                           i += 1
                           if ean_valido_posicao == ver_comparar[1]:
                             st.info(f'Posição {dict['posi']} ok')
                             st.info(f'Nota {dict['numero_nota']} separada com sucesso')
+                          else:
+                            ean_valido_posicao = None
          st.divider()
            
     
