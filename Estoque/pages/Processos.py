@@ -12,6 +12,7 @@ lista_numero_processo = []
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
 ref_faturamento = db.reference('Faturamento')
+ref_mercado = db.reference('mercado')  
 data_hora_atual = datetime.now()
 data_atual = data_hora_atual.strftime("%d-%m-%Y")
 #caminho_faturamento = f'{data_atual}'
@@ -229,7 +230,7 @@ with tab2:
                                       lista_dicionarios.append(dicionario)  
                               else:
                                 lista_dicionarios.append('já coletadoSS')
-  ref_mercado = db.reference('mercado')                              
+                              
   if selecao_datas and selecao_processos:       
     i = 0 
     
