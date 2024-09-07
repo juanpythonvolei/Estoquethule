@@ -235,8 +235,8 @@ with tab2:
         for i in range(int(ver[1])):
           contagem.append(1)
         col4,col5,col6 = st.columns(3)
-        with col4:
-            st.info(f'''Nota:{item['numero_nota']}\n
+        
+        st.info(f'''Nota:{item['numero_nota']}\n
             Cliente:{item['cliente']}\n
     Produto:{item['produtos']}\n
     quantidade: {item['quantidade']}''')
