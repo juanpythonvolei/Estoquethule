@@ -255,7 +255,7 @@ with tab2:
                         st.info(f'voce seleiconou o item {produto}')
                     
                     
-                    if contagem == ver[1]:
+                    if st.session_state.contagem == ver[1]:
                            st.session_state.contagem_final += 1
                     else:
                         st.session_state.contagem +=1
