@@ -233,10 +233,10 @@ with tab2:
   if selecao_datas and selecao_processos:       
    
     try: 
+      if 'já coletadoSS' in lista_dicionarios:
+        pass
+      else:
        for item in lista_dicionarios:  
-         if item == 'já coletadoSS':
-           pass
-         else:
             contagem=[] 
             ver = (item['produtos'],item['quantidade'])
             st.write(ver)
