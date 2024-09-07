@@ -240,43 +240,11 @@ with tab2:
             Cliente:{item['cliente']}\n
     Produto:{item['produtos']}\n
     quantidade: {item['quantidade']}''')
-        with col5:
-            try:
-                coleta = st.text_input(label=f'''Posição do item {item['produtos']} 
-    
-                posição:{item['posi']}''',key=f'{item['produtos']}')
-              
-                if coleta :
-                    #caminho_pedido = f'{}'
-                    for ean_info in lista_ean:
-                      produto,ean = ean_info
-                      if ean == coleta:
-                        coleta = produto
-                        st.info(f'voce seleiconou o item {produto}')
-                    
-                    
-                    if len(contagem) ==0:
-                           contagem_final += 1
-                    else:
-                        contagem.remove(1)
-                        st.write(len(contagem))
-                        st.write(int(ver[1]))
-                    with col6:
-                            st.metric(f'Quantidade separada',value=len(contagem))
-            except:
-                st.error('Item não consta em rev')
+
                 
        
         
         st.divider()   
-   st.write(contagem_final)
-   if contagem_final == len(lista_dicionarios):
-                caminho_faturamento = f'{selecao_datas}/{selecao_processos}/status'
-                ref_faturamento.child(caminho_faturamento).set('concluido')
-                caminho_faturamento = f'{selecao_datas}/{selecao_processos}/separacao'
-                ref_faturamento.child(caminho_faturamento).set('aberto')
-                st.success('Processo Concluido')  
-                contagem_final = 0 
 
 with tab3:
   ref_separacao = db.reference('separacao')
