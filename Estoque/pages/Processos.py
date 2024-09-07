@@ -210,7 +210,7 @@ with tab2:
                                   descricao = espec['descricao']
                                   produto = espec['produto']
                                   posi =espec['posicao']
-                                  tranportadora = espec['transportadora']
+                                  transportadora = espec['transportadora']
                                   dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'trasnsportadora':trasnportadora}  
                                   if dicionario in lista_dicionarios:
                                       pass
@@ -224,7 +224,7 @@ with tab2:
                                   descricao = notas[f'{espec}']['descricao']
                                   produto = notas[f'{espec}']['produto']
                                   posi =notas[f'{espec}']['posicao']
-                                  tranportadora = notas[f'{espec}']['transportadora']
+                                  transportadora = notas[f'{espec}']['transportadora']
                                   dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'trasnsportadora':trasnportadora}
                                   if dicionario in lista_dicionarios:
                                       pass
@@ -251,7 +251,7 @@ with tab2:
             if str(acao) == str(item['produtos']):
                 volume_mercado = random.randint(0,10000)
                 caminho_mercado = f'{selecao_datas}/{volume_mercado}'
-                dict_mercado = {'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'concluido':'nao','quantidade':item['quantidade']}
+                dict_mercado = {'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'concluido':'nao','quantidade':item['quantidade'],'trasnportadora':item['transportadora']}
                 ref_mercado.child(caminho_mercado).set(dict_mercado)
                 st.success(f'Mercado de volume: {volume_mercado} registrado')
             st.divider() 
