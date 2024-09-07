@@ -227,13 +227,13 @@ with tab2:
                                 pass
                                 
   if selecao_datas and selecao_processos:       
-   if 'contagem_final' not in st.session_state:
-     st.session_state.contagem_final = 0
+   contagem_final = 0
    for item in lista_dicionarios:  
+        contagem=[] 
         ver = (item['produtos'],item['quantidade'])
         st.write(ver)
-        if 'contagem' not in st.session_state:
-         st.session_state.contagem = 0
+        for i in range(ver[1]):
+          contagem.append(1)
         col4,col5,col6 = st.columns(3)
         with col4:
             st.info(f'''Nota:{item['numero_nota']}\n
@@ -255,21 +255,21 @@ with tab2:
                         st.info(f'voce seleiconou o item {produto}')
                     
                     
-                    if st.session_state.contagem == ver[1]:
-                           st.session_state.contagem_final += 1
+                    if contagem == ver[1]:
+                           contagem_final += 1
                     else:
-                        st.session_state.contagem +=1
+                        contagem +=1
                         st.write(int(contagem))
                         st.write(int(ver[1]))
                     with col6:
-                            st.metric(f'Quantidade separada',value=st.session_state.contagem)
+                            st.metric(f'Quantidade separada',value=contagem)
             except:
                 st.error('Item não consta em rev')
                 
        
         
         st.divider()   
-   st.write(st.session_state.contagem_final)
+   st.write(contagem_final)
    if st.session_state.contagem_final == len(lista_dicionarios):
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/status'
                 ref_faturamento.child(caminho_faturamento).set('concluido')
