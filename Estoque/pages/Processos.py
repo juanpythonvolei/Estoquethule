@@ -340,6 +340,16 @@ with tab3:
                             st.info(f'Nota {dict['numero_nota']} separada com sucesso')
                           else:
                             ean_valido_posicao = None
+            if ean_valido_produto and ean_valido_volume and ean_valido_posicao:
+              caminho_separacao = f'{selecao_datas_separacao}/{dict['transportadora']}'
+              dict_separacao = {
+                  'cliente':dict['cliente'],
+                  'nota':dict['nota'],
+                  'volumes':dict['quantidade']    
+              }
+              ref_separacao.child(caminho_separacao).set(dict_separacao)
+              st.success(f'Separacao da nota {dict['numero_nota']} concluida com sucesso')
+             
          st.divider()
            
     
