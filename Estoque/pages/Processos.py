@@ -342,7 +342,7 @@ with tab3:
                             ean_valido_posicao = None
             if ean_valido_produto and ean_valido_volume and ean_valido_posicao:
               selecao_datas_separacao2 = f'{dia}-{mes}-{ano}' 
-              caminho_separacao = f'{selecao_datas_separacao2}/{dict['transportadora'][:5]}'
+              caminho_separacao = f'{selecao_datas_separacao2}/{dict['transportadora'][:5]}/{dict['numero_nota']}'
               dict_separacao = {
                   'cliente':dict['cliente'],
                   'nota':dict['numero_nota'],
