@@ -250,7 +250,7 @@ with tab2:
             i += 1 
             if str(acao) == str(item['produtos']):
                 st.write('Feito')
-                dict_mercado = {'processo':selecao_processos,'ean_volume':{random.randint(0,10000)},'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'concluido':'nao','quantidade':item['quantidade']}
+                dict_mercado = {'processo':selecao_processos,'ean_volume':random.randint(0,10000),'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'concluido':'nao','quantidade':item['quantidade']}
                 ref_mercado.child(caminho_mercado).set(dict_mercado)
                 st.success('Mercado registrado')
             st.divider() 
