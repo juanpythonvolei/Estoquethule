@@ -326,7 +326,7 @@ with tab3:
                   with col5:
                     ean_valido_volume = st.text_input(label = f'código ean do volume {dict['ean_volume']}' ,key=i)
                     i += 1 
-                    if ean_valido_volume == ver_comparar[4]:
+                    if str(ean_valido_volume) == str(ver_comparar[4]):
                       st.info('Volume ok')
                       with col6:
                           ean_valido_posicao = st.text_input(label = f'código ean da posição: {dict['posi']}',key=i)
