@@ -328,11 +328,11 @@ with tab3:
                     if ean_valido == ver_comparar[5]:
                       st.info('Volume ok')
                       if ean_valido_volume:
-                      with col6:
-                        ean_valido_posicao = st.text_input(label = '',placeholder=f'Insira o código ean da posição: {dict['posi']}',key=i)
-                        i += 1
-                        if ean_valid_posicao == ver_comparar[1]:
-                          st.info(f'Posição {dict['posi']} ok')
+                        with col6:
+                          ean_valido_posicao = st.text_input(label = '',placeholder=f'Insira o código ean da posição: {dict['posi']}',key=i)
+                          i += 1
+                          if ean_valid_posicao == ver_comparar[1]:
+                            st.info(f'Posição {dict['posi']} ok')
             st.info(f'Nota {dict['numero_nota']} separada com sucesso')
        st.divider()
            
