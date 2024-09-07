@@ -241,7 +241,6 @@ with tab2:
         st.divider()  
       else:
        for item in lista_dicionarios:  
-            col4,col5,col6 = st.columns(3)
             st.info(f'''Nota:{item['numero_nota']}\n
                   Cliente:{item['cliente']}\n
         Produto:{item['produtos']}\n
@@ -251,7 +250,7 @@ with tab2:
             i += 1 
             if str(acao) == str(item['produtos']):
                 st.write('Feito')
-                dict_mercado = {'ean_volume':random.randint(0,10000),'itens':item['produtos'],'nota':item['nota'],'posicao':item['posi'],'concluido':'nao'}
+                dict_mercado = {'ean_volume':f'{random.randint(0,10000)}','itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'concluido':'nao'}
                 ref_mercado.child(caminho_mercado).set(dict_mercado)
                 st.success('Mercado registrado')
             st.divider() 
