@@ -19,6 +19,7 @@ data_atual = data_hora_atual.strftime("%d-%m-%Y")
 #ref_faturamento.child(caminho_faturamento).set('a')
 dados = roteiro['Faturamento']
 dados2 = roteiro['Depósito']['Rev'] 
+dados4 = roteiro['mercado']
 tab1,tab2,tab3 = st.tabs(['Faturamento','Mercado','Separação'])
 
 
@@ -271,7 +272,7 @@ with tab3:
   selecao_datas_separacao = f'{dia}-{mes}-{ano}' 
 
   if selecao_datas_separacao:
-    dados4 = roteiro['mercado']
+    
     for y in dados4:
                   
                           infos = dados4[f'{y}']
@@ -281,30 +282,17 @@ with tab3:
                               if elemento['mercado_concluido'] == 'sim':
                                     try: 
                                       numero_nota = elemento['nota']
-                                      cliente =notasy[f'{espec_sep}']['cliente']
-                                      data = notasy[f'{espec_sep}']['data']
-                                      quantidade = notasy[f'{espec_sep}']['quantidade']
-                                      descricao =notasy[f'{espec_sep}']['descricao']
-                                      produto = notasy[f'{espec_sep}']['produto']
-                                      posi =notasy[f'{espec_sep}']['posicao']
-                                      transportadora = notasy[f'{espec_sep}']['transportadora']
-                                      dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transportadora':transportadora}  
+                                      cliente =elemento['cliente']
+                                      quantidade = elemento['quantidade']
+                                      #descricao =elemento['descricao']
+                                      produto = elemento['itens']
+                                      posi =elemento['posicao']
+                                      transportadora =elemento['transp']
+                                      dicionario = {'numero_nota':numero_nota,'cliente':cliente,'quantidade':quantidade,'produtos':produto,'posi':posi,'transportadora':transportadora}  
                                       if dicionario in lista_separacao:
                                         pass
                                       else:
                                         lista_separacao.append(dicionario)
-                                    except:
-                                      numero_nota = espec_sep['nota']
-                                      cliente =espec_sep['cliente']
-                                      data = espec_sep['data']
-                                      quantidade = espec_sep['quantidade']
-                                      descricao =espec_sep['descricao']
-                                      produto = espec_sep['produto']
-                                      posi =espec_sep['posicao']
-                                      transportadora = espec_sep['transportadora']
-                                      dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transportadora':transportadora}  
-                              else:
-                                        pass
     i = 0                            
     for dict in lista_separacao:
      transp = dict['transportadora']
