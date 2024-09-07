@@ -248,7 +248,7 @@ with tab2:
             acao = st.text_input(label='',placeholder=f'Insira o item {item['produtos']}')
             if acao:
               if acao == item['produtos']:
-                dict_mercado = {'ean_volume':rando.randint(0,10000),'itens':item['produtos'],'nota',item['nota'],'posicao':item['posi'],'concluido':False}
+                dict_mercado = {'ean_volume':rando.randint(0,10000),'itens':item['produtos'],'nota':item['nota'],'posicao':item['posi'],'concluido':False}
                 caminho_mercado = f'{selecao_datas}'
                 ref_mercado.child(caminho_mercado).set(dict_mercado)
             st.divider() 
