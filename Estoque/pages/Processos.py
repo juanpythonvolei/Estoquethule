@@ -259,7 +259,7 @@ with tab2:
                            contagem_final += 1
                     else:
                         contagem.append(1)
-                        st.write(int(contagem))
+                        st.write(len(contagem))
                         st.write(int(ver[1]))
                     with col6:
                             st.metric(f'Quantidade separada',value=contagem)
@@ -276,7 +276,7 @@ with tab2:
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/separacao'
                 ref_faturamento.child(caminho_faturamento).set('aberto')
                 st.success('Processo Concluido')  
-                st.session_state.contagem_final = 0 
+                contagem_final = 0 
 
 with tab3:
   ref_separacao = db.reference('separacao')
