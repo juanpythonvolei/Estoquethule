@@ -282,7 +282,7 @@ with tab3:
                               if elementos['mercado_concluido'] == 'sim':
                                       numero_nota = elementos['nota']
                                       cliente =elementos['cliente']
-                                      quantidade = elemento['quantidade']
+                                      quantidade = elementos['quantidade']
                                       #descricao =elemento['descricao']
                                       produto = elementos['itens']
                                       posi =elementos['posicao']
