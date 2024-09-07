@@ -228,22 +228,22 @@ with tab2:
                                 
   if selecao_datas and selecao_processos:       
    
-  try: 
-     for item in lista_dicionarios:  
-          contagem=[] 
-          ver = (item['produtos'],item['quantidade'])
-          st.write(ver)
-          for i in range(int(ver[1])):
-            contagem.append(1)
-          col4,col5,col6 = st.columns(3)
-          
-          st.info(f'''Nota:{item['numero_nota']}\n
-              Cliente:{item['cliente']}\n
-      Produto:{item['produtos']}\n
-      quantidade: {item['quantidade']}\n
-      localização: {item['posi']}''')
-  except:
-      st.info('Mercado já concluido')
+    try: 
+       for item in lista_dicionarios:  
+            contagem=[] 
+            ver = (item['produtos'],item['quantidade'])
+            st.write(ver)
+            for i in range(int(ver[1])):
+              contagem.append(1)
+            col4,col5,col6 = st.columns(3)
+            
+            st.info(f'''Nota:{item['numero_nota']}\n
+                Cliente:{item['cliente']}\n
+        Produto:{item['produtos']}\n
+        quantidade: {item['quantidade']}\n
+        localização: {item['posi']}''')
+    except:
+        st.info('Mercado já concluido')
 
                 
        
