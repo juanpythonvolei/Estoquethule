@@ -247,12 +247,11 @@ with tab2:
             acao = st.text_input(label='',placeholder=f'Insira o item {item['produtos']}',key=i)
             i += 1 
             if str(acao) == str(item['produtos']):
-                st.write('Feito')
                 volume_mercado = random.randint(0,10000)
                 caminho_mercado = f'{selecao_datas}/{volume_mercado}'
                 dict_mercado = {'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'concluido':'nao','quantidade':item['quantidade']}
                 ref_mercado.child(caminho_mercado).set(dict_mercado)
-                st.success('Mercado registrado')
+                st.success(f'Mercado de volume: {volume_mercado} registrado')
             st.divider() 
     except:
         pass 
