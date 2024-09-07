@@ -228,7 +228,7 @@ with tab2:
                                 
   if selecao_datas and selecao_processos:       
    
-   try: 
+  try: 
      for item in lista_dicionarios:  
           contagem=[] 
           ver = (item['produtos'],item['quantidade'])
@@ -243,7 +243,7 @@ with tab2:
       quantidade: {item['quantidade']}\n
       localização: {item['posi']}''')
   except:
-    st.info('Mercado já concluido')
+      st.info('Mercado já concluido')
 
                 
        
