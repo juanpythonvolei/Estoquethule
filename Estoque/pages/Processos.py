@@ -251,6 +251,7 @@ with tab2:
               if acao == item['produtos']:
                 dict_mercado = {'ean_volume':rando.randint(0,10000),'itens':item['produtos'],'nota':item['nota'],'posicao':item['posi'],'concluido':False}
                 ref_mercado.child(caminho_mercado).set(dict_mercado)
+                st.success('Mercado registrado')
             st.divider() 
             
     except:
