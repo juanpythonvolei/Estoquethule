@@ -232,6 +232,7 @@ with tab2:
                                 
   if selecao_datas and selecao_processos:       
     i = 0 
+    ref_mercado = db.reference('mercado')
     try: 
       if 'já coletadoSS' in lista_dicionarios:
         st.info('Mercado já concluido')
@@ -247,7 +248,9 @@ with tab2:
             acao = st.text_input(label='',placeholder=f'Insira o item {item['produtos']}')
             if acao:
               if acao == item['produtos']:
-                ref_faturamento
+                dict_mercado = {'ean_volume':rando.randint(0,10000),'itens':item['produtos'],'nota',item['nota'],'posicao':item['posi'],'concluido':False}
+                caminho_mercado = f'{selecao_datas}'
+                ref_mercado.child(caminho_mercado).set(dict_mercado)
             st.divider() 
             
     except:
