@@ -278,7 +278,7 @@ with tab3:
                           infos = dados4[f'{y}']
                           for nota in infos:
                               elementos = infos[f'{nota}']
-                              st.write(elementos)
+                              
                               if elementos['mercado_concluido'] == 'sim':
                                       numero_nota = elementos['nota']
                                       cliente =elementos['cliente']
@@ -310,7 +310,7 @@ with tab3:
     if selecao_transp:
        lista_tuplas_separacao = [] 
        for dict in lista_separacao:
-         st.write(dict['produtos'])
+        
          transp_dict = str(dict['transportadora']).casefold()
          if 'ltda.' in transp_dict:
            transp_dict = transp_dict.replace('ltda.','ltda')
@@ -319,18 +319,18 @@ with tab3:
             st.title(f'Nota: {dict['numero_nota']}') 
             col4,col5,col6 = st.columns(3)
             with col4:
-              ean_valido_produto = st.text_input(label = '',placeholder=f'Insira o código ean do produto:  {dict['produtos']}',key=i)
+              ean_valido_produto = st.text_input(label = '',placeholder=f'código ean do produto:  {dict['produtos']}',key=i)
               i += 1
               if ean_valido_produto==ver_comparar[0]:
                   st.info(f'{dict['produtos']} ok')
                   with col5:
-                    ean_valido_volume = st.text_input(label = '',placeholder='Insira o código ean do volume',key=i)
+                    ean_valido_volume = st.text_input(label = '',placeholder='código ean do volume',key=i)
                     i += 1 
                     if ean_valido == ver_comparar[5]:
                       st.info('Volume ok')
                       if ean_valido_volume:
                         with col6:
-                          ean_valido_posicao = st.text_input(label = '',placeholder=f'Insira o código ean da posição: {dict['posi']}',key=i)
+                          ean_valido_posicao = st.text_input(label = '',placeholder=f'código ean da posição: {dict['posi']}',key=i)
                           i += 1
                           if ean_valid_posicao == ver_comparar[1]:
                             st.info(f'Posição {dict['posi']} ok')
