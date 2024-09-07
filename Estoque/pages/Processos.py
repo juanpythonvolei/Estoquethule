@@ -314,7 +314,7 @@ with tab3:
          if 'ltda.' in transp_dict:
            transp_dict = transp_dict.replace('ltda.','ltda')
          if transp_dict == selecao_transp:
-            ver_comparar = (dict['produtos'],dict['posi'],dict['quantidade'],dict['cliente'],'ean_volume',dict['ean_volume'])
+            ver_comparar = (dict['produtos'],dict['posi'],dict['quantidade'],dict['cliente'],dict['ean_volume'])
             st.title(f'Nota: {dict['numero_nota']}') 
             col4,col5,col6 = st.columns(3)
             with col4:
