@@ -245,7 +245,7 @@ with tab2:
                 posição:{item['posi']}''',key=f'{item['produtos']}')
               
                 if coleta :
-                    caminho_pedido = f'{}'
+                    #caminho_pedido = f'{}'
                     for ean_info in lista_ean:
                       produto,ean = ean_info
                       if ean == coleta:
