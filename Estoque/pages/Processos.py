@@ -228,7 +228,7 @@ with tab2:
                                   else:  
                                       lista_dicionarios.append(dicionario)  
                               else:
-                                pass
+                                lista_dicionarios.append('já coletadoSS')
                                 
   if selecao_datas and selecao_processos:       
    
