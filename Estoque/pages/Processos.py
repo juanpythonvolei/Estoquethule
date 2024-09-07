@@ -268,7 +268,7 @@ with tab2:
        
         
         st.divider()   
-   st.write(contagem_final)
+   st.write(st.session_state.contagem_final)
    if st.session_state.contagem_final == len(lista_dicionarios):
                 caminho_faturamento = f'{selecao_datas}/{selecao_processos}/status'
                 ref_faturamento.child(caminho_faturamento).set('concluido')
