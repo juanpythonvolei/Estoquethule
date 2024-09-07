@@ -289,7 +289,7 @@ with tab3:
                                       transportadora =elementos['transp']
                                       ean_volume = elementos['ean_volume']
                                       
-                                      dicionario = {'ean_volume':ean_volume,'numero_nota':numero_nota,'cliente':cliente,'quantidade':quantidade,'produtos':produto,'posi':posi,'transportadora':transportadora}  
+                                      dicionario = {'ean_volume':ean_volume,'numero_nota':numero_nota,'cliente':cliente,'quantidade':quantidade,'produtos':produto,'posi':posi,'transportadora':transportadora,"ean_volume":ean_volume}  
                                       if dicionario in lista_separacao:
                                         pass
                                       else:
