@@ -271,12 +271,13 @@ with tab3:
   selecao_datas_separacao = f'{dia}-{mes}-{ano}' 
 
   if selecao_datas_separacao:
-    for y in dados:
+    dados4 = roteiro['mercado']
+    for y in dados4:
                   
-                          infos = dados[f'{y}']
-                          for processo in infos:
-                              notasy = infos[f'{processo}']
-                              
+                          infos = dados4[f'{y}']
+                          for nota in infos:
+                              notas = infos[f'{nota}']
+                              st.write(notas)
                               for espec_sep in notasy:
                                   
                                   if espec_sep != 'status' and espec_sep!='separacao':
