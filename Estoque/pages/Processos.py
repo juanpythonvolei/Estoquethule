@@ -244,7 +244,7 @@ with tab2:
         Produto:{item['produtos']}\n
         quantidade: {item['quantidade']}\n
         localização: {item['posi']}''') 
-        acao = st.text_input(label='',placeholder=f'Insira o item {item['produtos']}')
+            acao = st.text_input(label='',placeholder=f'Insira o item {item['produtos']}')
             
     except:
         pass 
