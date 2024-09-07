@@ -310,6 +310,7 @@ with tab3:
     if selecao_transp:
        lista_tuplas_separacao = [] 
        for dict in lista_separacao:
+         st.write(dict)
          transp_dict = str(dict['transportadora']).casefold()
          if 'ltda.' in transp_dict:
            transp_dict = transp_dict.replace('ltda.','ltda')
