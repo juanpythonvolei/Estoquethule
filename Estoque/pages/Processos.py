@@ -279,14 +279,14 @@ with tab3:
                           for nota in infos:
                               elementos = infos[f'{nota}']
                               st.write(elementos)
-                              if elemento['mercado_concluido'] == 'sim':
-                                      numero_nota = elemento['nota']
-                                      cliente =elemento['cliente']
+                              if elementos['mercado_concluido'] == 'sim':
+                                      numero_nota = elementos['nota']
+                                      cliente =elementos['cliente']
                                       quantidade = elemento['quantidade']
                                       #descricao =elemento['descricao']
-                                      produto = elemento['itens']
-                                      posi =elemento['posicao']
-                                      transportadora =elemento['transp']
+                                      produto = elementos['itens']
+                                      posi =elementos['posicao']
+                                      transportadora =elementos['transp']
                                       dicionario = {'numero_nota':numero_nota,'cliente':cliente,'quantidade':quantidade,'produtos':produto,'posi':posi,'transportadora':transportadora}  
                                       if dicionario in lista_separacao:
                                         pass
