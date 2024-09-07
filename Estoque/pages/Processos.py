@@ -319,7 +319,7 @@ with tab3:
             st.title(f'Nota: {dict['numero_nota']}') 
             col4,col5,col6 = st.columns(3)
             with col4:
-              ean_valido_produto = st.text_input(label = f'código ean do produto:  {dict['produtos']}',placeholder=,key=i)
+              ean_valido_produto = st.text_input(label = f'código ean do produto:  {dict['produtos']}',key=i)
               i += 1
               if ean_valido_produto==ver_comparar[0]:
                   st.info(f'{dict['produtos']} ok')
