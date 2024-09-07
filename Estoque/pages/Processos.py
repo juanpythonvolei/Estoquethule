@@ -278,7 +278,7 @@ with tab3:
                           infos = dados4[f'{y}']
                           for nota in infos:
                               elementos = infos[f'{nota}']
-                              st.write(notas)
+                              st.write(elementos)
                               if elemento['mercado_concluido'] == 'sim':
                                       numero_nota = elemento['nota']
                                       cliente =elemento['cliente']
