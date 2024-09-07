@@ -234,7 +234,8 @@ with tab2:
    
     try: 
       if 'já coletadoSS' in lista_dicionarios:
-        pass
+        st.info('Mercado já concluido')
+        st.divider()  
       else:
        for item in lista_dicionarios:  
             contagem=[] 
@@ -250,8 +251,7 @@ with tab2:
         quantidade: {item['quantidade']}\n
         localização: {item['posi']}''')
     except:
-        st.info('Mercado já concluido')
-        st.divider()   
+        pass 
 
 with tab3:
   ref_separacao = db.reference('separacao')
