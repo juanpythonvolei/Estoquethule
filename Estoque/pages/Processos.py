@@ -232,7 +232,7 @@ with tab2:
         contagem=[] 
         ver = (item['produtos'],item['quantidade'])
         st.write(ver)
-        for i in range(ver[1]):
+        for i in range(int(ver[1])):
           contagem.append(1)
         col4,col5,col6 = st.columns(3)
         with col4:
