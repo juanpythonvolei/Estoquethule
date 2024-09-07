@@ -233,6 +233,7 @@ with tab2:
   if selecao_datas and selecao_processos:       
     i = 0 
     ref_mercado = db.reference('mercado')
+    caminho_mercado = f'{selecao_datas}/{ selecao_processos}'
     try: 
       if 'já coletadoSS' in lista_dicionarios:
         st.info('Mercado já concluido')
@@ -249,7 +250,6 @@ with tab2:
             if acao:
               if acao == item['produtos']:
                 dict_mercado = {'ean_volume':rando.randint(0,10000),'itens':item['produtos'],'nota':item['nota'],'posicao':item['posi'],'concluido':False}
-                caminho_mercado = f'{selecao_datas}'
                 ref_mercado.child(caminho_mercado).set(dict_mercado)
             st.divider() 
             
