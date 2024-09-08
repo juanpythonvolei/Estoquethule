@@ -15,8 +15,8 @@ ref_faturamento = db.reference('Faturamento')
 ref_mercado = db.reference('mercado')  
 data_hora_atual = datetime.now()
 data_atual = data_hora_atual.strftime("%d-%m-%Y")
-#caminho_faturamento = f'{data_atual}'
-#ref_faturamento.child(caminho_faturamento).set('a')
+caminho_faturamento = f'{data_atual}'
+ref_faturamento.child(caminho_faturamento).set('a')
 dados = roteiro['Faturamento']
 dados2 = roteiro['Depósito']['Rev'] 
 dados4 = roteiro['mercado']
