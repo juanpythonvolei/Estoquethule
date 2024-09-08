@@ -16,10 +16,13 @@ ref_mercado = db.reference('mercado')
 data_hora_atual = datetime.now()
 data_atual = data_hora_atual.strftime("%d-%m-%Y")
 caminho_faturamento = f'{data_atual}'
-ref_faturamento.child(caminho_faturamento).set('a')
+#ref_faturamento.child(caminho_faturamento).set('a')
 dados = roteiro['Faturamento']
 dados2 = roteiro['Depósito']['Rev'] 
-dados4 = roteiro['mercado']
+try:
+  dados4 = roteiro['mercado']
+except:
+  pass
 dados5 = roteiro['separacao']
 tab1,tab2,tab3 = st.tabs(['Faturamento','Mercado','Separação'])
 
