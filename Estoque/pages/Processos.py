@@ -331,7 +331,7 @@ with tab3:
               col4,col5,col6 = st.columns(3)
               with col4:
                 ean_valido_produto = st.text_input(label = f'código ean do produto:  {dict['produtos']}',key=i)
-                if ean_valido_produto:
+                if ean_valido_produto or not ean_valido_produto:
                   i += 1
                 if ean_valido_produto==ver_comparar[0]:
                     st.info(f'{dict['produtos']} ok')
@@ -339,14 +339,16 @@ with tab3:
                   ean_valido_produto = None
               with col5:
                       ean_valido_volume = st.text_input(label = f'código ean do volume {dict['ean_volume']}' ,key=i)
-                      i += 1 
+                      if ean_valido_volume or not ean_valido_volume:
+                        i += 1 
                       if str(ean_valido_volume) == str(ver_comparar[4]):
                         st.info('Volume ok')
                       else:
                         ean_valido_volume = None
               with col6:
                             ean_valido_posicao = st.text_input(label = f'código ean da posição: {dict['posi']}',key=i)
-                            i += 1
+                            if ean_valido_posicao or not ean_valido_posicao:
+                              i += 1
                             if ean_valido_posicao == ver_comparar[1]:
                               st.info(f'Posição {dict['posi']} ok')
                               st.info(f'Nota {dict['numero_nota']} separada com sucesso')
