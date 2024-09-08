@@ -266,7 +266,7 @@ with tab3:
   col1,col2,col3 = st.columns(3)
   lista_separacao = []
   lista_transp = []
-  selecao_datas_separacao=st.date_input(label='selecione uma data',key='separacao')
+  selecao_datas_separacao=st.date_input(label='selecione uma data',key='separacao',key = data_hora_atual)
   ano = str(selecao_datas_separacao)[0:4]
   mes = str(selecao_datas_separacao)[5:7]
   dia = str(selecao_datas_separacao)[8:] 
@@ -331,7 +331,8 @@ with tab3:
               col4,col5,col6 = st.columns(3)
               with col4:
                 ean_valido_produto = st.text_input(label = f'código ean do produto:  {dict['produtos']}',key=i)
-                i += 1
+                if ean_valido_produto:
+                  i += 1
                 if ean_valido_produto==ver_comparar[0]:
                     st.info(f'{dict['produtos']} ok')
                 else:
