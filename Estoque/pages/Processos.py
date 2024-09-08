@@ -266,7 +266,7 @@ with tab3:
   col1,col2,col3 = st.columns(3)
   lista_separacao = []
   lista_transp = []
-  selecao_datas_separacao=st.date_input(label='selecione uma data',key='separacao',key = data_hora_atual)
+  selecao_datas_separacao=st.date_input(label='selecione uma data',key='separacao',value = data_hora_atual)
   ano = str(selecao_datas_separacao)[0:4]
   mes = str(selecao_datas_separacao)[5:7]
   dia = str(selecao_datas_separacao)[8:] 
