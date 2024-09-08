@@ -320,7 +320,7 @@ with tab3:
                for carac in caracs:
                  if caracs[f'{carac}']['separacao_concluido'] == 'sim':
                   separacao_ativa = True
-         if separacao_ativa: 
+         if separacao_ativa == False: 
            lista_tuplas_separacao = [] 
            transp_dict = str(dict['transportadora']).casefold()
            if 'ltda.' in transp_dict:
