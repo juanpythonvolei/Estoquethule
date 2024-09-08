@@ -20,6 +20,7 @@ data_atual = data_hora_atual.strftime("%d-%m-%Y")
 dados = roteiro['Faturamento']
 dados2 = roteiro['Depósito']['Rev'] 
 dados4 = roteiro['mercado']
+dados5 = roteiro['separacao']
 tab1,tab2,tab3 = st.tabs(['Faturamento','Mercado','Separação'])
 
 
@@ -310,7 +311,13 @@ with tab3:
     if selecao_transp:
        lista_tuplas_separacao = [] 
        for dict in lista_separacao:
-        
+         separacao_ativa = True
+         for m in dados5:
+           if m == selecao_datas_separacao:
+             tranpostador_m = dados5[f'{m}']
+             for nota_m in transportador_m:
+               objeto = transportador_m[f'{nota_m}']
+               st.write(objeto)
          transp_dict = str(dict['transportadora']).casefold()
          if 'ltda.' in transp_dict:
            transp_dict = transp_dict.replace('ltda.','ltda')
