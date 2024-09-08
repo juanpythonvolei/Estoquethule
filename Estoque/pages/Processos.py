@@ -13,7 +13,6 @@ requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.fireba
 roteiro = requiscao.json()
 ref_faturamento = db.reference('Faturamento')
 ref_mercado = db.reference('mercado')  
-today = datetime.date.now()
 data_hora_atual = datetime.now()
 data_atual = data_hora_atual.strftime("%d-%m-%Y")
 #caminho_faturamento = f'{data_atual}'
@@ -177,7 +176,7 @@ with tab2:
     else:
      lista_ean.append(comparacao)
   with col7:
-   selecao_datas=st.date_input(label='selecione uma data',value=today)
+   selecao_datas=st.date_input(label='selecione uma data',value=data_hora_atual)
    ano = str(selecao_datas)[0:4]
    mes = str(selecao_datas)[5:7]
    dia = str(selecao_datas)[8:] 
