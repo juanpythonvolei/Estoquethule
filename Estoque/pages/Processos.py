@@ -276,7 +276,7 @@ with tab3:
   selecao_datas_separacao = f'{dia}-{mes}-{ano}' 
 
   if selecao_datas_separacao:
-    if len(dados4) <0:
+    if dados4 == None:
       pass
     else:
       for y in dados4:
