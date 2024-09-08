@@ -273,9 +273,8 @@ with tab3:
   selecao_datas_separacao = f'{dia}-{mes}-{ano}' 
 
   if selecao_datas_separacao:
-    
     for y in dados4:
-                  
+                  if y == selecao_datas_separacao:
                           infos = dados4[f'{y}']
                           for nota in infos:
                               elementos = infos[f'{nota}']
@@ -309,7 +308,6 @@ with tab3:
 
     
     if selecao_transp:
-        
        for dict in lista_separacao:
          separacao_ativa = False
          for m in dados5:
