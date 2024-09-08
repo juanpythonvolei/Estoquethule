@@ -317,7 +317,8 @@ with tab3:
              tranpostador_m = dados5[f'{m}']
              for nota_m in tranpostador_m:
                caracs = tranpostador_m[f'{nota_m}']
-               st.write(caracs)
+               for carac in caracs
+                 st.write(carac)
          transp_dict = str(dict['transportadora']).casefold()
          if 'ltda.' in transp_dict:
            transp_dict = transp_dict.replace('ltda.','ltda')
