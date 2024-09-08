@@ -22,11 +22,11 @@ dados2 = roteiro['Depósito']['Rev']
 try:
   dados4 = roteiro['mercado']
 except:
-  pass
+  dados4 = None
 try:
   dados5 = roteiro['separacao']
 except:
-  pass
+  dados5 = None
 tab1,tab2,tab3 = st.tabs(['Faturamento','Mercado','Separação'])
 
 
