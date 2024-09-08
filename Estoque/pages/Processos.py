@@ -317,7 +317,8 @@ with tab3:
              tranpostador_m = dados5[f'{m}']
              for nota_m in tranpostador_m:
                caracs = tranpostador_m[f'{nota_m}']
-               if caracs == dict['numero_nota']:
+               st.write(caracs)
+               if str(caracs) == str(dict['numero_nota']):
                  for carac in caracs:
                    if caracs[f'{carac}']['separacao_concluido'] == 'sim':
                     separacao_ativa = True
