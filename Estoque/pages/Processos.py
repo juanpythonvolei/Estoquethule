@@ -318,7 +318,8 @@ with tab3:
              for nota_m in tranpostador_m:
                caracs = tranpostador_m[f'{nota_m}']
                for carac in caracs:
-                 st.write(carac)
+                 if caracs[f'{carac}']['separacao_concluido'] == 'sim':
+                   st.write('ok')
          transp_dict = str(dict['transportadora']).casefold()
          if 'ltda.' in transp_dict:
            transp_dict = transp_dict.replace('ltda.','ltda')
