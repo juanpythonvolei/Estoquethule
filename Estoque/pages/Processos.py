@@ -311,7 +311,7 @@ with tab3:
     if selecao_transp:
         
        for dict in lista_separacao:
-         separacao_ativa = True
+         separacao_ativa = False
          for m in dados5:
            if m == selecao_datas_separacao:
              tranpostador_m = dados5[f'{m}']
