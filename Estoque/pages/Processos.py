@@ -309,7 +309,7 @@ with tab3:
 
     
     if selecao_transp:
-       lista_tuplas_separacao = [] 
+        
        for dict in lista_separacao:
          separacao_ativa = True
          for m in dados5:
@@ -319,50 +319,52 @@ with tab3:
                caracs = tranpostador_m[f'{nota_m}']
                for carac in caracs:
                  if caracs[f'{carac}']['separacao_concluido'] == 'sim':
-                   st.write('ok')
-         transp_dict = str(dict['transportadora']).casefold()
-         if 'ltda.' in transp_dict:
-           transp_dict = transp_dict.replace('ltda.','ltda')
-         if transp_dict == selecao_transp:
-            ver_comparar = (dict['produtos'],dict['posi'],dict['quantidade'],dict['cliente'],dict['ean_volume'])
-            st.title(f'Nota: {dict['numero_nota']}') 
-            col4,col5,col6 = st.columns(3)
-            with col4:
-              ean_valido_produto = st.text_input(label = f'código ean do produto:  {dict['produtos']}',key=i)
-              i += 1
-              if ean_valido_produto==ver_comparar[0]:
-                  st.info(f'{dict['produtos']} ok')
-              else:
-                ean_valido_produto = None
-            with col5:
-                    ean_valido_volume = st.text_input(label = f'código ean do volume {dict['ean_volume']}' ,key=i)
-                    i += 1 
-                    if str(ean_valido_volume) == str(ver_comparar[4]):
-                      st.info('Volume ok')
-                    else:
-                      ean_valido_volume = None
-            with col6:
-                          ean_valido_posicao = st.text_input(label = f'código ean da posição: {dict['posi']}',key=i)
-                          i += 1
-                          if ean_valido_posicao == ver_comparar[1]:
-                            st.info(f'Posição {dict['posi']} ok')
-                            st.info(f'Nota {dict['numero_nota']} separada com sucesso')
-                          else:
-                            ean_valido_posicao = None
-            if ean_valido_produto and ean_valido_volume and ean_valido_posicao:
-              selecao_datas_separacao2 = f'{dia}-{mes}-{ano}' 
-              caminho_separacao = f'{selecao_datas_separacao2}/{dict['transportadora'][:5]}/{dict['numero_nota']}'
-              dict_separacao = {
-                  'cliente':dict['cliente'],
-                  'nota':dict['numero_nota'],
-                  'volumes':dict['quantidade'],
-                  'separacao_concluido':'sim'
-              }
-              ref_separacao.child(caminho_separacao).set(dict_separacao)
-              st.success(f'Separacao da nota {dict['numero_nota']} concluida com sucesso')
+                  separacao_ativa = True
+         if separacao_ativa: 
+           lista_tuplas_separacao = [] 
+           transp_dict = str(dict['transportadora']).casefold()
+           if 'ltda.' in transp_dict:
+             transp_dict = transp_dict.replace('ltda.','ltda')
+           if transp_dict == selecao_transp:
+              ver_comparar = (dict['produtos'],dict['posi'],dict['quantidade'],dict['cliente'],dict['ean_volume'])
+              st.title(f'Nota: {dict['numero_nota']}') 
+              col4,col5,col6 = st.columns(3)
+              with col4:
+                ean_valido_produto = st.text_input(label = f'código ean do produto:  {dict['produtos']}',key=i)
+                i += 1
+                if ean_valido_produto==ver_comparar[0]:
+                    st.info(f'{dict['produtos']} ok')
+                else:
+                  ean_valido_produto = None
+              with col5:
+                      ean_valido_volume = st.text_input(label = f'código ean do volume {dict['ean_volume']}' ,key=i)
+                      i += 1 
+                      if str(ean_valido_volume) == str(ver_comparar[4]):
+                        st.info('Volume ok')
+                      else:
+                        ean_valido_volume = None
+              with col6:
+                            ean_valido_posicao = st.text_input(label = f'código ean da posição: {dict['posi']}',key=i)
+                            i += 1
+                            if ean_valido_posicao == ver_comparar[1]:
+                              st.info(f'Posição {dict['posi']} ok')
+                              st.info(f'Nota {dict['numero_nota']} separada com sucesso')
+                            else:
+                              ean_valido_posicao = None
+              if ean_valido_produto and ean_valido_volume and ean_valido_posicao:
+                selecao_datas_separacao2 = f'{dia}-{mes}-{ano}' 
+                caminho_separacao = f'{selecao_datas_separacao2}/{dict['transportadora'][:5]}/{dict['numero_nota']}'
+                dict_separacao = {
+                    'cliente':dict['cliente'],
+                    'nota':dict['numero_nota'],
+                    'volumes':dict['quantidade'],
+                    'separacao_concluido':'sim'
+                }
+                ref_separacao.child(caminho_separacao).set(dict_separacao)
+                st.success(f'Separacao da nota {dict['numero_nota']} concluida com sucesso')
+               
+           st.divider()
              
-         st.divider()
-           
     
      
                    
