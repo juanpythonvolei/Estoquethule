@@ -315,9 +315,7 @@ with tab3:
          for m in dados5:
            if m == selecao_datas_separacao:
              tranpostador_m = dados5[f'{m}']
-             for nota_m in transportador_m:
-               objeto = transportador_m[f'{nota_m}']
-               st.write(objeto)
+             st.write(tranpostador_m)
          transp_dict = str(dict['transportadora']).casefold()
          if 'ltda.' in transp_dict:
            transp_dict = transp_dict.replace('ltda.','ltda')
