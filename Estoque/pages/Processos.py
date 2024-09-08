@@ -201,7 +201,6 @@ with tab2:
                         for processo in infos:
                           if processo ==  selecao_processos:
                             notas = infos[f'{processo}']
-                            
                             for espec in notas:
                               if espec != 'status' and espec !='separacao':
                                 try:
@@ -236,8 +235,7 @@ with tab2:
                                 lista_dicionarios.append('já coletadoSS')
                               
   if selecao_datas and selecao_processos:       
-    i = 0 
-    try: 
+      i = 0 
       if 'já coletadoSS' in lista_dicionarios:
         st.info('Mercado já concluido')
         st.divider()  
@@ -257,8 +255,7 @@ with tab2:
                 ref_mercado.child(caminho_mercado).set(dict_mercado)
                 st.success(f'Mercado de volume: {volume_mercado} registrado')
             st.divider() 
-    except:
-        pass 
+
 
 with tab3:
   ref_separacao = db.reference('separacao')
