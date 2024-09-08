@@ -317,11 +317,11 @@ with tab3:
              tranpostador_m = dados5[f'{m}']
              for nota_m in tranpostador_m:
                caracs = tranpostador_m[f'{nota_m}']
-               st.write(caracs)
-               if str(caracs) == str(dict['numero_nota']):
-                 for carac in caracs:
-                   if caracs[f'{carac}']['separacao_concluido'] == 'sim':
-                    separacao_ativa = True
+               for carac in caracs:
+                   numero_nota_m = caracs[f'{carac}']['nota']
+                   if numero_nota_m == dict['numero_nota']:
+                     if caracs[f'{carac}']['separacao_concluido'] == 'sim':
+                      separacao_ativa = True
          if separacao_ativa == False: 
            lista_tuplas_separacao = [] 
            transp_dict = str(dict['transportadora']).casefold()
