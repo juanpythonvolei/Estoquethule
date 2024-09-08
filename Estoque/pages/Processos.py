@@ -176,7 +176,7 @@ with tab2:
     else:
      lista_ean.append(comparacao)
   with col7:
-   selecao_datas=st.date_input(label='selecione uma data')
+   selecao_datas=st.date_input(label='selecione uma data',value=today)
    ano = str(selecao_datas)[0:4]
    mes = str(selecao_datas)[5:7]
    dia = str(selecao_datas)[8:] 
