@@ -107,7 +107,7 @@ if selecao_datas and selecao_processos:
                                 else:
                                   lista_dicionarios.append('já coletadoSS')
                                 
-if selecao_datas and selecao_datas:       
+if selecao_datas and selecao_processos:       
         i = 0 
         if 'já coletadoSS' in lista_dicionarios:
           st.info('Mercado já concluido')
@@ -117,9 +117,10 @@ if selecao_datas and selecao_datas:
               mercado_ativo = True
               for nota_mercado in dados4:
                 data_mercado = dados4[f'{nota_mercado}']
+                st.write(data_mercado)
                 if data_mercado == selecao_datas:
                   for numero_nota_mercado in data_mercado:
-                    st.write(data_mercado[f'{numero_nota_mercado}'])
+                    
                     if data_mercado[f'{numero_nota_mercado}'] == item['numero_nota']:
                       mercado_ativo = False
               if mercado_ativo == True:
