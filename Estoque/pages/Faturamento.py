@@ -156,9 +156,7 @@ if uploaded_files:
                                     st.write(qtd_final)
                                     if dados2[f'{posicaoo}'][f'{pedido['produto']}']['quantidade'] > 0:
                                       ref_estoque.child(f'Rev/{posicaoo}/{pedido['produto']}/quantidade').set(qtd_final)
-                                      requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-                                      roteiro = requiscao.json()
-                                      dados2 = roteiro['Depósito']['Rev']
+                                      
                                     else:
                                       pass  
                                   else:
@@ -168,7 +166,6 @@ if uploaded_files:
                                   
                                   
                         st.write(lista_database) 
-                        st.write(lista_ver)
                         caminho_faturamento = f'{data_atual}/{random.randint(10,1000)}'
                         ref_faturamento.child(caminho_faturamento).set(lista_ver)
                         st.metric(label='Notas faturadas',value=contagem)
