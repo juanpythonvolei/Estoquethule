@@ -86,6 +86,7 @@ if selecao_datas_separacao:
                      selecao_transp = str(selecao_transp).upper()
          else:
                      selecao_transp = str(selecao_transp).upper()  
+         st.write(selecao_transp)
          for dict in lista_separacao:
            separacao_ativa = False
            for m in dados5:
