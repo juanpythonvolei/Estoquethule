@@ -114,12 +114,10 @@ if selecao_datas and selecao_processos:
                                     except:
                                       descricao = espec['descricao']
                                     try:
-                                      
                                       produto = notas[f'{espec}']['produto']
                                     except:
                                       produto = espec['produto']
-                                    except:
-                                      
+                                    try:
                                       posi = notas[f'{espec}']['posicao']
                                     except:
                                       posi = espec['posicao']
