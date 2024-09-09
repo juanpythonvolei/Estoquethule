@@ -81,17 +81,18 @@ if selecao_datas_separacao:
   
       
       if selecao_transp:
+         if 'ltda.' in nota_m:
+                     selecao_transp = str(selecao_transp).replace('ltda.','ltda')
+                     selecao_transp = str(selecao_transp).upper()
+                   else:
+                     selecao_transp = str(selecao_transp).upper()  
          for dict in lista_separacao:
            separacao_ativa = False
            for m in dados5:
              if m == selecao_datas_separacao:
                tranpostador_m = dados5[f'{m}']
                for nota_m in tranpostador_m:
-                   if 'ltda.' in nota_m:
-                     selecao_transp = str(selecao_transp).replace('ltda.','ltda')
-                     selecao_transp = str(selecao_transp).upper()
-                   else:
-                     selecao_transp = str(selecao_transp).upper()
+                   
                    st.write(selecao_transp[:5])
                if str(selecao_transp)[:5] == str(nota_m):
                    caracs = tranpostador_m[f'{nota_m}']
