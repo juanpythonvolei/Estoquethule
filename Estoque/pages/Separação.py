@@ -94,7 +94,7 @@ if selecao_datas_separacao:
                tranpostador_m = dados5[f'{m}']
                for nota_m in tranpostador_m:
                  st.write(nota_m)
-                 if str(selecao_transp)[:5] == str(nota_m):
+                 if str(selecao_transp) == str(nota_m):
                    caracs = tranpostador_m[f'{nota_m}']
                    for carac in caracs:
                        numero_nota_m = caracs[f'{carac}']['nota']
