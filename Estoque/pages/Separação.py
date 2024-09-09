@@ -88,6 +88,7 @@ if selecao_datas_separacao:
            for m in dados5:
              if m == selecao_datas_separacao:
                tranpostador_m = dados5[f'{m}']
+               st.write(tranpostador_m)
                for nota_m in tranpostador_m:
                  st.write(selecao_transp)
                  st.write(nota_m)
