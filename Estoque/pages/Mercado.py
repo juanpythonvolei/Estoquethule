@@ -93,7 +93,6 @@ if selecao_datas and selecao_processos:
                                     else:  
                                         lista_dicionarios.append(dicionario)   
                                   except:
-                                    st.write(espec)
                                     try:
                                       numero_nota = notas[f'{espec}']['nota']
                                     except:
