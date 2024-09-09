@@ -29,22 +29,22 @@ except:
   dados5 = None
 
 col7,col8,col9 = st.columns(3)
-    lista_ean = []
-    lista_processos = []
-    lista_datas =[]
-    lista_dicionarios = []  
-    requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-    roteiro = requiscao.json()
-    dados = roteiro['Faturamento']
-    dados2 = roteiro['Depósito']['Rev']
-    dados3 = roteiro['Estoque']
-    for produto in dados3:
-      infoprod = dados3[f'{produto}']
-      ean = infoprod['EAN']
-      comparacao = (produto,ean)
-      if comparacao in lista_ean:
+lista_ean = []
+lista_processos = []
+lista_datas =[]
+lista_dicionarios = []  
+requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+roteiro = requiscao.json()
+dados = roteiro['Faturamento']
+dados2 = roteiro['Depósito']['Rev']
+dados3 = roteiro['Estoque']
+for produto in dados3:
+    infoprod = dados3[f'{produto}']
+    ean = infoprod['EAN']
+    comparacao = (produto,ean)
+    if comparacao in lista_ean:
         pass
-      else:
+    else:
        lista_ean.append(comparacao)
     with col7:
      selecao_datas=st.date_input(label='selecione uma data',value=None)
