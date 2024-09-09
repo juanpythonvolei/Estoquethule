@@ -143,6 +143,7 @@ if uploaded_files:
                                   pass
                                  
                                 if float(quantidade) >= float(quantidade_pedido[0]):
+                                  st.write(quantidade)
                                   qtd = quantidade - quantidade_pedido
                                   #ref_estoque.child(f'Rec/{pedido['produto']}/quantidade').set(quantidade-quantidade_pedido)
                                   info = f'{pedido['produto']}/{posicaoo}/{pedido['quantidade'][0]}'
