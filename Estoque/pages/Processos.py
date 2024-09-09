@@ -164,7 +164,7 @@ with tab1:
          
 with tab2: 
   if tab2:
-    st.rerun()
+    
     col7,col8,col9 = st.columns(3)
     lista_ean = []
     lista_processos = []
@@ -191,6 +191,7 @@ with tab2:
     
      selecao_datas= f'{dia}-{mes}-{ano}'              
      if selecao_datas:  
+      st.rerun() 
       for a in dados:
                   if a == selecao_datas:
                             infos = dados[f'{a}']
