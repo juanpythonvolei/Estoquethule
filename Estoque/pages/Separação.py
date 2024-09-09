@@ -27,7 +27,7 @@ except:
 try:
   dados5 = roteiro['separacao']
 except:
-
+  pass
 
 #ref_separacao = db.reference('separacao')
 #caminho_separacao = f'algo'
