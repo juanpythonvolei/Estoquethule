@@ -151,9 +151,6 @@ if selecao_datas and selecao_processos:
     
               if mercado_ativo == True:
                   st.session_state.qtd = 0
-                  ref_contagem_mercado = db.reference('contagem_mercado')
-                  caminho_contagem_mercado = f'{selecao_datas}/{item['numero_nota']}'
-                  ref_contagem_mercado.child(caminho_contagem_mercado).set({'quantidade_alvo':item['quantidade']})
                   st.info(f'''Nota:{item['numero_nota']}\n
                     Cliente:{item['cliente']}\n
           Produto:{item['produtos']}\n
@@ -162,11 +159,8 @@ if selecao_datas and selecao_processos:
                   acao = st.text_input(label='',placeholder=f'Insira o item {item['produtos']}',key=i)
                   i += 1 
                   if acao:
-                    st.session_state.qtd += 1 
-                    caminho_contagem_mercado_contagem = f'{selecao_datas}/{item['numero_nota']}/quantidade_coletada'
-                    ref_contagem_mercado.child(caminho_contagem_mercado_contagem).set(st.session_state.qtd)
-                    if roteiro['contagem_mercado'][f'{item['numero_nota']}']['quantidade_alvo'] == st.session_state.qtd:
-                      st.write('ok')
+                      if st.session_state.qtd == item['quantidade']:
+                        st.write('ok')
                   if str(acao) == str(item['produtos']):
                     st.write(lista_itens_recolhidos)
                     if lista_itens_recolhidos == item['quantidade']:
