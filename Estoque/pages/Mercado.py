@@ -164,7 +164,7 @@ if selecao_datas and selecao_processos:
                       if st.session_state.qtd == item['quantidade']:
                         st.write('ok')
                   if str(acao) == str(item['produtos']):
-                    if lista_itens_recolhidos == item['quantidade']:
+                    if st.session_state.qtd == item['quantidade']:
                       volume_mercado = random.randint(0,10000)
                       caminho_mercado = f'{selecao_datas}/{item['numero_nota']}'
                       dict_mercado = {'cliente':item['cliente'],'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'mercado_concluido':'sim','quantidade':item['quantidade'],'transp':item['transp']}
