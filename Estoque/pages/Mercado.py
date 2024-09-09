@@ -121,7 +121,7 @@ if selecao_datas and selecao_processos:
                                     try:
                                       posi = notas[f'{espec}']['posicao']
                                     except:
-                                      posi = espec['posicao']
+                                      posi = '00-000-00'
                                     try:
                                       transp = notas[f'{espec}']['transportadora']
                                     except:
