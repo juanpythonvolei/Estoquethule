@@ -1,1 +1,99 @@
-
+    col7,col8,col9 = st.columns(3)
+    lista_ean = []
+    lista_processos = []
+    lista_datas =[]
+    lista_dicionarios = []  
+    requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+    roteiro = requiscao.json()
+    dados = roteiro['Faturamento']
+    dados2 = roteiro['Depósito']['Rev']
+    dados3 = roteiro['Estoque']
+    for produto in dados3:
+      infoprod = dados3[f'{produto}']
+      ean = infoprod['EAN']
+      comparacao = (produto,ean)
+      if comparacao in lista_ean:
+        pass
+      else:
+       lista_ean.append(comparacao)
+    with col7:
+     selecao_datas=st.date_input(label='selecione uma data',value=None)
+     ano = str(selecao_datas)[0:4]
+     mes = str(selecao_datas)[5:7]
+     dia = str(selecao_datas)[8:] 
+    
+     selecao_datas= f'{dia}-{mes}-{ano}'              
+     if selecao_datas:  
+       
+      for a in dados:
+                  if a == selecao_datas:
+                            infos = dados[f'{a}']
+                            for processo in infos:
+                              if processo in lista_processos:
+                                pass
+                              else:
+                                lista_processos.append(processo)
+    with col8:   
+      if selecao_datas:
+        selecao_processos = st.selectbox(label='',placeholder='Selecione um Processo',index=None,options=lista_processos) 
+    if selecao_datas and selecao_processos:
+          for x in dados:
+                  if x == selecao_datas:
+                          infos = dados[f'{x}']
+                          for processo in infos:
+                            if processo ==  selecao_processos:
+                              notas = infos[f'{processo}']
+                              for espec in notas:
+                                if espec != 'status' and espec !='separacao':
+                                  try:
+                                    numero_nota = espec['nota']
+                                    cliente = espec['cliente']
+                                    data = espec['data']
+                                    quantidade =espec['quantidade']
+                                    descricao = espec['descricao']
+                                    produto = espec['produto']
+                                    posi = espec['posicao']
+                                    transp = espec['transportadora'] 
+                                    dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transp':transp}  
+                                    if dicionario in lista_dicionarios:
+                                        pass
+                                    else:  
+                                        lista_dicionarios.append(dicionario)   
+                                  except:
+                                    numero_nota = notas[f'{espec}']['nota']
+                                    cliente = notas[f'{espec}']['cliente']
+                                    data = notas[f'{espec}']['data']
+                                    quantidade = notas[f'{espec}']['quantidade']
+                                    descricao = notas[f'{espec}']['descricao']
+                                    produto = notas[f'{espec}']['produto']
+                                    posi = notas[f'{espec}']['posicao']
+                                    transp = notas[f'{espec}']['transportadora']
+                                    dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transp':transp}
+                                    if dicionario in lista_dicionarios:
+                                        pass
+                                    else:  
+                                        lista_dicionarios.append(dicionario)  
+                                else:
+                                  lista_dicionarios.append('já coletadoSS')
+                                
+    if selecao_datas and selecao_datas:       
+        i = 0 
+        if 'já coletadoSS' in lista_dicionarios:
+          st.info('Mercado já concluido')
+          st.divider()  
+        else:
+         for item in lista_dicionarios:  
+              st.info(f'''Nota:{item['numero_nota']}\n
+                    Cliente:{item['cliente']}\n
+          Produto:{item['produtos']}\n
+          quantidade: {item['quantidade']}\n
+          localização: {item['posi']}''') 
+              acao = st.text_input(label='',placeholder=f'Insira o item {item['produtos']}',key=i)
+              i += 1 
+              if str(acao) == str(item['produtos']):
+                  volume_mercado = random.randint(0,10000)
+                  caminho_mercado = f'{selecao_datas}/{volume_mercado}'
+                  dict_mercado = {'cliente':item['cliente'],'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'mercado_concluido':'sim','quantidade':item['quantidade'],'transp':item['transp']}
+                  ref_mercado.child(caminho_mercado).set(dict_mercado)
+                  st.success(f'Mercado de volume: {volume_mercado} registrado')
+              st.divider() 
