@@ -89,7 +89,7 @@ if selecao_datas_separacao:
                if 'ltda.' in tranpostador_m:
                  tranpostador_m = str(tranpostador_m).replace('ltda.','ltda')
                  tranpostador_m = str(tranpostador_m).upper()
-               if selecao_transp[:5] == tranpostador_m:
+               if selecao_transp[:5] == tranpostador_m[:5]:
                  for nota_m in tranpostador_m:
                    caracs = tranpostador_m[f'{nota_m}']
                    for carac in caracs:
