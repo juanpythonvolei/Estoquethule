@@ -27,20 +27,17 @@ try:
   dados5 = roteiro['separacao']
 except:
   dados5 = None
-tab1,tab2,tab3 = st.tabs(['Faturamento','Mercado','Separação'])
 
-
-with tab1:
-              lista_filtrada = []         
-              uploaded_files = st.file_uploader("Escolha os arquivos", type=[f'xml'], accept_multiple_files=True)
-              lista = []   
-              contagem = 0    
-              erro = 0  
-              valor = 0
-              nao_rev = []
-              lista_ver = []
-              lista_mais = []
-              if uploaded_files:
+lista_filtrada = []         
+uploaded_files = st.file_uploader("Escolha os arquivos", type=[f'xml'], accept_multiple_files=True)
+lista = []   
+contagem = 0    
+erro = 0  
+valor = 0
+nao_rev = []
+lista_ver = []
+lista_mais = []
+if uploaded_files:
                         for nota in uploaded_files:
                           
                                              
