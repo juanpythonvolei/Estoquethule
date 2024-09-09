@@ -114,19 +114,25 @@ if selecao_datas and selecao_datas:
           st.divider()  
         else:
          for item in lista_dicionarios:  
-              mercado_ativo = False
-              
-              st.info(f'''Nota:{item['numero_nota']}\n
+              mercado_ativo = True
+              for nota_mercado in dados4:
+                data_mercado = dados4[f'{nota_mercado}']
+                if data_mercado == selecao_datas:
+                  for numero_nota_mercado in data_mercado:
+                    if data_mercado[f'{numero_nota_mercado}'] == item['numero_nota']:
+                      mercado_ativo = False
+              if mercado_ativo == True
+                  st.info(f'''Nota:{item['numero_nota']}\n
                     Cliente:{item['cliente']}\n
           Produto:{item['produtos']}\n
           quantidade: {item['quantidade']}\n
           localização: {item['posi']}''') 
-              acao = st.text_input(label='',placeholder=f'Insira o item {item['produtos']}',key=i)
-              i += 1 
-              if str(acao) == str(item['produtos']):
-                  volume_mercado = random.randint(0,10000)
-                  caminho_mercado = f'{selecao_datas}/{item['numero_nota']}'
-                  dict_mercado = {'cliente':item['cliente'],'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'mercado_concluido':'sim','quantidade':item['quantidade'],'transp':item['transp']}
-                  ref_mercado.child(caminho_mercado).set(dict_mercado)
-                  st.success(f'Mercado de volume: {volume_mercado} registrado')
-              st.divider() 
+                  acao = st.text_input(label='',placeholder=f'Insira o item {item['produtos']}',key=i)
+                  i += 1 
+                  if str(acao) == str(item['produtos']):
+                      volume_mercado = random.randint(0,10000)
+                      caminho_mercado = f'{selecao_datas}/{item['numero_nota']}'
+                      dict_mercado = {'cliente':item['cliente'],'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'mercado_concluido':'sim','quantidade':item['quantidade'],'transp':item['transp']}
+                      ref_mercado.child(caminho_mercado).set(dict_mercado)
+                      st.success(f'Mercado de volume: {volume_mercado} registrado')
+                  st.divider() 
