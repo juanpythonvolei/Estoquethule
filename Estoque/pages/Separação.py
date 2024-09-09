@@ -128,7 +128,7 @@ if selecao_datas_separacao:
                                 ean_valido_posicao = None
                 if ean_valido_produto and ean_valido_volume and ean_valido_posicao:
                   selecao_datas_separacao2 = f'{dia}-{mes}-{ano}' 
-                  caminho_separacao = f'{selecao_datas_separacao2}/{str(dict['transportadora'][:5]).uppercase()}/{dict['numero_nota']}'
+                  caminho_separacao = f'{selecao_datas_separacao2}/{str(dict['transportadora'][:5]).upper()}/{dict['numero_nota']}'
                   dict_separacao = {
                       'cliente':dict['cliente'],
                       'nota':dict['numero_nota'],
