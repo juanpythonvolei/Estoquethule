@@ -139,4 +139,4 @@ if selecao_datas_separacao:
                   ref_separacao.child(caminho_separacao).set(dict_separacao)
                   st.success(f'Separacao da nota {dict['numero_nota']} concluida com sucesso')
                  
-             st.divider()
+                 st.divider()
