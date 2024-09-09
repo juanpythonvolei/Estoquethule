@@ -145,6 +145,7 @@ if uploaded_files:
                                 if float(quantidade) >= float(quantidade_pedido[0]):
                                   info = f'{pedido['produto']}/{posicaoo}/{pedido['quantidade'][0]}'
                                   if str(pedido['produto']) == str(item):
+                                    lista_database.append(pedido['produto'])
                                     qtd_final = float(quantidade) - float(quantidade_pedido[0])
                                     st.write(qtd_final)
                                     st.write(pedido['produto'])
@@ -161,7 +162,7 @@ if uploaded_files:
                                   contagem +=1
                                   
                                   
-                       
+                        st.write(lista_database) 
                         caminho_faturamento = f'{data_atual}/{random.randint(10,1000)}'
                         ref_faturamento.child(caminho_faturamento).set(lista_ver)
                         st.metric(label='Notas faturadas',value=contagem)
