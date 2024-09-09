@@ -115,14 +115,12 @@ if selecao_datas and selecao_processos:
         else:
          for item in lista_dicionarios:  
               mercado_ativo = True
-              for nota_mercado in dados4:
-                data_mercado = dados4[f'{nota_mercado}']
-                st.write(nota_mercado)
+              for data_mercado in dados4:
                 if data_mercado == selecao_datas:
                   for numero_nota_mercado in data_mercado:
-                    
-                    if data_mercado[f'{numero_nota_mercado}'] == item['numero_nota']:
-                      mercado_ativo = False
+                      nota_mercado = numero_nota_mercado[f'{data_mercado}']:
+                        st.write(nota_mercado)
+    
               if mercado_ativo == True:
                   st.info(f'''Nota:{item['numero_nota']}\n
                     Cliente:{item['cliente']}\n
