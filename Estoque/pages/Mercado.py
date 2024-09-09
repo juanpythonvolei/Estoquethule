@@ -119,6 +119,7 @@ if selecao_datas and selecao_datas:
                 data_mercado = dados4[f'{nota_mercado}']
                 if data_mercado == selecao_datas:
                   for numero_nota_mercado in data_mercado:
+                    st.write(data_mercado[f'{numero_nota_mercado}'])
                     if data_mercado[f'{numero_nota_mercado}'] == item['numero_nota']:
                       mercado_ativo = False
               if mercado_ativo == True:
