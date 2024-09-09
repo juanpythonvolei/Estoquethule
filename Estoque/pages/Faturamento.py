@@ -13,6 +13,7 @@ requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.fireba
 roteiro = requiscao.json()
 ref_faturamento = db.reference('Faturamento')
 ref_mercado = db.reference('mercado')  
+ref_estoque =db.reference('Depósito')
 data_hora_atual = datetime.now()
 data_atual = data_hora_atual.strftime("%d-%m-%Y")
 caminho_faturamento = f'{data_atual}'
@@ -142,6 +143,7 @@ if uploaded_files:
                                   pass
                                  
                                 if float(quantidade) >= float(quantidade_pedido[0]):
+                                  ref_estoque.child(f'Rec/{pedido['produto']}/quantidade').set(quantidade-quantidade_pedido)
                                   info = f'{pedido['produto']}/{posicaoo}/{pedido['quantidade'][0]}'
                                   lista_database.append(info)  
                                   pedido.update({'posicao':posicaoo})
