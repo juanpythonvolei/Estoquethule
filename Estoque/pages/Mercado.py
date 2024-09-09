@@ -63,10 +63,10 @@ with col7:
                                 pass
                               else:
                                 lista_processos.append(processo)
-    with col8:   
+with col8:   
       if selecao_datas:
         selecao_processos = st.selectbox(label='',placeholder='Selecione um Processo',index=None,options=lista_processos) 
-    if selecao_datas and selecao_processos:
+if selecao_datas and selecao_processos:
           for x in dados:
                   if x == selecao_datas:
                           infos = dados[f'{x}']
@@ -106,7 +106,7 @@ with col7:
                                 else:
                                   lista_dicionarios.append('já coletadoSS')
                                 
-    if selecao_datas and selecao_datas:       
+if selecao_datas and selecao_datas:       
         i = 0 
         if 'já coletadoSS' in lista_dicionarios:
           st.info('Mercado já concluido')
