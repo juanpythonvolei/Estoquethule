@@ -93,7 +93,7 @@ if selecao_datas and selecao_processos:
                                     else:  
                                         lista_dicionarios.append(dicionario)   
                                   except:
-                                       st.write(notas)
+                                       st.write(espec)
                                 
 if selecao_datas and selecao_processos:       
         i = 0 
