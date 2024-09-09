@@ -74,6 +74,7 @@ if selecao_datas_separacao:
        transp = str(transp).casefold()
        if 'ltda.' in transp:
          transp = transp.replace('ltda.','ltda')
+         transp = transp[:5].upper()
        if transp in lista_transp:
          pass
        else:
@@ -82,13 +83,11 @@ if selecao_datas_separacao:
   
       
       if selecao_transp:
-        selecao_transp = selecao_transp[:5].upper()
         for dict in lista_separacao:
            separacao_ativa = False 
            for m in dados5:
              if m == selecao_datas_separacao:
                tranpostador_m = dados5[f'{m}']
-               st.write(tranpostador_m)
                for nota_m in tranpostador_m:
                  st.write(selecao_transp)
                  st.write(nota_m)
