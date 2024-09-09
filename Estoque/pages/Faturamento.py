@@ -146,6 +146,7 @@ if uploaded_files:
                                   lista_database.append(info)  
                                   pedido.update({'posicao':posicaoo})
                                   contagem +=1
+                                  quantidade = quantidade_pedido - quantidade
                                 
                        
                         caminho_faturamento = f'{data_atual}/{random.randint(10,1000)}'
