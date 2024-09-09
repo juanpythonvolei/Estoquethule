@@ -145,7 +145,7 @@ if uploaded_files:
                                 if float(quantidade) >= float(quantidade_pedido[0]):
                                   st.write(quantidade)
                                   st.write(quantidade_pedido[0])
-                                  qtd_final = float(quantidade_pedido[0]) - float(quantidade)
+                                  qtd_final = float(quantidade) - float(quantidade_pedido[0])
                                   if dados2[f'{posicaoo}'][f'{pedido['produto']}']['quantidade'] > 0:
                                     ref_estoque.child(f'Rev/{posicaoo}/{pedido['produto']}/quantidade').set(qtd_final)
                                   else:
