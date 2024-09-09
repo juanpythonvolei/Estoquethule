@@ -81,7 +81,7 @@ if selecao_datas_separacao:
   
       
       if selecao_transp:
-         if 'ltda.' in nota_m:
+         if 'ltda.' in selecao_transp:
                      selecao_transp = str(selecao_transp).replace('ltda.','ltda')
                      selecao_transp = str(selecao_transp).upper()
          else:
