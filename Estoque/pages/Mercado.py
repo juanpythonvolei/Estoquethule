@@ -163,7 +163,8 @@ if selecao_datas and selecao_processos:
                   i += 1 
                   if acao:
                     qtd += 1 
-                    ref_contagem_mercado.child(caminho_contagem_mercado).set({'quantiade_coletada':qtd})
+                    caminho_contagem_mercado_contagem = f'{selecao_datas}/{item['numero_nota']}/quantidade_coletada'
+                    ref_contagem_mercado.child(caminho_contagem_mercado).set(qtd)
                     if roteiro['contagem_mercado'][f'{item['numero_nota']}']['quantidade_alvo'] == qtd:
                       st.write('ok')
                   if str(acao) == str(item['produtos']):
