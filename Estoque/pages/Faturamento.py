@@ -131,7 +131,6 @@ if uploaded_files:
                         
                         lista_database = []
                         for pedido in lista_ver:
-                          qtd_a_descontar = 0
                           for posicaoo in dados2:
                             posicao = dados2[f'{posicaoo}']
                             for item in posicao:
@@ -147,10 +146,11 @@ if uploaded_files:
                                   qtd_final = float(quantidade) - float(quantidade_pedido[0])
                                   st.write(qtd_final)
                                   info = f'{pedido['produto']}/{posicaoo}/{pedido['quantidade'][0]}'
-                                  if dados2[f'{posicaoo}'][f'{pedido['produto']}']['quantidade'] > 0:
-                                    ref_estoque.child(f'Rev/{posicaoo}/{pedido['produto']}/quantidade').set(qtd_final)
-                                  else:
-                                    pass  
+                                  if pedido['produto'] == item:
+                                    if dados2[f'{posicaoo}'][f'{pedido['produto']}']['quantidade'] > 0:
+                                      ref_estoque.child(f'Rev/{posicaoo}/{pedido['produto']}/quantidade').set(qtd_final)
+                                    else:
+                                      pass  
                                   pedido.update({'posicao':posicaoo})
                                   contagem +=1
                                   requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
