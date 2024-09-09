@@ -121,7 +121,7 @@ if selecao_datas and selecao_datas:
                   for numero_nota_mercado in data_mercado:
                     if data_mercado[f'{numero_nota_mercado}'] == item['numero_nota']:
                       mercado_ativo = False
-              if mercado_ativo == True
+              if mercado_ativo == True:
                   st.info(f'''Nota:{item['numero_nota']}\n
                     Cliente:{item['cliente']}\n
           Produto:{item['produtos']}\n
