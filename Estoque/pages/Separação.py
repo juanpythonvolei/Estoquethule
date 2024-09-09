@@ -89,7 +89,7 @@ if selecao_datas_separacao:
                for nota_m in tranpostador_m:
                    
                    caracs = tranpostador_m[f'{nota_m}']
-                   st.write(caracs)
+                   st.write(nota_m)
                    for carac in caracs:
                        numero_nota_m = caracs[f'{carac}']['nota']
                        if numero_nota_m == dict['numero_nota']:
