@@ -187,7 +187,7 @@ with tab2:
    mes = str(selecao_datas)[5:7]
    dia = str(selecao_datas)[8:] 
   
-   selecao_datas_uso= f'{dia}-{mes}-{ano}'              
+   selecao_datas= f'{dia}-{mes}-{ano}'              
    if selecao_datas:  
     for a in dados:
                 if a == selecao_datas:
