@@ -20,7 +20,14 @@ caminho_faturamento = f'{data_atual}'
 #ref_faturamento.child(caminho_faturamento).set('a')
 dados = roteiro['Faturamento']
 dados2 = roteiro['Depósito']['Rev'] 
-
+try:
+  dados4 = roteiro['mercado']
+except:
+  dados4 = None
+try:
+  dados5 = roteiro['separacao']
+except:
+  dados5 = None
 
 
 ref_separacao = db.reference('separacao')
