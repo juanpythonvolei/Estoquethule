@@ -128,7 +128,7 @@ if uploaded_files:
                             informacao = str(nao).split('/')
                             numero_nao = informacao[1]
                             lista_nao.append(numero_nao)
-                        
+                        qtd_a_descontar = 0
                         lista_database = []
                         for pedido in lista_ver:
                           for posicaoo in dados2:
@@ -144,10 +144,9 @@ if uploaded_files:
                                  
                                 if float(quantidade) >= float(quantidade_pedido[0]):
                                   qtd_final = float(quantidade) - float(quantidade_pedido[0])
-                                  if dados2[f'{posicaoo}'][f'{pedido['produto']}']['quantidade'] > 0:
-                                    ref_estoque.child(f'Rev/{posicaoo}/{pedido['produto']}/quantidade').set(qtd_final)
-                                  else:
-                                    pass
+                                  st.write(qtd_final)
+                                  qtd_a_descontar += qtd_final
+                                  
                                   info = f'{pedido['produto']}/{posicaoo}/{pedido['quantidade'][0]}'
                                   lista_database.append(info)  
                                   pedido.update({'posicao':posicaoo})
