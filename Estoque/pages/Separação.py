@@ -86,13 +86,14 @@ if selecao_datas_separacao:
                      selecao_transp = str(selecao_transp)[:5].upper()
          else:
                      selecao_transp = str(selecao_transp)[:5].upper()  
-         st.write(selecao_transp)
+         
          for dict in lista_separacao:
            separacao_ativa = False
            for m in dados5:
              if m == selecao_datas_separacao:
                tranpostador_m = dados5[f'{m}']
                for nota_m in tranpostador_m:
+                 st.write(nota_m)
                  if str(selecao_transp)[:5] == str(nota_m):
                    caracs = tranpostador_m[f'{nota_m}']
                    for carac in caracs:
