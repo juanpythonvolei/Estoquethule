@@ -159,6 +159,9 @@ if selecao_datas and selecao_processos:
                   acao = st.text_input(label='',placeholder=f'Insira o item {item['produtos']}',key=i)
                   i += 1 
                   if str(acao) == str(item['produtos']):
+                    if roteiro['mercado'][f'{selecao_datas}'][f'{item['numero_nota']}'] == item['numero_nota']:
+                      st.info('Esse pedidos já foi recolhido')
+                    else:
                       volume_mercado = random.randint(0,10000)
                       caminho_mercado = f'{selecao_datas}/{item['numero_nota']}'
                       dict_mercado = {'cliente':item['cliente'],'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'mercado_concluido':'sim','quantidade':item['quantidade'],'transp':item['transp']}
