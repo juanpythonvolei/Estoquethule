@@ -31,9 +31,6 @@ except:
 
 
 ref_separacao = db.reference('separacao')
-caminho_separacao = f'a'
-
-ref_separacao.child(caminho_separacao).set('a')
 col1,col2,col3 = st.columns(3)
 lista_separacao = []
 lista_transp = []
