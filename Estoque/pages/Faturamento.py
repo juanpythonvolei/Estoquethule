@@ -128,9 +128,10 @@ if uploaded_files:
                             informacao = str(nao).split('/')
                             numero_nao = informacao[1]
                             lista_nao.append(numero_nao)
-                        qtd_a_descontar = 0
+                        
                         lista_database = []
                         for pedido in lista_ver:
+                          qtd_a_descontar = 0
                           for posicaoo in dados2:
                             posicao = dados2[f'{posicaoo}']
                             for item in posicao:
