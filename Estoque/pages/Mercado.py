@@ -117,7 +117,9 @@ if selecao_datas and selecao_processos:
               mercado_ativo = True
               for data_mercado in dados4:
                 if data_mercado == selecao_datas:
-                  st.write(dados4[f'{data_mercado}'])
+                  
+                  for numero_nota in dados4[f'{data_mercado}']:
+                    st.write(numero_nota)
     
               if mercado_ativo == True:
                   st.info(f'''Nota:{item['numero_nota']}\n
