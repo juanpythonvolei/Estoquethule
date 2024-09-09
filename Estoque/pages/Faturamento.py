@@ -145,6 +145,7 @@ if uploaded_files:
                                 if float(quantidade) >= float(quantidade_pedido[0]):
                                   qtd_final = float(quantidade) - float(quantidade_pedido[0])
                                   st.write(qtd_final)
+                                  st.write(qtd_a_descontar)
                                   qtd_a_descontar += qtd_final
                                   
                                   info = f'{pedido['produto']}/{posicaoo}/{pedido['quantidade'][0]}'
