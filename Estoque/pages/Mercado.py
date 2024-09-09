@@ -46,7 +46,7 @@ for produto in dados3:
         pass
     else:
        lista_ean.append(comparacao)
-  with col7:
+with col7:
      selecao_datas=st.date_input(label='selecione uma data',value=None)
      ano = str(selecao_datas)[0:4]
      mes = str(selecao_datas)[5:7]
