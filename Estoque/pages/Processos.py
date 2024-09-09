@@ -156,7 +156,7 @@ with tab1:
                         st.metric(label='Produtos não estocados',value=len(list(set(nao_rev))))
                         if len(nao_rev) > 0:
                           st.metric(label='Notas não Faturadas',value=len(list(set(lista_nao))))
-              st.rerun()    
+                 
                           
                                 
                                              
