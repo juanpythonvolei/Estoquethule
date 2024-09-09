@@ -93,21 +93,7 @@ if selecao_datas and selecao_processos:
                                     else:  
                                         lista_dicionarios.append(dicionario)   
                                   except:
-                                    numero_nota = notas[f'{espec}']['nota']
-                                    cliente = notas[f'{espec}']['cliente']
-                                    data = notas[f'{espec}']['data']
-                                    quantidade = notas[f'{espec}']['quantidade']
-                                    descricao = notas[f'{espec}']['descricao']
-                                    produto = notas[f'{espec}']['produto']
-                                    posi = notas[f'{espec}']['posicao']
-                                    transp = notas[f'{espec}']['transportadora']
-                                    dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transp':transp}
-                                    if dicionario in lista_dicionarios:
-                                        pass
-                                    else:  
-                                        lista_dicionarios.append(dicionario)  
-                                else:
-                                  lista_dicionarios.append('já coletadoSS')
+                                       st.write(notas)
                                 
 if selecao_datas and selecao_processos:       
         i = 0 
