@@ -93,7 +93,47 @@ if selecao_datas and selecao_processos:
                                     else:  
                                         lista_dicionarios.append(dicionario)   
                                   except:
-                                       st.write(espec['nota'])
+                                    try:
+                                      numero_nota = notas[f'{espec}']['nota']
+                                    except:
+                                      numero_nota = espec['nota']
+                                    try:
+                                      cliente = notas[f'{espec}']['cliente']
+                                    except:
+                                      cliente = espec['cliente']
+                                    try:
+                                      data = notas[f'{espec}']['data']
+                                    except:
+                                      data = espec['data']
+                                    try:
+                                      quantidade = notas[f'{espec}']['quantidade']
+                                    except:
+                                      quantidade = espec['quantidade']
+                                    try:
+                                      descricao = notas[f'{espec}']['descricao']
+                                    except:
+                                      descricao = espec['descricao']
+                                    try:
+                                      
+                                      produto = notas[f'{espec}']['produto']
+                                    except:
+                                      produto = espec['produto']
+                                    except:
+                                      
+                                      posi = notas[f'{espec}']['posicao']
+                                    except:
+                                      posi = espec['posicao']
+                                    try:
+                                      transp = notas[f'{espec}']['transportadora']
+                                    except:
+                                      transp = espec['transportadora']
+                                    dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transp':transp}
+                                    if dicionario in lista_dicionarios:
+                                        pass
+                                    else:  
+                                        lista_dicionarios.append(dicionario)  
+                                else:
+                                  lista_dicionarios.append('já coletadoSS')
                                 
 if selecao_datas and selecao_processos:       
         i = 0 
