@@ -152,6 +152,7 @@ if uploaded_files:
                                     lista_database.append(pedido['produto'])
                                     qtd_final = float(quantidade) - float(quantidade_pedido[0])
                                     st.write(quantidade)
+                                    st.write(pedido['produto'])
                                     st.write(quantidade_pedido[0])
                                     st.write(qtd_final)
                                     if dados2[f'{posicaoo}'][f'{pedido['produto']}']['quantidade'] > 0:
