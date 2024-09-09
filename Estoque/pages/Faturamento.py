@@ -146,6 +146,7 @@ if uploaded_files:
                                   lista_database.append(info)  
                                   pedido.update({'posicao':posicaoo})
                                   contagem +=1
+                                
                        
                         caminho_faturamento = f'{data_atual}/{random.randint(10,1000)}'
                         ref_faturamento.child(caminho_faturamento).set(lista_ver)
