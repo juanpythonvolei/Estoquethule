@@ -160,6 +160,7 @@ if selecao_datas and selecao_processos:
                   i += 1 
                   if acao:
                     lista_itens_recolhidos += 1 
+                    acao = ''
                   if str(acao) == str(item['produtos']):
                     st.write(lista_itens_recolhidos)
                     if lista_itens_recolhidos == item['quantidade']:
