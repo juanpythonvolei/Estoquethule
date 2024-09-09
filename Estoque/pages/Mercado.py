@@ -149,7 +149,8 @@ if selecao_datas and selecao_processos:
                     if numero_nota == item['numero_nota']:
                       mercado_ativo  = False
     
-              if mercado_ativo == True:
+              if mercado_ativo == True:]
+                  lista_itens_recolhidos = []
                   st.info(f'''Nota:{item['numero_nota']}\n
                     Cliente:{item['cliente']}\n
           Produto:{item['produtos']}\n
@@ -157,7 +158,10 @@ if selecao_datas and selecao_processos:
           localização: {item['posi']}''') 
                   acao = st.text_input(label='',placeholder=f'Insira o item {item['produtos']}',key=i)
                   i += 1 
+                  if acao:
+                    lista_itens_recolhidos.append('feito')
                   if str(acao) == str(item['produtos']):
+                    if len(lista_itens_recolhidos) == item['quantidade']:
                       volume_mercado = random.randint(0,10000)
                       caminho_mercado = f'{selecao_datas}/{item['numero_nota']}'
                       dict_mercado = {'cliente':item['cliente'],'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'mercado_concluido':'sim','quantidade':item['quantidade'],'transp':item['transp']}
