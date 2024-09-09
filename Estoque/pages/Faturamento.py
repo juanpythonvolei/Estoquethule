@@ -148,12 +148,18 @@ if uploaded_files:
                                   st.write(qtd_final)
                                   st.write(qtd_a_descontar)
                                   qtd_a_descontar += qtd_final
-                                  
+                                  qtd_a_descontar = 0
                                   info = f'{pedido['produto']}/{posicaoo}/{pedido['quantidade'][0]}'
-                                  lista_database.append(info)  
+                                  if dados2[f'{posicaoo}'][f'{pedido['produto']}']['quantidade'] > 0:
+                                    ref_estoque.child(f'Rev/{posicaoo}/{pedido['produto']}/quantidade').set(qtd_final)
+                                  else:
+                                    pass  
                                   pedido.update({'posicao':posicaoo})
                                   contagem +=1
-                                
+                                  requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+                                  roteiro = requiscao.json()
+                                  dados2 = roteiro['Depósito']['Rev']
+                                  
                        
                         caminho_faturamento = f'{data_atual}/{random.randint(10,1000)}'
                         ref_faturamento.child(caminho_faturamento).set(lista_ver)
