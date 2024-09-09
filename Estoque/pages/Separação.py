@@ -81,7 +81,7 @@ if selecao_datas_separacao:
   
       
       if selecao_transp:
-           selecao_transp = str(selecao_transp)[:5].upper()
+           selecao_transp = selecao_transp[:5].upper()
            separacao_ativa = False
            for m in dados5:
              if m == selecao_datas_separacao:
