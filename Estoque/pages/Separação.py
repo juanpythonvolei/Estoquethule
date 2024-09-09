@@ -91,7 +91,7 @@ if selecao_datas_separacao:
                  tranpostador_m = str(tranpostador_m).upper()
                else:
                  tranpostador_m = str(tranpostador_m).upper()
-               if str(selecao_transp)[:5] == str(tranpostador_m)[:5]:
+               if str(selecao_transp) == str(tranpostador_m):
                  for nota_m in tranpostador_m:
                    caracs = tranpostador_m[f'{nota_m}']
                    for carac in caracs:
