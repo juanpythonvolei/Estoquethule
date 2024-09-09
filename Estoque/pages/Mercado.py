@@ -18,7 +18,7 @@ data_atual = data_hora_atual.strftime("%d-%m-%Y")
 caminho_faturamento = f'{data_atual}'
 caminho_mercado = f'{data_atual}'
 #ref_faturamento.child(caminho_faturamento).set('a')
-ref_mercado.child(caminho_mercado).set('a')
+#ref_mercado.child(caminho_mercado).set('a')
 dados = roteiro['Faturamento']
 dados2 = roteiro['Depósito']['Rev'] 
 try:
