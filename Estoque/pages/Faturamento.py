@@ -146,7 +146,7 @@ if uploaded_files:
                                   st.write(quantidade)
                                   st.write(quantidade_pedido[0])
                                   qtd_final = float(quantidade_pedido[0]) - float(quantidade)
-                                  ref_estoque.child(f'Rec/{pedido['produto']}/quantidade').set(qtd_final)
+                                  ref_estoque.child(f'Rev/{posicaoo}/{pedido['produto']}/quantidade').set(qtd_final)
                                   info = f'{pedido['produto']}/{posicaoo}/{pedido['quantidade'][0]}'
                                   lista_database.append(info)  
                                   pedido.update({'posicao':posicaoo})
