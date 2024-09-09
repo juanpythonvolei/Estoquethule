@@ -159,8 +159,7 @@ if 'Depósito' in roteiro:
                             nova_quantidade = quantidade_atual_rec-quantidade
                             deposito_ref.child(caminho_rec).set(nova_quantidade)
                             try: 
-                              dados['Rev'][f'{localizacao}'][f'{produto}']['quantidade']
-                              quantidade_atual_rev = dados['Rev'][f'{localizacao}'][f'{produto}']['quantidade']
+                              quantidade_atual_rev = dados['Rev'][f'{final}'][f'{produto}']['quantidade']
                               nova_quantidade_rev = quantidade_atual_rev + quantidade
                               caminho_rev = f'Rev/{final}/{produto}'
                               deposito_ref.child(caminho_rev).set({
