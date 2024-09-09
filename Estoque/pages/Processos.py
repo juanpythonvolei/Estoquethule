@@ -163,6 +163,7 @@ with tab1:
                                                                  
          
 with tab2: 
+  st.rerun()
   col7,col8,col9 = st.columns(3)
   lista_ean = []
   lista_processos = []
@@ -264,6 +265,7 @@ with tab2:
 
 
 with tab3:
+  st.rerun()
   ref_separacao = db.reference('separacao')
   
   col1,col2,col3 = st.columns(3)
