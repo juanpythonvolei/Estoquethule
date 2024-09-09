@@ -202,7 +202,7 @@ with tab2:
       selecao_processos = st.selectbox(label='',placeholder='Selecione um Processo',index=None,options=lista_processos) 
   if selecao_datas and selecao_processos:
         for x in dados:
-                if x == selecao_datas_uso:
+                if x == selecao_datas:
                         infos = dados[f'{x}']
                         for processo in infos:
                           if processo ==  selecao_processos:
@@ -240,7 +240,7 @@ with tab2:
                               else:
                                 lista_dicionarios.append('já coletadoSS')
                               
-  if selecao_datas and selecao_datas_uso:       
+  if selecao_datas and selecao_datas:       
       i = 0 
       if 'já coletadoSS' in lista_dicionarios:
         st.info('Mercado já concluido')
