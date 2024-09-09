@@ -101,6 +101,7 @@ if selecao_datas_separacao:
                transp_dict = transp_dict.replace('ltda.','ltda')
              if transp_dict == selecao_transp:
                 ver_comparar = (dict['produtos'],dict['posi'],dict['quantidade'],dict['cliente'],dict['ean_volume'])
+                st.write(ver_comparar) 
                 st.title(f'Nota: {dict['numero_nota']}') 
                 col4,col5,col6 = st.columns(3)
                 with col4:
