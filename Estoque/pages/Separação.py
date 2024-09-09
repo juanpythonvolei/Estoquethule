@@ -27,12 +27,12 @@ except:
 try:
   dados5 = roteiro['separacao']
 except:
-  dados5 = None
+  ref_separacao = db.reference('separacao')
+  caminho_separacao = f'algo'
+  ref_separacao.child(caminho_separacao).set('a')
 
 
 ref_separacao = db.reference('separacao')
-caminho_separacao = f'algo'
-ref_separacao.child(caminho_separacao).set('a')
 col1,col2,col3 = st.columns(3)
 lista_separacao = []
 lista_transp = []
