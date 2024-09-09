@@ -86,13 +86,14 @@ if selecao_datas_separacao:
            for m in dados5:
              if m == selecao_datas_separacao:
                tranpostador_m = dados5[f'{m}']
-               for nota_m in tranpostador_m:
-                 caracs = tranpostador_m[f'{nota_m}']
-                 for carac in caracs:
-                     numero_nota_m = caracs[f'{carac}']['nota']
-                     if numero_nota_m == dict['numero_nota']:
-                       if caracs[f'{carac}']['separacao_concluido'] == 'sim':
-                        separacao_ativa = True
+               if selecao_transp[:5] == tranpostador_m:
+                 for nota_m in tranpostador_m:
+                   caracs = tranpostador_m[f'{nota_m}']
+                   for carac in caracs:
+                       numero_nota_m = caracs[f'{carac}']['nota']
+                       if numero_nota_m == dict['numero_nota']:
+                         if caracs[f'{carac}']['separacao_concluido'] == 'sim':
+                          separacao_ativa = True
            if separacao_ativa == False: 
              lista_tuplas_separacao = [] 
              transp_dict = str(dict['transportadora']).casefold()
