@@ -69,7 +69,7 @@ if selecao_datas_separacao:
                                           lista_separacao.append(dicionario)
       i = 0                            
       for dict in lista_separacao:
-       separacao_ativa = False 
+       
        transp = dict['transportadora']
        transp = str(transp).casefold()
        if 'ltda.' in transp:
@@ -82,8 +82,9 @@ if selecao_datas_separacao:
   
       
       if selecao_transp:
-           selecao_transp = selecao_transp[:5].upper()
-           
+        selecao_transp = selecao_transp[:5].upper()
+        for dict in lista_separacao:
+           separacao_ativa = False 
            for m in dados5:
              if m == selecao_datas_separacao:
                tranpostador_m = dados5[f'{m}']
