@@ -149,7 +149,7 @@ if selecao_datas and selecao_processos:
                     if numero_nota == item['numero_nota']:
                       mercado_ativo  = False
     
-              if mercado_ativo == True:]
+              if mercado_ativo == True:
                   lista_itens_recolhidos = []
                   st.info(f'''Nota:{item['numero_nota']}\n
                     Cliente:{item['cliente']}\n
