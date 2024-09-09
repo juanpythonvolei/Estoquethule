@@ -163,7 +163,6 @@ with tab1:
                                                                  
          
 with tab2: 
-  st.rerun()
   col7,col8,col9 = st.columns(3)
   lista_ean = []
   lista_processos = []
@@ -183,13 +182,14 @@ with tab2:
     else:
      lista_ean.append(comparacao)
   with col7:
-   selecao_datas=st.date_input(label='selecione uma data',value=data_hora_atual)
+   selecao_datas=st.date_input(label='selecione uma data',value=None)
    ano = str(selecao_datas)[0:4]
    mes = str(selecao_datas)[5:7]
    dia = str(selecao_datas)[8:] 
   
    selecao_datas= f'{dia}-{mes}-{ano}'              
    if selecao_datas:  
+    st.rerun() 
     for a in dados:
                 if a == selecao_datas:
                           infos = dados[f'{a}']
@@ -265,7 +265,6 @@ with tab2:
 
 
 with tab3:
-  st.rerun()
   ref_separacao = db.reference('separacao')
   
   col1,col2,col3 = st.columns(3)
