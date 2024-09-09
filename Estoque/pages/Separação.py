@@ -92,7 +92,7 @@ if selecao_datas_separacao:
                      selecao_transp = str(selecao_transp).upper()
                    else:
                      selecao_transp = str(selecao_transp).upper()
-                   st.write(selecao_transp)
+                   st.write(selecao_transp[:5])
                if str(selecao_transp)[:5] == str(nota_m):
                    caracs = tranpostador_m[f'{nota_m}']
                    
