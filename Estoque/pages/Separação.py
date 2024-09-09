@@ -74,9 +74,6 @@ if selecao_datas_separacao:
        transp = str(transp).casefold()
        if 'ltda.' in transp:
          transp = transp.replace('ltda.','ltda')
-         transp = transp[:5].upper()
-       else:
-         transp = transp[:5].upper()
        if transp in lista_transp:
          pass
        else:
