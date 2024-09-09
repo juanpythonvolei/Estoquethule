@@ -163,6 +163,7 @@ if uploaded_files:
                                   
                                   
                         st.write(lista_database) 
+                        st.write(lista_ver)
                         caminho_faturamento = f'{data_atual}/{random.randint(10,1000)}'
                         ref_faturamento.child(caminho_faturamento).set(lista_ver)
                         st.metric(label='Notas faturadas',value=contagem)
