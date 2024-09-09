@@ -82,8 +82,8 @@ if selecao_datas_separacao:
       
       if selecao_transp:
          if 'ltda.' in selecao_transp:
-                     selecao_transp = str(selecao_transp).replace('ltda.','ltda')
-                     selecao_transp = str(selecao_transp).upper()
+                     selecao_transp = str(selecao_transp)[:5].replace('ltda.','ltda')
+                     selecao_transp = str(selecao_transp)[:5].upper()
          else:
                      selecao_transp = str(selecao_transp)[:5].upper()  
          st.write(selecao_transp)
