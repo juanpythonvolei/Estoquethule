@@ -140,7 +140,7 @@ if selecao_datas and selecao_processos:
           st.divider()  
         else:  
          for item in lista_dicionarios:  
-           if item['posi'] != '00-000-00':
+           #if item['posi'] != '00-000-00':
               mercado_ativo = True
               for data_mercado in dados4:
                 if data_mercado == selecao_datas:
