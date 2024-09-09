@@ -156,6 +156,9 @@ if uploaded_files:
                                     st.write(qtd_final)
                                     if dados2[f'{posicaoo}'][f'{pedido['produto']}']['quantidade'] > 0:
                                       ref_estoque.child(f'Rev/{posicaoo}/{pedido['produto']}/quantidade').set(qtd_final)
+                                      requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+                                      roteiro = requiscao.json()
+                                      dados2 = roteiro['Depósito']['Rev']
                                       
                                     else:
                                       pass  
