@@ -116,7 +116,7 @@ if selecao_datas_separacao:
                         ean_valido_volume = st.text_input(label = f'código ean do volume {dict['ean_volume']}' ,key=i)
                         if ean_valido_volume or not ean_valido_volume:
                           i += 1 
-                        if str(ean_valido_volume) == str(ver_comparar[4]):
+                        if ean_valido_volume == ver_comparar[4]:
                           st.info('Volume ok')
                         else:
                           ean_valido_volume = None
