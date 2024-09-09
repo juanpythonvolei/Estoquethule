@@ -59,8 +59,7 @@ if uploaded_files:
                                                   for item in itens_posicao:
                                                     try:
                                                       if str(item) == str(codigo_produto):
-                                                        lista_ver.append(
-                                                          {
+                                                        dict_adicionar = {
                                                            'produto':item,
                                                            'nota':numero_da_nota,
                                                            'descricao': descricao_produto,
@@ -72,7 +71,10 @@ if uploaded_files:
                                                            
                                                           
                                                             }
-                                                                         )
+                                                        if dict_adicionar in lista_ver:
+                                                          pass
+                                                        else:
+                                                          lista_ver.append(dict_adicionar)
                                                       else:
                                                           nao_rev +=1
                                                     except:
@@ -95,8 +97,7 @@ if uploaded_files:
                                                     for item in itens_posicao:
                                                       
                                                         if str(item) == str(codigo_produto):
-                                                          lista_ver.append(
-                                                            {
+                                                          dict_adicionar = {
                                                              'produto':item,
                                                              'nota':numero_da_nota,
                                                              'descricao': descricao_produto,
@@ -108,7 +109,10 @@ if uploaded_files:
                                                              
                                                             
                                                            }
-                                                                        )
+                                                          if dict_adicionar in lista_ver:
+                                                            pass
+                                                          else:
+                                                            lista_ver.append(dict_adicionar)
                                                         else:
                                                             if f'{codigo_produto}/{numero_da_nota}' in nao_rev:
                                                               pass
