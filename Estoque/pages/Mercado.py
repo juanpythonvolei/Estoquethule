@@ -150,7 +150,7 @@ if selecao_datas and selecao_processos:
                       mercado_ativo  = False
     
               if mercado_ativo == True:
-                  lista_itens_recolhidos = []
+                  lista_itens_recolhidos = 0
                   st.info(f'''Nota:{item['numero_nota']}\n
                     Cliente:{item['cliente']}\n
           Produto:{item['produtos']}\n
@@ -159,8 +159,9 @@ if selecao_datas and selecao_processos:
                   acao = st.text_input(label='',placeholder=f'Insira o item {item['produtos']}',key=i)
                   i += 1 
                   if acao:
-                    lista_itens_recolhidos.append('feito')
+                    lista_itens_recolhidos += 1 
                   if str(acao) == str(item['produtos']):
+                    st.write(lista_itens_recolhidos)
                     if len(lista_itens_recolhidos) == item['quantidade']:
                       volume_mercado = random.randint(0,10000)
                       caminho_mercado = f'{selecao_datas}/{item['numero_nota']}'
