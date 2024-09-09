@@ -100,15 +100,13 @@ if selecao_datas_separacao:
              if 'ltda.' in transp_dict:
                transp_dict = transp_dict.replace('ltda.','ltda')
              if transp_dict == selecao_transp:
-                ver_comparar = (dict['produtos'],dict['posi'],dict['quantidade'],dict['cliente'],dict['ean_volume'])
-                st.write(ver_comparar) 
                 st.title(f'Nota: {dict['numero_nota']}') 
                 col4,col5,col6 = st.columns(3)
                 with col4:
                   ean_valido_produto = st.text_input(label = f'código ean do produto:  {dict['produtos']}',key=i)
                   if ean_valido_produto or not ean_valido_produto:
                     i += 1
-                  if ean_valido_produto==dict['produtos']:
+                  if str(ean_valido_produto) == str(dict['produtos']):
                       st.info(f'{dict['produtos']} ok')
                   else:
                     ean_valido_produto = None
@@ -116,7 +114,7 @@ if selecao_datas_separacao:
                         ean_valido_volume = st.text_input(label = f'código ean do volume {dict['ean_volume']}' ,key=i)
                         if ean_valido_volume or not ean_valido_volume:
                           i += 1 
-                        if ean_valido_volume == dict['ean_volume']:
+                        if str(ean_valido_volume) == str(dict['ean_volume']):
                           st.info('Volume ok')
                         else:
                           ean_valido_volume = None
