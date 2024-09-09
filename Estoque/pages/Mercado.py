@@ -38,6 +38,7 @@ roteiro = requiscao.json()
 dados = roteiro['Faturamento']
 dados2 = roteiro['Depósito']['Rev']
 dados3 = roteiro['Estoque']
+dados4 = roteiro['mercado']
 for produto in dados3:
     infoprod = dados3[f'{produto}']
     ean = infoprod['EAN']
@@ -113,6 +114,8 @@ if selecao_datas and selecao_datas:
           st.divider()  
         else:
          for item in lista_dicionarios:  
+              mercado_ativo = False
+              
               st.info(f'''Nota:{item['numero_nota']}\n
                     Cliente:{item['cliente']}\n
           Produto:{item['produtos']}\n
@@ -122,7 +125,7 @@ if selecao_datas and selecao_datas:
               i += 1 
               if str(acao) == str(item['produtos']):
                   volume_mercado = random.randint(0,10000)
-                  caminho_mercado = f'{selecao_datas}/{volume_mercado}'
+                  caminho_mercado = f'{selecao_datas}/{item['numero_nota']}'
                   dict_mercado = {'cliente':item['cliente'],'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'mercado_concluido':'sim','quantidade':item['quantidade'],'transp':item['transp']}
                   ref_mercado.child(caminho_mercado).set(dict_mercado)
                   st.success(f'Mercado de volume: {volume_mercado} registrado')
