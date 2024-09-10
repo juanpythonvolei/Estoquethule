@@ -147,6 +147,7 @@ if selecao_datas and selecao_processos:
                   
                   for numero_nota in dados4[f'{data_mercado}']:
                     if numero_nota == item['numero_nota']:
+                      mercado_ativo = False
                     
     
               if mercado_ativo == True:
