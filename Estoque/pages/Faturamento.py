@@ -153,8 +153,9 @@ if uploaded_files:
                                     qtd_final = float(quantidade) - float(quantidade_pedido[0])
                                     if roteiro['Depósito']['Rev'][f'{posicaoo}'][f'{pedido['produto']}']['quantidade'] > 0:
                                       ref_estoque.child(f'Rev/{posicaoo}/{pedido['produto']}/quantidade').set(qtd_final)
-                                      pedido.update({'posicao':posicaoo})
-                                      contagem +=1
+                                      if float(quantidade) >= float(quantidade_pedido[0]):
+                                        pedido.update({'posicao':posicaoo})
+                                        contagem +=1
                                       requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                                       roteiro = requiscao.json()
                                       dados2 = roteiro['Depósito']['Rev']
