@@ -135,6 +135,9 @@ if uploaded_files:
                         
                         lista_database = []
                         for pedido in lista_ver:
+                          requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+                          roteiro = requiscao.json()
+                          dados2 = roteiro['Depósito']['Rev']
                           for posicaoo in dados2:
                             posicao = dados2[f'{posicaoo}']
                             for item in posicao:
