@@ -58,7 +58,8 @@ if 'Depósito' in roteiro:
                 
                 
              
-                     st.info(texto_item)  
+                     
+         st.info(texto_item)  
          try:   
               st.image(foto)    
          except:
