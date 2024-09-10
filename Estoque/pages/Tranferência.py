@@ -33,13 +33,12 @@ if 'Depósito' in roteiro:
           for x in localizacao:
             if x == item:
                 qtd_rev = localizacao[f'{x}']['quantidade']
-                quantidade_transferida += qtd_rev
                 if qtd_rev>0:
                   quantidade_transferida += qtd_rev
                   local = localizacao
                   info = f'Item :{item} possúi {qtd_rev} unidades na posição {elemento}' 
                   texto  += info
-                st.info(texto)
+                  st.info(texto)
         
         try:
           st.image(foto)  
