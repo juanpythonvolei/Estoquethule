@@ -151,15 +151,11 @@ if uploaded_files:
                                   if str(pedido['produto']) == str(item):
                                     lista_database.append(pedido['produto'])
                                     qtd_final = float(quantidade) - float(quantidade_pedido[0])
-                                   
-                                    st.write(quantidade_pedido[0])
-                                
-                                    ref_estoque.child(f'Rev/{posicaoo}/{pedido['produto']}/quantidade').set(qtd_final)
-                                    requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-                                    roteiro = requiscao.json()
-                                    dados2 = roteiro['Depósito']['Rev']
-                                      
-                            
+                                    if roteiro['Depósito']['Rev'][f'{posicaoo}'][f'{pedido['produto']}']['quantidade'] > 0:
+                                      ref_estoque.child(f'Rev/{posicaoo}/{pedido['produto']}/quantidade').set(qtd_final)
+                                      requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+                                      roteiro = requiscao.json()
+                                      dados2 = roteiro['Depósito']['Rev']
                                   else:
                                     pass
                                   pedido.update({'posicao':posicaoo})
