@@ -147,7 +147,10 @@ if selecao_datas and selecao_processos:
                   
                   for numero_nota in dados4[f'{data_mercado}']:
                     if numero_nota == item['numero_nota']:
-                      mercado_ativo  = False
+                      if item['posi'] == '00-000-00':
+                          mercado_ativo  = False
+                      else:
+                        mercado_ativo = False
     
               if mercado_ativo == True:
                   st.session_state.qtd = 0
