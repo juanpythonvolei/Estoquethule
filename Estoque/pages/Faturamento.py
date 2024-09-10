@@ -160,9 +160,6 @@ if uploaded_files:
                                     pass
                                   pedido.update({'posicao':posicaoo})
                                   contagem +=1
-                                  
-                                  
-                        st.write(lista_database) 
                         caminho_faturamento = f'{data_atual}/{random.randint(10,1000)}'
                         ref_faturamento.child(caminho_faturamento).set(lista_ver)
                         st.metric(label='Notas faturadas',value=contagem)
