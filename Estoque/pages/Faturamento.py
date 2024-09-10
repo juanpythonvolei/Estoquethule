@@ -151,7 +151,7 @@ if uploaded_files:
                                   if str(pedido['produto']) == str(item):
                                     lista_database.append(pedido['produto'])
                                     qtd_final = float(quantidade) - float(quantidade_pedido[0])
-                                    st.write(quantidade_pedido['produto'][0])
+                                   
                                     st.write(quantidade_pedido)
                                 
                                     ref_estoque.child(f'Rev/{posicaoo}/{pedido['produto']}/quantidade').set(qtd_final)
