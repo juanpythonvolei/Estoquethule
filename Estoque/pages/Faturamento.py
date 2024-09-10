@@ -161,8 +161,7 @@ if uploaded_files:
                                     roteiro = requiscao.json()
                                     dados2 = roteiro['Depósito']['Rev']
                                       
-                                    else:
-                                      pass  
+                            
                                   else:
                                     pass
                                   pedido.update({'posicao':posicaoo})
