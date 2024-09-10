@@ -142,7 +142,7 @@ if uploaded_files:
                               if str(item) == str(pedido['produto']):
                                 quantidade = carac[f'quantidade']
                                 try:
-                                  quantidade_pedido = str(pedido['quantidade'][0]).split('.')
+                                  quantidade_pedido = str(pedido['quantidade'])
                                 except:
                                   pass
                                  
