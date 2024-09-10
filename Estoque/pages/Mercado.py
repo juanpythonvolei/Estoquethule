@@ -140,17 +140,14 @@ if selecao_datas and selecao_processos:
           st.divider()  
         else:  
          for item in lista_dicionarios:  
-           #if item['posi'] != '00-000-00':
+           if item['posi'] != '00-000-00':
               mercado_ativo = True
               for data_mercado in dados4:
                 if data_mercado == selecao_datas:
                   
                   for numero_nota in dados4[f'{data_mercado}']:
                     if numero_nota == item['numero_nota']:
-                      if item['posi'] == '00-000-00':
-                          mercado_ativo  = False
-                      else:
-                        mercado_ativo = False
+                    
     
               if mercado_ativo == True:
                   st.session_state.qtd = 0
