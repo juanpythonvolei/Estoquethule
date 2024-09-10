@@ -152,7 +152,7 @@ if uploaded_files:
                                     lista_database.append(pedido['produto'])
                                     qtd_final = float(quantidade) - float(quantidade_pedido[0])
                                    
-                                    st.write(quantidade_pedido)
+                                    st.write(quantidade_pedido[0])
                                 
                                     ref_estoque.child(f'Rev/{posicaoo}/{pedido['produto']}/quantidade').set(qtd_final)
                                     requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
