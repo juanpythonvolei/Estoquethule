@@ -18,7 +18,7 @@ requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.fireba
 roteiro = requiscao.json()
 if 'Depósito' in roteiro:
      def consulta_itens_e_posicoes(a,b):
-          response = chat.send_message(f'Você receberá a seguir um conjunto de dados relacionados a um estoque. Por favor responda o que for possível conforme o solicitado. Segue a pergunta:{a}\n\n{b}\n')
+          response = chat.send_message(f'Você receberá a seguir um conjunto de dados relacionados a um estoque. Nessa base de dados, rec significa "recebimento" e se refere aos itens recebidos pela logística mas que, ainda não foram alocados no estoque. "rev" significa revenda e se refere aos itens que estão alocados no estoque físico. Por favor responda o que for possível conforme o solicitado. Segue a pergunta:{a}\n\n{b}\n')
           resposta = response.text
           st.info(resposta) 
      dados3 = roteiro['Depósito']['Rec']
