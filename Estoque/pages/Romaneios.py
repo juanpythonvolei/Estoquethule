@@ -16,6 +16,10 @@ ref_mercado = db.reference('mercado')
 data_hora_atual = datetime.now()
 data_atual = data_hora_atual.strftime("%d-%m-%Y")
 data_romaneio = st.date_input(label='Selecione uma data',value=None)
+ano = str(data_romaneio)[0:4]
+mes = str(data_romaneio)[5:7]
+dia = str(data_romaneio)[8:] 
+data_romaneio = f'{dia}-{mes}-{ano}' 
 col1,col2,col2 = st.columns(3)
 lista_transps = []
 separacoes = roteiro['separacao']
