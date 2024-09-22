@@ -28,6 +28,10 @@ for item in separacoes:
             nome = str(separacoes[f'{item}'].keys())
             nome = nome.replace('dict_keys','')
             nome = nome.replace('[','')
+            nome = nome.replace(']','')
+            nome = nome.replace('(','')
+            nome = nome.replace(')','')
+            nome = nome.replace("'","")
             st.write(nome)
 if data_romaneio:
   with col1:
