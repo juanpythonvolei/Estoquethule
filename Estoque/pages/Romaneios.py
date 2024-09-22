@@ -25,7 +25,12 @@ lista_transps = []
 separacoes = roteiro['separacao']
 for item in separacoes:
       if item == data_romaneio:
-        lista_transps.append(separacoes[f'{item}'])
+        for dict in separacoes[f'{item}']:
+              transp = separacoes[f'{item}'][f'{dict}']
+              if transp in lista_transps:
+                    pass
+              else:    
+                    lista_transps.append(transp)
 if data_romaneio:
   with col1:
     transp  = st.selectbox(label='',placeholder='Selecione uma transportadora',options=lista_transps)
