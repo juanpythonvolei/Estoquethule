@@ -118,16 +118,16 @@ if selecao_datas_separacao:
                           st.info('Volume ok')
                         else:
                           ean_valido_volume = None
-                with col6:
-                              ean_valido_posicao = st.text_input(label = f'código ean da posição: {dict['posi']}',key=i)
-                              if ean_valido_posicao or not ean_valido_posicao:
-                                i += 1
-                              if ean_valido_posicao == dict['posi']:
-                                st.info(f'Posição {dict['posi']} ok')
-                                st.info(f'Nota {dict['numero_nota']} separada com sucesso')
-                              else:
-                                ean_valido_posicao = None
-                if ean_valido_produto and ean_valido_volume and ean_valido_posicao:
+                #with col6:
+                              #ean_valido_posicao = st.text_input(label = f'código ean da posição: {dict['posi']}',key=i)
+                              #if ean_valido_posicao or not ean_valido_posicao:
+                                #i += 1
+                              #if ean_valido_posicao == dict['posi']:
+                                #st.info(f'Posição {dict['posi']} ok')
+                                #st.info(f'Nota {dict['numero_nota']} separada com sucesso')
+                              #else:
+                                #ean_valido_posicao = None
+                if ean_valido_produto and ean_valido_volume #and ean_valido_posicao:
                   selecao_datas_separacao2 = f'{dia}-{mes}-{ano}' 
                   caminho_separacao = f'{selecao_datas_separacao2}/{str(dict['transportadora'][:5]).upper()}/{dict['numero_nota']}'
                   dict_separacao = {
