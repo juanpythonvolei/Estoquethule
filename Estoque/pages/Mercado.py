@@ -172,7 +172,7 @@ if selecao_datas and selecao_processos:
                     except:
                       volume_mercado = random.randint(0,10000)
                       caminho_mercado = f'{selecao_datas}/{item['numero_nota']}'
-                      dict_mercado = {'cliente':item['cliente'],'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'mercado_concluido':'sim','quantidade':item['quantidade'],'transp':item['transp'],'valor':item['valor']}
+                      dict_mercado = {'cliente':item['cliente'],'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'mercado_concluido':'sim','quantidade':item['quantidade'],'transp':item['transp']}
                       ref_mercado.child(caminho_mercado).set(dict_mercado)
                       st.success(f'Mercado de volume: {volume_mercado} registrado')
                   st.divider() 
