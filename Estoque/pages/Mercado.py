@@ -87,8 +87,8 @@ if selecao_datas and selecao_processos:
                                     produto = espec['produto']
                                     posi = espec['posicao']
                                     transp = espec['transportadora'] 
-                                    #valor= espec['valor']
-                                    dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transp':transp}  
+                                    valor= espec['valor']
+                                    dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transp':transp,'valor':valor}  
                                     if dicionario in lista_dicionarios:
                                         pass
                                     else:  
@@ -126,11 +126,11 @@ if selecao_datas and selecao_processos:
                                       transp = notas[f'{espec}']['transportadora']
                                     except:
                                       transp = espec['transportadora']
-                                    #try:
-                                      #valor = str(notas[f'{espec}']['valor'])
-                                    #except:
-                                      #valor = str(espec['valor'])
-                                    dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transp':transp}
+                                    try:
+                                      valor = str(notas[f'{espec}']['valor'])
+                                    except:
+                                      valor = str(espec['valor'])
+                                    dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transp':transp,'valor':valor}
                                     if dicionario in lista_dicionarios:
                                         pass
                                     else:  
@@ -172,7 +172,7 @@ if selecao_datas and selecao_processos:
                     except:
                       volume_mercado = random.randint(0,10000)
                       caminho_mercado = f'{selecao_datas}/{item['numero_nota']}'
-                      dict_mercado = {'cliente':item['cliente'],'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'mercado_concluido':'sim','quantidade':item['quantidade'],'transp':item['transp']}
+                      dict_mercado = {'cliente':item['cliente'],'processo':selecao_processos,'ean_volume':volume_mercado,'itens':item['produtos'],'nota':item['numero_nota'],'posicao':item['posi'],'mercado_concluido':'sim','quantidade':item['quantidade'],'transp':item['transp'],'valor':item['valor']}
                       ref_mercado.child(caminho_mercado).set(dict_mercado)
                       st.success(f'Mercado de volume: {volume_mercado} registrado')
                   st.divider() 
