@@ -32,7 +32,7 @@ for item in separacoes:
             nome = nome.replace('(','')
             nome = nome.replace(')','')
             nome = nome.replace("'","")
-            st.write(nome)
+            lista_transps.append(nome)
 if data_romaneio:
   with col1:
     transp  = st.selectbox(label='',placeholder='Selecione uma transportadora',options=lista_transps)
