@@ -87,7 +87,7 @@ if selecao_datas and selecao_processos:
                                     produto = espec['produto']
                                     posi = espec['posicao']
                                     transp = espec['transportadora'] 
-                                    valor= esepc['valor']
+                                    valor= espec['valor']
                                     dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transp':transp,'valor':valor}  
                                     if dicionario in lista_dicionarios:
                                         pass
