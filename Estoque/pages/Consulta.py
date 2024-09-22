@@ -20,7 +20,8 @@ if 'Depósito' in roteiro:
      def consulta_itens_e_posicoes(a,b):
           response = chat.send_message(f'Você receberá a seguir um conjunto de dados relacionados a um estoque. Nessa base de dados, rec significa "recebimento" e se refere aos itens recebidos pela logística mas que, ainda não foram alocados no estoque. "rev" significa revenda e se refere aos itens que estão alocados no estoque físico. Por favor responda o que for possível conforme o solicitado. Segue a pergunta:{a}\n\n{b}\n')
           resposta = response.text
-          st.chat_message.write(resposta) 
+          bot = st.chat_message('Olá')
+          bot.write(resposta) 
      dados3 = roteiro['Depósito']['Rec']
      dados = roteiro['Depósito']['Rev']
      dados2 = roteiro['Estoque']
