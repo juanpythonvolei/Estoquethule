@@ -15,8 +15,9 @@ ref_faturamento = db.reference('Faturamento')
 ref_mercado = db.reference('mercado')  
 data_hora_atual = datetime.now()
 data_atual = data_hora_atual.strftime("%d-%m-%Y")
-col1,col2,col2 = st.columns(3)
 data_romaneio = st.date_input(label='Selecione uma data')
+col1,col2,col2 = st.columns(3)
+
 lista_transps = []
 separacoes = roteiro['separacao']
 for item in separacoes:
