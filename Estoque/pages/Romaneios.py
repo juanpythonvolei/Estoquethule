@@ -27,6 +27,7 @@ for item in separacoes:
       if item == data_romaneio:
             nome = str(separacoes[f'{item}'].keys())
             nome = nome.replace('dict_keys','')
+            st.write(nome)
 if data_romaneio:
   with col1:
     transp  = st.selectbox(label='',placeholder='Selecione uma transportadora',options=lista_transps)
