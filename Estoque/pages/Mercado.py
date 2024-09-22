@@ -87,8 +87,8 @@ if selecao_datas and selecao_processos:
                                     produto = espec['produto']
                                     posi = espec['posicao']
                                     transp = espec['transportadora'] 
-                                    valor= str(espec['valor'])
-                                    dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transp':transp,'valor':valor}  
+                                    valor= espec['valor']
+                                    dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transp':transp}  
                                     if dicionario in lista_dicionarios:
                                         pass
                                     else:  
@@ -126,11 +126,11 @@ if selecao_datas and selecao_processos:
                                       transp = notas[f'{espec}']['transportadora']
                                     except:
                                       transp = espec['transportadora']
-                                    try:
-                                      valor = str(notas[f'{espec}']['valor'])
-                                    except:
-                                      valor = str(espec['valor'])
-                                    dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transp':transp,'valor':valor}
+                                    #try:
+                                      #valor = str(notas[f'{espec}']['valor'])
+                                    #except:
+                                      #valor = str(espec['valor'])
+                                    dicionario = {'numero_nota':numero_nota,'cliente':cliente,'data':data,'quantidade':quantidade,'descrição':descricao,'produtos':produto,'posi':posi,'transp':transp}
                                     if dicionario in lista_dicionarios:
                                         pass
                                     else:  
