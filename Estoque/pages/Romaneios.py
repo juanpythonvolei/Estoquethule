@@ -40,6 +40,8 @@ if data_romaneio:
     if transp:  
               botao_romaneios = st.button('Criar Romaneio')
               if botao_romaneios:  
+                    dict_romaneios = {}
+                    lista_romaneios
                     for data_separacao in separacoes:
                           if data_separacao == data_romaneio:
                                 transps = separacoes[f'{data_separacao}']
@@ -52,7 +54,10 @@ if data_romaneio:
                                           nome_nota = nome_nota.replace('(','')
                                           nome_nota = nome_nota.replace(')','')
                                           nome_nota = nome_nota.replace("'","")  
-                                          st.write(nome_nota)
+                                          lista_romaneios.append(nome_nota)
+                                          dict_romaneios.update({"notas":lista_romaneios})
+                                          st.write(dict_romaneios)  
+
                           
               #if botao_romaneios:
                   #try:
