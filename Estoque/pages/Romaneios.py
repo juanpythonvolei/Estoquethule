@@ -45,7 +45,7 @@ if data_romaneio:
                                 transps = separacoes[f'{data_separacao}']
                                 for elemento in transps:
                                       if elemento == transp[:6]:
-                                          st.write(elemento)
+                                          st.write(transps[f'{elemento}'])
                     
               #if botao_romaneios:
                   #try:
