@@ -41,6 +41,7 @@ for item in separacoes:
 if data_romaneio:
   with col1:
     transp  = st.selectbox(label='',placeholder='Selecione uma transportadora',options=lista_transps,index=None)      
+  with col2:
     if transp:  
               i = 0  
               botao_romaneios = st.button('Criar Romaneio')
