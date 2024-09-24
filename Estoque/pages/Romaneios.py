@@ -68,7 +68,7 @@ if data_romaneio:
                                                 texto = f' Nota: {a}  Cliente: {clientes}  Transportadora: {transp[:6]} itens: {volumes}'
                                                 dict_romaneios.update({f'{i}':texto})
                      
-                    df = pd.Dataframe(dict_romaneios)
+                    df = pd.DataFrame(dict_romaneios)
                     st.table(df)
                                                 
 
