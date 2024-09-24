@@ -38,13 +38,12 @@ if data_romaneio:
   with col1:
     transp  = st.selectbox(label='',placeholder='Selecione uma transportadora',options=lista_transps)      
     if transp:  
-        with col2:
               botao_romaneios = st.button('Criar Romaneio')
               for data_separacao in separacoes:
                     if data_separacao == data_romaneio:
                           transps == separacoes[f'{data_separacao}']:
                           for elemento in transps:
-                                if elemento == transp:
+                                if elemento == transp[:6]:
                                       notas = transp[f'{elemento}']
                                       for espec in notas:
                                             volumes = notas[f'{espec}']['volumes']
