@@ -30,7 +30,7 @@ lista_transps = []
 separacoes = roteiro['separacao']
 for item in separacoes:
       if item == data_romaneio:
-            st.write(item)
+            st.write(data_romaneio[f'{item}'])
 
 if data_romaneio:
   with col1:
