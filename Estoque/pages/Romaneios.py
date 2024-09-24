@@ -63,7 +63,7 @@ if data_romaneio:
                     df = pd.DataFrame(dict_romaneios)
                     st.table(df)
                     ref_romaneios.child(f'{data_romaneio}/{transp}/{numero_romaneio}').set(dict_romaneios)
-                    st.succes('Romaneio criado com sucesso')
+                    st.success('Romaneio criado com sucesso')
                                                 
 
                           
