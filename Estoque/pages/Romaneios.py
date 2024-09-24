@@ -61,7 +61,7 @@ if data_romaneio:
                                                 volumes = notas[f'{nota}']['volumes']
                                                 clientes = notas[f'{nota}']['cliente']
                                                 a = notas[f'{nota}']['nota']
-                                                texto s= f' Nota: {a}  Cliente: {clientes}  Transportadora: {transp[:6]} itens: {volumes}'
+                                                texto = f' Nota: {a}  Cliente: {clientes}  Transportadora: {transp[:6]} itens: {volumes}'
                                                 dict_romaneios.update({f'{i}':texto})
                      
                     st.write(dict_romaneios)                            
