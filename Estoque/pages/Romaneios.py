@@ -1,6 +1,6 @@
 
 import streamlit as st
-import firebase_admin
+import firebase_admi
 from firebase_admin import credentials, firestore,db
 import requests
 import os
