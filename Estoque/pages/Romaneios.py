@@ -64,7 +64,10 @@ if data_romaneio:
                                                 volumes = notas[f'{nota}']['volumes']
                                                 clientes = notas[f'{nota}']['cliente']
                                                 a = notas[f'{nota}']['nota']
-                                                texto = f' Nota: {a}  Cliente: {clientes}  Transportadora: {transp[:6]} itens: {volumes}'
+                                                texto = f''' Nota: {a}  
+                                                Cliente: {clientes}  
+                                                Transportadora: {transp[:6]} 
+                                                itens: {volumes}'''
                                                 lista_romaneios.append(texto)
                                                 
                     dict_romaneios = {'pedidos':lista_romaneios} 
