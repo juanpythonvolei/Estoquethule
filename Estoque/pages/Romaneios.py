@@ -45,7 +45,6 @@ if data_romaneio:
               i = 0  
               botao_romaneios = st.button('Criar Romaneio')
               if botao_romaneios:  
-                    dict_romaneios = {}
                     lista_romaneios = []
                     for data_separacao in separacoes:
                           if data_separacao == data_romaneio:
@@ -68,7 +67,7 @@ if data_romaneio:
                                                 texto = f' Nota: {a}  Cliente: {clientes}  Transportadora: {transp[:6]} itens: {volumes}'
                                                 lista_romaneios.append(texto)
                                                 
-                    dict_romaneios.update('pedidos':lista_romaneios) 
+                    dict_romaneios = {'pedidos':lista_romaneios} 
                     df = pd.DataFrame(dict_romaneios)
                     st.table(df)
                                                 
