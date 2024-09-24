@@ -44,10 +44,7 @@ if data_romaneio:
                           transps = separacoes[f'{data_separacao}']
                           for elemento in transps:
                                 if elemento == transp[:6]:
-                                      notas = transp[f'{elemento}']
-                                      for espec in notas:
-                                            volumes = notas[f'{espec}']['volumes']
-                                            st.write(volumes)
+                                    st.write(elemento)
                     
               #if botao_romaneios:
                   #try:
