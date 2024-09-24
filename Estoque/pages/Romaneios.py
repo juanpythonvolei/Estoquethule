@@ -46,13 +46,6 @@ if data_romaneio:
                                 transps = separacoes[f'{data_separacao}']
                                 for elemento in transps:
                                       if elemento == transp[:6]:
-                                          nome_nota = str(transps[f'{elemento}'].keys())
-                                          nome_nota = nome_nota.replace('dict_keys','')
-                                          nome_nota = nome_nota.replace('[','')
-                                          nome_nota = nome_nota.replace(']','')
-                                          nome_nota = nome_nota.replace('(','')
-                                          nome_nota = nome_nota.replace(')','')
-                                          nome_nota = nome_nota.replace("'","")  
                                           notas = transps[f'{elemento}']
                                           for nota in notas:
                                                 i += 1
@@ -64,10 +57,15 @@ if data_romaneio:
                                                 Transportadora: {transp[:6]} 
                                                 itens: {volumes}'''
                                                 lista_romaneios.append(texto)
-                                                
-                    dict_romaneios = {f'pedidos do romaneio {random.randint(10,10000)}':lista_romaneios} 
+
+                    numero_romaneio = random.randint(10,10000)
+                    dict_romaneios = {f'pedidos do romaneio {numero_romaneio}':lista_romaneios} 
                     df = pd.DataFrame(dict_romaneios)
                     st.table(df)
+                    confirmar = st.button('Deseja Confirmar esse romaneio ?')
+                    if confirmar:
+                          ref_romaneios.child(f'{data_romaneio}/{transp}/{numero_romaneio}').set(dict_romaneios)
+                          st.succes('Romaneio criado com sucesso')
                                                 
 
                           
