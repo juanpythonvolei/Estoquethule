@@ -8,6 +8,10 @@ import requests
 import random
 import xmltodict
 from datetime import datetime
+import pandas as pd
+
+
+
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 requiscao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
 roteiro = requiscao.json()
@@ -64,7 +68,8 @@ if data_romaneio:
                                                 texto = f' Nota: {a}  Cliente: {clientes}  Transportadora: {transp[:6]} itens: {volumes}'
                                                 dict_romaneios.update({f'{i}':texto})
                      
-                    st.write(dict_romaneios)                            
+                    df = pd.Dataframe(dict_romaneios)
+                    st.table(df)
                                                 
 
                           
