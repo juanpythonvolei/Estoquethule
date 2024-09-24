@@ -63,7 +63,7 @@ if data_romaneio:
                     df = pd.DataFrame(dict_romaneios)
                     st.table(df)
                     confirmar = st.toggle('Deseja Confirmar esse romaneio ?')
-                    if confirmar:
+                    with confirmar:
                           ref_romaneios.child(f'{data_romaneio}/{transp}/{numero_romaneio}').set(dict_romaneios)
                           st.succes('Romaneio criado com sucesso')
                                                 
