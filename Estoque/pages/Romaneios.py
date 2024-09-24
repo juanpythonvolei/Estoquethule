@@ -30,13 +30,7 @@ lista_transps = []
 separacoes = roteiro['separacao']
 for item in separacoes:
       if item == data_romaneio:
-            nome = str(separacoes[f'{item}'].keys())
-            nome = nome.replace('dict_keys','')
-            nome = nome.replace('[','')
-            nome = nome.replace(']','')
-            nome = nome.replace('(','')
-            nome = nome.replace(')','')
-            nome = nome.replace("'","")
+            st.write(item)
             for item in nome:
                   lista_transps.append(item)
 if data_romaneio:
