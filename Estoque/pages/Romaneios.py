@@ -54,9 +54,9 @@ if data_romaneio:
                                           nome_nota = nome_nota.replace('(','')
                                           nome_nota = nome_nota.replace(')','')
                                           nome_nota = nome_nota.replace("'","")  
-                                          infos = transps[f'{elemento}']
-                                          for info in infos:
-                                                st.write(info)
+                                          notas = transps[f'{elemento}']
+                                          for nota in notas:
+                                                st.write(notas[f'{nota}'])
                                                 
 
                           
