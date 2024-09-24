@@ -54,9 +54,8 @@ if data_romaneio:
                                           nome_nota = nome_nota.replace('(','')
                                           nome_nota = nome_nota.replace(')','')
                                           nome_nota = nome_nota.replace("'","")  
-                                          lista_romaneios.append(nome_nota)
-                                          dict_romaneios.update({"notas":lista_romaneios})
-                                          st.write(dict_romaneios)  
+                                          for info in nome_nota:
+                                                st.write(info)
 
                           
               #if botao_romaneios:
