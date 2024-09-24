@@ -38,41 +38,44 @@ if data_romaneio:
   with col2:
     if transp:  
               i = 0  
-              botao_romaneios = st.button('Criar Romaneio')
-              if botao_romaneios:  
-                    lista_romaneios = []
-                    for data_separacao in separacoes:
-                          if data_separacao == data_romaneio:
-                                transps = separacoes[f'{data_separacao}']
-                                for elemento in transps:
-                                      if elemento == transp[:6]:
-                                          notas = transps[f'{elemento}']
-                                          for nota in notas:
-                                                i += 1
-                                                volumes = notas[f'{nota}']['volumes']
-                                                clientes = notas[f'{nota}']['cliente']
-                                                a = notas[f'{nota}']['nota']
-                                                texto = f''' Nota: {a}  
-                                                Cliente: {clientes}  
-                                                Transportadora: {transp[:6]} 
-                                                itens: {volumes}'''
-                                                lista_romaneios.append(texto)
-
-                    numero_romaneio = random.randint(10,10000)
-                    dict_romaneios = {f'pedidos do romaneio {numero_romaneio}':lista_romaneios} 
-                    df = pd.DataFrame(dict_romaneios)
-                    st.table(df)
-                    ref_romaneios.child(f'{data_romaneio}/{transp}/{numero_romaneio}').set(dict_romaneios)
-                    st.success('Romaneio criado com sucesso')
+              if transp:
+                  try:
+                        for item in roteiro['romaneios']:
+                              if item == data_romaneio:
+                                    verifs = data_romaneio[f'{item}']
+                                    for verif in verifs:
+                                          if verif == transp:
+                                                adicionar_ao_romaneio = st.button("Adicionar itens ao romaneio")
+                                          else:
+                                            botao_romaneios = st.button('Criar Romaneio')
+                                            if botao_romaneios:  
+                                                  lista_romaneios = []
+                                                  for data_separacao in separacoes:
+                                                        if data_separacao == data_romaneio:
+                                                              transps = separacoes[f'{data_separacao}']
+                                                              for elemento in transps:
+                                                                    if elemento == transp[:6]:
+                                                                        notas = transps[f'{elemento}']
+                                                                        for nota in notas:
+                                                                              i += 1
+                                                                              volumes = notas[f'{nota}']['volumes']
+                                                                              clientes = notas[f'{nota}']['cliente']
+                                                                              a = notas[f'{nota}']['nota']
+                                                                              texto = f''' Nota: {a}  
+                                                                              Cliente: {clientes}  
+                                                                              Transportadora: {transp[:6]} 
+                                                                              itens: {volumes}'''
+                                                                              lista_romaneios.append(texto)
+                              
+                                                  numero_romaneio = random.randint(10,10000)
+                                                  dict_romaneios = {f'pedidos do romaneio {numero_romaneio}':lista_romaneios} 
+                                                  df = pd.DataFrame(dict_romaneios)
+                                                  st.table(df)
+                                                  ref_romaneios.child(f'{data_romaneio}/{transp}/{numero_romaneio}').set(dict_romaneios)
+                                                  st.success('Romaneio criado com sucesso')
                                                 
 
                           
-              #if botao_romaneios:
-                  #try:
-                        #for item in roteiro['romaneios']:
-                              #if item == data_romaneio:
-                                    #romaneios = data_romaneio[f'{item}']
-                                    #for romaneio in romaneios:
-                                          #numero_romaneio = romaneios[f'{romaneio}']['numero']
+              
   
         
