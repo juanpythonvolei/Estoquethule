@@ -41,7 +41,7 @@ if data_romaneio:
               botao_romaneios = st.button('Criar Romaneio')
               for data_separacao in separacoes:
                     if data_separacao == data_romaneio:
-                          transps == separacoes[f'{data_separacao}']:
+                          transps == separacoes[f'{data_separacao}']
                           for elemento in transps:
                                 if elemento == transp[:6]:
                                       notas = transp[f'{elemento}']
