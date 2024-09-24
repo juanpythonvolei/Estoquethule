@@ -41,7 +41,7 @@ if data_romaneio:
               if transp:
                         for item in roteiro['romaneios']:
                               if item == data_romaneio:
-                                    verifs = data_romaneio[f'{item}']
+                                    verifs = roteiro['romaneios'][f'{item}']
                                     for verif in verifs:
                                           if verif == transp:
                                                 adicionar_ao_romaneio = st.button("Adicionar itens ao romaneio")
