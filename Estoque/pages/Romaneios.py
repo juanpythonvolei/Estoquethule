@@ -66,8 +66,9 @@ if data_romaneio:
                                                 clientes = notas[f'{nota}']['cliente']
                                                 a = notas[f'{nota}']['nota']
                                                 texto = f' Nota: {a}  Cliente: {clientes}  Transportadora: {transp[:6]} itens: {volumes}'
-                                                dict_romaneios.update(f'{i}':texto)
-                     
+                                                lista_romaneios.append(texto)
+                                                
+                    dict_romaneios.update('pedidos':lista_romaneios) 
                     df = pd.DataFrame(dict_romaneios)
                     st.table(df)
                                                 
