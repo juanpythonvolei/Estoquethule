@@ -41,7 +41,7 @@ if data_romaneio:
               botao_romaneios = st.button('Criar Romaneio')
               if botao_romaneios:  
                     dict_romaneios = {}
-                    lista_romaneios
+                    lista_romaneios = []
                     for data_separacao in separacoes:
                           if data_separacao == data_romaneio:
                                 transps = separacoes[f'{data_separacao}']
