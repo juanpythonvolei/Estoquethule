@@ -45,8 +45,15 @@ if data_romaneio:
                                 transps = separacoes[f'{data_separacao}']
                                 for elemento in transps:
                                       if elemento == transp[:6]:
-                                          st.write(transps[f'{elemento}'])
-                    
+                                          nome_nota = str(separacoes[f'{item}'].keys())
+                                          nome_nota = nome_nota.replace('dict_keys','')
+                                          nome_nota = nome_nota.replace('[','')
+                                          nome_nota = nome_nota.replace(']','')
+                                          nome_nota = nome_nota.replace('(','')
+                                          nome_nota = nome_nota.replace(')','')
+                                          nome_nota = nome_nota.replace("'","")  
+                                          st.write(nome_nota)
+                          
               #if botao_romaneios:
                   #try:
                         #for item in roteiro['romaneios']:
