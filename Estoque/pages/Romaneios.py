@@ -48,7 +48,6 @@ if data_romaneio:
                                 transps = separacoes[f'{data_separacao}']
                                 for elemento in transps:
                                       if elemento == transp[:6]:
-                                          texto = ''  
                                           nome_nota = str(transps[f'{elemento}'].keys())
                                           nome_nota = nome_nota.replace('dict_keys','')
                                           nome_nota = nome_nota.replace('[','')
@@ -62,7 +61,7 @@ if data_romaneio:
                                                 volumes = notas[f'{nota}']['volumes']
                                                 clientes = notas[f'{nota}']['cliente']
                                                 a = notas[f'{nota}']['nota']
-                                                texto += f' Nota: {a}  Cliente: {clientes}  Transportadora: {transp[:6]} itens: {volumes}'
+                                                texto sa= f' Nota: {a}  Cliente: {clientes}  Transportadora: {transp[:6]} itens: {volumes}'
                                                 dict_romaneios.update({f'{i}':texto})
                      
                     st.write(dict_romaneios)                            
