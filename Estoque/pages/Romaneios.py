@@ -39,7 +39,6 @@ if data_romaneio:
     if transp:  
               i = 0  
               if transp:
-                  try:
                         for item in roteiro['romaneios']:
                               if item == data_romaneio:
                                     verifs = data_romaneio[f'{item}']
