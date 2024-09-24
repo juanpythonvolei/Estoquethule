@@ -39,12 +39,13 @@ if data_romaneio:
     transp  = st.selectbox(label='',placeholder='Selecione uma transportadora',options=lista_transps,index=None)      
     if transp:  
               botao_romaneios = st.button('Criar Romaneio')
-              for data_separacao in separacoes:
-                    if data_separacao == data_romaneio:
-                          transps = separacoes[f'{data_separacao}']
-                          for elemento in transps:
-                                if elemento == transp[:6]:
-                                    st.write(elemento)
+              if botao_romaneios:  
+                    for data_separacao in separacoes:
+                          if data_separacao == data_romaneio:
+                                transps = separacoes[f'{data_separacao}']
+                                for elemento in transps:
+                                      if elemento == transp[:6]:
+                                          st.write(elemento)
                     
               #if botao_romaneios:
                   #try:
