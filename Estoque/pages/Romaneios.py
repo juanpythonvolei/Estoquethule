@@ -38,6 +38,7 @@ if data_romaneio:
   with col1:
     transp  = st.selectbox(label='',placeholder='Selecione uma transportadora',options=lista_transps,index=None)      
     if transp:  
+              i = 0  
               botao_romaneios = st.button('Criar Romaneio')
               if botao_romaneios:  
                     dict_romaneios = {}
@@ -47,6 +48,7 @@ if data_romaneio:
                                 transps = separacoes[f'{data_separacao}']
                                 for elemento in transps:
                                       if elemento == transp[:6]:
+                                          texto = ''  
                                           nome_nota = str(transps[f'{elemento}'].keys())
                                           nome_nota = nome_nota.replace('dict_keys','')
                                           nome_nota = nome_nota.replace('[','')
@@ -56,7 +58,13 @@ if data_romaneio:
                                           nome_nota = nome_nota.replace("'","")  
                                           notas = transps[f'{elemento}']
                                           for nota in notas:
-                                                st.write(notas[f'{nota}'])
+                                                i += 1
+                                                volumes = notas[f'{nota}']['volumes']
+                                                clientes = notas[f'{nota}']['cliente']
+                                                texto += f'Cliente: {clientes}  Transportadora: {transp[:6]} itens: {volumes}'
+                                                dict_romaneios.update({f'{i}':texto})
+                     
+                    st.write(dict_romaneios)                            
                                                 
 
                           
