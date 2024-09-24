@@ -45,7 +45,7 @@ if data_romaneio:
                                 transps = separacoes[f'{data_separacao}']
                                 for elemento in transps:
                                       if elemento == transp[:6]:
-                                          nome_nota = str(separacoes[f'{item}'].keys())
+                                          nome_nota = str(transps[f'{elemento}'].keys())
                                           nome_nota = nome_nota.replace('dict_keys','')
                                           nome_nota = nome_nota.replace('[','')
                                           nome_nota = nome_nota.replace(']','')
