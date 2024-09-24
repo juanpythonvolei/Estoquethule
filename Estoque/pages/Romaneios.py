@@ -70,7 +70,7 @@ if data_romaneio:
                                                 itens: {volumes}'''
                                                 lista_romaneios.append(texto)
                                                 
-                    dict_romaneios = {'pedidos':lista_romaneios} 
+                    dict_romaneios = {f'pedidos do romaneio {random.randint(10,10000)}':lista_romaneios} 
                     df = pd.DataFrame(dict_romaneios)
                     st.table(df)
                                                 
