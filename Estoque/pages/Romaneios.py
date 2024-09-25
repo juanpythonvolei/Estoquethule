@@ -37,6 +37,7 @@ if data_romaneio:
     transp  = st.selectbox(label='',placeholder='Selecione uma transportadora',options=lista_transps,index=None)      
   with col2:
     if transp:  
+              lista = []        
               romaneio_criado = False
               i = 0  
               for item in roteiro['romaneios']:
@@ -48,7 +49,9 @@ if data_romaneio:
                                                 processo  = verifs[f'{verif}']
                                                 for y in processo:
                                                       dict_processo  = {'numero':y}
-                                                      st.write(processo[f'{y}'])
+                                                      for item in processo[f'{y}']:
+                                                            lista.append(item)
+                                                            
                                                 
                                                  
               if romaneio_criado == True:
@@ -59,7 +62,9 @@ if data_romaneio:
                                     produto = st.text_input(label='',placeholder='Insira o código do produto')
                                     quantidade = st.text_input(label='',placeholder='Insira a quantidade')
                                     if nota and produto and quantidade:
-                                          ref_romaneios.child(f'{data_romaneio}/{transp}').set(f'Nota: {nota} Produto: {produto} Quantidade: {quantidade}')
+                                          adicao = f'Nota: {nota} Produto: {produto} Quantidade: {quantidade}'
+                                          lista.append(adicao)
+                                          ref_romaneios.child(f'{data_romaneio}/{transp}').set(lista)
                                 
               else:
                                             botao_romaneios = st.button('Criar Romaneio')
