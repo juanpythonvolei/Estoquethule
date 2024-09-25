@@ -48,6 +48,7 @@ if data_romaneio:
                                                 processo  = verifs[f'{verif}']
                                                 for y in processo:
                                                       dict_processo  = {'numero':y}
+                                                      st.write(processo[f'{y}'])
                                                 
                                                  
               if romaneio_criado == True:
@@ -85,8 +86,7 @@ if data_romaneio:
                                                   dict_romaneios = {f'pedidos do romaneio {numero_romaneio}':lista_romaneios} 
                                                   df = pd.DataFrame(dict_romaneios)
                                                   st.table(df)
-                                                  for texto in lista_romaneios:
-                                                        ref_romaneios.child(f'{data_romaneio}/{transp}/{numero_romaneio}').set(texto)
+                                                  ref_romaneios.child(f'{data_romaneio}/{transp}/{numero_romaneio}').set(lista_romaneios)
                                                   st.success('Romaneio criado com sucesso')
                                                 
 
