@@ -45,9 +45,7 @@ if data_romaneio:
                                     for verif in verifs:
                                           if verif == transp:
                                                 romaneio_criado = True
-                                                
-                                          else:
-                                            romaneio_criado = False    
+                                                 
               if romaneio_criado == True:  
                               adicionar_ao_romaneio = st.button("Adicionar itens ao romaneio")
               else:
