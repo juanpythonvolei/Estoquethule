@@ -89,7 +89,7 @@ if data_romaneio:
                               
                                                   numero_romaneio = random.randint(10,10000)
                                                   dict_romaneios = {f'pedidos do romaneio {numero_romaneio}':lista_romaneios} 
-                                                  df = pd.DataFrame(dict_romaneios)
+                                                  df = pd.DataFrame(dict_romaneios.values())
                                                   st.table(df)
                                                   ref_romaneios.child(f'{data_romaneio}/{transp}/{numero_romaneio}').set(lista_romaneios)
                                                   st.success('Romaneio criado com sucesso')
