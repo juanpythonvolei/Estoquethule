@@ -58,7 +58,7 @@ if data_romaneio:
                                     produto = st.text_input(label='',placeholder='Insira o código do produto')
                                     quantidade = st.text_input(label='',placeholder='Insira a quantidade')
                                     if nota and produto and quantidade:
-                                          ref_romaneios.child(f'{data_romaneio}/{transp}/{dict_processo['numero']}/pedidos do romaneio {dict_processo['numero']}').set(f'Nota: {nota} Produto: {produto} Quantidade: {quantidade}')
+                                          ref_romaneios.child(f'{data_romaneio}/{transp}/{dict_processo['numero']}'s).set(f'Nota: {nota} Produto: {produto} Quantidade: {quantidade}')
                                 
               else:
                                             botao_romaneios = st.button('Criar Romaneio')
