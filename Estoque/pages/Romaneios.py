@@ -48,9 +48,9 @@ if data_romaneio:
                                                 
                                           else:
                                             romaneio_criado = False    
-               if romaneio_criado == True:  
+              if romaneio_criado == True:  
                               adicionar_ao_romaneio = st.button("Adicionar itens ao romaneio")
-               else:
+             else:
                                             botao_romaneios = st.button('Criar Romaneio')
                                             if botao_romaneios:  
                                                   lista_romaneios = []
