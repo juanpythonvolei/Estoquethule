@@ -48,6 +48,7 @@ if data_romaneio:
                                                  
               if romaneio_criado == True:  
                               adicionar_ao_romaneio = st.button("Adicionar itens ao romaneio")
+                              st.info('Já existe um Romaneio para essa transportadora na data selecionada')  
               else:
                                             botao_romaneios = st.button('Criar Romaneio')
                                             if botao_romaneios:  
