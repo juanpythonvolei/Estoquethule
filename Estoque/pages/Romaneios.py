@@ -49,7 +49,7 @@ if data_romaneio:
                                                 processo  = verifs[f'{verif}']
                                                 for y in processo:
                                                       dict_processo  = {'numero':y}
-                                                      for item in processo[f'{y}']:
+                                                      for item in processo:
                                                             lista.append(item)
                                                             
                                                 
