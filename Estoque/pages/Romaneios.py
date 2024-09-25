@@ -46,7 +46,8 @@ if data_romaneio:
                                           if verif == transp:
                                                 romaneio_criado = True
                                                 processo  = verifs[f'{verif}']
-                                                dict_processo  = {'numero':processo}
+                                                for y in processo:
+                                                      dict_processo  = {'numero':y}
                                                 
                                                  
               if romaneio_criado == True:
