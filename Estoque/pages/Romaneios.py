@@ -62,7 +62,7 @@ if data_romaneio:
                                     produto = st.text_input(label='',placeholder='Insira o código do produto')
                                     quantidade = st.text_input(label='',placeholder='Insira a quantidade')
                                     if nota and produto and quantidade:
-                                          adicao = f'Nota: {nota} Produto: {produto} Quantidade: {quantidade}'
+                                          adicao = {'Nota': nota, 'Transportadora': transp[:6], 'itens': quantidade}
                                           lista.append(adicao)
                                           ref_romaneios.child(f'{data_romaneio}/{transp}').set(lista)
                                 
@@ -81,10 +81,10 @@ if data_romaneio:
                                                                               volumes = notas[f'{nota}']['volumes']
                                                                               clientes = notas[f'{nota}']['cliente']
                                                                               a = notas[f'{nota}']['nota']
-                                                                              texto = f''' Nota: {a}  
-                                                                              Cliente: {clientes}  
-                                                                              Transportadora: {transp[:6]} 
-                                                                              itens: {volumes}'''
+                                                                              texto = {'Nota': a,  
+                                                                              'Cliente': clientes,
+                                                                              'Transportadora': transp[:6],
+                                                                              'itens': volumes}
                                                                               lista_romaneios.append(texto)
                               
                                                   numero_romaneio = random.randint(10,10000)
