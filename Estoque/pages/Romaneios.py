@@ -45,10 +45,20 @@ if data_romaneio:
                                     for verif in verifs:
                                           if verif == transp:
                                                 romaneio_criado = True
+                                                processo  = verifs[f'{verif}']
+                                                dict_processo  = {'numero':processo}
+                                                
                                                  
-              if romaneio_criado == True:  
-                              adicionar_ao_romaneio = st.button("Adicionar itens ao romaneio")
-                              st.info('Já existe um Romaneio para essa transportadora na data selecionada')  
+              if romaneio_criado == True:
+                              st.info(f'Já existe um Romaneio {dict_processo['numero']} para essa transportadora na data selecionada')
+                              adicionar_ao_romaneio = st.popover("Adicionar itens ao romaneio")
+                              with adicionar_ao_romaneio:
+                                    nota = st.text_input(label='',placeholder='Insira o número da nota')
+                                    produto = st.text_input(label='',placeholder='Insira o código do produto')
+                                    quantidade = st.text_input(label='',placeholder='Insira a quantidade')
+                                    if nota and produto and quantidade:
+                                          pass
+                                
               else:
                                             botao_romaneios = st.button('Criar Romaneio')
                                             if botao_romaneios:  
