@@ -64,7 +64,7 @@ if data_romaneio:
                                     if nota and produto and quantidade:
                                           adicao = {'Nota': nota, 'Transportadora': transp[:6], 'itens': quantidade}
                                           lista.append(adicao)
-                                          ref_romaneios.child(f'{data_romaneio}/{transp}').set(lista)
+                                          ref_romaneios.child(f'{data_romaneio}/{transp}/{dict_processo['numero']}').set(lista)
                                 
               else:
                                             botao_romaneios = st.button('Criar Romaneio')
