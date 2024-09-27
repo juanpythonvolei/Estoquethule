@@ -66,7 +66,7 @@ if data_romaneio:
                                           adicao = {'Nota': nota, 'Transportadora': transp[:6], 'itens': quantidade}
                                           lista.append(adicao)
                                           ref_romaneios.child(f'{data_romaneio}/{transp}/{dict_processo['numero']}').set(lista)
-                               with ver_romaneio:
+                                with ver_romaneio:
                                      dict_exibir = {'Romaneio':lista}
                                      df_novo = pd.Dataframe(dict_exibir)
                                      st.table(df_novo)
