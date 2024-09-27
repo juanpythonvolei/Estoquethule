@@ -57,6 +57,7 @@ if data_romaneio:
               if romaneio_criado == True:
                               st.info(f'Já existe um Romaneio {dict_processo['numero']} para essa transportadora na data selecionada')
                               adicionar_ao_romaneio = st.popover("Adicionar itens ao romaneio")
+                              ver_romaneio = st.popover("Vizualizar romaneio")  
                               with adicionar_ao_romaneio:
                                     nota = st.text_input(label='',placeholder='Insira o número da nota')
                                     produto = st.text_input(label='',placeholder='Insira o código do produto')
@@ -65,6 +66,10 @@ if data_romaneio:
                                           adicao = {'Nota': nota, 'Transportadora': transp[:6], 'itens': quantidade}
                                           lista.append(adicao)
                                           ref_romaneios.child(f'{data_romaneio}/{transp}/{dict_processo['numero']}').set(lista)
+                               with ver_romaneio:
+                                     dict_exibir = {'Romaneio':lista}
+                                     df_novo = pd.Dataframe(dict_exibir)
+                                     st.table(df_novo)
                                 
               else:
                                             botao_romaneios = st.button('Criar Romaneio')
