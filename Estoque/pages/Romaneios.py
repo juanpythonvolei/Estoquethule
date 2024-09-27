@@ -68,7 +68,7 @@ if data_romaneio:
                                           ref_romaneios.child(f'{data_romaneio}/{transp}/{dict_processo['numero']}').set(lista)
                               with ver_romaneio:
                                      dict_exibir = {'Romaneio':lista}
-                                     df_novo = pd.Dataframe(dict_exibir)
+                                     df_novo = pd.DataFrame(dict_exibir)
                                      st.table(df_novo)
                                 
               else:
