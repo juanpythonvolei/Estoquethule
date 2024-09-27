@@ -67,9 +67,14 @@ if data_romaneio:
                                           lista.append(adicao)
                                           ref_romaneios.child(f'{data_romaneio}/{transp}/{dict_processo['numero']}').set(lista)
                               with ver_romaneio:
-                                     dict_exibir = {'Romaneio':lista}
+                                     lista_nova = []
+                                     
+                                     for item in lista:
+                                           texto = f'Transportadora : {item[f'Transportadora']}\n Cliente: {item['Cliente']}\n Nota: {item['Nota']}\n Itens: {item['itens']}'
+                                           lista_nova.append(texto)
+                                     dict_exibir = {'Romaneio':lista_nova}
                                      df_novo = pd.DataFrame(dict_exibir)
-                                     st.table(df_novo)
+                                     st.table(df_novo)            
                                 
               else:
                                             botao_romaneios = st.button('Criar Romaneio')
