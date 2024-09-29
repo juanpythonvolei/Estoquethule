@@ -138,7 +138,7 @@ if 'Depósito' in roteiro:
               pergunta = st.chat_input()       
               if pergunta:         
                             consulta_itens_e_posicoes(pergunta,texto_base)   
-        with col6:
+         with col6:
              falar = st.button('Fazer uma pergunta')
              if falar:
                   audio(texto_base)
