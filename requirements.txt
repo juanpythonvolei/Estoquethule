@@ -15,6 +15,6 @@ google-generativeai
 streamlit-option-menu
 streamlit-calendar
 streamlit_carousel
-speech-recognition
+SpeechRecognition
 
 
