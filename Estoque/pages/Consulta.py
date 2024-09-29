@@ -7,7 +7,7 @@ from streamlit_option_menu import option_menu
 import time
 import google.generativeai as genai
 import pandas as pd
-
+import speech_recognition as sr
 GOOGLE_API_KEY = st.secrets['firebase']['GOOGLE_API_KEY']
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
@@ -20,9 +20,22 @@ if 'Depósito' in roteiro:
      def consulta_itens_e_posicoes(a,b):
           user = st.chat_message("user")
           response = chat.send_message(f'Você receberá a seguir um conjunto de dados relacionados a um estoque. Nessa base de dados, rec significa "recebimento" e se refere aos itens recebidos pela logística mas que, ainda não foram alocados no estoque. "rev" significa revenda e se refere aos itens que estão alocados no estoque físico. Por favor responda o que for possível conforme o solicitado. Segue a pergunta:{a}\n\n{b}\n')
+          user.write(response)
           resposta = response.text
           bot = st.chat_message("assistant")
           bot.write(resposta) 
+     def audio(b):
+         rec = sr.Recognizer()
+         #print(sr.Microphone().list_microphone_names())
+         with sr.Microphone(device_index=2) as microfone:
+             rec.adjust_for_ambient_noise(microfone)
+             time.sleep(1)
+             audio = rec.listen(microfone)
+             texto = rec.recognize_google(audio,language = 'pt-BR')
+             response = chat.send_message(f'Você receberá a seguir um conjunto de dados relacionados a um estoque. Nessa base de dados, rec significa "recebimento" e se refere aos itens recebidos pela logística mas que, ainda não foram alocados no estoque. "rev" significa revenda e se refere aos itens que estão alocados no estoque físico. Por favor responda o que for possível conforme o solicitado. Segue a pergunta:{texto}\n\n{b}\n')
+             resposta = response.text
+             bot = st.chat_message("assistant")
+             bot.write(resposta)  
      dados3 = roteiro['Depósito']['Rec']
      dados = roteiro['Depósito']['Rev']
      dados2 = roteiro['Estoque']
