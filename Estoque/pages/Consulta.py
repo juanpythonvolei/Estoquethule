@@ -19,22 +19,23 @@ roteiro = requiscao.json()
 if 'Depósito' in roteiro:
      def consulta_itens_e_posicoes(a,b):
           user = st.chat_message("user")
-          response = user.write(chat.send_message(f'Você receberá a seguir um conjunto de dados relacionados a um estoque. Nessa base de dados, rec significa "recebimento" e se refere aos itens recebidos pela logística mas que, ainda não foram alocados no estoque. "rev" significa revenda e se refere aos itens que estão alocados no estoque físico. Por favor responda o que for possível conforme o solicitado. Segue a pergunta:{a}\n\n{b}\n'))
+          response = chat.send_message(f'Você receberá a seguir um conjunto de dados relacionados a um estoque. Nessa base de dados, rec significa "recebimento" e se refere aos itens recebidos pela logística mas que, ainda não foram alocados no estoque. "rev" significa revenda e se refere aos itens que estão alocados no estoque físico. Por favor responda o que for possível conforme o solicitado. Segue a pergunta:{a}\n\n{b}\n')
           resposta = response.text
           bot = st.chat_message("assistant")
           bot.write(resposta) 
      def audio(b):
          rec = sr.Recognizer()
-         #print(sr.Microphone().list_microphone_names())
          with sr.Microphone(device_index=2) as microfone:
              rec.adjust_for_ambient_noise(microfone)
              time.sleep(1)
+             st.info('Faça a pergunta') 
              audio = rec.listen(microfone)
              texto = rec.recognize_google(audio,language = 'pt-BR')
-             response = chat.send_message(f'Você receberá a seguir um conjunto de dados relacionados a um estoque. Nessa base de dados, rec significa "recebimento" e se refere aos itens recebidos pela logística mas que, ainda não foram alocados no estoque. "rev" significa revenda e se refere aos itens que estão alocados no estoque físico. Por favor responda o que for possível conforme o solicitado. Segue a pergunta:{texto}\n\n{b}\n')
-             resposta = response.text
-             bot = st.chat_message("assistant")
-             bot.write(resposta)  
+             if texto: 
+                  response = chat.send_message(f'Você receberá a seguir um conjunto de dados relacionados a um estoque. Nessa base de dados, rec significa "recebimento" e se refere aos itens recebidos pela logística mas que, ainda não foram alocados no estoque. "rev" significa revenda e se refere aos itens que estão alocados no estoque físico. Por favor responda o que for possível conforme o solicitado. Segue a pergunta:{texto}\n\n{b}\n')
+                  resposta = response.text
+                  bot = st.chat_message("assistant")
+                  bot.write(resposta)  
      dados3 = roteiro['Depósito']['Rec']
      dados = roteiro['Depósito']['Rev']
      dados2 = roteiro['Estoque']
@@ -132,8 +133,14 @@ if 'Depósito' in roteiro:
                
                   {texto_posicao}
              '''              
-         pergunta = st.chat_input()       
-         if pergunta:         
-                       consulta_itens_e_posicoes(pergunta,texto_base)          
+         col4,col5,col6 = st.columns(3)     
+         with col4: 
+              pergunta = st.chat_input()       
+              if pergunta:         
+                            consulta_itens_e_posicoes(pergunta,texto_base)   
+        with col6:
+             falar = st.button('Fazer uma pergunta')
+             if falar:
+                  audio(texto_base)
 else:
      st.error('Não há estoque disponível')
