@@ -25,7 +25,7 @@ if 'Depósito' in roteiro:
           bot.write(resposta) 
      def audio(b):
          rec = sr.Recognizer()
-         with sr.Microphone(device_index=2) as microfone:
+         with sr.Microphone() as microfone:
              rec.adjust_for_ambient_noise(microfone)
              time.sleep(1)
              st.info('Faça a pergunta') 
